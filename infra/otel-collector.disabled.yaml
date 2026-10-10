@@ -1,0 +1,59 @@
+# Explicit operator-selected disabled tracing; no credentials or Langfuse required.
+{
+  "extensions": {
+    "health_check": {
+      "endpoint": "0.0.0.0:13133"
+    }
+  },
+  "receivers": {
+    "otlp": {
+      "protocols": {
+        "grpc": {
+          "endpoint": "0.0.0.0:4317"
+        },
+        "http": {
+          "endpoint": "0.0.0.0:4318"
+        }
+      }
+    }
+  },
+  "processors": {
+    "filter/disabled": {
+      "error_mode": "propagate",
+      "trace_conditions": [
+        {
+          "context": "span",
+          "conditions": [
+            "true"
+          ]
+        }
+      ]
+    }
+  },
+  "exporters": {
+    "nop": {}
+  },
+  "service": {
+    "extensions": [
+      "health_check"
+    ],
+    "telemetry": {
+      "logs": {
+        "level": "error"
+      }
+    },
+    "pipelines": {
+      "traces": {
+        "receivers": [
+          "otlp"
+        ],
+        "processors": [
+          "filter/disabled"
+        ],
+        "exporters": [
+          "nop"
+        ]
+      }
+    }
+  }
+}

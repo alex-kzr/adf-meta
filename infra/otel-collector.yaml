@@ -1,25 +1,153 @@
-# Disabled privacy baseline: drop all traces; no external/Langfuse export.
-extensions:
-  health_check:
-    endpoint: 0.0.0.0:13133
-receivers:
-  otlp:
-    protocols:
-      grpc: {endpoint: "0.0.0.0:4317"}
-      http: {endpoint: "0.0.0.0:4318"}
-processors:
-  memory_limiter: {check_interval: 1s, limit_mib: 128, spike_limit_mib: 32}
-  filter/drop_all:
-    error_mode: ignore
-    traces:
-      span: ["true"]
-  batch: {timeout: 5s, send_batch_size: 256}
-exporters:
-  debug: {verbosity: basic}
-service:
-  extensions: [health_check]
-  pipelines:
-    traces:
-      receivers: [otlp]
-      processors: [memory_limiter, filter/drop_all, batch]
-      exporters: [debug]
+# JSON is valid YAML. Merge only the ignored collector-auth.yaml for Basic authorization.
+{
+  "extensions": {
+    "health_check": {
+      "endpoint": "0.0.0.0:13133"
+    }
+  },
+  "receivers": {
+    "otlp": {
+      "protocols": {
+        "grpc": {
+          "endpoint": "0.0.0.0:4317"
+        },
+        "http": {
+          "endpoint": "0.0.0.0:4318"
+        }
+      }
+    }
+  },
+  "processors": {
+    "memory_limiter": {
+      "check_interval": "1s",
+      "limit_mib": 192,
+      "spike_limit_mib": 32
+    },
+    "filter/eligible": {
+      "error_mode": "propagate",
+      "trace_conditions": [
+        {
+          "context": "resource",
+          "conditions": [
+            "resource.attributes[\"service.name\"] != \"adf-api\" and resource.attributes[\"service.name\"] != \"adf-orchestrator\" and resource.attributes[\"service.name\"] != \"adf-runtime-worker\""
+          ]
+        },
+        {
+          "context": "span",
+          "conditions": [
+            "span.attributes[\"adf.telemetry.eligible\"] != true",
+            "not IsMatch(span.attributes[\"run_id\"], \"^([a-f0-9]{32}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$\")",
+            "not IsMatch(span.name, \"^(api[.]request|workflow[.]run|workflow[.]node|agent[.]execution|cli[.]session|tool[.]call|git[.]operation|test[.]run)$\")",
+            "Len(span.links) > 0"
+          ]
+        },
+        {
+          "context": "spanevent",
+          "conditions": [
+            "true"
+          ]
+        }
+      ]
+    },
+    "transform/privacy": {
+      "error_mode": "propagate",
+      "trace_statements": [
+        "keep_keys(resource.attributes, [\"service.name\"])",
+        "set(scope.name, \"adf\")",
+        "set(scope.version, \"\")",
+        "keep_keys(scope.attributes, [])",
+        "set(span.trace_state, \"\")",
+        "set(span.status.message, \"\")",
+        "keep_keys(span.attributes, [\"adf.telemetry.eligible\", \"project_id\", \"task_id\", \"run_id\", \"node_run_id\", \"execution_id\", \"agent_id\", \"provider\", \"role\", \"outcome\", \"adf.attempt\", \"adf.exit_code\", \"adf.usage.input_tokens\", \"adf.usage.output_tokens\"])",
+        "delete_key(span.attributes, \"project_id\") where span.attributes[\"project_id\"] != nil and not IsMatch(span.attributes[\"project_id\"], \"^([a-f0-9]{32}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$\")",
+        "delete_key(span.attributes, \"task_id\") where span.attributes[\"task_id\"] != nil and not IsMatch(span.attributes[\"task_id\"], \"^([a-f0-9]{32}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$\")",
+        "delete_key(span.attributes, \"run_id\") where span.attributes[\"run_id\"] != nil and not IsMatch(span.attributes[\"run_id\"], \"^([a-f0-9]{32}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$\")",
+        "delete_key(span.attributes, \"node_run_id\") where span.attributes[\"node_run_id\"] != nil and not IsMatch(span.attributes[\"node_run_id\"], \"^([a-f0-9]{32}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$\")",
+        "delete_key(span.attributes, \"execution_id\") where span.attributes[\"execution_id\"] != nil and not IsMatch(span.attributes[\"execution_id\"], \"^([a-f0-9]{32}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$\")",
+        "delete_key(span.attributes, \"agent_id\") where span.attributes[\"agent_id\"] != nil and not IsMatch(span.attributes[\"agent_id\"], \"^([a-f0-9]{32}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})$\")",
+        "delete_key(span.attributes, \"provider\") where span.attributes[\"provider\"] != nil and not IsMatch(span.attributes[\"provider\"], \"^(codex|claude|mock)$\")",
+        "delete_key(span.attributes, \"role\") where span.attributes[\"role\"] != nil and not IsMatch(span.attributes[\"role\"], \"^(Planner|Architect|Developer|Tester|Reviewer|Integrator)$\")",
+        "delete_key(span.attributes, \"outcome\") where span.attributes[\"outcome\"] != nil and not IsMatch(span.attributes[\"outcome\"], \"^(queued|running|completed|failed|cancelled|paused|uncertain|denied|timeout)$\")",
+        "delete_key(span.attributes, \"adf.attempt\") where span.attributes[\"adf.attempt\"] != nil and not IsInt(span.attributes[\"adf.attempt\"])",
+        "delete_key(span.attributes, \"adf.attempt\") where span.attributes[\"adf.attempt\"] != nil and (span.attributes[\"adf.attempt\"] < 0 or span.attributes[\"adf.attempt\"] > 10000000000)",
+        "delete_key(span.attributes, \"adf.exit_code\") where span.attributes[\"adf.exit_code\"] != nil and not IsInt(span.attributes[\"adf.exit_code\"])",
+        "delete_key(span.attributes, \"adf.exit_code\") where span.attributes[\"adf.exit_code\"] != nil and (span.attributes[\"adf.exit_code\"] < 0 or span.attributes[\"adf.exit_code\"] > 10000000000)",
+        "delete_key(span.attributes, \"adf.usage.input_tokens\") where span.attributes[\"adf.usage.input_tokens\"] != nil and not IsInt(span.attributes[\"adf.usage.input_tokens\"])",
+        "delete_key(span.attributes, \"adf.usage.input_tokens\") where span.attributes[\"adf.usage.input_tokens\"] != nil and (span.attributes[\"adf.usage.input_tokens\"] < 0 or span.attributes[\"adf.usage.input_tokens\"] > 10000000000)",
+        "delete_key(span.attributes, \"adf.usage.output_tokens\") where span.attributes[\"adf.usage.output_tokens\"] != nil and not IsInt(span.attributes[\"adf.usage.output_tokens\"])",
+        "delete_key(span.attributes, \"adf.usage.output_tokens\") where span.attributes[\"adf.usage.output_tokens\"] != nil and (span.attributes[\"adf.usage.output_tokens\"] < 0 or span.attributes[\"adf.usage.output_tokens\"] > 10000000000)",
+        "set(span.attributes[\"langfuse.trace.name\"], \"workflow.run\")",
+        "set(span.attributes[\"langfuse.session.id\"], span.attributes[\"run_id\"])",
+        "set(span.attributes[\"langfuse.observation.type\"], \"span\")",
+        "set(span.attributes[\"langfuse.observation.type\"], \"chain\") where span.name == \"workflow.run\" or span.name == \"workflow.node\"",
+        "set(span.attributes[\"langfuse.observation.type\"], \"agent\") where span.name == \"agent.execution\" or span.name == \"cli.session\"",
+        "set(span.attributes[\"langfuse.observation.type\"], \"tool\") where span.name == \"tool.call\" or span.name == \"git.operation\"",
+        "set(span.attributes[\"langfuse.observation.type\"], \"evaluator\") where span.name == \"test.run\"",
+        "set(span.attributes[\"langfuse.trace.metadata.project_id\"], span.attributes[\"project_id\"]) where span.attributes[\"project_id\"] != nil",
+        "set(span.attributes[\"langfuse.trace.metadata.task_id\"], span.attributes[\"task_id\"]) where span.attributes[\"task_id\"] != nil",
+        "set(span.attributes[\"langfuse.trace.metadata.run_id\"], span.attributes[\"run_id\"]) where span.attributes[\"run_id\"] != nil",
+        "set(span.attributes[\"langfuse.trace.metadata.node_run_id\"], span.attributes[\"node_run_id\"]) where span.attributes[\"node_run_id\"] != nil",
+        "set(span.attributes[\"langfuse.trace.metadata.execution_id\"], span.attributes[\"execution_id\"]) where span.attributes[\"execution_id\"] != nil",
+        "set(span.attributes[\"langfuse.trace.metadata.agent_id\"], span.attributes[\"agent_id\"]) where span.attributes[\"agent_id\"] != nil",
+        "set(span.attributes[\"langfuse.trace.metadata.provider\"], span.attributes[\"provider\"]) where span.attributes[\"provider\"] != nil",
+        "set(span.attributes[\"langfuse.trace.metadata.role\"], span.attributes[\"role\"]) where span.attributes[\"role\"] != nil",
+        "set(span.attributes[\"langfuse.trace.metadata.outcome\"], span.attributes[\"outcome\"]) where span.attributes[\"outcome\"] != nil"
+      ]
+    },
+    "batch": {
+      "timeout": "2s",
+      "send_batch_size": 64,
+      "send_batch_max_size": 256
+    }
+  },
+  "exporters": {
+    "otlphttp/langfuse": {
+      "endpoint": "http://adf-langfuse:3000/api/public/otel",
+      "timeout": "3s",
+      "retry_on_failure": {
+        "enabled": true,
+        "initial_interval": "1s",
+        "max_interval": "10s",
+        "max_elapsed_time": "30s"
+      },
+      "sending_queue": {
+        "enabled": true,
+        "num_consumers": 2,
+        "queue_size": 32,
+        "block_on_overflow": false
+      },
+      "headers": {
+        "x-langfuse-ingestion-version": "4"
+      }
+    }
+  },
+  "service": {
+    "extensions": [
+      "health_check"
+    ],
+    "telemetry": {
+      "logs": {
+        "level": "error"
+      },
+      "metrics": {
+        "level": "basic"
+      }
+    },
+    "pipelines": {
+      "traces": {
+        "receivers": [
+          "otlp"
+        ],
+        "processors": [
+          "memory_limiter",
+          "filter/eligible",
+          "transform/privacy",
+          "batch"
+        ],
+        "exporters": [
+          "otlphttp/langfuse"
+        ]
+      }
+    }
+  }
+}

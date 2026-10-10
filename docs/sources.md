@@ -1,6 +1,6 @@
 # Official technical sources and verification scope
 
-Reviewed October 10, 2026. These sources verify capabilities, not the compatibility of an untested ADF runtime. Pages can change; pin actual runtime versions before implementation. No quoted provider terms or assumption of subscription automation entitlement is made.
+Reviewed October 10, 2026. These sources establish provider capabilities. Exact release locks and bounded runtime checks are recorded in [implementation status](implementation-status.md); passing those checks does not establish all acceptance gates. No quoted provider terms or assumption of subscription automation entitlement is made.
 
 | Official source | Verified fact / implication |
 | --- | --- |
@@ -21,4 +21,4 @@ Reviewed October 10, 2026. These sources verify capabilities, not the compatibil
 | [React Flow custom nodes](https://reactflow.dev/learn/customization/custom-nodes) | Custom typed nodes/handles support a declarative editor, not an execution engine. |
 | [TanStack Query defaults](https://tanstack.com/query/latest/docs/framework/react/guides/important-defaults) | Defaults include refetch/retry behavior; control mutation semantics must be configured explicitly. |
 
-Package metadata was queried from npm/PyPI publisher registries for the scaffold pins. Installing/building a scaffold tests those limited code paths only. Docker image tags in local examples are candidate pins pending runtime validation and digest locking; no images were pulled or containers started. Subscription terms, exact permission behavior, network isolation and complete LangGraph/Langfuse interoperability remain unverified gates.
+Package metadata was checked against npm/PyPI publisher registries. [Core image digests](../infra/images.lock.env), the [official Langfuse source and image lock](../infra/langfuse-source.lock.json), and each child lockfile pin the tested inputs. Docker core services, WSL worker diagnostics, PostgreSQL contract tests, real Codex worktree execution and the Langfuse OTLP privacy route have been exercised locally. Remote CI is also checked for each published child commit. Full recovery, hostile-code isolation, dedicated-account privileges, external-host denial, live scoped MCP and Claude WSL execution remain separate gates. Subscription usage has real token counters when reported, with financial cost unknown; no paid API fallback is configured.

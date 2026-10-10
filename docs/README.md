@@ -1,5 +1,7 @@
 # Development documentation
 
+Start with [current implementation status](implementation-status.md) and [implementation board](kanban.md).
+
 1. [Product and acceptance](product.md)
 2. [Decisions, assumptions and unresolved gates](decisions.md)
 3. [Architecture and ownership](architecture.md)

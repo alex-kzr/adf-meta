@@ -1,21 +1,25 @@
-# Diagnostic foundation only. No migrations, scheduling or agent execution.
 name: adf
 x-runtime: &runtime
   restart: unless-stopped
   logging:
     driver: json-file
     options: {max-size: "10m", max-file: "3"}
+x-api-build: &api-build
+  context: ../services/api
+  args: {PYTHON_IMAGE: "${PYTHON_IMAGE:?set image}"}
 services:
   postgres:
     <<: *runtime
-    image: ${POSTGRES_IMAGE:?set exact candidate image in .env}
+    image: ${POSTGRES_IMAGE:?set pinned image}
     environment:
       POSTGRES_DB: adf
       POSTGRES_USER: adf_bootstrap
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres-password
-    secrets: [postgres-password]
+    secrets: [postgres-password, migrator-password, api-db-password, checkpoint-db-password]
     ports: ["127.0.0.1:55432:5432"]
-    volumes: ["postgres-data:/var/lib/postgresql"]
+    volumes:
+      - postgres-data:/var/lib/postgresql
+      - ./postgres-init.sh:/docker-entrypoint-initdb.d/10-adf.sh:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U adf_bootstrap -d adf"]
       interval: 5s
@@ -23,28 +27,50 @@ services:
       retries: 20
   redis:
     <<: *runtime
-    image: ${REDIS_IMAGE:?set exact candidate image in .env}
-    command: ["/bin/sh", "-ec", "exec redis-server --appendonly yes --maxmemory-policy noeviction --requirepass $$(cat /run/secrets/redis-password)"]
-    secrets: [redis-password]
+    image: ${REDIS_IMAGE:?set pinned image}
+    command: ["redis-server", "--appendonly", "yes", "--maxmemory-policy", "noeviction", "--aclfile", "/run/secrets/redis-acl"]
+    secrets: [redis-acl, redis-monitor-password]
     ports: ["127.0.0.1:6380:6379"]
     volumes: ["redis-data:/data"]
     healthcheck:
-      test: ["CMD-SHELL", "REDISCLI_AUTH=$$(cat /run/secrets/redis-password) redis-cli ping | grep -q PONG"]
+      test: ["CMD-SHELL", "REDISCLI_AUTH=$$(cat /run/secrets/redis-monitor-password) redis-cli --user adf_monitor ping | grep -q PONG"]
       interval: 5s
       timeout: 3s
       retries: 20
+  migrator:
+    build: *api-build
+    restart: "no"
+    environment:
+      DATABASE_URL: postgresql+psycopg://adf_migrator@postgres:5432/adf
+      ADF_DB_PASSWORD_FILE: /run/secrets/migrator-password
+    secrets: [migrator-password]
+    command: ["python", "-m", "adf_api.migrate"]
+    depends_on:
+      postgres: {condition: service_healthy}
   api:
     <<: *runtime
-    build:
-      context: ../services/api
-      args: {PYTHON_IMAGE: "${PYTHON_IMAGE:?set image}"}
+    build: *api-build
+    environment:
+      DATABASE_URL: postgresql+psycopg://adf_api@postgres:5432/adf
+      ADF_DB_PASSWORD_FILE: /run/secrets/api-db-password
+      ADF_ADMIN_TOKEN_FILE: /run/secrets/admin-token
+      ADF_ORCHESTRATOR_TOKEN_FILE: /run/secrets/orchestrator-token
+      ADF_WORKER_TOKEN_FILE: /run/secrets/worker-token
+      ADF_ALLOWED_ROOTS: '${ADF_ALLOWED_ROOTS:?set trusted ext4 roots}'
+      ADF_ARTIFACT_ROOT: /app/artifacts
+      ORCHESTRATOR_URL: http://orchestrator:8081
+      ADF_ALLOWED_ORIGINS: '["http://localhost:8088","http://127.0.0.1:8088"]'
+      ADF_TELEMETRY_ENABLED: '${ADF_TELEMETRY_ENABLED:-false}'
+      ADF_LANGFUSE_URL: '${ADF_LANGFUSE_URL:-http://localhost:3000}'
+      ADF_LANGFUSE_PROJECT_ID: '${ADF_LANGFUSE_PROJECT_ID:-adf-local}'
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318
+    secrets: [api-db-password, admin-token, orchestrator-token, worker-token]
     ports: ["127.0.0.1:8080:8080"]
     volumes: ["api-artifacts:/app/artifacts"]
     depends_on:
-      postgres: {condition: service_healthy}
-      redis: {condition: service_healthy}
+      migrator: {condition: service_completed_successfully}
     healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/healthz', timeout=2)"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/readyz', timeout=2)"]
       interval: 10s
       timeout: 3s
       retries: 10
@@ -53,11 +79,21 @@ services:
     build:
       context: ../services/orchestrator
       args: {PYTHON_IMAGE: "${PYTHON_IMAGE:?set image}"}
+    environment:
+      ADF_API_URL: http://api:8080
+      ADF_ORCHESTRATOR_TOKEN_FILE: /run/secrets/orchestrator-token
+      DATABASE_URL: postgresql://adf_orchestrator@postgres:5432/adf?options=-csearch_path%3Dcheckpoints
+      ADF_DB_PASSWORD_FILE: /run/secrets/checkpoint-db-password
+      ADF_REDIS_URL: redis://adf_orchestrator@redis:6379/0
+      ADF_REDIS_PASSWORD_FILE: /run/secrets/redis-password
+      ADF_TELEMETRY_ENABLED: '${ADF_TELEMETRY_ENABLED:-false}'
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318
+    secrets: [orchestrator-token, checkpoint-db-password, redis-password]
     depends_on:
-      postgres: {condition: service_healthy}
+      api: {condition: service_healthy}
       redis: {condition: service_healthy}
     healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8081/healthz', timeout=2)"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8081/readyz', timeout=2)"]
       interval: 10s
       timeout: 3s
       retries: 10
@@ -77,15 +113,30 @@ services:
   otel-collector:
     <<: *runtime
     profiles: [observability]
+    mem_limit: 384m
+    cpus: 0.5
     image: ${OTEL_IMAGE:?set image}
-    command: ["--config=/etc/otelcol/config.yaml"]
-    volumes: ["./otel-collector.yaml:/etc/otelcol/config.yaml:ro"]
+    command: ["--config=/etc/otelcol/config.yaml", "--config=/run/secrets/langfuse-collector-auth.yaml"]
+    volumes:
+      - ./otel-collector.yaml:/etc/otelcol/config.yaml:ro
+      - ../.bootstrap/langfuse/collector-auth.yaml:/run/secrets/langfuse-collector-auth.yaml:ro
     ports: ["127.0.0.1:4317:4317", "127.0.0.1:4318:4318", "127.0.0.1:13133:13133"]
-    # Distroless image: no shell/curl assumed. Probe health extension from doctor.
-    # A tested container healthcheck remains E1 work; --version is not readiness.
+    networks: [default, telemetry]
 secrets:
   postgres-password: {file: "${ADF_DB_PASSWORD_FILE:?prepare secret file}"}
+  migrator-password: {file: "${ADF_MIGRATOR_PASSWORD_FILE:?prepare secret file}"}
+  api-db-password: {file: "${ADF_API_DB_PASSWORD_FILE:?prepare secret file}"}
+  checkpoint-db-password: {file: "${ADF_CHECKPOINT_DB_PASSWORD_FILE:?prepare secret file}"}
   redis-password: {file: "${ADF_REDIS_PASSWORD_FILE:?prepare secret file}"}
+  redis-worker-password: {file: "${ADF_WORKER_REDIS_PASSWORD_FILE:?prepare secret file}"}
+  redis-monitor-password: {file: "${ADF_REDIS_MONITOR_PASSWORD_FILE:?prepare secret file}"}
+  redis-acl: {file: "${ADF_REDIS_ACL_FILE:?prepare secret file}"}
+  admin-token: {file: "${ADF_ADMIN_TOKEN_FILE:?prepare secret file}"}
+  orchestrator-token: {file: "${ADF_ORCHESTRATOR_TOKEN_FILE:?prepare secret file}"}
+  worker-token: {file: "${ADF_WORKER_TOKEN_FILE:?prepare secret file}"}
+networks:
+  default:
+  telemetry: {external: true, name: adf-telemetry}
 volumes:
   postgres-data:
   redis-data:

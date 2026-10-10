@@ -1,6 +1,6 @@
 # Phased implementation backlog
 
-Statuses below are **planned**; foundation documentation/scaffolding is the completed preparatory step. Priorities retain SPEC's end-to-end flow, extensibility, UI/monitoring and parallelism together.
+The table below defines exit gates. Implementation is **in progress**, with core code and module tests present; individual gates require the evidence in [current implementation status](implementation-status.md) and [kanban](kanban.md). Foundation documentation/scaffolding is the completed preparatory step. Priorities retain SPEC's end-to-end flow, extensibility, UI/monitoring and parallelism together.
 
 | Stage / item | Deliverable | Exit evidence / dependency |
 | --- | --- | --- |

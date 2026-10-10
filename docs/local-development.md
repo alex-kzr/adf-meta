@@ -1,60 +1,97 @@
 # Local development and operations
 
-## Two distinct locations
+## Source and execution locations
 
-Foundation source is the requested Windows `C:\Users\admin\Documents\workspace\projects\adf` umbrella. Real factory target repos/worktrees and worker runtime must live on Ubuntu WSL2 ext4 (`/home/<worker>/ai-factory`), not `/mnt/c`. Export/bundle-bootstrap or published clone into ext4; do not concurrently run Windows CLI sessions. Keep user credentials in that dedicated regular WSL account.
+The umbrella source is `C:\Users\admin\Documents\workspace\projects\adf`. Factory target repositories, worktrees, journals and the host-worker environment belong on Ubuntu WSL2 ext4, for example `/home/alex/ai-factory`. Windows `/mnt/c` source can be read to install the host package; it must never become an execution worktree. Do not run Windows provider sessions against the same target worktree.
 
-Prerequisites: Windows 11, Ubuntu WSL2 (`wsl --status`, `wsl -l -v`), Docker Desktop WSL integration, Git, Python 3.12+/uv and Node 24 LTS/npm. Source pins observed: FastAPI 0.143.0/Uvicorn 0.54.0, React 19.3.0/Vite 8.3.4/TypeScript 7.0.2. PyPI candidate orchestration versions: LangGraph 1.2.14, checkpoint-postgres 3.1.2, LangChain 1.4.4; no compatibility is claimed or dependencies installed for them yet. CLI versions/account terms need separate verification.
+Verified local tools: Python 3.12.9, WSL Node 24.21.0, uv 0.12.18, Codex CLI 0.157.0 and Claude Code 2.1.296. Adapter pins are separate from the Windows CLI versions. Python packages and frontend dependencies are pinned in each module's lock; core image digests are in [images.lock.env](../infra/images.lock.env). Passing the image lock as the **second** env file overrides an older preserved local image selection. Install provider CLIs only from official sources and authenticate interactively in the worker account; do not copy OAuth stores or substitute API payment credentials.
 
-## Foundation commands (implemented)
+The current `alex` account has `sudo`/`docker` group access and can access the Docker socket. It is suitable for a bounded trusted-workstation test, but a dedicated least-privilege runtime account is **not verified**. This task does not change account groups, Docker integration, firewall or security settings. Complete that operator gate before treating real execution as accepted.
 
-From umbrella, use a virtual environment for Python tools:
+## Core startup
 
-```sh
-python3 -m venv .bootstrap/dev-env
-source .bootstrap/dev-env/bin/activate
-python -m pip install -r requirements-dev.txt
-python -m pip install -r services/api/requirements.lock
-python -m pip install --no-deps -e services/api -e services/orchestrator -e services/runtime-worker
-python scripts/verify.py
-npm --prefix frontend ci
-npm --prefix frontend run build
-adf-orchestrator validate packages/contracts/examples/workflow.json
-adf-worker mock --request packages/contracts/examples/execution-request.json
-```
-
-On Windows use `.bootstrap\dev-env\Scripts\Activate.ps1`. Worker doctor can report versions portably, but `ready_for_real_execution` remains false; auth is unknown. `scripts/doctor.sh`/`bootstrap-wsl.sh` are read-only preparation diagnostics, not installers or full W1 tests.
-
-## Diagnostic Compose startup
-
-```sh
+```powershell
 python scripts/init-local-env.py
-docker compose --env-file .env -f infra/compose.yaml config --quiet
-docker compose --env-file .env -f infra/compose.yaml up -d --build
-curl --fail http://127.0.0.1:8080/healthz
-curl -i http://127.0.0.1:8080/readyz
+docker compose --env-file .env --env-file infra/images.lock.env -f infra/compose.yaml config --quiet
+docker compose --env-file .env --env-file infra/images.lock.env -f infra/compose.yaml up -d --build --wait --wait-timeout 120
+curl.exe --noproxy "*" --fail --max-time 5 http://127.0.0.1:8080/readyz
 ```
 
-Expected: UI `http://localhost:8088` shows design screen; API readyz is **503**. This is not a working factory. Image candidates require build/runtime validation and digest locking. `init-local-env.py` creates only ignored DB/Redis secret files, never CLI credentials; it preserves existing files and prints no secret. Verify Windows ACLs/Linux file ownership. Passwords stay outside env defaults; Docker configuration output should use --quiet to avoid future secret exposure.
+`init-local-env.py` creates private ignored random infrastructure secrets, three distinct bearer tokens and hashed Redis ACL credentials. It preserves existing values and the operator's `.env`; it appends only missing configuration keys. It never creates provider credentials. Generated text is LF-terminated, including on Windows. Do not rewrite a mounted secret while its container is running: Docker Desktop file sharing can retain stale file handles. Explicit rotation requires coordinated recreation; rerunning initialization does not rotate secrets.
 
-Loopback ports: UI 8088, API 8080, ADF PostgreSQL 55432, ADF Redis 6380. Orchestrator 8081 is internal only. With `--profile observability`, Collector OTLP 4317/4318 and health 13133 are loopback-only. Scaffold apps do not yet connect to DB/Redis; acceptance requires authenticated SQL/Redis/API probes, not pg_isready alone. API artifact volume permissions for uid 10001 need E1 validation before uploads exist.
+Fresh PostgreSQL initialization creates a bootstrap owner, migrator, API role and checkpoint role. Alembic runs as the migrator before API startup. API has CRUD rights in `control`, `runtime` and `audit`; orchestrator owns only checkpoint table creation in `checkpoints`. API does not have schema DDL rights; PUBLIC database/schema access is revoked. `pg_isready` establishes server liveness, while API/orchestrator `/readyz` establishes authenticated dependency health. Runtime acceptance remains a separate false flag.
 
-For a real E1 startup add locked migrations/scoped accounts and one migrator gated by healthy DB, then gate API/orchestrator on service_completed_successfully. Current Compose cannot claim that behavior because migrations are not implemented. `depends_on` aids startup but clients still need bounded reconnect backoff.
+The worker runs outside Compose. PostgreSQL 55432, Redis 6380, API 8080 and frontend 8088 are published to loopback; orchestrator 8081 has no host port. Redis identities differ: scheduler publishes, worker consumes/acknowledges, monitor reads health. New ACL command requirements must be reviewed and tested; broad `+@all` is forbidden. Redis is transport; the API's database ledger is the ownership/result authority.
 
-## Optional official Langfuse
+Open `http://127.0.0.1:8088` and enter the **ADF admin token**, read privately from `.bootstrap/secrets/admin-token`. UI keeps it only in memory. Codex/Claude credentials are never entered into ADF. A project registration identifies an ext4 repository beneath an API-configured root, its default branch and trusted check argv. API prefix validation is followed by worker canonical-path, symlink, clean-repo and branch validation.
 
-Use official source URL from [sources](sources.md). Obtain an audited exact upstream Git revision in ignored `infra/vendor/langfuse`; do not add it as an ADF service repo/submodule. Record revision and all image digests in local deployment lock. Configure every upstream CHANGEME credential, disable upstream telemetry and unnecessary AI/MCP features, set six required LANGFUSE_*_IMAGE variables in ignored Langfuse env file. Never start with upstream default secrets.
+## WSL worker preparation and diagnostics
 
-```sh
-# After a verified upstream checkout and private environment have been prepared:
-docker compose -p adf-langfuse --env-file infra/vendor/langfuse/.env -f infra/vendor/langfuse/docker-compose.yml -f infra/compose.langfuse.yaml --profile observability config --quiet
-docker compose -p adf-langfuse --env-file infra/vendor/langfuse/.env -f infra/vendor/langfuse/docker-compose.yml -f infra/compose.langfuse.yaml --profile observability up -d
+Prerequisites must already be installed in the regular WSL account. Preparation installs only the locked worker Python package and copies the generated ADF worker/Redis credentials to private files; provider authentication remains interactive. Existing credentials are preserved and mismatches fail closed.
+
+```bash
+cd /mnt/c/Users/admin/Documents/workspace/projects/adf
+bash scripts/bootstrap-wsl.sh \
+  --root /home/alex/ai-factory \
+  --token-file .bootstrap/secrets/worker-token \
+  --redis-password-file .bootstrap/secrets/redis-worker-password \
+  --codex /home/alex/.local/bin/codex \
+  --claude /home/alex/ai-factory/tools/node_modules/.bin/claude
+
+bash scripts/doctor.sh \
+  --root /home/alex/ai-factory \
+  --codex /home/alex/.local/bin/codex \
+  --claude /home/alex/ai-factory/tools/node_modules/.bin/claude \
+  --redis-password-file /home/alex/ai-factory/config/redis-worker-password
 ```
 
-Run separately from ADF to avoid service-name/volume collisions. Overlay preserves official web/worker/PostgreSQL/Redis/ClickHouse/MinIO, removes internal host ports and restricts UI 3000/object media 39090 to loopback. Official setup's RAM/storage demand is substantial; measure headroom with three CLI processes. Overlay compatibility must be checked for the pinned source, including every remaining credential default. Collector export is intentionally absent. E5 must configure a dedicated shared ingestion network or tested restricted host route, private auth and HTTP OTLP filter before enabling trace links; `localhost` inside a container is not Langfuse.
+Doctor reports actual CLI versions/auth status, ext4 filesystem, current groups/socket access, authenticated Redis health, API readiness and Docker host bindings. It neither installs nor authenticates software nor starts jobs. `runtime_healthy` is operational health; `mvp_ready` remains false until the umbrella gates pass. A missing provider does not become a mock-provider success. External-host denial and dedicated-account privilege remain explicit unknown gates.
 
-## Future real host worker sequence
+After reviewing doctor and registering project/configuration/policy versions, start the implemented consumer:
 
-Install CLIs using official instructions; authenticate interactively under WSL worker account; probe actual auth with approved read-only calls without token dumps. Configure registered ext4 roots/provider versions/scoped worker token; start implemented supervisor/consumer via uv or user systemd with process-group cleanup. No such daemon is provided in this foundation. Run mock end-to-end and acceptance tests before real subscription work.
+```bash
+/home/alex/ai-factory/tools/worker-venv/bin/adf-worker serve \
+  --root /home/alex/ai-factory \
+  --api-url http://127.0.0.1:8080 \
+  --token-file /home/alex/ai-factory/config/worker-token \
+  --redis-url redis://adf_worker@127.0.0.1:6380/0 \
+  --redis-password-file /home/alex/ai-factory/config/redis-worker-password \
+  --max-parallel 3 \
+  --codex /home/alex/.local/bin/codex \
+  --claude /home/alex/ai-factory/tools/node_modules/.bin/claude
+```
 
-Verify listeners from Windows and WSL, and denial from another host. If loopback fails, diagnose Docker Desktop/WSL networking; do not expose 0.0.0.0 as a shortcut. Pause/drain before planned upgrades/backups. Keep DB/artifact volumes on recreation; `docker compose down` retains them, `down -v` deletes them and is not a normal recovery step. Back up DB, Git refs and artifacts with one snapshot manifest, excluding ordinary credential stores. Restore isolated and verify before enabling workers. Recovery follows [reliability](reliability.md); never prune active worktrees or repeat uncertain CLI/Git effects.
+The project root defaults to `root/projects`; repeatable `--project-root` selects registered roots without exposing journals/tools as project scope. Worker supervision owns process groups and worktree locks independently of Redis consumer lifetime. Restart does not prove old-process death or authorize repeating uncertain effects. Follow [recovery](reliability.md) and inspect persistent execution/journal/Git evidence.
+
+Codex currently enforces its coarse read-only/workspace-write sandbox. A configured narrow tool registry or unverified Codex MCP scope is rejected as `CAPABILITY_UNSUPPORTED`; it is never silently expanded. Claude uses safe/restricted modes, explicit builtin tools and strict MCP configuration. Subscription cost is unknown unless actual billing evidence exists; CLI token counters are source-tagged.
+
+## Official Langfuse and Collector
+
+```powershell
+python scripts/prepare-langfuse.py --validate --check-resources --pull
+docker network create --label com.adf.purpose=telemetry adf-telemetry
+docker compose -p adf-langfuse --env-file .bootstrap/langfuse/.env -f infra/vendor/langfuse/docker-compose.yml -f infra/compose.langfuse.yaml --profile observability up -d --wait --wait-timeout 240
+docker compose --env-file .env --env-file infra/images.lock.env -f infra/compose.yaml --profile observability up -d --no-deps otel-collector
+python scripts/check-telemetry.py
+```
+
+Create `adf-telemetry` only if it does not exist; use `docker network inspect adf-telemetry` to check. Preparation downloads checksum-verified official Compose, resolves only locked images and generates private ignored deployment/project/operator credentials. It does not start services. Preserve all volumes. Read [observability](observability.md) for effective Community retention, exporter privacy and exact trace validation. Upstream web/worker `HOSTNAME=0.0.0.0` is an internal listener setting; published host ports remain loopback.
+
+Langfuse UI is `http://localhost:3000`; the private generated operator login is in `.bootstrap/langfuse/operator-login.txt`. Collector OTLP 4317/4318 and health 13133 are loopback. Instrumentation is opt-in with `ADF_TELEMETRY_ENABLED=true`; use a temporary Compose override for an acceptance run if the preserved `.env` disables it. The host worker additionally uses `OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318`. Backend failure must not prevent execution; validate an actual active run with `check-telemetry.py --outage-run`, not only service health.
+
+## Development and release checks
+
+Use independent virtual environments for the API/orchestrator/worker, installing each exact requirements lock. Worker tests execute on Linux ext4; see each module README. Umbrella checks:
+
+```powershell
+python -m pip install -r requirements-dev.txt
+python scripts/verify.py
+python -m unittest discover -s tests -v
+npm --prefix frontend ci
+npm --prefix frontend test
+npm --prefix frontend run build
+```
+
+Inspect every nested status, commit children before updating gitlinks, and run fresh bundle/recursive-clone restoration after committing. Keep secrets, runtime state, bundles and IDE files ignored. The user's current MVP task explicitly authorizes ordinary incremental pushes to the five existing exact origins; this is scoped to that task and grants no force-push or global security permissions.
+
+Pause/drain before backups or upgrades. Do not use `docker compose down -v` as recovery. A useful backup must bind PostgreSQL, artifacts and Git refs in one manifest and restore into an isolated environment; that acceptance evidence is still pending. Windows/WSL local connectivity and actual Docker bindings are recorded; denial from another physical host is still unverified.

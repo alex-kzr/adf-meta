@@ -12,7 +12,7 @@ from repo_tools import ROOT, MODULES, git, digest
 def main() -> None:
     errors: list[str]=[]
     count=0
-    ignored={".git",".bootstrap",".idea",".vscode","node_modules","dist","build","__pycache__",".venv",".pytest_cache"}
+    ignored={".git",".bootstrap",".idea",".vscode","node_modules","dist","build","__pycache__",".venv",".pytest_cache",".mypy_cache",".ruff_cache","htmlcov"}
     for base,dirs,names in os.walk(ROOT):
         dirs[:]=[d for d in dirs if d not in ignored and not d.endswith('.egg-info')]
         for name in names:

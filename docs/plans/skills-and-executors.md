@@ -1,0 +1,15 @@
+# Applied skills and execution ownership
+
+This record covers actual reads during MVP implementation, not a catalogue of available skills. Local root: C:/Users/admin/Syncthing/agents/skills/software-development.
+
+| Executor | Read skills | Applied decisions |
+| --- | --- | --- |
+| Root (Codex) | delegation-patterns; backend-dev/python/python-project-structure, python-type-safety, python-testing-patterns, py-security, python-configuration; autonomous-ai-agents/claude-code; git/git-commit | Disjoint ownership and specification/quality review; typed single-purpose bootstrap functions; isolated infrastructure tests; private file generation/no credential output; bounded Sonnet delegation; child-first commits |
+| API (Codex) | backend-dev/python/python-project-structure, python-type-safety, python-testing-patterns, fastapi-templates, py-security, python-configuration, python-error-handling | Shallow db/models/schemas/definitions/ledger/routes; Pydantic request boundaries and validator Protocol; domain errors; scoped file settings; security/fault fixtures |
+| Runtime worker (Codex) | backend-dev/python/python-project-structure, python-type-safety, python-testing-patterns, py-security, python-background-jobs, python-resource-management, python-resilience, async-python-patterns | Typed adapter Protocols/dataclasses; durable jobs/result before ACK; separate supervisor and bounded concurrency; context-managed locks/resources; transient-only retries; process/Git fault tests |
+| Orchestrator (Codex) | Same eight Python skills as worker | Flat state/compiler/ledger/daemon; typed facade; durable deterministic IDs and LangGraph interrupts; bounded jitter/cancellation; fault invariants/type/security checks |
+| Frontend (Codex) | frontend-dev/react/react-dev including linked react-dev/react-dev; frontend-dev/vite; react/mindrally-tanstack-query; react/beforemerge-react-review with sec-dangerouslysetinnerhtml and qual-useeffect-cleanup | Strict typed models/API; server cache invalidation after mutations; ESM Vite/no client secrets; bounded abortable SSE; accessible error/loading states; no HTML injection |
+| Observability (Codex) | Python structure/type/testing/security/configuration/observability | Typed pinned source/image configuration; private generated credentials; filtered spans; sentinel/fault tests |
+| Bounded helper (Claude Code Sonnet) | Python structure/type/testing/security, supplied as exact SKILL.md paths | Read-only implementation of isolated bootstrap tests; no file writes, shell tools, credential reads or API payment fallback; root reviews and applies output |
+
+All Python/frontend owners were explicitly instructed to read the relevant files and report their application. Sonnet runs via already authenticated Windows CLI only for this helper; the production host worker remains WSL. Claude --bare is excluded because pinned CLI help documents that it disables subscription OAuth. Root uses safe-mode/restricted/Read-only tools for the helper; worker verifies its own production capability contract.

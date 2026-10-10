@@ -1,3 +1,5 @@
+> Historical foundation and publication report. The active MVP implementation checkpoint is [here](implementation-status.md). Statements below describe their dated foundation snapshots.
+
 # Foundation delivery status
 
 Date: October 10, 2026. This is a design/documentation/repository foundation, not an MVP implementation.
