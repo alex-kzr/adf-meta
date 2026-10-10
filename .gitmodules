@@ -1,12 +1,12 @@
 [submodule "frontend"]
 	path = frontend
-	url = ./.bootstrap/remotes/adf-web.git
+	url = https://github.com/alex-kzr/adf-web
 [submodule "services/api"]
 	path = services/api
-	url = ./.bootstrap/remotes/adf-api.git
+	url = https://github.com/alex-kzr/adf-api
 [submodule "services/orchestrator"]
 	path = services/orchestrator
-	url = ./.bootstrap/remotes/adf-orchestrator.git
+	url = https://github.com/alex-kzr/adf-orchestrator
 [submodule "services/runtime-worker"]
 	path = services/runtime-worker
-	url = ./.bootstrap/remotes/adf-runtime-worker.git
+	url = https://github.com/alex-kzr/adf-runtime-worker

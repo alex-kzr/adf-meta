@@ -3,7 +3,7 @@ import argparse
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from repo_tools import ROOT, MODULES, git, digest
+from repo_tools import ROOT, MODULES, UMBRELLA_NAME, git, digest
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -12,7 +12,7 @@ def main() -> None:
     output = args.output.resolve()
     if not output.is_relative_to(ROOT / ".bootstrap"):
         raise SystemExit("Export directory must be inside umbrella .bootstrap; copy the completed export elsewhere afterwards.")
-    repos = [(".", "adf")] + list(MODULES)
+    repos = [(".", UMBRELLA_NAME)] + list(MODULES)
     for path, _ in repos:
         if git(ROOT / path, "status", "--porcelain"):
             raise SystemExit(f"Refusing to export dirty repository: {path}")

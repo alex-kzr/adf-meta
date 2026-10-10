@@ -4,6 +4,7 @@ import hashlib
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
+UMBRELLA_NAME = "adf-meta"
 MODULES = (("frontend", "adf-web"), ("services/api", "adf-api"), ("services/orchestrator", "adf-orchestrator"), ("services/runtime-worker", "adf-runtime-worker"))
 
 def git(path: Path, *args: str) -> str:

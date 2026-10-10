@@ -4,7 +4,7 @@ import json
 import re
 import subprocess
 from pathlib import Path
-from repo_tools import MODULES, git, digest
+from repo_tools import MODULES, UMBRELLA_NAME, git, digest
 
 def clone(*args: str) -> None:
     subprocess.run(["git", "-c", "protocol.file.allow=always", "clone", *args], check=True)
@@ -19,8 +19,11 @@ def main() -> None:
     if destination.exists() or destination.is_relative_to(export):
         raise SystemExit("Destination must be a new non-existing directory outside export.")
     manifest=json.loads((export/"manifest.json").read_text(encoding="utf-8"))
-    expected={".":"adf",**dict(MODULES)}
+    expected={".":UMBRELLA_NAME,**dict(MODULES)}
     rows=manifest.get("repositories",[])
+    # Preserve compatibility with foundation exports created before the user named adf-meta.
+    if any(row.get("path") == "." and row.get("name") == "adf" for row in rows):
+        expected["."] = "adf"
     if manifest.get("schema_version")!=1 or len(rows)!=len(expected) or {r.get("path") for r in rows}!=set(expected):
         raise SystemExit("Invalid repository manifest.")
     by_path={row["path"]:row for row in rows}
@@ -51,7 +54,7 @@ def main() -> None:
         raise SystemExit("Restored umbrella is unexpectedly dirty.")
     (destination/".bootstrap"/"restore-manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
     print(f"Restored clean checkout and four exact module pins to {destination}.")
-    print("Origins are real local bundle/mirror paths. Assign actual GitHub URLs only when available.")
+    print("Origins are real local bundle/mirror paths. Use docs/repositories.md to restore the configured GitHub origins before user publication.")
 
 if __name__=="__main__":
     main()
