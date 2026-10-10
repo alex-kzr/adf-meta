@@ -1,0 +1,216 @@
+{
+  "recorded_at_utc": "2026-10-10T19:39:48.317336+00:00",
+  "method": "Actual Chrome UI acceptance through cua_repl; semantic locators, read-only DOM observations and local screenshots.",
+  "target": "http://127.0.0.1:8088",
+  "final_deployed_entry_asset": "/assets/index-CqMjOlP5.js",
+  "frontend_fix_commits": [
+    "3e9f488231f108c10f4ca807ca3c94326f19dbbd",
+    "e5ff7451a94658b6a38cd8b6e6d29778a1be8941"
+  ],
+  "browser_scope": {
+    "qa_tab_id": "1813326234",
+    "reserved_parent_tab_id": "1813326231",
+    "other_tabs_modified": false,
+    "qa_tab_closed_after_acceptance": true,
+    "mobile_override": {
+      "width": 375,
+      "height": 812
+    },
+    "mobile_override_coordinated_with_parent": true,
+    "viewport_reset_to_default": true,
+    "deliverable_tab_id": "1813326238",
+    "deliverable_url": "http://127.0.0.1:8088/#/runs/9f8aef58-2981-4820-b707-87f2864ccce9",
+    "deliverable_marked": true,
+    "deliverable_authentication": "Existing admin session remains in browser memory only; no credential value recorded."
+  },
+  "authentication": {
+    "existing_local_admin_sign_in": "Passed; re-entered privately after reload.",
+    "credential_values_recorded": false,
+    "authentication_screenshots_taken": false
+  },
+  "disposable_workflow": {
+    "name": "ADF UI acceptance 20261010",
+    "id": "07fdcb22-2ea6-4fb6-ad36-23dd6aea4f23",
+    "final_draft_revision": 3,
+    "create": "Passed through New workflow dialog; server-backed draft appeared in the library.",
+    "orphan_validation": {
+      "result": "Rejected before publish; accessible role=alert.",
+      "messages": [
+        "Every node must be reachable from Start.",
+        "Every node must lead to End."
+      ],
+      "recovery": "Removed the added orphan, saved draft revision 2, then server validation passed."
+    },
+    "cycle_validation_final_build": {
+      "attempted_edge": {
+        "source": "review",
+        "source_port": "out",
+        "target": "develop",
+        "target_port": "in"
+      },
+      "message": "Workflows cannot contain a cycle.",
+      "accessible_role": "alert",
+      "result": "Connection rejected; graph retained six edges and subsequently passed server validation."
+    },
+    "typed_config_edit": {
+      "node": "test",
+      "field": "timeout_sec",
+      "before": 120,
+      "after": 121,
+      "result": "Saved draft revision 3; Reload server draft retained 121 in the labelled inspector."
+    },
+    "versions": [
+      {
+        "version": 1,
+        "id": "db89f38b-1c6b-4413-b4ea-c8665dd6f29e",
+        "graph_hash_prefix": "fa5449f9"
+      },
+      {
+        "version": 2,
+        "id": "8ac2f24c-2a31-456d-a048-38adefa9e149",
+        "graph_hash_prefix": "bd492844"
+      }
+    ],
+    "publication": "Both versions published through real UI mutations. Version 1 retained its original displayed hash after the draft edit and version 2 publication.",
+    "publish_observed_entry_asset": "/assets/index-BSQ3rZXh.js",
+    "version_binding_final_build": "Launch dialog retained both exact version UUIDs; selected version 2 by its UUID, then cancelled the dialog without submitting Queue run.",
+    "runs_queued": 0,
+    "mobile": {
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "canvas": {
+        "width": 322,
+        "height": 430
+      },
+      "node_count": 7,
+      "visible_node_count": 7,
+      "all_node_bounds_within_canvas": true,
+      "horizontal_page_overflow": false,
+      "measurement": "Observed after explicit Fit View and a fresh accessibility-state check; immediate pre-settle bounds were not used as final evidence."
+    }
+  },
+  "disposable_agent_config": {
+    "name": "ADF UI acceptance 20261010",
+    "role": "Architect",
+    "provider": "mock",
+    "permission_profile": "observe",
+    "skills": 0,
+    "tools": 0,
+    "mcp_servers": 0,
+    "current_config_version_id": "54a2acf2-61f6-4833-b054-bf4bf35d8ad0",
+    "config_hash_prefix_before_edit": "0700fd1f",
+    "config_hash_prefix_after_edit": "2f4516b4",
+    "limits_observed": {
+      "max_parallel_agents": 1,
+      "max_tasks_per_plan": 12,
+      "max_retries": 0,
+      "max_execution_minutes": 1,
+      "max_run_minutes": 2,
+      "max_output_bytes": 20971520,
+      "max_disk_bytes": 5368709120,
+      "max_steps": 100
+    },
+    "result": "Create agent and Edit new version succeeded; updated prompt and limits persisted. Saving state disabled form fields and showed Saving… before dialog closure.",
+    "version_uuid_source": "Final-build Agent config version select option; card Config text contains hash prefixes, not UUIDs.",
+    "execution_started": false,
+    "existing_developer_or_reviewer_changed": false
+  },
+  "real_run_readonly": {
+    "id": "9f8aef58-2981-4820-b707-87f2864ccce9",
+    "title": "Integrate three independent Python utilities",
+    "status": "completed",
+    "integration_status": "passed",
+    "workflow_version_id": "42b743ab-080d-47eb-8173-0a477ef80892",
+    "root_base_sha": "73a85c667ab31e1b6e35c685cc9c33bcf1691101",
+    "integration_commit_sha": "b0caa4feb9b2370b7b28c1de4406c8c08782f1ca",
+    "controls_disabled": [
+      "Pause",
+      "Resume",
+      "Cancel run"
+    ],
+    "controls_clicked": [],
+    "navigation": "Runs filter, row detail, Live activity, Executions, Git & evidence, and Plan & snapshots passed.",
+    "keyboard_navigation": "ArrowRight on Live activity selected Executions 14; aria-selected=true and corresponding tabpanel displayed.",
+    "replay": {
+      "retained_events": 200,
+      "first_event_id": 23,
+      "last_event_id": 222,
+      "stream_state": "closed"
+    },
+    "test_artifact_preview": {
+      "status": "passed",
+      "exit_code": 0,
+      "tree_sha": "2e7743df97308072bd649b17fef260b7ca5b5c80"
+    },
+    "git_evidence": "Three task commits and a separate integration commit appeared; preview displayed escaped JSON test evidence.",
+    "plan_snapshots": "Approved execute_plan history and pinned policy/version/hash displayed; allow_push=false.",
+    "desktop_after_tab_changes": {
+      "viewport": {
+        "width": 1267,
+        "height": 625
+      },
+      "canvas": {
+        "width": 918,
+        "height": 258
+      },
+      "node_count": 17,
+      "visible_node_count": 17,
+      "all_node_bounds_within_canvas": true,
+      "horizontal_page_overflow": false
+    },
+    "mobile": {
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "canvas": {
+        "width": 284,
+        "height": 258
+      },
+      "node_count": 17,
+      "visible_node_count": 17,
+      "all_node_bounds_within_canvas": true,
+      "horizontal_page_overflow": false
+    }
+  },
+  "verification": {
+    "regression_before_fix": "FAIL: controlled node bounds became 0×0 instead of measured 184×68 after position-only reconstruction.",
+    "regression_after_fix": "PASS: dimensions survive editor selection/dragging and read-only status-data reconstruction.",
+    "frontend_tests": {
+      "passed": 25,
+      "failed": 0
+    },
+    "lint": "PASS",
+    "strict_typescript_and_vite_build": "PASS",
+    "git_diff_check": "PASS",
+    "frontend_source_status_after_parent_commits": "Clean",
+    "umbrella_verify_attempt": {
+      "command": "python scripts/verify.py",
+      "result": "Requires parent integration follow-up: frontend/API child HEADs differ from umbrella gitlinks; the global Python environment lacks the schema validation dependencies.",
+      "json_and_local_screenshot_validation": "PASS; seven referenced local screenshots exist and the credential-pattern scan passed."
+    }
+  },
+  "screenshots": {
+    "location": "C:/Users/admin/Documents/Codex/2026-10-10/task/adf-screenshots",
+    "files": [
+      "ui-acceptance-agent-version.jpg",
+      "ui-acceptance-final-workflow-cycle.jpg",
+      "ui-acceptance-workflow-published.jpg",
+      "ui-acceptance-final-version-binding.jpg",
+      "ui-acceptance-mobile-editor-settled.jpg",
+      "ui-acceptance-mobile-real-run.jpg",
+      "ui-acceptance-final-desktop-real-run.jpg"
+    ],
+    "uploaded_to_library": false,
+    "existing_library_screenshots_modified": false
+  },
+  "limits_of_this_evidence": [
+    "No runtime was launched from the disposable workflow or agent; real provider execution acceptance belongs to the parent run evidence.",
+    "Version immutability was checked through retained UI IDs and displayed hashes, not by a separate byte-for-byte API snapshot comparison.",
+    "Keyboard tab navigation and labelled controls were checked; this was not a comprehensive screen-reader or automated accessibility audit.",
+    "Full-page screenshot capture timed out; clean viewport screenshots were saved without enlarging the browser for aesthetics.",
+    "This UI evidence does not assert whole-system readiness or replace integration, security, health and observability acceptance gates."
+  ]
+}

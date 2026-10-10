@@ -1,0 +1,882 @@
+{
+  "observed_at": "2026-10-10T19:31:55.266212+00:00",
+  "purpose": "One bounded live three-Codex resource sample and API/orchestrator restart during active developers",
+  "passed": true,
+  "run_id": "f0111da9-3b4e-45e3-9451-95248e8e9da9",
+  "project_id": "64563f38-719c-4d02-8861-9109e2b60546",
+  "status": "completed",
+  "integration_status": "passed",
+  "trace_id": "f9477a03ede4b9f974a5c5d2c9030ab5",
+  "root_base_sha": "73a85c667ab31e1b6e35c685cc9c33bcf1691101",
+  "default_main_unchanged": true,
+  "default_worktree_clean": true,
+  "remote_count": 0,
+  "policy": {
+    "max_parallel": 3,
+    "execution_timeout_sec": 180,
+    "run_timeout_sec": 900,
+    "max_retries": 0,
+    "allow_push": false,
+    "allow_sudo": false
+  },
+  "approval": {
+    "exact_snapshot_verified": true,
+    "allowed_write_paths": [
+      "src/adf_demo/alpha.py",
+      "src/adf_demo/beta.py",
+      "src/adf_demo/gamma.py",
+      "tests/test_alpha.py",
+      "tests/test_beta.py",
+      "tests/test_gamma.py"
+    ],
+    "graph_hash": "d1ec5c438dbc7134799ff063deaf7e018beea32ffa266abda8668cdc014918bf",
+    "plan_hash": "9ae9cf01f00ec4159c9a23728c2f4b8220fbdc6d04837404fe66ac06c987fdc6",
+    "policy_hash": "4e6e9d02eb1cca0f2d1fbf8dc6ed4998bf00d3b6b02fcf535e30447b770f51ca"
+  },
+  "developer_cli_intervals": [
+    {
+      "execution_id": "6aac456e-e062-5280-a3aa-46b10e4bd5ca",
+      "operation": "agent_task",
+      "epoch": 1,
+      "pid": 2016693,
+      "start_ticks": 4499201,
+      "first_seen_sec": 5.235,
+      "last_seen_sec": 34.23,
+      "peak_rss_bytes": 233041920,
+      "descendant_pids": [
+        2016693,
+        2016707,
+        2017302
+      ]
+    },
+    {
+      "execution_id": "67a91bc1-dc75-5677-843d-866eb39ed0af",
+      "operation": "agent_task",
+      "epoch": 1,
+      "pid": 2016834,
+      "start_ticks": 4499216,
+      "first_seen_sec": 6.239,
+      "last_seen_sec": 30.232,
+      "peak_rss_bytes": 232308736,
+      "descendant_pids": [
+        2016834,
+        2016880,
+        2017231
+      ]
+    },
+    {
+      "execution_id": "801d76f6-8877-59ae-9e0a-3f923c329c13",
+      "operation": "agent_task",
+      "epoch": 1,
+      "pid": 2017048,
+      "start_ticks": 4499241,
+      "first_seen_sec": 6.241,
+      "last_seen_sec": 34.23,
+      "peak_rss_bytes": 233922560,
+      "descendant_pids": [
+        2017048,
+        2017058,
+        2017278
+      ]
+    }
+  ],
+  "reviewer_cli_intervals": [
+    {
+      "execution_id": "93f47915-8ed5-5ffa-a688-e8b1ec89b835",
+      "operation": "review",
+      "epoch": 1,
+      "pid": 2020470,
+      "start_ticks": 4502424,
+      "first_seen_sec": 38.232,
+      "last_seen_sec": 49.23,
+      "peak_rss_bytes": 232722432,
+      "descendant_pids": [
+        2020470,
+        2020492,
+        2020857
+      ]
+    },
+    {
+      "execution_id": "08f69c28-bde4-5643-8021-5fc0f7086df1",
+      "operation": "review",
+      "epoch": 1,
+      "pid": 2020523,
+      "start_ticks": 4502429,
+      "first_seen_sec": 38.233,
+      "last_seen_sec": 50.229,
+      "peak_rss_bytes": 234967040,
+      "descendant_pids": [
+        2020523,
+        2020545,
+        2020903
+      ]
+    },
+    {
+      "execution_id": "5805cbb0-ea27-52fe-b0a6-2643f5f635c8",
+      "operation": "review",
+      "epoch": 1,
+      "pid": 2020416,
+      "start_ticks": 4502421,
+      "first_seen_sec": 38.234,
+      "last_seen_sec": 48.231,
+      "peak_rss_bytes": 232853504,
+      "descendant_pids": [
+        2020416,
+        2020430,
+        2020804
+      ]
+    }
+  ],
+  "three_developer_overlap": {
+    "observed": true,
+    "samples": 25,
+    "first_sample_sec": 6.223,
+    "last_sample_sec": 30.223,
+    "sampled_span_sec": 24.0
+  },
+  "memory": {
+    "measurement": "Linux /proc RSS sum of actual Codex launcher plus descendants; Docker cgroup usage minus inactive_file cache. Shared RSS pages may be counted per process. Host cache/WSL VM overhead excluded.",
+    "sample_target_period_sec": 1,
+    "sample_count": 58,
+    "developer_sample_count": 30,
+    "actual_interval_min_sec": 0.998,
+    "actual_interval_max_sec": 1.002,
+    "actual_interval_median_sec": 1.0,
+    "cli_peaks": {
+      "developer_aggregate_rss_bytes": 698519552,
+      "all_run_cli_aggregate_rss_bytes": 699666432,
+      "developer_with_containers_working_set_bytes": 3443466240
+    },
+    "baseline_container_working_set_bytes": 2730725376,
+    "container_peak_working_set_bytes": {
+      "adf-frontend-1": 16117760,
+      "adf-api-1": 93560832,
+      "adf-otel-collector-1": 45277184,
+      "adf-orchestrator-1": 93483008,
+      "adf-langfuse-langfuse-worker-1": 607555584,
+      "adf-langfuse-langfuse-web-1": 1005240320,
+      "adf-langfuse-clickhouse-1": 786280448,
+      "adf-langfuse-postgres-1": 71024640,
+      "adf-langfuse-redis-1": 7495680,
+      "adf-langfuse-minio-1": 78864384,
+      "adf-postgres-1": 87425024,
+      "adf-redis-1": 12288000
+    },
+    "developer_phase_samples": [
+      {
+        "sec": 5.223,
+        "developer_count": 1,
+        "developer_rss_bytes": 143966208,
+        "container_working_set_bytes": 2720337920,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 6.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 582000640,
+        "container_working_set_bytes": 2831273984,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 7.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 593604608,
+        "container_working_set_bytes": 2740305920,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 8.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 604393472,
+        "container_working_set_bytes": 2747736064,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 9.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 607014912,
+        "container_working_set_bytes": 2710265856,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 10.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 608325632,
+        "container_working_set_bytes": 2683478016,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 11.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 636538880,
+        "container_working_set_bytes": 2680205312,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 12.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 695205888,
+        "container_working_set_bytes": 2677239808,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 13.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 695205888,
+        "container_working_set_bytes": 2700042240,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 14.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 696369152,
+        "container_working_set_bytes": 2706968576,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 15.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 698257408,
+        "container_working_set_bytes": 2730930176,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 16.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 698519552,
+        "container_working_set_bytes": 2714730496,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 17.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 698519552,
+        "container_working_set_bytes": 2714402816,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 18.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 698114048,
+        "container_working_set_bytes": 2703007744,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 19.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 698114048,
+        "container_working_set_bytes": 2690908160,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 20.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 698114048,
+        "container_working_set_bytes": 2702057472,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 21.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 698114048,
+        "container_working_set_bytes": 2718269440,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 22.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 698114048,
+        "container_working_set_bytes": 2713243648,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 23.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 698114048,
+        "container_working_set_bytes": 2707181568,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 24.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 695406592,
+        "container_working_set_bytes": 2701377536,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 25.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 695590912,
+        "container_working_set_bytes": 2694070272,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 26.225,
+        "developer_count": 3,
+        "developer_rss_bytes": 695754752,
+        "container_working_set_bytes": 2700951552,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 27.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 697454592,
+        "container_working_set_bytes": 2708357120,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 28.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 697212928,
+        "container_working_set_bytes": 2716237824,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 29.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 697544704,
+        "container_working_set_bytes": 2745921536,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 30.223,
+        "developer_count": 3,
+        "developer_rss_bytes": 678006784,
+        "container_working_set_bytes": 2736771072,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 31.223,
+        "developer_count": 2,
+        "developer_rss_bytes": 466731008,
+        "container_working_set_bytes": 2720006144,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 32.223,
+        "developer_count": 2,
+        "developer_rss_bytes": 466731008,
+        "container_working_set_bytes": 2717622272,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 33.223,
+        "developer_count": 2,
+        "developer_rss_bytes": 424857600,
+        "container_working_set_bytes": 2713870336,
+        "containers_with_unknown_memory": []
+      },
+      {
+        "sec": 34.223,
+        "developer_count": 2,
+        "developer_rss_bytes": 426704896,
+        "container_working_set_bytes": 2719973376,
+        "containers_with_unknown_memory": []
+      }
+    ],
+    "metrics_errors": [],
+    "combined_developer_peak_sample": {
+      "sec": 29.223,
+      "developer_count": 3,
+      "developer_rss_bytes": 697544704,
+      "containers_working_set_bytes": 2745921536,
+      "containers_measured": 12,
+      "containers_with_unknown_memory": []
+    },
+    "capacity_guarantee": false,
+    "capacity_interpretation": "Measured peak for one bounded synthetic workload; 4 GiB host/VM suitability is not proven because WSL VM/kernel/runtime overhead and short unsampled peaks are excluded."
+  },
+  "component_restart": {
+    "triggered": true,
+    "requested_at": "2026-10-10T19:31:03.566718+00:00",
+    "requested_sec": 6.291,
+    "active_developer_execution_ids": [
+      "6aac456e-e062-5280-a3aa-46b10e4bd5ca",
+      "67a91bc1-dc75-5677-843d-866eb39ed0af",
+      "801d76f6-8877-59ae-9e0a-3f923c329c13"
+    ],
+    "names": [
+      "adf-api-1",
+      "adf-orchestrator-1"
+    ],
+    "count": 1,
+    "before": {
+      "adf-api-1": {
+        "pid": 91884,
+        "started_at": "2026-10-10T19:23:01.924868466Z",
+        "running": true,
+        "health": "healthy"
+      },
+      "adf-orchestrator-1": {
+        "pid": 43218,
+        "started_at": "2026-10-10T18:39:41.338354932Z",
+        "running": true,
+        "health": "healthy"
+      }
+    },
+    "command_returncode": 0,
+    "command_completed_sec": 7.633,
+    "after": {
+      "adf-api-1": {
+        "pid": 19811,
+        "started_at": "2026-10-10T19:31:04.197650745Z",
+        "running": true,
+        "health": "starting"
+      },
+      "adf-orchestrator-1": {
+        "pid": 19929,
+        "started_at": "2026-10-10T19:31:04.802704413Z",
+        "running": true,
+        "health": "starting"
+      }
+    },
+    "completed": true
+  },
+  "health": {
+    "sample_target_period_sec": 0.2,
+    "sample_count": 287,
+    "api_outage_observed": true,
+    "api_first_unready_sec": 6.438,
+    "api_last_unready_sec": 7.721,
+    "api_first_recovered_ready_sec": 7.921,
+    "api_sampled_unready_span_sec": 1.283,
+    "component_recovery": {
+      "adf-api-1": {
+        "pid_changed": true,
+        "first_new_running_sec": 6.838,
+        "first_healthy_sec": 17.326
+      },
+      "adf-orchestrator-1": {
+        "pid_changed": true,
+        "first_new_running_sec": 7.521,
+        "first_healthy_sec": 17.726
+      }
+    }
+  },
+  "execution_operations": {
+    "agent_task": 3,
+    "review": 3,
+    "test": 3,
+    "git_commit": 3,
+    "integrate": 1
+  },
+  "all_execution_epochs": [
+    1
+  ],
+  "execution_outcomes": [
+    {
+      "execution_id": "801d76f6-8877-59ae-9e0a-3f923c329c13",
+      "operation": "agent_task",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    },
+    {
+      "execution_id": "93f47915-8ed5-5ffa-a688-e8b1ec89b835",
+      "operation": "review",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    },
+    {
+      "execution_id": "3d4cf5d6-fc40-58fc-88ad-9b7de114daa1",
+      "operation": "test",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    },
+    {
+      "execution_id": "5805cbb0-ea27-52fe-b0a6-2643f5f635c8",
+      "operation": "review",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    },
+    {
+      "execution_id": "05976928-b736-5f37-a8b3-274f8a53109b",
+      "operation": "test",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    },
+    {
+      "execution_id": "08f69c28-bde4-5643-8021-5fc0f7086df1",
+      "operation": "review",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    },
+    {
+      "execution_id": "67a91bc1-dc75-5677-843d-866eb39ed0af",
+      "operation": "agent_task",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    },
+    {
+      "execution_id": "b39e116d-a3d3-522a-8cc1-4c5023778651",
+      "operation": "test",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    },
+    {
+      "execution_id": "6aac456e-e062-5280-a3aa-46b10e4bd5ca",
+      "operation": "agent_task",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    },
+    {
+      "execution_id": "9bab6659-cafd-5350-bc5b-2712e97adcc1",
+      "operation": "git_commit",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    },
+    {
+      "execution_id": "e098322f-2178-5201-a706-405028268be1",
+      "operation": "git_commit",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    },
+    {
+      "execution_id": "2ec63587-06fa-549b-aaaf-5bae736f92b6",
+      "operation": "integrate",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    },
+    {
+      "execution_id": "adafc6e2-fa61-56db-8680-40fe4d1afbed",
+      "operation": "git_commit",
+      "status": "succeeded",
+      "epoch": 1,
+      "error_code": null
+    }
+  ],
+  "duplicate_cli_execution_count": 0,
+  "task_commit_shas": [
+    "63c44c6bdc385849e3dbcee0b07462a5d86a30f8",
+    "a1af4c5f1039343808a056d3ef9e483df579a348",
+    "3ccfd080b93fd179bec636465f883afd8bc0b809"
+  ],
+  "unique_task_commit_count": 3,
+  "integration_commit_sha": "532bf289ad92ff0f4c6e4f137bfde84bd7f43df8",
+  "integration_tree_sha": "9e6f6ab3fb8f6495dcb47931ed6a609ea5519cc2",
+  "registered_integration_checks": [
+    {
+      "check_id": "unit",
+      "status": "passed",
+      "exit_code": 0,
+      "tree_sha": "9e6f6ab3fb8f6495dcb47931ed6a609ea5519cc2",
+      "error_code": null
+    }
+  ],
+  "journal_terminal_evidence": [
+    {
+      "execution_id": "801d76f6-8877-59ae-9e0a-3f923c329c13",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2016424,
+        "start_ticks": 4499091,
+        "pgid": 2016424,
+        "session_id": 2016424
+      }
+    },
+    {
+      "execution_id": "93f47915-8ed5-5ffa-a688-e8b1ec89b835",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2020112,
+        "start_ticks": 4502361,
+        "pgid": 2020112,
+        "session_id": 2020112
+      }
+    },
+    {
+      "execution_id": "3d4cf5d6-fc40-58fc-88ad-9b7de114daa1",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2019898,
+        "start_ticks": 4502235,
+        "pgid": 2019898,
+        "session_id": 2019898
+      }
+    },
+    {
+      "execution_id": "5805cbb0-ea27-52fe-b0a6-2643f5f635c8",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2020111,
+        "start_ticks": 4502358,
+        "pgid": 2020111,
+        "session_id": 2020111
+      }
+    },
+    {
+      "execution_id": "05976928-b736-5f37-a8b3-274f8a53109b",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2019900,
+        "start_ticks": 4502240,
+        "pgid": 2019900,
+        "session_id": 2019900
+      }
+    },
+    {
+      "execution_id": "08f69c28-bde4-5643-8021-5fc0f7086df1",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2020113,
+        "start_ticks": 4502363,
+        "pgid": 2020113,
+        "session_id": 2020113
+      }
+    },
+    {
+      "execution_id": "67a91bc1-dc75-5677-843d-866eb39ed0af",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2016425,
+        "start_ticks": 4499095,
+        "pgid": 2016425,
+        "session_id": 2016425
+      }
+    },
+    {
+      "execution_id": "b39e116d-a3d3-522a-8cc1-4c5023778651",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2019899,
+        "start_ticks": 4502238,
+        "pgid": 2019899,
+        "session_id": 2019899
+      }
+    },
+    {
+      "execution_id": "6aac456e-e062-5280-a3aa-46b10e4bd5ca",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2016422,
+        "start_ticks": 4499088,
+        "pgid": 2016422,
+        "session_id": 2016422
+      }
+    },
+    {
+      "execution_id": "9bab6659-cafd-5350-bc5b-2712e97adcc1",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2021076,
+        "start_ticks": 4503832,
+        "pgid": 2021076,
+        "session_id": 2021076
+      }
+    },
+    {
+      "execution_id": "e098322f-2178-5201-a706-405028268be1",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2021077,
+        "start_ticks": 4503835,
+        "pgid": 2021077,
+        "session_id": 2021077
+      }
+    },
+    {
+      "execution_id": "2ec63587-06fa-549b-aaaf-5bae736f92b6",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2021338,
+        "start_ticks": 4504058,
+        "pgid": 2021338,
+        "session_id": 2021338
+      }
+    },
+    {
+      "execution_id": "adafc6e2-fa61-56db-8680-40fe4d1afbed",
+      "epoch": 1,
+      "terminal_persisted": true,
+      "redis_acked": true,
+      "process_stopped": true,
+      "supervisor_identity": {
+        "pid": 2021078,
+        "start_ticks": 4503837,
+        "pgid": 2021078,
+        "session_id": 2021078
+      }
+    }
+  ],
+  "limitations": [
+    "Single bounded synthetic trusted-code workload; not a general capacity guarantee",
+    "MVP readiness remains gated by Claude authentication, dedicated account/isolation and scoped MCP matrix",
+    "Docker container per-container peaks outside developer phase may include later authorized acceptance workloads; combined developer peak is taken only during this run developer samples",
+    "One-second RSS sampling is an observed peak lower bound; no kernel-enforced memory quota was introduced"
+  ],
+  "final_stopped_proofs": [
+    {
+      "execution_id": "801d76f6-8877-59ae-9e0a-3f923c329c13",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    },
+    {
+      "execution_id": "93f47915-8ed5-5ffa-a688-e8b1ec89b835",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    },
+    {
+      "execution_id": "3d4cf5d6-fc40-58fc-88ad-9b7de114daa1",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    },
+    {
+      "execution_id": "5805cbb0-ea27-52fe-b0a6-2643f5f635c8",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    },
+    {
+      "execution_id": "05976928-b736-5f37-a8b3-274f8a53109b",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    },
+    {
+      "execution_id": "08f69c28-bde4-5643-8021-5fc0f7086df1",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    },
+    {
+      "execution_id": "67a91bc1-dc75-5677-843d-866eb39ed0af",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    },
+    {
+      "execution_id": "b39e116d-a3d3-522a-8cc1-4c5023778651",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    },
+    {
+      "execution_id": "6aac456e-e062-5280-a3aa-46b10e4bd5ca",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    },
+    {
+      "execution_id": "9bab6659-cafd-5350-bc5b-2712e97adcc1",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    },
+    {
+      "execution_id": "e098322f-2178-5201-a706-405028268be1",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    },
+    {
+      "execution_id": "2ec63587-06fa-549b-aaaf-5bae736f92b6",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    },
+    {
+      "execution_id": "adafc6e2-fa61-56db-8680-40fe4d1afbed",
+      "supervisor_stopped": true,
+      "last_child_group_stopped": true,
+      "worktree_lock_reacquired": true,
+      "terminal_persisted": true,
+      "redis_acked": true
+    }
+  ],
+  "all_final_supervisors_and_child_groups_stopped": true,
+  "all_results_terminal_persisted_and_redis_acked": true,
+  "same_developer_identities_across_restart": [
+    {
+      "execution_id": "6aac456e-e062-5280-a3aa-46b10e4bd5ca",
+      "pid": 2016693,
+      "start_ticks": 4499201,
+      "observed_before_and_after_restart": true
+    },
+    {
+      "execution_id": "67a91bc1-dc75-5677-843d-866eb39ed0af",
+      "pid": 2016834,
+      "start_ticks": 4499216,
+      "observed_before_and_after_restart": true
+    },
+    {
+      "execution_id": "801d76f6-8877-59ae-9e0a-3f923c329c13",
+      "pid": 2017048,
+      "start_ticks": 4499241,
+      "observed_before_and_after_restart": true
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "observed_at": "2026-10-10T19:24:02.958306+00:00",
+  "run_id": "e1d75ee7-bfa6-4909-b6ee-a116a6101389",
+  "trace_id": "8194fdc3a3914296f637b3630a936e24",
+  "project_id": "7076ff9c-2b7b-414e-a088-1ec49e03bad5",
+  "fixture_repo": "/home/alex/ai-factory/projects/adf-dependencies-20261010",
+  "status": "completed",
+  "integration_status": "passed",
+  "approval_id": "b2da69b0-65f3-45f8-8967-cd9d8a555120",
+  "approval_snapshot_hash": "3d5eb957dc6da85ab4d3da29039b18ef660ab043483fcab6305261fd1e3b7ccd",
+  "approval_bindings_verified": [
+    "agent_config_hash",
+    "agent_versions_hash",
+    "allowed_write_paths",
+    "dependency_hash",
+    "graph_hash",
+    "plan_hash",
+    "policy_hash",
+    "root_base_sha",
+    "tool_ids"
+  ],
+  "limits": {
+    "max_parallel_agents": 3,
+    "max_tasks_per_plan": 2,
+    "max_retries": 0,
+    "max_execution_minutes": 3,
+    "max_run_minutes": 15,
+    "max_output_bytes": 1048576,
+    "max_disk_bytes": 104857600,
+    "max_steps": 40
+  },
+  "root_base_sha": "1f6eb2ca4561a348d7ee632f1193ac774feeeb12",
+  "default_main_unchanged": true,
+  "default_worktree_clean": true,
+  "fixture_has_no_remotes": true,
+  "task_a": {
+    "task_id": "772511f8-db70-4e78-a3d1-7936f3f77a8e",
+    "developer_execution_id": "81a56016-ae4b-5bd1-ac55-00f996b614ef",
+    "accepted_commit_execution_id": "2774da10-a861-5c6e-b1ca-2c1498941fd7",
+    "accepted_commit_sha": "d74f526703cd6b2a266dbda267ee60e2a7ab2d22",
+    "reviewed_tree_sha": "24d27188c9bcae931e96fa5c47ef08c2fce53217"
+  },
+  "task_b": {
+    "task_id": "f90acda9-2eee-492e-be74-e67297b92b3f",
+    "developer_execution_id": "2bea90cb-d71e-512a-b429-adbe9194de74",
+    "dependency_execution_ids": [
+      "2774da10-a861-5c6e-b1ca-2c1498941fd7"
+    ],
+    "dependency_ids_verified_against_original_request_hash": true,
+    "predecessor_commits": [
+      "d74f526703cd6b2a266dbda267ee60e2a7ab2d22"
+    ],
+    "execution_base_sha": "3912b1a88f8354408c7a2e7e9a270c3b5717ab11",
+    "execution_base_differs_from_root": true,
+    "predecessor_tree_matches_accepted_a_tree": true,
+    "predecessor_source_sha256": "f0986c3eb15013e325446c9d99333d5928379187ccc395ec45e7d84f54ff62c9",
+    "predecessor_blob_equal_to_accepted_commit": true,
+    "predecessor_commit_trailer_verified": true,
+    "consumer_imports_predecessor_function_and_marker": true,
+    "concrete_marker_absent_from_b_prompt": true,
+    "concrete_marker_discovered_in_b_tests": true,
+    "concrete_multiplier_results_asserted_in_b_tests": true,
+    "predecessor_read_evidence": "Content inference: B's tests contain the unpredictable marker absent from B's prompt; its allocated base tree and predecessor blobs exactly match A's reviewed commit. Command arguments are intentionally omitted from normalized provider events, so an individual file-read command is not retained.",
+    "accepted_commit_sha": "e9052a09e3219a8c16ff0d000e8e8ce928fc95ef"
+  },
+  "independent_reviews": [
+    {
+      "node_id": "review_a",
+      "execution_id": "b84b0008-281f-5140-b334-e7396a883da7",
+      "approved": true,
+      "tree_sha": "24d27188c9bcae931e96fa5c47ef08c2fce53217",
+      "independent_identity": true,
+      "reviewer_config_version_id": "22d6c1fb-0ca2-4191-8e4d-9b09194e2d10",
+      "developer_config_version_id": "f4f706a4-419b-4872-ad43-d9ab9a981a1f"
+    },
+    {
+      "node_id": "review_b",
+      "execution_id": "6e13e546-7bf7-50e6-8d27-6ab762cf8e14",
+      "approved": true,
+      "tree_sha": "d57b639c7dd29cf5823840a7d82671f37d8d0b6b",
+      "independent_identity": true,
+      "reviewer_config_version_id": "22d6c1fb-0ca2-4191-8e4d-9b09194e2d10",
+      "developer_config_version_id": "f4f706a4-419b-4872-ad43-d9ab9a981a1f"
+    }
+  ],
+  "registered_task_checks": [
+    {
+      "node_id": "test_a",
+      "execution_id": "14fc4e1c-e01c-5c35-b726-856efe2fb74c",
+      "status": "passed",
+      "tree_sha": "24d27188c9bcae931e96fa5c47ef08c2fce53217",
+      "check_id": "unit"
+    },
+    {
+      "node_id": "test_b",
+      "execution_id": "5a46a201-aff7-5393-9f66-9ef46026adb9",
+      "status": "passed",
+      "tree_sha": "d57b639c7dd29cf5823840a7d82671f37d8d0b6b",
+      "check_id": "unit"
+    }
+  ],
+  "integration_commit_sha": "1380758261279c50b800f7058d300214c975037c",
+  "integration_tree_sha": "d57b639c7dd29cf5823840a7d82671f37d8d0b6b",
+  "integration_source_commits": [
+    "d74f526703cd6b2a266dbda267ee60e2a7ab2d22",
+    "e9052a09e3219a8c16ff0d000e8e8ce928fc95ef"
+  ],
+  "integration_predecessors_empty": true,
+  "registered_integration_checks": [
+    {
+      "check_id": "unit",
+      "status": "passed",
+      "tree_sha": "d57b639c7dd29cf5823840a7d82671f37d8d0b6b"
+    }
+  ],
+  "execution_operations": {
+    "test": 2,
+    "agent_task": 2,
+    "review": 2,
+    "git_commit": 2,
+    "integrate": 1
+  },
+  "all_attempts": [
+    1
+  ],
+  "all_epochs": [
+    1
+  ],
+  "developer_processes": 2,
+  "independent_reviewer_processes": 2,
+  "unique_cli_processes": 4,
+  "one_provider_session_per_execution": true,
+  "repeated_cli_execution_count": 0,
+  "all_processes_stopped": true,
+  "sse_replayed_events": 149,
+  "sse_unique_ordered": true,
+  "artifact_hashes_verified": 9,
+  "child_tasks_done": true,
+  "usage": [
+    {
+      "operation": "agent_task",
+      "execution_id": "81a56016-ae4b-5bd1-ac55-00f996b614ef",
+      "provider": "codex",
+      "usage": {
+        "source": "provider",
+        "input_tokens": 33405,
+        "output_tokens": 602,
+        "cost": null,
+        "provider_estimated_cost_usd": null
+      }
+    },
+    {
+      "operation": "agent_task",
+      "execution_id": "2bea90cb-d71e-512a-b429-adbe9194de74",
+      "provider": "codex",
+      "usage": {
+        "source": "provider",
+        "input_tokens": 45331,
+        "output_tokens": 568,
+        "cost": null,
+        "provider_estimated_cost_usd": null
+      }
+    },
+    {
+      "operation": "review",
+      "execution_id": "b84b0008-281f-5140-b334-e7396a883da7",
+      "provider": "codex",
+      "usage": {
+        "source": "provider",
+        "input_tokens": 45180,
+        "output_tokens": 293,
+        "cost": null,
+        "provider_estimated_cost_usd": null
+      }
+    },
+    {
+      "operation": "review",
+      "execution_id": "6e13e546-7bf7-50e6-8d27-6ab762cf8e14",
+      "provider": "codex",
+      "usage": {
+        "source": "provider",
+        "input_tokens": 34450,
+        "output_tokens": 262,
+        "cost": null,
+        "provider_estimated_cost_usd": null
+      }
+    }
+  ],
+  "scope_limitations": [
+    "This validates one bounded two-task Codex dependency fixture, not hostile-code isolation or Claude execution.",
+    "No provider command arguments, prompts, code, output, authentication tokens or private payloads are included in this report; provider-reported token counts are retained as usage metadata."
+  ]
+}

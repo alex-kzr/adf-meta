@@ -1,21 +1,54 @@
 {
-  "run_id": "871aa3d0-94ef-4c76-88d5-49478a1e73b3",
-  "active_execution_id": "0000b558-6b01-5f7c-bca4-16cfa1c48533",
+  "run_id": "ca1860d2-e3d1-49a2-b49a-532298f2f804",
+  "active_execution_id": "90ea170c-0ccf-540c-a8be-be8b3ff51ff3",
   "operation": "agent_task",
   "active_state_before_cancel": "running",
+  "active_state_observation": "Live helper observed running API execution and journal PID before POST cancel; report finalization reread retained journal and terminal API snapshot.",
   "final_status": "cancelled",
   "execution_status": "cancelled",
   "epoch": 1,
   "process_identity": {
-    "pgid": 1943077,
-    "pid": 1943077,
-    "session_id": 1943077,
-    "start_ticks": 4349683,
+    "pgid": 2030108,
+    "pid": 2030108,
+    "session_id": 2030108,
+    "start_ticks": 4521378,
     "state": "R"
   },
   "process_stopped": true,
   "process_absence_verified": true,
-  "cancellation_seconds": 2.219,
+  "cancellation_seconds": null,
+  "timing_limit_seconds": 45,
+  "timing_note": "Terminal cancellation was observed within the live helper deadline; elapsed timing was not retained after a report-only field-shape assertion.",
   "execution_count": 1,
-  "integration_commit_absent": true
+  "integration_commit_absent": true,
+  "all_nodes_terminal": true,
+  "node_statuses": [
+    {
+      "node_id": "start",
+      "attempt": 1,
+      "status": "succeeded",
+      "execution_id": null,
+      "process_stopped": null
+    },
+    {
+      "node_id": "approve",
+      "attempt": 1,
+      "status": "succeeded",
+      "execution_id": null,
+      "process_stopped": null
+    },
+    {
+      "node_id": "develop",
+      "attempt": 1,
+      "status": "cancelled",
+      "execution_id": "90ea170c-0ccf-540c-a8be-be8b3ff51ff3",
+      "process_stopped": true
+    }
+  ],
+  "api_source_commit": "adccead3256c0b5d0d0f7b83d4670a2a1d2b9160",
+  "previous_live_process_cancellation": {
+    "run_id": "871aa3d0-94ef-4c76-88d5-49478a1e73b3",
+    "measured_seconds": 2.219,
+    "node_projection_fix_present": false
+  }
 }

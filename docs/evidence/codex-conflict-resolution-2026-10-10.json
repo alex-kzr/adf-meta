@@ -1,0 +1,158 @@
+{
+  "observed_at": "2026-10-10T19:43:59.739189+00:00",
+  "run_id": "85f12c64-ed66-4db4-aad9-15143036d746",
+  "trace_id": "522179e7a3e17215a08f59af2ef1f3c1",
+  "project_id": "596dfcf6-4692-41f6-a997-a703dd125f99",
+  "fixture_repo": "/home/alex/ai-factory/projects/adf-conflict-20261010",
+  "status": "completed",
+  "integration_status": "passed",
+  "limits": {
+    "max_parallel_agents": 3,
+    "max_tasks_per_plan": 2,
+    "max_retries": 0,
+    "max_execution_minutes": 3,
+    "max_run_minutes": 15,
+    "max_output_bytes": 1048576,
+    "max_disk_bytes": 104857600,
+    "max_steps": 40
+  },
+  "initial_approval_id": "73a63ef0-e3f6-4649-a7d4-1e696abd0702",
+  "initial_approval_snapshot_hash": "d7c4c448f8e617be54bb671904109be3989278391233be44b8f3c2258b92714c",
+  "initial_bindings_verified": [
+    "agent_config_hash",
+    "agent_versions_hash",
+    "allowed_write_paths",
+    "dependency_hash",
+    "graph_hash",
+    "plan_hash",
+    "policy_hash",
+    "root_base_sha",
+    "tool_ids"
+  ],
+  "original_integration_execution_id": "27405b22-b753-59c1-bf4c-8a2b47c6c64b",
+  "original_integration_status": "failed",
+  "original_integration_error_code": "INTEGRATION_CONFLICT",
+  "conflict_pause_observed": true,
+  "conflicting_paths": [
+    "src/adf_demo/shared.py"
+  ],
+  "resume_without_resolution": {
+    "http_status": 409,
+    "error_code": "RESOLUTION_APPROVAL_REQUIRED"
+  },
+  "resume_before_exact_approval": {
+    "http_status": 409,
+    "error_code": "RESOLUTION_APPROVAL_REQUIRED"
+  },
+  "original_task_commits": {
+    "commit_a": "02a6a85c2789e19313b3619f955b556cc3a66073",
+    "commit_b": "3f16b480852570be4a3c70f7711b6f3a5721e81c"
+  },
+  "original_task_branches": {
+    "factory/task/086de3cf-f355-4626-8837-442ff53f065a/8cf64fae-ea3b-5d11-8f10-9d6288ccc521": "02a6a85c2789e19313b3619f955b556cc3a66073",
+    "factory/task/86167317-54e2-4335-a025-af04257a595f/40be11f1-cb0f-5d68-a8cc-bb9e50227714": "3f16b480852570be4a3c70f7711b6f3a5721e81c"
+  },
+  "operator_resolution": {
+    "original_head": "58cabb2ba1f79dba68a31eb34af153369f163a4b",
+    "original_head_tree": "61b0150b814874132af2fc1c7607e4b3226269f4",
+    "resolved_head": "8c395b4b90a5f9db3e6c627906f7179e1abe55a1",
+    "resolved_tree": "f9c3fddfbb1aec8953af577e50eb41d8ce94950f",
+    "operator_staged_only_shared": true,
+    "all_staged_paths": [
+      "src/adf_demo/shared.py",
+      "tests/test_b.py"
+    ],
+    "staged_paths_within_approved_scope": true,
+    "secret_scan_passed": true,
+    "worktree_clean": true,
+    "journal_sha256_unchanged": "dbf04d532d3162e07c34154b619ec9aedfc2266e37452fd97203c29c77310df2",
+    "journaled_conflicts": [
+      {
+        "source_sha": "3f16b480852570be4a3c70f7711b6f3a5721e81c",
+        "parent_sha": "58cabb2ba1f79dba68a31eb34af153369f163a4b",
+        "phase": "needs_resolution",
+        "conflicting_paths": [
+          "src/adf_demo/shared.py"
+        ]
+      }
+    ],
+    "worker_process_drain_verified": true,
+    "original_task_commits_preserved": true,
+    "main_unchanged": true
+  },
+  "resolution_approval_id": "04b8cbdf-6a42-40db-9e53-77e1d4d76fc1",
+  "resolution_snapshot_hash": "bf3a7e2b6828b4e9141e63773643ff38d3609e2ce3cc45e17c3f14af1d5397d3",
+  "resolution_bindings_verified": [
+    "action",
+    "allowed_write_paths",
+    "execution_id",
+    "graph_hash",
+    "plan_hash",
+    "policy_hash",
+    "root_base_sha",
+    "tree_sha"
+  ],
+  "continuation_execution_id": "120747cb-3fa2-50e1-8166-329730455db1",
+  "continuation_attempt": 2,
+  "continuation_reuses_original_allocation": true,
+  "continuation_exact_approved_tree": true,
+  "registered_integration_checks": [
+    {
+      "check_id": "unit",
+      "status": "passed",
+      "tree_sha": "f9c3fddfbb1aec8953af577e50eb41d8ce94950f"
+    }
+  ],
+  "manual_continuation_journal": {
+    "manual_resolution_persisted": true,
+    "exact_tree_persisted": true,
+    "all_source_commits_accepted": true,
+    "original_conflict_history_retained": true
+  },
+  "latest_end_node_attempt": 2,
+  "latest_end_node_status": "succeeded",
+  "automatic_retry_limit_unchanged": 0,
+  "root_base_sha": "6f962393aa76caa6e0289169b32a861a234cf919",
+  "default_main_unchanged": true,
+  "default_worktree_clean": true,
+  "fixture_has_no_remotes": true,
+  "developer_processes": 2,
+  "independent_reviewer_processes": 2,
+  "unique_cli_processes": 4,
+  "overlapping_write_scope_execution_serialized": true,
+  "developer_execution_gap_seconds": 2.352,
+  "developer_execution_intervals": [
+    {
+      "execution_id": "8cf64fae-ea3b-5d11-8f10-9d6288ccc521",
+      "started_at": "2026-10-10T19:32:49.546712+00:00",
+      "completed_at": "2026-10-10T19:33:06.246465+00:00"
+    },
+    {
+      "execution_id": "40be11f1-cb0f-5d68-a8cc-bb9e50227714",
+      "started_at": "2026-10-10T19:33:08.598169+00:00",
+      "completed_at": "2026-10-10T19:33:26.271403+00:00"
+    }
+  ],
+  "one_provider_session_per_execution": true,
+  "repeated_developer_cli_count": 0,
+  "all_execution_epochs": [
+    1
+  ],
+  "execution_operations": {
+    "integrate": 2,
+    "agent_task": 2,
+    "git_commit": 2,
+    "review": 2,
+    "test": 2
+  },
+  "sse_replayed_events": 140,
+  "sse_unique_ordered": true,
+  "artifact_hashes_verified": 9,
+  "child_tasks_done": true,
+  "scope_limitations": [
+    "This validates one bounded disposable Codex conflict/operator continuation, not hostile-code isolation or Claude execution.",
+    "A paused integration requires an operator's clean resolution commit followed by approval of its exact tree and explicit resume; staged-only resolution is unsupported.",
+    "Initial integration conflict remains recorded; operator continuation is a distinct authorized attempt, not an automatic retry.",
+    "No authentication values, prompts, code, provider output or private payloads are stored in this report."
+  ]
+}

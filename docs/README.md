@@ -1,6 +1,6 @@
 # Development documentation
 
-Start with [current implementation status](implementation-status.md) and [implementation board](kanban.md).
+Start with [current implementation status](implementation-status.md), [live acceptance status](acceptance-status.md) and [implementation board](kanban.md).
 
 1. [Product and acceptance](product.md)
 2. [Decisions, assumptions and unresolved gates](decisions.md)
@@ -26,3 +26,7 @@ Start with [current implementation status](implementation-status.md) and [implem
 - [005: Observability routing](adr/005-observability.md)
 
 Machine-readable contracts in [packages/contracts](../packages/contracts/README.md) are generated from the implemented API and checked against actual HTTP claims/events/results. Redacted live evidence: [three Codex agents](evidence/codex-three-agent-2026-10-10.json), [recovery and telemetry outage](evidence/codex-recovery-2026-10-10.json), [live CLI cancellation](evidence/codex-cancellation-2026-10-10.json), [Langfuse trace](evidence/langfuse-three-agent-2026-10-10.json), and [isolated backup restoration](evidence/isolated-backup-2026-10-10.json).
+
+Additional native acceptance: [dependency contents](evidence/codex-dependencies-2026-10-10.json) and [three-process resource/API-orchestrator restart](evidence/codex-load-restart-2026-10-10.json).
+
+[Browser acceptance](evidence/frontend-ui-2026-10-10.json), [manual conflict resolution](evidence/codex-conflict-resolution-2026-10-10.json), and [operator actions requiring approval](operator-acceptance.md).
