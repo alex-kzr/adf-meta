@@ -1,0 +1,34 @@
+# Overlay only; pair with a pinned OFFICIAL Langfuse docker-compose.yml.
+# Run as a separate Compose project. Requires Compose 2.24.4+ for !override.
+services:
+  langfuse-web:
+    profiles: [observability]
+    image: ${LANGFUSE_WEB_IMAGE:?set verified image digest}
+    ports: !override ["127.0.0.1:3000:3000"]
+    environment:
+      NEXTAUTH_URL: http://localhost:3000
+      TELEMETRY_ENABLED: "false"
+      LANGFUSE_IN_APP_AGENT_ENABLED: "false"
+      LANGFUSE_S3_MEDIA_UPLOAD_ENDPOINT: http://localhost:39090
+  langfuse-worker:
+    profiles: [observability]
+    image: ${LANGFUSE_WORKER_IMAGE:?set verified image digest}
+    ports: !override []
+    environment:
+      TELEMETRY_ENABLED: "false"
+  clickhouse:
+    profiles: [observability]
+    image: ${LANGFUSE_CLICKHOUSE_IMAGE:?set verified image digest}
+    ports: !override []
+  minio:
+    profiles: [observability]
+    image: ${LANGFUSE_MINIO_IMAGE:?set verified image digest}
+    ports: !override ["127.0.0.1:39090:9000"]
+  postgres:
+    profiles: [observability]
+    image: ${LANGFUSE_POSTGRES_IMAGE:?set verified image digest}
+    ports: !override []
+  redis:
+    profiles: [observability]
+    image: ${LANGFUSE_REDIS_IMAGE:?set verified image digest}
+    ports: !override []

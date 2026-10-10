@@ -1,0 +1,25 @@
+# Disabled privacy baseline: drop all traces; no external/Langfuse export.
+extensions:
+  health_check:
+    endpoint: 0.0.0.0:13133
+receivers:
+  otlp:
+    protocols:
+      grpc: {endpoint: "0.0.0.0:4317"}
+      http: {endpoint: "0.0.0.0:4318"}
+processors:
+  memory_limiter: {check_interval: 1s, limit_mib: 128, spike_limit_mib: 32}
+  filter/drop_all:
+    error_mode: ignore
+    traces:
+      span: ["true"]
+  batch: {timeout: 5s, send_batch_size: 256}
+exporters:
+  debug: {verbosity: basic}
+service:
+  extensions: [health_check]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, filter/drop_all, batch]
+      exporters: [debug]

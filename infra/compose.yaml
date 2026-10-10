@@ -1,0 +1,92 @@
+# Diagnostic foundation only. No migrations, scheduling or agent execution.
+name: adf
+x-runtime: &runtime
+  restart: unless-stopped
+  logging:
+    driver: json-file
+    options: {max-size: "10m", max-file: "3"}
+services:
+  postgres:
+    <<: *runtime
+    image: ${POSTGRES_IMAGE:?set exact candidate image in .env}
+    environment:
+      POSTGRES_DB: adf
+      POSTGRES_USER: adf_bootstrap
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres-password
+    secrets: [postgres-password]
+    ports: ["127.0.0.1:55432:5432"]
+    volumes: ["postgres-data:/var/lib/postgresql"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U adf_bootstrap -d adf"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  redis:
+    <<: *runtime
+    image: ${REDIS_IMAGE:?set exact candidate image in .env}
+    command: ["/bin/sh", "-ec", "exec redis-server --appendonly yes --maxmemory-policy noeviction --requirepass $$(cat /run/secrets/redis-password)"]
+    secrets: [redis-password]
+    ports: ["127.0.0.1:6380:6379"]
+    volumes: ["redis-data:/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "REDISCLI_AUTH=$$(cat /run/secrets/redis-password) redis-cli ping | grep -q PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  api:
+    <<: *runtime
+    build:
+      context: ../services/api
+      args: {PYTHON_IMAGE: "${PYTHON_IMAGE:?set image}"}
+    ports: ["127.0.0.1:8080:8080"]
+    volumes: ["api-artifacts:/app/artifacts"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/healthz', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+  orchestrator:
+    <<: *runtime
+    build:
+      context: ../services/orchestrator
+      args: {PYTHON_IMAGE: "${PYTHON_IMAGE:?set image}"}
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8081/healthz', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+  frontend:
+    <<: *runtime
+    build:
+      context: ../frontend
+      args: {NODE_IMAGE: "${NODE_IMAGE:?set image}", NGINX_IMAGE: "${NGINX_IMAGE:?set image}"}
+    ports: ["127.0.0.1:8088:80"]
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+  otel-collector:
+    <<: *runtime
+    profiles: [observability]
+    image: ${OTEL_IMAGE:?set image}
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes: ["./otel-collector.yaml:/etc/otelcol/config.yaml:ro"]
+    ports: ["127.0.0.1:4317:4317", "127.0.0.1:4318:4318", "127.0.0.1:13133:13133"]
+    # Distroless image: no shell/curl assumed. Probe health extension from doctor.
+    # A tested container healthcheck remains E1 work; --version is not readiness.
+secrets:
+  postgres-password: {file: "${ADF_DB_PASSWORD_FILE:?prepare secret file}"}
+  redis-password: {file: "${ADF_REDIS_PASSWORD_FILE:?prepare secret file}"}
+volumes:
+  postgres-data:
+  redis-data:
+  api-artifacts:

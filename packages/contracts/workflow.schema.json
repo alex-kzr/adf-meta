@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1"
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+          },
+          "type": {
+            "enum": [
+              "start",
+              "planner",
+              "agent_task",
+              "condition",
+              "parallel_fork",
+              "parallel_join",
+              "test",
+              "review",
+              "approval",
+              "git_commit",
+              "end"
+            ]
+          },
+          "config": {
+            "type": "object",
+            "description": "Validated by a versioned node-specific registry; arbitrary code forbidden."
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "config"
+        ]
+      }
+    },
+    "edges": {
+      "type": "array",
+      "maxItems": 300,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "source": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "source_port": {
+            "enum": [
+              "out",
+              "true",
+              "false"
+            ]
+          },
+          "target_port": {
+            "const": "in"
+          }
+        },
+        "required": [
+          "source",
+          "target",
+          "source_port",
+          "target_port"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "nodes",
+    "edges"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADF workflow DAG v1",
+  "description": "Shape validation only; semantic registry, cycle/reachability/paired-fork rules are mandatory on server."
+}

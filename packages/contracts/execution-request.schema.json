@@ -1,0 +1,139 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1"
+    },
+    "execution_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "run_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "task_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "node_run_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "lease_epoch": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "operation": {
+      "enum": [
+        "agent_task",
+        "test",
+        "review",
+        "git_commit",
+        "integrate"
+      ]
+    },
+    "project_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "agent_config_version": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "policy_version": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "root_base_sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "execution_base_sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "worktree_key": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]{1,128}$"
+    },
+    "task_prompt": {
+      "type": "string",
+      "maxLength": 32768
+    },
+    "allowed_tool_ids": {
+      "type": "array",
+      "maxItems": 100,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 512
+      }
+    },
+    "check_ids": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 512
+      }
+    },
+    "env_allowlist": {
+      "type": "array",
+      "maxItems": 30,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z][A-Z0-9_]{0,63}$"
+      }
+    },
+    "timeout_sec": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1800
+    },
+    "max_steps": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    },
+    "max_output_bytes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20971520
+    },
+    "max_disk_bytes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5368709120
+    }
+  },
+  "required": [
+    "schema_version",
+    "execution_id",
+    "run_id",
+    "task_id",
+    "node_run_id",
+    "lease_epoch",
+    "operation",
+    "project_id",
+    "agent_config_version",
+    "policy_version",
+    "root_base_sha",
+    "execution_base_sha",
+    "worktree_key",
+    "task_prompt",
+    "allowed_tool_ids",
+    "check_ids",
+    "env_allowlist",
+    "timeout_sec",
+    "max_steps",
+    "max_output_bytes",
+    "max_disk_bytes"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADF execution request v1"
+}

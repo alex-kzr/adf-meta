@@ -1,0 +1,2420 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ADF draft control contract",
+    "version": "0.1.0",
+    "description": "Design baseline only. Resource detail schemas, multipart uploads and internal request types are expanded in E1/E2; scaffold implements diagnostics only."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8080"
+    }
+  ],
+  "security": [
+    {
+      "AdminBearer": []
+    }
+  ],
+  "paths": {
+    "/api/projects": {
+      "get": {
+        "summary": "List projects",
+        "operationId": "get_api_projects",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create projects",
+        "operationId": "post_api_projects",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectCreate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{id}": {
+      "get": {
+        "summary": "Read projects",
+        "operationId": "get_api_projects_id",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "summary": "Update projects revision",
+        "operationId": "patch_api_projects_id",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        ]
+      }
+    },
+    "/api/tasks": {
+      "get": {
+        "summary": "List tasks",
+        "operationId": "get_api_tasks",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create tasks",
+        "operationId": "post_api_tasks",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TaskCreate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tasks/{id}": {
+      "get": {
+        "summary": "Read tasks",
+        "operationId": "get_api_tasks_id",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "summary": "Update tasks revision",
+        "operationId": "patch_api_tasks_id",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        ]
+      }
+    },
+    "/api/agents": {
+      "get": {
+        "summary": "List agents",
+        "operationId": "get_api_agents",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create agents",
+        "operationId": "post_api_agents",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{id}": {
+      "get": {
+        "summary": "Read agents",
+        "operationId": "get_api_agents_id",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "summary": "Update agents revision",
+        "operationId": "patch_api_agents_id",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        ]
+      }
+    },
+    "/api/workflows": {
+      "get": {
+        "summary": "List workflows",
+        "operationId": "get_api_workflows",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create workflows",
+        "operationId": "post_api_workflows",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/workflows/{id}": {
+      "get": {
+        "summary": "Read workflows",
+        "operationId": "get_api_workflows_id",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "summary": "Update workflows revision",
+        "operationId": "patch_api_workflows_id",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        ]
+      }
+    },
+    "/api/skills": {
+      "get": {
+        "summary": "List skills",
+        "operationId": "get_api_skills",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create skills",
+        "operationId": "post_api_skills",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/mcp-servers": {
+      "get": {
+        "summary": "List mcp-servers",
+        "operationId": "get_api_mcp-servers",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create mcp-servers",
+        "operationId": "post_api_mcp-servers",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tasks/{id}/decompose": {
+      "post": {
+        "summary": "Request structured plan",
+        "operationId": "post_api_tasks_id_decompose",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "202": {
+            "description": "Draft accepted command",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandAccepted"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        ]
+      }
+    },
+    "/api/workflows/{id}/validate": {
+      "post": {
+        "summary": "Validate graph",
+        "operationId": "post_api_workflows_id_validate",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkflowGraph"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/workflows/{id}/versions": {
+      "post": {
+        "summary": "Publish immutable graph version",
+        "operationId": "post_api_workflows_id_versions",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkflowGraph"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/runs": {
+      "post": {
+        "summary": "Create immutable run",
+        "operationId": "post_api_runs",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "202": {
+            "description": "Draft accepted command",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandAccepted"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRun"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List runs",
+        "operationId": "get_api_runs",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      }
+    },
+    "/api/runs/{id}": {
+      "get": {
+        "summary": "Read run snapshot",
+        "operationId": "get_api_runs_id",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      }
+    },
+    "/api/runs/{id}/pause": {
+      "post": {
+        "summary": "Request pause",
+        "operationId": "post_api_runs_id_pause",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "202": {
+            "description": "Draft accepted command",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandAccepted"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        ]
+      }
+    },
+    "/api/runs/{id}/resume": {
+      "post": {
+        "summary": "Request resume",
+        "operationId": "post_api_runs_id_resume",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "202": {
+            "description": "Draft accepted command",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandAccepted"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        ]
+      }
+    },
+    "/api/runs/{id}/cancel": {
+      "post": {
+        "summary": "Request cancel",
+        "operationId": "post_api_runs_id_cancel",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "202": {
+            "description": "Draft accepted command",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandAccepted"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        ]
+      }
+    },
+    "/api/runs/{id}/nodes": {
+      "get": {
+        "summary": "Read nodes",
+        "operationId": "get_api_runs_id_nodes",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      }
+    },
+    "/api/runs/{id}/artifacts": {
+      "get": {
+        "summary": "Read artifacts",
+        "operationId": "get_api_runs_id_artifacts",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      }
+    },
+    "/api/runs/{id}/git-changes": {
+      "get": {
+        "summary": "Read git-changes",
+        "operationId": "get_api_runs_id_git-changes",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      }
+    },
+    "/api/runs/{id}/approvals": {
+      "get": {
+        "summary": "Read approvals",
+        "operationId": "get_api_runs_id_approvals",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      }
+    },
+    "/api/runs/{id}/events": {
+      "get": {
+        "summary": "Persisted SSE stream",
+        "operationId": "get_api_runs_id_events",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1",
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      }
+    },
+    "/api/approvals/{id}/decision": {
+      "post": {
+        "summary": "Decide exact snapshot",
+        "operationId": "post_api_approvals_id_decision",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "202": {
+            "description": "Draft accepted command",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandAccepted"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApprovalDecision"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/artifacts/{id}/content": {
+      "get": {
+        "summary": "Download authorized artifact",
+        "operationId": "get_api_artifacts_id_content",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      }
+    },
+    "/api/providers/health": {
+      "get": {
+        "summary": "Diagnostic or overview",
+        "operationId": "get_api_providers_health",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/metrics/overview": {
+      "get": {
+        "summary": "Diagnostic or overview",
+        "operationId": "get_api_metrics_overview",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/healthz": {
+      "get": {
+        "summary": "Diagnostic or overview",
+        "operationId": "get_healthz",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/readyz": {
+      "get": {
+        "summary": "Diagnostic or overview",
+        "operationId": "get_readyz",
+        "tags": [
+          "control"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/internal/workers/register": {
+      "post": {
+        "summary": "Register scoped worker",
+        "operationId": "post_internal_workers_register",
+        "tags": [
+          "worker"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "WorkerBearer": []
+          }
+        ]
+      }
+    },
+    "/internal/workers/{id}/heartbeat": {
+      "post": {
+        "summary": "Worker heartbeat",
+        "operationId": "post_internal_workers_id_heartbeat",
+        "tags": [
+          "worker"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "security": [
+          {
+            "WorkerBearer": []
+          }
+        ]
+      }
+    },
+    "/internal/executions/{id}/claim": {
+      "post": {
+        "summary": "Fenced execution claim",
+        "operationId": "post_internal_executions_id_claim",
+        "tags": [
+          "worker"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "security": [
+          {
+            "WorkerBearer": []
+          }
+        ]
+      }
+    },
+    "/internal/executions/{id}/heartbeat": {
+      "post": {
+        "summary": "Fenced execution heartbeat",
+        "operationId": "post_internal_executions_id_heartbeat",
+        "tags": [
+          "worker"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "security": [
+          {
+            "WorkerBearer": []
+          }
+        ]
+      }
+    },
+    "/internal/executions/{id}/events": {
+      "post": {
+        "summary": "Fenced execution events",
+        "operationId": "post_internal_executions_id_events",
+        "tags": [
+          "worker"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "security": [
+          {
+            "WorkerBearer": []
+          }
+        ]
+      }
+    },
+    "/internal/executions/{id}/artifacts": {
+      "post": {
+        "summary": "Fenced execution artifacts",
+        "operationId": "post_internal_executions_id_artifacts",
+        "tags": [
+          "worker"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "security": [
+          {
+            "WorkerBearer": []
+          }
+        ]
+      }
+    },
+    "/internal/executions/{id}/result": {
+      "post": {
+        "summary": "Fenced execution result",
+        "operationId": "post_internal_executions_id_result",
+        "tags": [
+          "worker"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "security": [
+          {
+            "WorkerBearer": []
+          }
+        ]
+      }
+    },
+    "/internal/executions/{id}/control": {
+      "get": {
+        "summary": "Read durable control state",
+        "operationId": "get_internal_executions_id_control",
+        "tags": [
+          "worker"
+        ],
+        "responses": {
+          "200": {
+            "description": "Draft response shape; resource schemas expanded in E1"
+          },
+          "default": {
+            "description": "Redacted error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "security": [
+          {
+            "WorkerBearer": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "AdminBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "WorkerBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "details": {
+            "type": "object"
+          },
+          "request_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "details",
+          "request_id"
+        ]
+      },
+      "CommandAccepted": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "command_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "const": "accepted"
+          }
+        },
+        "required": [
+          "command_id",
+          "status"
+        ]
+      },
+      "CreateRun": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workflow_version_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "plan_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "policy_version_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "task_id",
+          "workflow_version_id",
+          "plan_hash",
+          "policy_version_id"
+        ]
+      },
+      "ApprovalDecision": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "decision": {
+            "enum": [
+              "approve",
+              "reject"
+            ]
+          },
+          "snapshot_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "request_revision": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "decision",
+          "snapshot_hash",
+          "request_revision"
+        ]
+      },
+      "ProjectCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "repo_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "default_branch": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "policy_version_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "check_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          }
+        },
+        "required": [
+          "name",
+          "repo_path",
+          "default_branch",
+          "policy_version_id",
+          "check_ids"
+        ]
+      },
+      "TaskCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 32768
+          },
+          "acceptance_criteria": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          },
+          "depends_on_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        },
+        "required": [
+          "project_id",
+          "title",
+          "description",
+          "acceptance_criteria",
+          "depends_on_ids"
+        ]
+      },
+      "WorkflowGraph": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "nodes": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 100,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+                },
+                "type": {
+                  "enum": [
+                    "start",
+                    "planner",
+                    "agent_task",
+                    "condition",
+                    "parallel_fork",
+                    "parallel_join",
+                    "test",
+                    "review",
+                    "approval",
+                    "git_commit",
+                    "end"
+                  ]
+                },
+                "config": {
+                  "type": "object",
+                  "description": "Validated by a versioned node-specific registry; arbitrary code forbidden."
+                }
+              },
+              "required": [
+                "id",
+                "type",
+                "config"
+              ]
+            }
+          },
+          "edges": {
+            "type": "array",
+            "maxItems": 300,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 512
+                },
+                "target": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 512
+                },
+                "source_port": {
+                  "enum": [
+                    "out",
+                    "true",
+                    "false"
+                  ]
+                },
+                "target_port": {
+                  "const": "in"
+                }
+              },
+              "required": [
+                "source",
+                "target",
+                "source_port",
+                "target_port"
+              ]
+            }
+          }
+        },
+        "required": [
+          "schema_version",
+          "nodes",
+          "edges"
+        ],
+        "title": "ADF workflow DAG v1",
+        "description": "Shape validation only; semantic registry, cycle/reachability/paired-fork rules are mandatory on server."
+      },
+      "ExecutionRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "execution_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "task_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "node_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "lease_epoch": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "operation": {
+            "enum": [
+              "agent_task",
+              "test",
+              "review",
+              "git_commit",
+              "integrate"
+            ]
+          },
+          "project_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "agent_config_version": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "policy_version": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "root_base_sha": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "execution_base_sha": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "worktree_key": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]{1,128}$"
+          },
+          "task_prompt": {
+            "type": "string",
+            "maxLength": 32768
+          },
+          "allowed_tool_ids": {
+            "type": "array",
+            "maxItems": 100,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          },
+          "check_ids": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512
+            }
+          },
+          "env_allowlist": {
+            "type": "array",
+            "maxItems": 30,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z][A-Z0-9_]{0,63}$"
+            }
+          },
+          "timeout_sec": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1800
+          },
+          "max_steps": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+          },
+          "max_output_bytes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20971520
+          },
+          "max_disk_bytes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5368709120
+          }
+        },
+        "required": [
+          "schema_version",
+          "execution_id",
+          "run_id",
+          "task_id",
+          "node_run_id",
+          "lease_epoch",
+          "operation",
+          "project_id",
+          "agent_config_version",
+          "policy_version",
+          "root_base_sha",
+          "execution_base_sha",
+          "worktree_key",
+          "task_prompt",
+          "allowed_tool_ids",
+          "check_ids",
+          "env_allowlist",
+          "timeout_sec",
+          "max_steps",
+          "max_output_bytes",
+          "max_disk_bytes"
+        ],
+        "title": "ADF execution request v1"
+      },
+      "ExecutionEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "execution_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "lease_epoch": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "type": {
+            "enum": [
+              "started",
+              "output",
+              "tool_started",
+              "tool_finished",
+              "usage_reported",
+              "heartbeat",
+              "completed",
+              "failed",
+              "cancelled"
+            ]
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "trace_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "payload": {
+            "type": "object",
+            "maxProperties": 32
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "run_id",
+          "execution_id",
+          "lease_epoch",
+          "sequence",
+          "type",
+          "time",
+          "trace_id",
+          "payload"
+        ],
+        "title": "ADF normalized worker event v1",
+        "description": "Producer runtime also enforces byte limit and event-type payload registry. Domain run events have a separate server schema."
+      }
+    }
+  }
+}

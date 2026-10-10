@@ -1,0 +1,26 @@
+# Development documentation
+
+1. [Product and acceptance](product.md)
+2. [Decisions, assumptions and unresolved gates](decisions.md)
+3. [Architecture and ownership](architecture.md)
+4. [Agent workflow and approval](agent-workflow.md)
+5. [Reliability and recovery](reliability.md)
+6. [Data model](data-model.md)
+7. [API/events/contracts](contracts.md)
+8. [Security](security.md)
+9. [Observability](observability.md)
+10. [Frontend](frontend.md)
+11. [Local development and operations](local-development.md)
+12. [Testing](testing.md) and [backlog](backlog.md)
+13. [Repository lifecycle](repositories.md)
+14. [Technical sources](sources.md) and [delivery evidence](delivery-status.md)
+
+## Architecture decision records
+
+- [001: Four deployment units](adr/001-deployment-units.md)
+- [002: Durable scheduling and host execution](adr/002-durable-execution.md)
+- [003: Declarative workflows and approval](adr/003-workflows-and-approval.md)
+- [004: Local submodules](adr/004-local-submodules.md)
+- [005: Observability routing](adr/005-observability.md)
+
+Machine-readable draft contracts live in [packages/contracts](../packages/contracts/README.md); they are not an implemented network API.

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1",
+  "event_id": "00000000-0000-4000-8000-000000000003",
+  "run_id": "00000000-0000-4000-8000-000000000002",
+  "execution_id": "00000000-0000-4000-8000-000000000001",
+  "lease_epoch": 1,
+  "sequence": 1,
+  "type": "started",
+  "time": "2026-10-10T00:00:00Z",
+  "trace_id": null,
+  "payload": {
+    "provider": "mock"
+  }
+}

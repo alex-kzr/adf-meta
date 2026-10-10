@@ -1,0 +1,78 @@
+{
+  "schema_version": "1",
+  "nodes": [
+    {
+      "id": "n0",
+      "type": "start",
+      "config": {}
+    },
+    {
+      "id": "n1",
+      "type": "approval",
+      "config": {}
+    },
+    {
+      "id": "n2",
+      "type": "agent_task",
+      "config": {}
+    },
+    {
+      "id": "n3",
+      "type": "test",
+      "config": {}
+    },
+    {
+      "id": "n4",
+      "type": "review",
+      "config": {}
+    },
+    {
+      "id": "n5",
+      "type": "git_commit",
+      "config": {}
+    },
+    {
+      "id": "n6",
+      "type": "end",
+      "config": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "n0",
+      "target": "n1",
+      "source_port": "out",
+      "target_port": "in"
+    },
+    {
+      "source": "n1",
+      "target": "n2",
+      "source_port": "out",
+      "target_port": "in"
+    },
+    {
+      "source": "n2",
+      "target": "n3",
+      "source_port": "out",
+      "target_port": "in"
+    },
+    {
+      "source": "n3",
+      "target": "n4",
+      "source_port": "out",
+      "target_port": "in"
+    },
+    {
+      "source": "n4",
+      "target": "n5",
+      "source_port": "out",
+      "target_port": "in"
+    },
+    {
+      "source": "n5",
+      "target": "n6",
+      "source_port": "out",
+      "target_port": "in"
+    }
+  ]
+}

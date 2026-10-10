@@ -1,0 +1,23 @@
+{
+  "schema_version": "1",
+  "execution_id": "00000000-0000-4000-8000-000000000001",
+  "run_id": "00000000-0000-4000-8000-000000000002",
+  "task_id": "00000000-0000-4000-8000-000000000003",
+  "node_run_id": "00000000-0000-4000-8000-000000000004",
+  "lease_epoch": 1,
+  "operation": "agent_task",
+  "project_id": "00000000-0000-4000-8000-000000000005",
+  "agent_config_version": "00000000-0000-4000-8000-000000000006",
+  "policy_version": "00000000-0000-4000-8000-000000000007",
+  "root_base_sha": "0000000000000000000000000000000000000000",
+  "execution_base_sha": "0000000000000000000000000000000000000000",
+  "worktree_key": "mock-example",
+  "task_prompt": "Offline schema fixture only; no real repository or coding agent is used.",
+  "allowed_tool_ids": [],
+  "check_ids": [],
+  "env_allowlist": [],
+  "timeout_sec": 30,
+  "max_steps": 1,
+  "max_output_bytes": 4096,
+  "max_disk_bytes": 1048576
+}

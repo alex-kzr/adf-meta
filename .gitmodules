@@ -1,0 +1,12 @@
+[submodule "frontend"]
+	path = frontend
+	url = ./.bootstrap/remotes/adf-web.git
+[submodule "services/api"]
+	path = services/api
+	url = ./.bootstrap/remotes/adf-api.git
+[submodule "services/orchestrator"]
+	path = services/orchestrator
+	url = ./.bootstrap/remotes/adf-orchestrator.git
+[submodule "services/runtime-worker"]
+	path = services/runtime-worker
+	url = ./.bootstrap/remotes/adf-runtime-worker.git

@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1"
+    },
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "run_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "execution_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "lease_epoch": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "type": {
+      "enum": [
+        "started",
+        "output",
+        "tool_started",
+        "tool_finished",
+        "usage_reported",
+        "heartbeat",
+        "completed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "trace_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{32}$"
+    },
+    "payload": {
+      "type": "object",
+      "maxProperties": 32
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_id",
+    "run_id",
+    "execution_id",
+    "lease_epoch",
+    "sequence",
+    "type",
+    "time",
+    "trace_id",
+    "payload"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADF normalized worker event v1",
+  "description": "Producer runtime also enforces byte limit and event-type payload registry. Domain run events have a separate server schema."
+}
