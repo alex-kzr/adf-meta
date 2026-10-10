@@ -50,3 +50,21 @@ Module README publication links are locally committed and umbrella gitlinks upda
 ## One-time publication authorization
 
 The user explicitly authorized publishing this ADF snapshot to the five exact GitHub URLs after local preparation. The prior no-push restriction is overridden for this publication only. No force push, credential creation, permission change or default authorization for future pushes is permitted. Before pushing: verify tracked secrets/artifacts, exact origins/pins, current and legacy offline bootstrap, and remote branch state. Publish children first, then umbrella; check advertised SHA, fresh remote recursive clone and existing CI afterward.
+
+## Published snapshot and verified remote clone - October 10, 2026
+
+Under the user's explicit one-time authorization, ordinary pushes published four modules first and then the umbrella. No force push, remote repository creation, credential setup, permission change or unrelated application implementation occurred. All branches are main; advertised remote SHA matched local SHA after each push.
+
+| Repository | Published snapshot SHA |
+| --- | --- |
+| [adf-web](https://github.com/alex-kzr/adf-web) | `57df5e8e1fa8ec8719354fa834d92cb8309d5312` |
+| [adf-api](https://github.com/alex-kzr/adf-api) | `67f6b665136487a75fe6106fc623dc418c8c9d0e` |
+| [adf-orchestrator](https://github.com/alex-kzr/adf-orchestrator) | `3554522f956dc4173bfae8933de9f61bc0464413` |
+| [adf-runtime-worker](https://github.com/alex-kzr/adf-runtime-worker) | `f88564cde4ada2542a9cceab3f89909c959f1be8` |
+| [adf-meta](https://github.com/alex-kzr/adf-meta) | `8df53ff613321e2e409dd1e255f59fdcfb11f371` |
+
+A fresh **GitHub** recursive clone restored the exact four pinned module commits and a clean umbrella; static verification passed for 78 source files, relative Markdown links, Python/TOML/JSON, schema fixtures, OpenAPI refs, Git pins and heuristic secrets checks. This is separate from the earlier local recursive clone and offline bootstrap. Both current adf-meta and legacy adf exports restored successfully with file-only Git protocols before publication. All reachable published history was checked for suspicious secret patterns and generated/sensitive file paths (116 unique blobs across five repos); no matches were found. Such pattern scans are not an exhaustive security audit.
+
+GitHub REST API reported zero workflows, workflow runs, check runs and status contexts for every SHA in the table. **CI is not configured**; no green CI result is claimed. Foundation build/six scaffold tests passed earlier; no Docker daemon/live CLI/MVP acceptance claim is added by publication.
+
+This report is an additive documentation commit after the verified first-publication snapshot shown above. It is published to umbrella main without changing module pins; the final branch HEAD and clone/CI recheck are recorded in ignored `.bootstrap/publication-validation.json` and can be reproduced through the documented commands. Original working trees remain clean, and local bundles are regenerated for final HEAD. Publication authorization does not extend to future automatic pushes.
