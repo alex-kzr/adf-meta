@@ -1,84 +1,122 @@
 {
-  "type": "object",
+  "$defs": {
+    "Edge": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Id"
+        },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "source_port": {
+          "default": "out",
+          "enum": [
+            "out",
+            "true",
+            "false"
+          ],
+          "title": "Source Port",
+          "type": "string"
+        },
+        "target": {
+          "title": "Target",
+          "type": "string"
+        },
+        "target_port": {
+          "const": "in",
+          "default": "in",
+          "title": "Target Port",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "target"
+      ],
+      "title": "Edge",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "Node": {
+      "additionalProperties": false,
+      "properties": {
+        "config": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Config",
+          "type": "object"
+        },
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]{0,63}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/NodeType"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "title": "Node",
+      "type": "object"
+    },
+    "NodeType": {
+      "enum": [
+        "start",
+        "planner",
+        "agent_task",
+        "condition",
+        "parallel_fork",
+        "parallel_join",
+        "test",
+        "review",
+        "approval",
+        "git_commit",
+        "end"
+      ],
+      "title": "NodeType",
+      "type": "string"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
+  "description": "Exported orchestrator model shape; validate_graph additionally enforces node config, ports, acyclicity, reachability, paired forks and writing gates.",
   "properties": {
-    "schema_version": {
-      "const": "1"
+    "edges": {
+      "items": {
+        "$ref": "#/$defs/Edge"
+      },
+      "maxItems": 300,
+      "title": "Edges",
+      "type": "array"
     },
     "nodes": {
-      "type": "array",
-      "minItems": 2,
+      "items": {
+        "$ref": "#/$defs/Node"
+      },
       "maxItems": 100,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[a-z][a-z0-9_-]{0,63}$"
-          },
-          "type": {
-            "enum": [
-              "start",
-              "planner",
-              "agent_task",
-              "condition",
-              "parallel_fork",
-              "parallel_join",
-              "test",
-              "review",
-              "approval",
-              "git_commit",
-              "end"
-            ]
-          },
-          "config": {
-            "type": "object",
-            "description": "Validated by a versioned node-specific registry; arbitrary code forbidden."
-          }
-        },
-        "required": [
-          "id",
-          "type",
-          "config"
-        ]
-      }
+      "minItems": 2,
+      "title": "Nodes",
+      "type": "array"
     },
-    "edges": {
-      "type": "array",
-      "maxItems": 300,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "source": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 512
-          },
-          "target": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 512
-          },
-          "source_port": {
-            "enum": [
-              "out",
-              "true",
-              "false"
-            ]
-          },
-          "target_port": {
-            "const": "in"
-          }
-        },
-        "required": [
-          "source",
-          "target",
-          "source_port",
-          "target_port"
-        ]
-      }
+    "schema_version": {
+      "const": "1",
+      "title": "Schema Version",
+      "type": "string"
     }
   },
   "required": [
@@ -86,7 +124,6 @@
     "nodes",
     "edges"
   ],
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ADF workflow DAG v1",
-  "description": "Shape validation only; semantic registry, cycle/reachability/paired-fork rules are mandatory on server."
+  "type": "object"
 }

@@ -1,0 +1,127 @@
+{
+  "observed_at": "2026-10-10T18:47:30.399627+00:00",
+  "run_id": "9f8aef58-2981-4820-b707-87f2864ccce9",
+  "trace_id": "87264f23bbc1665de17f94bf1fbe2c3b",
+  "status": "completed",
+  "integration_status": "passed",
+  "root_base_sha": "73a85c667ab31e1b6e35c685cc9c33bcf1691101",
+  "default_main_unchanged": true,
+  "default_worktree_clean": true,
+  "developer_processes": 3,
+  "independent_reviewer_processes": 3,
+  "developer_overlap_seconds": 23.246,
+  "execution_operations": {
+    "repo_inspect": 1,
+    "agent_task": 3,
+    "review": 3,
+    "test": 3,
+    "git_commit": 3,
+    "integrate": 1
+  },
+  "all_execution_epochs": [
+    1
+  ],
+  "sse_replayed_events": 222,
+  "sse_unique_ordered": true,
+  "artifact_hashes_verified": 13,
+  "task_commit_shas": [
+    "ebf1b799285b13c331d5e92af1c4b065833ce1c0",
+    "7cc4e2e3edfa91251d1cb62e8218f4537d1386a6",
+    "699749ff7b027755f49303f5a8b8d11690f3d72d"
+  ],
+  "integration_commit_sha": "b0caa4feb9b2370b7b28c1de4406c8c08782f1ca",
+  "integration_tree_sha": "f2930ebe7bbff9baa948a733dc8e7789ccf4e60c",
+  "registered_integration_checks": [
+    {
+      "check_id": "unit",
+      "status": "passed",
+      "exit_code": 0,
+      "tree_sha": "f2930ebe7bbff9baa948a733dc8e7789ccf4e60c",
+      "error_code": null
+    }
+  ],
+  "usage": [
+    {
+      "operation": "agent_task",
+      "execution_id": "0e5d5134-15a7-585b-9202-71a6c83f2943",
+      "provider": "codex",
+      "usage": {
+        "source": "provider",
+        "input_tokens": 45314,
+        "output_tokens": 869,
+        "cost": null,
+        "provider_estimated_cost_usd": null
+      }
+    },
+    {
+      "operation": "agent_task",
+      "execution_id": "8ba8e860-bb74-5816-a645-a4bb897b6377",
+      "provider": "codex",
+      "usage": {
+        "source": "provider",
+        "input_tokens": 57351,
+        "output_tokens": 943,
+        "cost": null,
+        "provider_estimated_cost_usd": null
+      }
+    },
+    {
+      "operation": "agent_task",
+      "execution_id": "6fc2d313-917a-586f-9357-ae0268e3578c",
+      "provider": "codex",
+      "usage": {
+        "source": "provider",
+        "input_tokens": 57877,
+        "output_tokens": 1098,
+        "cost": null,
+        "provider_estimated_cost_usd": null
+      }
+    },
+    {
+      "operation": "review",
+      "execution_id": "c552eced-0499-5b8d-8b60-64ec0fdb2b8b",
+      "provider": "codex",
+      "usage": {
+        "source": "provider",
+        "input_tokens": 34412,
+        "output_tokens": 258,
+        "cost": null,
+        "provider_estimated_cost_usd": null
+      }
+    },
+    {
+      "operation": "review",
+      "execution_id": "fb73fe51-7d75-5af8-9015-61167a6642b0",
+      "provider": "codex",
+      "usage": {
+        "source": "provider",
+        "input_tokens": 34101,
+        "output_tokens": 207,
+        "cost": null,
+        "provider_estimated_cost_usd": null
+      }
+    },
+    {
+      "operation": "review",
+      "execution_id": "d9d2b237-e370-5c64-9bfa-ac7658e62e3f",
+      "provider": "codex",
+      "usage": {
+        "source": "provider",
+        "input_tokens": 33666,
+        "output_tokens": 221,
+        "cost": null,
+        "provider_estimated_cost_usd": null
+      }
+    }
+  ],
+  "resume_after_stale_image": true,
+  "repeated_developer_execution_count": 0,
+  "remaining_gates": [
+    "live Claude WSL authentication and execution",
+    "dedicated worker account and hostile-code isolation",
+    "external-host connectivity denial",
+    "live scoped skills/tools/MCP capability matrix",
+    "peak load memory measurement",
+    "full host-loss and uncertain supervisor recovery"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "existing_trace_verified": true,
+  "trace_id": "87264f23bbc1665de17f94bf1fbe2c3b",
+  "observations": 80,
+  "span_names": [
+    "agent.execution",
+    "cli.session",
+    "git.operation",
+    "test.run",
+    "tool.call",
+    "workflow.node",
+    "workflow.run"
+  ],
+  "trace_url": "http://localhost:3000/project/adf-local/traces/87264f23bbc1665de17f94bf1fbe2c3b"
+}

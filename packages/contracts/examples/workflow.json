@@ -9,7 +9,10 @@
     {
       "id": "n1",
       "type": "approval",
-      "config": {}
+      "config": {
+        "action": "execute_plan",
+        "expires_in_sec": 3600
+      }
     },
     {
       "id": "n2",
@@ -19,17 +22,25 @@
     {
       "id": "n3",
       "type": "test",
-      "config": {}
+      "config": {
+        "target_node": "n2"
+      }
     },
     {
       "id": "n4",
       "type": "review",
-      "config": {}
+      "config": {
+        "target_node": "n2"
+      }
     },
     {
       "id": "n5",
       "type": "git_commit",
-      "config": {}
+      "config": {
+        "target_node": "n2",
+        "test_node": "n3",
+        "review_node": "n4"
+      }
     },
     {
       "id": "n6",

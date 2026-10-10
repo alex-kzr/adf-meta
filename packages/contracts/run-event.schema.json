@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "API event_view response carried by SSE data and event-history. run_sequence is the SSE cursor; execution context may be null.",
+  "properties": {
+    "epoch": {
+      "minimum": 1,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "event_id": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "execution_id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "payload": {
+      "type": "object"
+    },
+    "run_id": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "run_sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "type": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_id",
+    "run_id",
+    "run_sequence",
+    "execution_id",
+    "epoch",
+    "sequence",
+    "type",
+    "time",
+    "payload"
+  ],
+  "title": "ADF persisted run event response v1",
+  "type": "object"
+}

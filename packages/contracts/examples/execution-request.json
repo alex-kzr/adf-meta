@@ -11,7 +11,7 @@
   "policy_version": "00000000-0000-4000-8000-000000000007",
   "root_base_sha": "0000000000000000000000000000000000000000",
   "execution_base_sha": "0000000000000000000000000000000000000000",
-  "worktree_key": "mock-example",
+  "worktree_key": "00000000-0000-4000-8000-000000000001",
   "task_prompt": "Offline schema fixture only; no real repository or coding agent is used.",
   "allowed_tool_ids": [],
   "check_ids": [],
@@ -19,5 +19,72 @@
   "timeout_sec": 30,
   "max_steps": 1,
   "max_output_bytes": 4096,
-  "max_disk_bytes": 1048576
+  "max_disk_bytes": 1048576,
+  "git_branch": "factory/task/00000000-0000-4000-8000-000000000003/00000000-0000-4000-8000-000000000001",
+  "expected_files": [
+    "src/example.py"
+  ],
+  "allowed_write_paths": [
+    "src/example.py"
+  ],
+  "trace_id": null,
+  "traceparent": null,
+  "deadline_at": "2026-10-10T00:00:30Z",
+  "predecessor_commits": [],
+  "project": {
+    "id": "00000000-0000-4000-8000-000000000005",
+    "name": "Offline schema fixture",
+    "repo_path": "/home/adf/ai-factory/projects/example/repo",
+    "allowed_root": "/home/adf/ai-factory",
+    "default_branch": "main",
+    "trusted": true,
+    "checks": [],
+    "check_registry": {},
+    "check_timeouts": {}
+  },
+  "agent": {
+    "id": "00000000-0000-4000-8000-000000000008",
+    "agent_id": "00000000-0000-4000-8000-000000000008",
+    "config_version_id": "00000000-0000-4000-8000-000000000006",
+    "name": "Offline mock developer",
+    "role": "Developer",
+    "provider": "mock",
+    "model": null,
+    "prompt": "",
+    "permission_profile": "trusted-development",
+    "cli_version": null,
+    "limits": {
+      "max_parallel_agents": 3,
+      "max_tasks_per_plan": 12,
+      "max_retries": 2,
+      "max_execution_minutes": 30,
+      "max_run_minutes": 180,
+      "max_steps": 100,
+      "max_output_bytes": 20971520,
+      "max_disk_bytes": 5368709120
+    },
+    "skill_ids": [],
+    "tool_ids": [],
+    "mcp_server_ids": [],
+    "allowed_tools": [],
+    "skills": [],
+    "tools": [],
+    "mcp_servers": []
+  },
+  "policy": {
+    "max_parallel_agents": 3,
+    "max_tasks_per_plan": 12,
+    "max_retries": 2,
+    "max_execution_minutes": 30,
+    "max_run_minutes": 180,
+    "max_steps": 100,
+    "max_output_bytes": 20971520,
+    "max_disk_bytes": 5368709120,
+    "allowed_write_paths": [
+      "src/**"
+    ],
+    "allow_commit": true,
+    "trusted_repository": true,
+    "approved": true
+  }
 }

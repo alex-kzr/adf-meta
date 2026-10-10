@@ -1,0 +1,21 @@
+{
+  "run_id": "871aa3d0-94ef-4c76-88d5-49478a1e73b3",
+  "active_execution_id": "0000b558-6b01-5f7c-bca4-16cfa1c48533",
+  "operation": "agent_task",
+  "active_state_before_cancel": "running",
+  "final_status": "cancelled",
+  "execution_status": "cancelled",
+  "epoch": 1,
+  "process_identity": {
+    "pgid": 1943077,
+    "pid": 1943077,
+    "session_id": 1943077,
+    "start_ticks": 4349683,
+    "state": "R"
+  },
+  "process_stopped": true,
+  "process_absence_verified": true,
+  "cancellation_seconds": 2.219,
+  "execution_count": 1,
+  "integration_commit_absent": true
+}

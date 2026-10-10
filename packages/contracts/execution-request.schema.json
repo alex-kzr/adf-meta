@@ -1,114 +1,842 @@
 {
-  "type": "object",
-  "additionalProperties": false,
+  "$defs": {
+    "AgentSnapshot": {
+      "additionalProperties": true,
+      "properties": {
+        "agent_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "allowed_tools": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cli_version": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cli Version"
+        },
+        "config_version_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "limits": {
+          "$ref": "#/$defs/Limits"
+        },
+        "mcp_server_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "title": "Mcp Server Ids",
+          "type": "array"
+        },
+        "mcp_servers": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model"
+        },
+        "name": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "permission_profile": {
+          "default": "observe",
+          "enum": [
+            "observe",
+            "trusted-development"
+          ],
+          "title": "Permission Profile",
+          "type": "string"
+        },
+        "prompt": {
+          "default": "",
+          "maxLength": 32768,
+          "title": "Prompt",
+          "type": "string"
+        },
+        "provider": {
+          "enum": [
+            "codex",
+            "claude",
+            "mock",
+            "none"
+          ]
+        },
+        "role": {
+          "enum": [
+            "Planner",
+            "Architect",
+            "Developer",
+            "Tester",
+            "Reviewer",
+            "Integrator",
+            "Observer"
+          ]
+        },
+        "skill_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 50,
+          "title": "Skill Ids",
+          "type": "array"
+        },
+        "skills": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "tool_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Tool Ids",
+          "type": "array"
+        },
+        "tools": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "role",
+        "provider",
+        "permission_profile",
+        "allowed_tools",
+        "tools",
+        "skills",
+        "mcp_servers"
+      ],
+      "title": "AgentInput",
+      "type": "object"
+    },
+    "Check": {
+      "additionalProperties": false,
+      "properties": {
+        "argv": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 40,
+          "minItems": 1,
+          "title": "Argv",
+          "type": "array"
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "timeout_sec": {
+          "default": 300,
+          "maximum": 1800,
+          "minimum": 1,
+          "title": "Timeout Sec",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "argv"
+      ],
+      "title": "Check",
+      "type": "object"
+    },
+    "Limits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_disk_bytes": {
+          "default": 5368709120,
+          "maximum": 5368709120,
+          "minimum": 1,
+          "title": "Max Disk Bytes",
+          "type": "integer"
+        },
+        "max_execution_minutes": {
+          "default": 30,
+          "maximum": 30,
+          "minimum": 1,
+          "title": "Max Execution Minutes",
+          "type": "integer"
+        },
+        "max_output_bytes": {
+          "default": 20971520,
+          "maximum": 20971520,
+          "minimum": 1,
+          "title": "Max Output Bytes",
+          "type": "integer"
+        },
+        "max_parallel_agents": {
+          "default": 3,
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Max Parallel Agents",
+          "type": "integer"
+        },
+        "max_retries": {
+          "default": 2,
+          "maximum": 2,
+          "minimum": 0,
+          "title": "Max Retries",
+          "type": "integer"
+        },
+        "max_run_minutes": {
+          "default": 180,
+          "maximum": 180,
+          "minimum": 1,
+          "title": "Max Run Minutes",
+          "type": "integer"
+        },
+        "max_steps": {
+          "default": 100,
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Max Steps",
+          "type": "integer"
+        },
+        "max_tasks_per_plan": {
+          "default": 12,
+          "maximum": 12,
+          "minimum": 1,
+          "title": "Max Tasks Per Plan",
+          "type": "integer"
+        }
+      },
+      "title": "Limits",
+      "type": "object"
+    },
+    "PolicySnapshot": {
+      "additionalProperties": true,
+      "properties": {
+        "allow_commit": {
+          "default": false,
+          "title": "Allow Commit",
+          "type": "boolean"
+        },
+        "allow_push": {
+          "default": false,
+          "title": "Allow Push",
+          "type": "boolean"
+        },
+        "allow_sudo": {
+          "default": false,
+          "title": "Allow Sudo",
+          "type": "boolean"
+        },
+        "allowed_write_paths": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Allowed Write Paths",
+          "type": "array"
+        },
+        "approved": {
+          "type": "boolean"
+        },
+        "max_disk_bytes": {
+          "default": 5368709120,
+          "maximum": 5368709120,
+          "minimum": 1,
+          "title": "Max Disk Bytes",
+          "type": "integer"
+        },
+        "max_execution_minutes": {
+          "default": 30,
+          "maximum": 30,
+          "minimum": 1,
+          "title": "Max Execution Minutes",
+          "type": "integer"
+        },
+        "max_output_bytes": {
+          "default": 20971520,
+          "maximum": 20971520,
+          "minimum": 1,
+          "title": "Max Output Bytes",
+          "type": "integer"
+        },
+        "max_parallel_agents": {
+          "default": 3,
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Max Parallel Agents",
+          "type": "integer"
+        },
+        "max_retries": {
+          "default": 2,
+          "maximum": 2,
+          "minimum": 0,
+          "title": "Max Retries",
+          "type": "integer"
+        },
+        "max_run_minutes": {
+          "default": 180,
+          "maximum": 180,
+          "minimum": 1,
+          "title": "Max Run Minutes",
+          "type": "integer"
+        },
+        "max_steps": {
+          "default": 100,
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Max Steps",
+          "type": "integer"
+        },
+        "max_tasks_per_plan": {
+          "default": 12,
+          "maximum": 12,
+          "minimum": 1,
+          "title": "Max Tasks Per Plan",
+          "type": "integer"
+        },
+        "provider_limits": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "propertyNames": {
+            "enum": [
+              "codex",
+              "claude",
+              "mock"
+            ]
+          },
+          "title": "Provider Limits",
+          "type": "object"
+        },
+        "provider_pin": {
+          "anyOf": [
+            {
+              "enum": [
+                "codex",
+                "claude",
+                "mock"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider Pin"
+        },
+        "trusted_repository": {
+          "default": false,
+          "title": "Trusted Repository",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "max_parallel_agents",
+        "max_tasks_per_plan",
+        "max_retries",
+        "max_execution_minutes",
+        "max_run_minutes",
+        "max_steps",
+        "max_output_bytes",
+        "max_disk_bytes",
+        "allowed_write_paths",
+        "allow_commit",
+        "trusted_repository",
+        "approved"
+      ],
+      "title": "PolicyManifest",
+      "type": "object"
+    },
+    "ProjectSnapshot": {
+      "additionalProperties": true,
+      "properties": {
+        "allowed_root": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Allowed Root",
+          "type": "string"
+        },
+        "check_registry": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "type": "object"
+        },
+        "check_timeouts": {
+          "additionalProperties": {
+            "maximum": 1800,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/Check"
+          },
+          "maxItems": 20,
+          "title": "Checks",
+          "type": "array"
+        },
+        "default_branch": {
+          "default": "main",
+          "pattern": "^[A-Za-z0-9_./-]{1,128}$",
+          "title": "Default Branch",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "repo_path": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "title": "Repo Path",
+          "type": "string"
+        },
+        "trusted": {
+          "default": false,
+          "title": "Trusted",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "repo_path",
+        "allowed_root",
+        "default_branch",
+        "trusted",
+        "checks",
+        "check_registry",
+        "check_timeouts"
+      ],
+      "title": "ProjectInput",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "enum": [
+              "agent_task",
+              "test",
+              "review",
+              "git_commit",
+              "integrate"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "execution_base_sha": {
+            "pattern": "^[0-9a-f]{40}$",
+            "type": "string"
+          },
+          "root_base_sha": {
+            "pattern": "^[0-9a-f]{40}$",
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "enum": [
+              "test",
+              "review",
+              "git_commit"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "target_execution_id": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "tree_sha": {
+            "pattern": "^[0-9a-f]{40}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "target_execution_id",
+          "tree_sha"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "integrate"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "integration_commits": {
+            "minItems": 1
+          }
+        },
+        "required": [
+          "integration_commits"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "enum": [
+              "agent_task",
+              "git_commit",
+              "integrate"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "policy": {
+            "properties": {
+              "approved": {
+                "const": true
+              },
+              "trusted_repository": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "description": "API-created immutable overlay fetched by claim; Redis carries only IDs. Extension fields remain possible because ExecutionRequest allows extras. This schema does not grant permissions.",
   "properties": {
-    "schema_version": {
-      "const": "1"
+    "agent": {
+      "$ref": "#/$defs/AgentSnapshot"
+    },
+    "agent_config_version": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "allowed_tool_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 100,
+      "type": "array"
+    },
+    "allowed_write_paths": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100,
+      "type": "array"
+    },
+    "check_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20,
+      "type": "array"
+    },
+    "deadline_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "env_allowlist": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20,
+      "type": "array"
+    },
+    "execution_base_sha": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{40}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "execution_id": {
-      "type": "string",
-      "format": "uuid"
+      "format": "uuid",
+      "type": "string"
     },
-    "run_id": {
-      "type": "string",
-      "format": "uuid"
+    "expected_files": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100,
+      "type": "array"
     },
-    "task_id": {
-      "type": "string",
-      "format": "uuid"
+    "git_branch": {
+      "pattern": "^factory/(task|integration)/",
+      "type": "string"
     },
-    "node_run_id": {
-      "type": "string",
-      "format": "uuid"
+    "integration_commits": {
+      "items": {
+        "pattern": "^[0-9a-f]{40}$",
+        "type": "string"
+      },
+      "maxItems": 100,
+      "type": "array",
+      "uniqueItems": true
     },
     "lease_epoch": {
-      "type": "integer",
-      "minimum": 1
+      "minimum": 1,
+      "type": "integer"
+    },
+    "manual_resolution": {
+      "type": "boolean"
+    },
+    "max_disk_bytes": {
+      "maximum": 5368709120,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_output_bytes": {
+      "maximum": 20971520,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_steps": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "node_run_id": {
+      "format": "uuid",
+      "type": "string"
     },
     "operation": {
       "enum": [
         "agent_task",
+        "planner",
+        "repo_inspect",
         "test",
         "review",
         "git_commit",
         "integrate"
       ]
     },
-    "project_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "agent_config_version": {
-      "type": "string",
-      "format": "uuid"
+    "policy": {
+      "$ref": "#/$defs/PolicySnapshot"
     },
     "policy_version": {
-      "type": "string",
-      "format": "uuid"
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "predecessor_commits": {
+      "items": {
+        "pattern": "^[0-9a-f]{40}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "project": {
+      "$ref": "#/$defs/ProjectSnapshot"
+    },
+    "project_id": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "repair_feedback": {
+      "type": "object"
+    },
+    "repair_source_execution_id": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "resolution_approval_id": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "resolution_approved": {
+      "type": "boolean"
+    },
+    "resolution_tree_sha": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{40}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "root_base_sha": {
-      "type": "string",
-      "pattern": "^[0-9a-f]{40}$"
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{40}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
-    "execution_base_sha": {
-      "type": "string",
-      "pattern": "^[0-9a-f]{40}$"
+    "run_id": {
+      "format": "uuid",
+      "type": "string"
     },
-    "worktree_key": {
-      "type": "string",
-      "pattern": "^[a-zA-Z0-9_-]{1,128}$"
+    "schema_version": {
+      "const": "1"
+    },
+    "target_execution_id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "task_id": {
+      "format": "uuid",
+      "type": "string"
     },
     "task_prompt": {
-      "type": "string",
-      "maxLength": 32768
-    },
-    "allowed_tool_ids": {
-      "type": "array",
-      "maxItems": 100,
-      "uniqueItems": true,
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 512
-      }
-    },
-    "check_ids": {
-      "type": "array",
-      "maxItems": 20,
-      "items": {
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 512
-      }
-    },
-    "env_allowlist": {
-      "type": "array",
-      "maxItems": 30,
-      "uniqueItems": true,
-      "items": {
-        "type": "string",
-        "pattern": "^[A-Z][A-Z0-9_]{0,63}$"
-      }
+      "anyOf": [
+        {
+          "maxLength": 32768,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Task Prompt"
     },
     "timeout_sec": {
-      "type": "integer",
+      "maximum": 1800,
       "minimum": 1,
-      "maximum": 1800
+      "type": "integer"
     },
-    "max_steps": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 1000
+    "trace_id": {
+      "pattern": "^[0-9a-f]{32}$",
+      "type": [
+        "string",
+        "null"
+      ]
     },
-    "max_output_bytes": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 20971520
+    "traceparent": {
+      "pattern": "^00-[0-9a-f]{32}-[0-9a-f]{16}-[0-9a-f]{2}$",
+      "type": [
+        "string",
+        "null"
+      ]
     },
-    "max_disk_bytes": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 5368709120
+    "tree_sha": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{40}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "worktree_key": {
+      "format": "uuid",
+      "type": "string"
     }
   },
   "required": [
@@ -117,23 +845,33 @@
     "run_id",
     "task_id",
     "node_run_id",
+    "project_id",
     "lease_epoch",
     "operation",
-    "project_id",
     "agent_config_version",
     "policy_version",
     "root_base_sha",
     "execution_base_sha",
     "worktree_key",
+    "git_branch",
     "task_prompt",
+    "expected_files",
+    "allowed_write_paths",
     "allowed_tool_ids",
     "check_ids",
     "env_allowlist",
     "timeout_sec",
     "max_steps",
     "max_output_bytes",
-    "max_disk_bytes"
+    "max_disk_bytes",
+    "trace_id",
+    "traceparent",
+    "deadline_at",
+    "project",
+    "agent",
+    "policy",
+    "predecessor_commits"
   ],
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "ADF execution request v1"
+  "title": "ADF private nonterminal claimed execution request v1",
+  "type": "object"
 }

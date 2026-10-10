@@ -12,7 +12,7 @@ Start with [current implementation status](implementation-status.md) and [implem
 8. [Security](security.md)
 9. [Observability](observability.md)
 10. [Frontend](frontend.md)
-11. [Local development and operations](local-development.md)
+11. [Local development and operations](local-development.md) and [backup/restore](operations-backup.md)
 12. [Testing](testing.md) and [backlog](backlog.md)
 13. [Repository lifecycle](repositories.md)
 14. [Technical sources](sources.md) and [delivery evidence](delivery-status.md)
@@ -25,4 +25,4 @@ Start with [current implementation status](implementation-status.md) and [implem
 - [004: Local submodules](adr/004-local-submodules.md)
 - [005: Observability routing](adr/005-observability.md)
 
-Machine-readable draft contracts live in [packages/contracts](../packages/contracts/README.md); they are not an implemented network API.
+Machine-readable contracts in [packages/contracts](../packages/contracts/README.md) are generated from the implemented API and checked against actual HTTP claims/events/results. Redacted live evidence: [three Codex agents](evidence/codex-three-agent-2026-10-10.json), [recovery and telemetry outage](evidence/codex-recovery-2026-10-10.json), [live CLI cancellation](evidence/codex-cancellation-2026-10-10.json), [Langfuse trace](evidence/langfuse-three-agent-2026-10-10.json), and [isolated backup restoration](evidence/isolated-backup-2026-10-10.json).

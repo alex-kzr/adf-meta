@@ -1,0 +1,28 @@
+{
+  "core_completion_during_langfuse_outage_verified": true,
+  "run_id": "0e109324-0d50-43a6-ac29-0ad6cf388b98",
+  "initial_status": "running",
+  "final_status": "completed",
+  "backend_outage_checks": 30,
+  "observation_seconds": 147.921,
+  "integration_status": "passed",
+  "integration_commit_sha": "3e2b5d00188e1eadb16540a255ae9351dd5a5dd5",
+  "operations": {
+    "agent_task": 1,
+    "test": 1,
+    "integrate": 1,
+    "git_commit": 1,
+    "review": 1
+  },
+  "execution_epochs": [
+    1
+  ],
+  "consumer_restart_observed": true,
+  "redis_stop_start_observed": true,
+  "repeated_execution_count": 0,
+  "default_main_unchanged": true,
+  "default_worktree_clean": true,
+  "limitations": [
+    "Only short Redis outage and consumer restart exercised; full host loss and uncertain supervisor reconciliation remain separate acceptance."
+  ]
+}

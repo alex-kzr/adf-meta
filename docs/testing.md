@@ -2,7 +2,7 @@
 
 ## Foundation checks delivered now
 
-`python scripts/verify.py` checks relative Markdown links across initialized submodules, JSON/OpenAPI internal refs/schema fixtures, Python AST and TOML parsing, Git gitlinks/config consistency, unchanged SPEC hash and suspicious tracked secrets/files. This is a static heuristic scan, not proof against every secret. Module tests verify only implemented scaffold behavior. Bundle export/restore validates exact commit pins in a fresh temporary checkout and no accidental network origin. Delivery evidence distinguishes successful checks from unavailable Docker/live CLI tests.
+`python scripts/verify.py` checks relative Markdown links across initialized submodules, JSON/OpenAPI internal refs/schema fixtures, Python AST and TOML parsing, Git gitlinks/config consistency, unchanged SPEC hash and suspicious tracked secrets/files. This is a static heuristic scan, not proof against every secret. Module tests cover the implemented API, durable scheduler, supervised host execution, Git and connected UI. Bundle export/restore validates exact commit pins in a fresh temporary checkout and no accidental network origin. Current redacted live Docker/Codex/recovery evidence is linked from [implementation status](implementation-status.md).
 
 ## MVP test pyramid
 
@@ -20,4 +20,4 @@ Use MockAdapter before subscriptions and no paid calls in ordinary CI. Live Code
 
 Fault injection targets every row in [reliability](reliability.md), including uncertain live CLI with expired lease. Assert no second writer, one authoritative commit/result and preserved diagnostics. Kill worker/orchestrator/Redis separately; restore DB and artifacts in an isolated install. Calibration measures event p95 and three actual overlapping executions, not concurrent queued states.
 
-Before release: all A1–A12/W1–W8 evidence, dependency/secret review, fresh recursive published clone or bundle restore, migration/backup restore, network trust verification and actual subscription capability gate. Scaffolds fail readiness intentionally. No coverage percentage replaces these invariants.
+Before release: all A1вЂ“A12/W1вЂ“W8 evidence, dependency/secret review, fresh recursive published clone or bundle restore, migration/backup restore, network trust verification and actual subscription capability gate. Readiness stays false while live Claude, least privilege, external-host denial and remaining recovery/security gates are unverified. No coverage percentage replaces these invariants.

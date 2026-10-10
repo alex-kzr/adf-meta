@@ -1,0 +1,89 @@
+{
+  "$defs": {
+    "WorkerEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "title": "Event Id",
+          "type": "string"
+        },
+        "payload": {
+          "additionalProperties": true,
+          "title": "Payload",
+          "type": "object"
+        },
+        "sequence": {
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "time": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Time"
+        },
+        "type": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "sequence",
+        "type"
+      ],
+      "title": "WorkerEvent",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "epoch": {
+      "minimum": 1,
+      "title": "Epoch",
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "$ref": "#/$defs/WorkerEvent"
+      },
+      "maxItems": 100,
+      "title": "Events",
+      "type": "array"
+    },
+    "process_identity": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Process Identity"
+    },
+    "worker_id": {
+      "title": "Worker Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "worker_id",
+    "epoch",
+    "events"
+  ],
+  "title": "ADF worker event batch ingestion v1",
+  "type": "object"
+}

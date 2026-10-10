@@ -1,0 +1,16 @@
+{
+  "snapshot_id": "20261010T185527Z-9e8590ed",
+  "isolated_restore_verified": true,
+  "database_inventory_matches": true,
+  "artifact_count": 13,
+  "source_services_changed": false,
+  "qa_resources_preserved": true,
+  "runtime_recovery_verified": false,
+  "git_project_count": 2,
+  "all_git_refs_verified": true,
+  "restore_container_network": "none",
+  "limitations": [
+    "Operator quiescence is required; no atomic cross-store maintenance fence.",
+    "Redis, Langfuse and worker journals are excluded from this application-data rehearsal."
+  ]
+}

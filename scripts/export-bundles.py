@@ -17,6 +17,8 @@ def main() -> None:
         if git(ROOT / path, "status", "--porcelain"):
             raise SystemExit(f"Refusing to export dirty repository: {path}")
         git(ROOT / path, "rev-parse", "HEAD")
+        if git(ROOT / path, "rev-parse", "--is-shallow-repository") == "true":
+            raise SystemExit(f"Refusing incomplete shallow history: {path}; fetch full history before exporting.")
     for path, _ in MODULES:
         pinned = git(ROOT, "ls-tree", "HEAD", path).split()[2]
         if pinned != git(ROOT / path, "rev-parse", "HEAD"):
