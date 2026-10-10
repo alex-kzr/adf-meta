@@ -158,6 +158,8 @@ class PrivateSnapshotTests(unittest.TestCase):
         self.private = self.root / ".bootstrap/runtime-snapshots"
         self.override = patch.multiple(snapshot, ROOT=self.root, PRIVATE=self.private)
         self.override.start()
+        snapshot.make_directory(self.root / ".bootstrap")
+        snapshot.make_directory(self.private)
         self.inventory: dict[str, Any] = {
             "projects": [
                 {"id": PID, "repo_path": "/home/alex/ai-factory/projects/example"}
@@ -342,6 +344,19 @@ class PrivateSnapshotTests(unittest.TestCase):
         partial = [path for path in self.private.iterdir() if path != self.path]
         self.assertEqual(len(partial), 1)
         self.assertFalse((partial[0] / "manifest.json").exists())
+
+    @unittest.skipUnless(os.name == "posix", "POSIX permission bits only")
+    def test_fixture_is_private_and_permissive_existing_directory_is_rejected(
+        self,
+    ) -> None:
+        for directory in (self.root / ".bootstrap", self.private):
+            self.assertEqual(directory.stat().st_mode & 0o077, 0)
+        self.private.chmod(0o750)
+        try:
+            with self.assertRaises(snapshot.SnapshotError):
+                snapshot.make_directory(self.private)
+        finally:
+            self.private.chmod(0o700)
 
     def test_consistent_private_manifest_verifies_without_runtime_commands(
         self,
