@@ -1,0 +1,944 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-10T21:03:33.753471+00:00",
+  "mode": "offline-test-double-not-API",
+  "status": "native_worker_capabilities_passed",
+  "mvp_ready": false,
+  "boundaries": {
+    "API_Redis_SSE_dispatch_exercised": false,
+    "deployed_worker_updated": false,
+    "production_services_changed": false,
+    "authentication_or_global_configuration_changed": false,
+    "provider_model_fallback": false,
+    "external_network_or_credentials_for_MCP": false,
+    "generic_MCP_scope_supported": false,
+    "builtin_scope": "Existing coarse worktree/observe profile; not a per-command whitelist.",
+    "artifact_ids": "Fsynced local Ledger SHA256 identifiers, not API UUIDs.",
+    "raw_provider_content_in_report": false
+  },
+  "pins": {
+    "codex": "0.157.0",
+    "node": "24.21.0",
+    "python": "3.12.9",
+    "official_schema_sha256": "17fbda7e71603aa6a83e986608f2e13c27ea46ce1a4b889196ba81a07c39d907",
+    "upstream_tag_tree_sha": "00c972ed5d6ff6499317fd41b7f23605b8e6850d",
+    "developer_model": null,
+    "approved_developer_version": {
+      "agent_id": "e1e2ecc8-0406-496e-a24e-2d10e389f19f",
+      "config_version_id": "f4f706a4-419b-4872-ad43-d9ab9a981a1f",
+      "config_sha256": "7f0c5a0ddf3c85f2df9e095c4f9a4262193d723e3729afac2c5488d23a7dd4f2"
+    },
+    "offline_identities": "Distinct local fixture agent/config UUIDs, not new API definitions."
+  },
+  "supported_contract": {
+    "mcp_contract": "adf.scoped-files.v1",
+    "transport": "trusted owned stdio only",
+    "server_name": "factoryfiles",
+    "enabled_tools": [
+      "read_marker"
+    ],
+    "typed_mapping": [
+      "mcp__factoryfiles__read_marker"
+    ],
+    "permission": "read",
+    "root": "$WORKTREE",
+    "read_paths": [
+      "marker.txt"
+    ],
+    "allowed_write_paths": [
+      "evidence.py"
+    ],
+    "forbidden_tool": "Canary excluded from enabled catalog; direct calls reject.",
+    "scope_security": "Descriptor-relative no-follow regular files, no hardlinks/symlinks/credential paths/inherited server environment; bounded bytes/deadlines.",
+    "native_skill_sha256": "ebff2612e7fab91e0bc3fa93128ea70af2bfee6dda64ab0d8888e2fcfae2e968",
+    "synthetic_skill_stamp_sha256": "3cff169d6893e6aab6918163891f0fc6726684e5b7a544bcfe2eaf31ec445ca4",
+    "synthetic_MCP_marker_sha256": "75a717cce77209d0845e309cb8b2f15f3ece5473dceb4094e015123e2ee40eec",
+    "unapproved_skill_discovery": "Disabled by exact selectors; symlink roots fail closed.",
+    "code_mode_host": true,
+    "daemon_auto_start": false
+  },
+  "automated_validation": {
+    "pytest": {
+      "passed": 116,
+      "duration_sec": 20.59,
+      "platform": "WSL Linux ext4 temporary test repositories"
+    },
+    "ruff": "passed",
+    "strict_mypy": {
+      "passed": true,
+      "source_files": 17
+    },
+    "bandit": {
+      "medium_high_findings": 0
+    },
+    "diff_check": "passed",
+    "independent_review": "No remaining P1/P2 in frozen capability/lifecycle scope.",
+    "security_regressions": [
+      "Skill hash/path/root-symlink denial",
+      "MCP hardlink-outside canary denial",
+      "Isolated -I launcher excludes hostile cwd modules/sitecustomize",
+      "Exact file, credential, symlink, outside-root, forbidden-tool, environment and timeout denial",
+      "Pinned schema and enabled MCP catalog fixture",
+      "Disabled tool-host argv RED then GREEN",
+      "Real separate-PGID same-SID TERM-ignoring host cleanup",
+      "Bounded normal EOF shutdown grace",
+      "Missing/recycled/unknown /proc identity denies signal and stopped proof",
+      "Post-pidfd-open identity race refuses signal",
+      "Verified fixed ABI without stdlib bindings; unsupported ABI/kernel errno fail closed",
+      "Unverifiable cancellation cleanup remains uncertain",
+      "Retained provider/terminal identities survive finished Git",
+      "Bounded journal session quota"
+    ],
+    "API_contract_suite_separate": {
+      "passed": 151,
+      "scope": "API-owner HTTP/fault/PostgreSQL suite; not native dispatch evidence."
+    }
+  },
+  "source_freeze": {
+    "base_commit": "5ebf357d1f32dac7007f3d7260d1765917f0d700",
+    "pending_local_increment_at_recording": true,
+    "files_sha256": {
+      "docs/development.md": "05d01632981d4c0f494b9ecde8aa51c118b8dca6dffbb701229ec6a8ec03cf5f",
+      "src/adf_runtime_worker/adapters.py": "1f5da8dd12bc03752f7205ac19b646a4105743aa798533dc320629d267f47999",
+      "src/adf_runtime_worker/executor.py": "fa481b28336f64e67f95d632d3245f26acd3d6422270c8a1330f5dcaa20de598",
+      "src/adf_runtime_worker/git_workspace.py": "0e3b2cf1c78b3b866dd8c04916b6e1231634e125499c38da7918e1ad0c148f42",
+      "src/adf_runtime_worker/journal.py": "48f0602bd3751142a2452abc1e007e47ade0f5f0dff97a7848df706f8b6b1394",
+      "src/adf_runtime_worker/process.py": "17be7c0ebdb6d981cf8dc09c661b833cfe8eb43a0648793e86bc6ea32258a403",
+      "src/adf_runtime_worker/supervisor.py": "6493214d98ffae0489a09bb48047308050947a2a6d9d6dc1aea19c1ef8e8342c",
+      "src/adf_runtime_worker/pidfd.py": "ecbc7363caf297ff7b1adf8364af29c9e2f8065fc776093038b333f4fcef90d2",
+      "tests/fixtures/codex-0.157.0-scoped-schema.json": "13c3ef2e189640dda663c51995c7a457ebe207fa98e3be2718a1fc60d77ec73f",
+      "tests/test_client_supervisor.py": "24c774b4e3f23bcdb0afca014292a8ba7165c710188029aa243d4998df846d83",
+      "tests/test_process.py": "f7974be616d397efac54f00117ef32696755774b69f2d62dff488cb256969201",
+      "tests/test_scoped_capabilities.py": "4be88c15b4cfc020af7f2323095630957c4cdedaac5fa62302a453875f5ca3c1",
+      "tests/test_session_lifecycle.py": "6386eb8e33dada888764e3629f05748f8bc2c7aea117745222c666018f15cca8",
+      "tests/test_service_recovery.py": "34700ef646072d71ac1c41b45741d3b930268bbf4728e4d9e73f2fbb1197312c"
+    }
+  },
+  "trial_history": [
+    {
+      "trial": 1,
+      "fixture_name": "adf-capabilities-offline-20261010",
+      "mode": "offline-test-double-not-API",
+      "run_id": "7816e7aa-cdb3-49ad-8178-1003f0f57e65",
+      "outcome": "provider_exit_1",
+      "explanation": "Initial unavailable harness model; unchanged model selection diagnosed in trial 2.",
+      "facts": {
+        "root_base_sha": "85c59830ac38ce7fc1176843444ea9ac60bb5b40",
+        "main_unchanged": true,
+        "default_checkout_clean": true,
+        "no_remotes": true,
+        "skill_hash": "ebff2612e7fab91e0bc3fa93128ea70af2bfee6dda64ab0d8888e2fcfae2e968",
+        "prompt_marker_absent": true
+      },
+      "operations": [
+        {
+          "execution_id": "0548391a-6074-4b3d-af72-7edbe92ed02c",
+          "operation": "agent_task",
+          "status": "failed",
+          "error_code": null,
+          "epoch": 1,
+          "process_stopped": true,
+          "owned_sessions_stopped_verified": true,
+          "retained_session_count": 0,
+          "dead_proof": {
+            "pid": 2168605,
+            "start_ticks": 4779306,
+            "pgid": 2168605,
+            "session_id": 2168605,
+            "child_group_stopped": true,
+            "worktree_lock_reacquired": true
+          },
+          "mcp_audit": [],
+          "native_skill_metadata": [
+            {
+              "provider": "codex",
+              "name": "adf-approved-marker",
+              "sha256": "ebff2612e7fab91e0bc3fa93128ea70af2bfee6dda64ab0d8888e2fcfae2e968",
+              "native": true
+            }
+          ],
+          "artifacts": [],
+          "base_sha": "85c59830ac38ce7fc1176843444ea9ac60bb5b40",
+          "root_base_sha": "85c59830ac38ce7fc1176843444ea9ac60bb5b40",
+          "provider_process_identity": {
+            "pid": 2168751,
+            "start_ticks": 4779411,
+            "pgid": 2168751,
+            "session_id": 2168751
+          },
+          "usage": {
+            "source": "unknown",
+            "input_tokens": null,
+            "output_tokens": null,
+            "cost": null,
+            "provider_estimated_cost_usd": null
+          }
+        }
+      ],
+      "bundled_hosts": [],
+      "diagnostic_codes": [],
+      "fresh_fixture": true,
+      "old_snapshot_reexecuted": false
+    },
+    {
+      "trial": 2,
+      "fixture_name": "adf-capabilities-offline-diag-20261010",
+      "mode": "offline-test-double-not-API",
+      "run_id": "1f7e0e96-69cb-49b4-81ed-45b0bd39852c",
+      "outcome": "provider_model_unavailable",
+      "explanation": "Fixed-code bounded diagnostic; no model fallback.",
+      "facts": {
+        "root_base_sha": "150f4158d278e3a15ecd1afa4ea2e79f4779a89d",
+        "main_unchanged": true,
+        "default_checkout_clean": true,
+        "no_remotes": true,
+        "skill_hash": "ebff2612e7fab91e0bc3fa93128ea70af2bfee6dda64ab0d8888e2fcfae2e968",
+        "prompt_marker_absent": true
+      },
+      "operations": [
+        {
+          "execution_id": "91dd8c61-2639-4835-9044-727fa497294c",
+          "operation": "agent_task",
+          "status": "failed",
+          "error_code": null,
+          "epoch": 1,
+          "process_stopped": true,
+          "owned_sessions_stopped_verified": true,
+          "retained_session_count": 0,
+          "dead_proof": {
+            "pid": 2180010,
+            "start_ticks": 4806317,
+            "pgid": 2180010,
+            "session_id": 2180010,
+            "child_group_stopped": true,
+            "worktree_lock_reacquired": true
+          },
+          "mcp_audit": [],
+          "native_skill_metadata": [
+            {
+              "provider": "codex",
+              "name": "adf-approved-marker",
+              "sha256": "ebff2612e7fab91e0bc3fa93128ea70af2bfee6dda64ab0d8888e2fcfae2e968",
+              "native": true
+            }
+          ],
+          "artifacts": [],
+          "base_sha": "150f4158d278e3a15ecd1afa4ea2e79f4779a89d",
+          "root_base_sha": "150f4158d278e3a15ecd1afa4ea2e79f4779a89d",
+          "provider_process_identity": {
+            "pid": 2180156,
+            "start_ticks": 4806404,
+            "pgid": 2180156,
+            "session_id": 2180156
+          },
+          "usage": {
+            "source": "unknown",
+            "input_tokens": null,
+            "output_tokens": null,
+            "cost": null,
+            "provider_estimated_cost_usd": null
+          }
+        }
+      ],
+      "bundled_hosts": [],
+      "diagnostic_codes": [
+        {
+          "event_type": "item.error",
+          "code": "PROVIDER_MODEL_UNAVAILABLE",
+          "message_length": 119
+        },
+        {
+          "event_type": "error",
+          "code": "PROVIDER_MODEL_UNAVAILABLE",
+          "message_length": 161
+        },
+        {
+          "event_type": "turn.failed",
+          "code": "PROVIDER_MODEL_UNAVAILABLE",
+          "message_length": 161
+        }
+      ],
+      "fresh_fixture": true,
+      "old_snapshot_reexecuted": false
+    },
+    {
+      "trial": 3,
+      "fixture_name": "adf-capabilities-offline-verified-20261010",
+      "mode": "offline-test-double-not-API",
+      "run_id": "172af1bb-17d8-452d-ba07-7fa12becf339",
+      "outcome": "tool_host_disabled_check_failed",
+      "explanation": "Approved model null restored; disabled tool host prevented changes and registered check failed.",
+      "facts": {
+        "root_base_sha": "bc55a00ece923cbb49f4e2cc841a60c4a10c91ac",
+        "main_unchanged": true,
+        "default_checkout_clean": true,
+        "no_remotes": true,
+        "skill_hash": "ebff2612e7fab91e0bc3fa93128ea70af2bfee6dda64ab0d8888e2fcfae2e968",
+        "prompt_marker_absent": true
+      },
+      "operations": [
+        {
+          "execution_id": "e0799e9a-9c57-4050-9c40-61548afcd98a",
+          "operation": "agent_task",
+          "status": "succeeded",
+          "error_code": null,
+          "epoch": 1,
+          "process_stopped": true,
+          "owned_sessions_stopped_verified": true,
+          "retained_session_count": 0,
+          "dead_proof": {
+            "pid": 2184198,
+            "start_ticks": 4816013,
+            "pgid": 2184198,
+            "session_id": 2184198,
+            "child_group_stopped": true,
+            "worktree_lock_reacquired": true
+          },
+          "mcp_audit": [],
+          "native_skill_metadata": [
+            {
+              "provider": "codex",
+              "name": "adf-approved-marker",
+              "sha256": "ebff2612e7fab91e0bc3fa93128ea70af2bfee6dda64ab0d8888e2fcfae2e968",
+              "native": true
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "change_diff",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "id": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "id_semantics": "local_SHA256_not_API_UUID",
+              "checksum_verified": true
+            }
+          ],
+          "tree_sha": "8cac69992c36fa0f0240fdec971bae2a8dd9796a",
+          "changed_paths": [],
+          "base_sha": "bc55a00ece923cbb49f4e2cc841a60c4a10c91ac",
+          "root_base_sha": "bc55a00ece923cbb49f4e2cc841a60c4a10c91ac",
+          "provider_process_identity": {
+            "pid": 2184380,
+            "start_ticks": 4816123,
+            "pgid": 2184380,
+            "session_id": 2184380
+          },
+          "usage": {
+            "source": "provider",
+            "input_tokens": 23072,
+            "output_tokens": 182,
+            "cost": null,
+            "provider_estimated_cost_usd": null
+          }
+        },
+        {
+          "execution_id": "ea1b6435-5b36-4c8d-a9e1-e92b76dad7cd",
+          "operation": "test",
+          "status": "failed",
+          "error_code": null,
+          "epoch": 1,
+          "process_stopped": true,
+          "owned_sessions_stopped_verified": true,
+          "retained_session_count": 0,
+          "dead_proof": {
+            "pid": 2184198,
+            "start_ticks": 4816013,
+            "pgid": 2184198,
+            "session_id": 2184198,
+            "child_group_stopped": true,
+            "worktree_lock_reacquired": true
+          },
+          "mcp_audit": [],
+          "native_skill_metadata": [],
+          "artifacts": [
+            {
+              "kind": "test_results",
+              "sha256": "dfcf9a1fd5edea994ba12547c57ce9132548f0def2f56510b4dfc02f8d1e3821",
+              "id": "dfcf9a1fd5edea994ba12547c57ce9132548f0def2f56510b4dfc02f8d1e3821",
+              "id_semantics": "local_SHA256_not_API_UUID",
+              "checksum_verified": true
+            }
+          ],
+          "tree_sha": "8cac69992c36fa0f0240fdec971bae2a8dd9796a",
+          "changed_paths": [],
+          "base_sha": "bc55a00ece923cbb49f4e2cc841a60c4a10c91ac",
+          "root_base_sha": "bc55a00ece923cbb49f4e2cc841a60c4a10c91ac",
+          "test_results": [
+            {
+              "check_id": "capability",
+              "status": "failed",
+              "exit_code": 1,
+              "tree_sha": "8cac69992c36fa0f0240fdec971bae2a8dd9796a",
+              "error_code": null
+            }
+          ]
+        }
+      ],
+      "bundled_hosts": [],
+      "diagnostic_codes": [
+        {
+          "event_type": "item.error",
+          "code": "UNCLASSIFIED_PROVIDER_ERROR",
+          "message_length": 157
+        }
+      ],
+      "fresh_fixture": true,
+      "old_snapshot_reexecuted": false
+    },
+    {
+      "trial": 4,
+      "fixture_name": "adf-capabilities-offline-positive-20261010",
+      "mode": "offline-test-double-not-API",
+      "run_id": "0cf74d29-e018-4c04-9efc-46016fcee7d6",
+      "outcome": "review_rejected_context_incomplete",
+      "explanation": "Native skill/MCP/check passed; review rejected incomplete offline task/check context; no commit/integration launched.",
+      "facts": {
+        "root_base_sha": "a1b59e88da4d7abf22b34ff29586298f9c2b2148",
+        "main_unchanged": true,
+        "default_checkout_clean": true,
+        "no_remotes": true,
+        "skill_hash": "ebff2612e7fab91e0bc3fa93128ea70af2bfee6dda64ab0d8888e2fcfae2e968",
+        "prompt_marker_absent": true,
+        "native_stamp_hash_match": true,
+        "mcp_marker_hash_match": true,
+        "no_materialized_skill_residue": true,
+        "all_owned_sessions_stopped": true,
+        "all_child_groups_stopped": true
+      },
+      "operations": [
+        {
+          "execution_id": "ce1ef3c7-0d52-4f25-a3b7-f5240f78a57c",
+          "operation": "agent_task",
+          "status": "succeeded",
+          "error_code": null,
+          "epoch": 1,
+          "process_stopped": true,
+          "owned_sessions_stopped_verified": true,
+          "retained_session_count": 31,
+          "dead_proof": {
+            "pid": 2283711,
+            "start_ticks": 4996716,
+            "pgid": 2283711,
+            "session_id": 2283711,
+            "child_group_stopped": true,
+            "worktree_lock_reacquired": true
+          },
+          "mcp_audit": [
+            {
+              "event_type": "tool_started",
+              "server_id": "factoryfiles",
+              "tool_name": "read_marker",
+              "status": "in_progress"
+            },
+            {
+              "event_type": "tool_finished",
+              "server_id": "factoryfiles",
+              "tool_name": "read_marker",
+              "status": "completed"
+            }
+          ],
+          "native_skill_metadata": [
+            {
+              "provider": "codex",
+              "name": "adf-approved-marker",
+              "sha256": "ebff2612e7fab91e0bc3fa93128ea70af2bfee6dda64ab0d8888e2fcfae2e968",
+              "native": true
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "change_diff",
+              "sha256": "cf9e4e462623578125cee62f05db202752c8f6f81adc748941ba1d9613e4f162",
+              "id": "cf9e4e462623578125cee62f05db202752c8f6f81adc748941ba1d9613e4f162",
+              "id_semantics": "local_SHA256_not_API_UUID",
+              "checksum_verified": true
+            }
+          ],
+          "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+          "changed_paths": [
+            "evidence.py"
+          ],
+          "base_sha": "a1b59e88da4d7abf22b34ff29586298f9c2b2148",
+          "root_base_sha": "a1b59e88da4d7abf22b34ff29586298f9c2b2148",
+          "provider_process_identity": {
+            "pid": 2283870,
+            "start_ticks": 4996834,
+            "pgid": 2283870,
+            "session_id": 2283870
+          },
+          "usage": {
+            "source": "provider",
+            "input_tokens": 47295,
+            "output_tokens": 358,
+            "cost": null,
+            "provider_estimated_cost_usd": null
+          }
+        },
+        {
+          "execution_id": "f1b301ee-0307-4cae-a225-2daeb388d5fe",
+          "operation": "test",
+          "status": "succeeded",
+          "error_code": null,
+          "epoch": 1,
+          "process_stopped": true,
+          "owned_sessions_stopped_verified": true,
+          "retained_session_count": 20,
+          "dead_proof": {
+            "pid": 2283711,
+            "start_ticks": 4996716,
+            "pgid": 2283711,
+            "session_id": 2283711,
+            "child_group_stopped": true,
+            "worktree_lock_reacquired": true
+          },
+          "mcp_audit": [],
+          "native_skill_metadata": [],
+          "artifacts": [
+            {
+              "kind": "test_results",
+              "sha256": "57913e1bed057247162a4b81ed1b41ceca6bda2e2ed8974627e96420bc1c6758",
+              "id": "57913e1bed057247162a4b81ed1b41ceca6bda2e2ed8974627e96420bc1c6758",
+              "id_semantics": "local_SHA256_not_API_UUID",
+              "checksum_verified": true
+            }
+          ],
+          "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+          "changed_paths": [
+            "evidence.py"
+          ],
+          "base_sha": "a1b59e88da4d7abf22b34ff29586298f9c2b2148",
+          "root_base_sha": "a1b59e88da4d7abf22b34ff29586298f9c2b2148",
+          "test_results": [
+            {
+              "check_id": "capability",
+              "status": "passed",
+              "exit_code": 0,
+              "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+              "error_code": null
+            }
+          ]
+        },
+        {
+          "execution_id": "a0a4a122-cd63-4eec-ab0f-3090488382fe",
+          "operation": "review",
+          "status": "failed",
+          "error_code": "REVIEW_REJECTED",
+          "epoch": 1,
+          "process_stopped": true,
+          "owned_sessions_stopped_verified": true,
+          "retained_session_count": 23,
+          "dead_proof": {
+            "pid": 2283711,
+            "start_ticks": 4996716,
+            "pgid": 2283711,
+            "session_id": 2283711,
+            "child_group_stopped": true,
+            "worktree_lock_reacquired": true
+          },
+          "mcp_audit": [],
+          "native_skill_metadata": [],
+          "artifacts": [
+            {
+              "kind": "review_result",
+              "sha256": "35b558b65575c5b536b85d1cc8df2bb6b4abde3a020ef21760931b3c82c1a61e",
+              "id": "35b558b65575c5b536b85d1cc8df2bb6b4abde3a020ef21760931b3c82c1a61e",
+              "id_semantics": "local_SHA256_not_API_UUID",
+              "checksum_verified": true
+            }
+          ],
+          "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+          "changed_paths": [
+            "evidence.py"
+          ],
+          "base_sha": "a1b59e88da4d7abf22b34ff29586298f9c2b2148",
+          "root_base_sha": "a1b59e88da4d7abf22b34ff29586298f9c2b2148",
+          "provider_process_identity": {
+            "pid": 2284403,
+            "start_ticks": 4998544,
+            "pgid": 2284403,
+            "session_id": 2284403
+          },
+          "usage": {
+            "source": "provider",
+            "input_tokens": 41418,
+            "output_tokens": 406,
+            "cost": null,
+            "provider_estimated_cost_usd": null
+          },
+          "review": {
+            "approved": false,
+            "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+            "reviewer_id": "6056bbf1-72b2-4877-8629-845ef162bb4c",
+            "developer_id": "86a4cfdc-e6ad-4561-b4ac-f36c3091a6c4",
+            "reviewer_config_version_id": "c9effac0-868c-47e0-ad67-09b067b1b3f7",
+            "developer_config_version_id": "54627aa7-7d83-4b0e-a23f-d6dbb140c298"
+          }
+        }
+      ],
+      "bundled_hosts": [
+        {
+          "execution_id": "ce1ef3c7-0d52-4f25-a3b7-f5240f78a57c",
+          "pid": 2284041,
+          "start_ticks": 4997393,
+          "pgid": 2284041,
+          "session_id": 2283870,
+          "cli_pid": 2283870,
+          "same_cli_group": false,
+          "same_cli_session": true,
+          "identity_alive_at_verification": false
+        },
+        {
+          "execution_id": "a0a4a122-cd63-4eec-ab0f-3090488382fe",
+          "pid": 2284548,
+          "start_ticks": 4999049,
+          "pgid": 2284548,
+          "session_id": 2284403,
+          "cli_pid": 2284403,
+          "same_cli_group": false,
+          "same_cli_session": true,
+          "identity_alive_at_verification": false
+        }
+      ],
+      "diagnostic_codes": [
+        {
+          "event_type": "item.error",
+          "code": "UNCLASSIFIED_PROVIDER_ERROR",
+          "message_length": 242
+        }
+      ],
+      "fresh_fixture": true,
+      "old_snapshot_reexecuted": false
+    },
+    {
+      "trial": 5,
+      "fixture_name": "adf-capabilities-offline-complete-20261010",
+      "mode": "offline-test-double-not-API",
+      "run_id": "3bec17ad-f06b-4360-819a-c6da2f97d423",
+      "outcome": "all_five_operations_passed",
+      "explanation": "Fresh complete immutable review context and same approved read-only skill/MCP catalog; policy unchanged.",
+      "facts": {
+        "root_base_sha": "fc12405fd3447a5569a129dce23fdb29385f97cc",
+        "main_unchanged": true,
+        "default_checkout_clean": true,
+        "no_remotes": true,
+        "skill_hash": "ebff2612e7fab91e0bc3fa93128ea70af2bfee6dda64ab0d8888e2fcfae2e968",
+        "prompt_marker_absent": true,
+        "native_stamp_hash_match": true,
+        "mcp_marker_hash_match": true,
+        "no_materialized_skill_residue": true,
+        "all_owned_sessions_stopped": true,
+        "all_child_groups_stopped": true
+      },
+      "operations": [
+        {
+          "execution_id": "ad290afd-cc92-42e7-8e9f-10d91b0dcea2",
+          "operation": "agent_task",
+          "status": "succeeded",
+          "error_code": null,
+          "epoch": 1,
+          "process_stopped": true,
+          "owned_sessions_stopped_verified": true,
+          "retained_session_count": 31,
+          "dead_proof": {
+            "pid": 2296111,
+            "start_ticks": 5023852,
+            "pgid": 2296111,
+            "session_id": 2296111,
+            "child_group_stopped": true,
+            "worktree_lock_reacquired": true
+          },
+          "mcp_audit": [
+            {
+              "event_type": "tool_started",
+              "server_id": "factoryfiles",
+              "tool_name": "read_marker",
+              "status": "in_progress"
+            },
+            {
+              "event_type": "tool_finished",
+              "server_id": "factoryfiles",
+              "tool_name": "read_marker",
+              "status": "completed"
+            }
+          ],
+          "native_skill_metadata": [
+            {
+              "provider": "codex",
+              "name": "adf-approved-marker",
+              "sha256": "ebff2612e7fab91e0bc3fa93128ea70af2bfee6dda64ab0d8888e2fcfae2e968",
+              "native": true
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "change_diff",
+              "sha256": "cf9e4e462623578125cee62f05db202752c8f6f81adc748941ba1d9613e4f162",
+              "id": "cf9e4e462623578125cee62f05db202752c8f6f81adc748941ba1d9613e4f162",
+              "id_semantics": "local_SHA256_not_API_UUID",
+              "checksum_verified": true
+            }
+          ],
+          "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+          "changed_paths": [
+            "evidence.py"
+          ],
+          "base_sha": "fc12405fd3447a5569a129dce23fdb29385f97cc",
+          "root_base_sha": "fc12405fd3447a5569a129dce23fdb29385f97cc",
+          "provider_process_identity": {
+            "pid": 2296270,
+            "start_ticks": 5023972,
+            "pgid": 2296270,
+            "session_id": 2296270
+          },
+          "usage": {
+            "source": "provider",
+            "input_tokens": 47215,
+            "output_tokens": 345,
+            "cost": null,
+            "provider_estimated_cost_usd": null
+          }
+        },
+        {
+          "execution_id": "91163d11-af5a-401c-ba78-d9b0193bf447",
+          "operation": "test",
+          "status": "succeeded",
+          "error_code": null,
+          "epoch": 1,
+          "process_stopped": true,
+          "owned_sessions_stopped_verified": true,
+          "retained_session_count": 20,
+          "dead_proof": {
+            "pid": 2296111,
+            "start_ticks": 5023852,
+            "pgid": 2296111,
+            "session_id": 2296111,
+            "child_group_stopped": true,
+            "worktree_lock_reacquired": true
+          },
+          "mcp_audit": [],
+          "native_skill_metadata": [],
+          "artifacts": [
+            {
+              "kind": "test_results",
+              "sha256": "57913e1bed057247162a4b81ed1b41ceca6bda2e2ed8974627e96420bc1c6758",
+              "id": "57913e1bed057247162a4b81ed1b41ceca6bda2e2ed8974627e96420bc1c6758",
+              "id_semantics": "local_SHA256_not_API_UUID",
+              "checksum_verified": true
+            }
+          ],
+          "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+          "changed_paths": [
+            "evidence.py"
+          ],
+          "base_sha": "fc12405fd3447a5569a129dce23fdb29385f97cc",
+          "root_base_sha": "fc12405fd3447a5569a129dce23fdb29385f97cc",
+          "test_results": [
+            {
+              "check_id": "capability",
+              "status": "passed",
+              "exit_code": 0,
+              "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+              "error_code": null
+            }
+          ]
+        },
+        {
+          "execution_id": "2632b262-b11e-45aa-8868-73d9851fdb86",
+          "operation": "review",
+          "status": "succeeded",
+          "error_code": null,
+          "epoch": 1,
+          "process_stopped": true,
+          "owned_sessions_stopped_verified": true,
+          "retained_session_count": 21,
+          "dead_proof": {
+            "pid": 2296111,
+            "start_ticks": 5023852,
+            "pgid": 2296111,
+            "session_id": 2296111,
+            "child_group_stopped": true,
+            "worktree_lock_reacquired": true
+          },
+          "mcp_audit": [
+            {
+              "event_type": "tool_started",
+              "server_id": "factoryfiles",
+              "tool_name": "read_marker",
+              "status": "in_progress"
+            },
+            {
+              "event_type": "tool_finished",
+              "server_id": "factoryfiles",
+              "tool_name": "read_marker",
+              "status": "completed"
+            }
+          ],
+          "native_skill_metadata": [
+            {
+              "provider": "codex",
+              "name": "adf-approved-marker",
+              "sha256": "ebff2612e7fab91e0bc3fa93128ea70af2bfee6dda64ab0d8888e2fcfae2e968",
+              "native": true
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "review_result",
+              "sha256": "ad048a42316b61ebd477bda894d507f2a0f157cd428d09bcd0feb6efb6f80a9a",
+              "id": "ad048a42316b61ebd477bda894d507f2a0f157cd428d09bcd0feb6efb6f80a9a",
+              "id_semantics": "local_SHA256_not_API_UUID",
+              "checksum_verified": true
+            }
+          ],
+          "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+          "changed_paths": [
+            "evidence.py"
+          ],
+          "base_sha": "fc12405fd3447a5569a129dce23fdb29385f97cc",
+          "root_base_sha": "fc12405fd3447a5569a129dce23fdb29385f97cc",
+          "provider_process_identity": {
+            "pid": 2296780,
+            "start_ticks": 5025574,
+            "pgid": 2296780,
+            "session_id": 2296780
+          },
+          "usage": {
+            "source": "provider",
+            "input_tokens": 49620,
+            "output_tokens": 1029,
+            "cost": null,
+            "provider_estimated_cost_usd": null
+          },
+          "review": {
+            "approved": true,
+            "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+            "reviewer_id": "b26944d8-1f35-4137-a604-1e0c1b2f3999",
+            "developer_id": "7f75772e-4c9e-4fa6-8bb6-01e69f3f9dba",
+            "reviewer_config_version_id": "5793c432-4583-4fcb-8dde-48310fe41035",
+            "developer_config_version_id": "3bf5365d-7a13-4e61-9ee4-7278486042c6"
+          }
+        },
+        {
+          "execution_id": "018c37e1-c1bf-4182-a257-ae062bde0326",
+          "operation": "git_commit",
+          "status": "succeeded",
+          "error_code": null,
+          "epoch": 1,
+          "process_stopped": true,
+          "owned_sessions_stopped_verified": true,
+          "retained_session_count": 23,
+          "dead_proof": {
+            "pid": 2296111,
+            "start_ticks": 5023852,
+            "pgid": 2296111,
+            "session_id": 2296111,
+            "child_group_stopped": true,
+            "worktree_lock_reacquired": true
+          },
+          "mcp_audit": [],
+          "native_skill_metadata": [],
+          "artifacts": [
+            {
+              "kind": "change_diff",
+              "sha256": "cf9e4e462623578125cee62f05db202752c8f6f81adc748941ba1d9613e4f162",
+              "id": "cf9e4e462623578125cee62f05db202752c8f6f81adc748941ba1d9613e4f162",
+              "id_semantics": "local_SHA256_not_API_UUID",
+              "checksum_verified": true
+            }
+          ],
+          "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+          "commit_sha": "dcac795cc4af4af781fdfc6bbd67928a29b2237f",
+          "changed_paths": [
+            "evidence.py"
+          ],
+          "base_sha": "fc12405fd3447a5569a129dce23fdb29385f97cc",
+          "root_base_sha": "fc12405fd3447a5569a129dce23fdb29385f97cc"
+        },
+        {
+          "execution_id": "5c31c9ea-a926-4af2-9c69-41b1acd2c3a4",
+          "operation": "integrate",
+          "status": "succeeded",
+          "error_code": null,
+          "epoch": 1,
+          "process_stopped": true,
+          "owned_sessions_stopped_verified": true,
+          "retained_session_count": 36,
+          "dead_proof": {
+            "pid": 2296111,
+            "start_ticks": 5023852,
+            "pgid": 2296111,
+            "session_id": 2296111,
+            "child_group_stopped": true,
+            "worktree_lock_reacquired": true
+          },
+          "mcp_audit": [],
+          "native_skill_metadata": [],
+          "artifacts": [
+            {
+              "kind": "test_results",
+              "sha256": "57913e1bed057247162a4b81ed1b41ceca6bda2e2ed8974627e96420bc1c6758",
+              "id": "57913e1bed057247162a4b81ed1b41ceca6bda2e2ed8974627e96420bc1c6758",
+              "id_semantics": "local_SHA256_not_API_UUID",
+              "checksum_verified": true
+            }
+          ],
+          "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+          "commit_sha": "1be8dc3669ffd3914865fcfee22ed02383be5262",
+          "integration_status": "passed",
+          "base_sha": "fc12405fd3447a5569a129dce23fdb29385f97cc",
+          "root_base_sha": "fc12405fd3447a5569a129dce23fdb29385f97cc",
+          "test_results": [
+            {
+              "check_id": "capability",
+              "status": "passed",
+              "exit_code": 0,
+              "tree_sha": "2750d979606c6e389503887210a8c9230b46d035",
+              "error_code": null
+            }
+          ]
+        }
+      ],
+      "bundled_hosts": [
+        {
+          "execution_id": "ad290afd-cc92-42e7-8e9f-10d91b0dcea2",
+          "pid": 2296440,
+          "start_ticks": 5024509,
+          "pgid": 2296440,
+          "session_id": 2296270,
+          "cli_pid": 2296270,
+          "same_cli_group": false,
+          "same_cli_session": true,
+          "identity_alive_at_verification": false
+        },
+        {
+          "execution_id": "2632b262-b11e-45aa-8868-73d9851fdb86",
+          "pid": 2297053,
+          "start_ticks": 5026249,
+          "pgid": 2297053,
+          "session_id": 2296780,
+          "cli_pid": 2296780,
+          "same_cli_group": false,
+          "same_cli_session": true,
+          "identity_alive_at_verification": false
+        }
+      ],
+      "diagnostic_codes": [],
+      "fresh_fixture": true,
+      "old_snapshot_reexecuted": false
+    }
+  ],
+  "remaining_gates": [
+    "Queued scoped-capability API/Redis acceptance pending: production-like install/container replacement rejected by automatic approval review; no bypass attempted.",
+    "Publication of this increment pending explicit publication authorization; report performs no push.",
+    "Claude native subscription authentication/acceptance pending.",
+    "Dedicated least-privilege account and safe external-origin policy remain deployment gates; non-root alone does not prove them."
+  ],
+  "official_sources": [
+    "https://github.com/openai/codex/blob/rust-v0.157.0/codex-rs/core/config.schema.json",
+    "https://github.com/openai/codex/blob/rust-v0.157.0/codex-rs/core/src/tools/code_mode/mod.rs",
+    "https://github.com/openai/codex/blob/rust-v0.157.0/codex-rs/core/src/tools/code_mode/execute_handler.rs",
+    "https://github.com/openai/codex/blob/rust-v0.157.0/codex-rs/code-mode/src/remote_session/connection.rs",
+    "https://github.com/torvalds/linux/blob/v6.8/arch/x86/entry/syscalls/syscall_64.tbl",
+    "https://github.com/torvalds/linux/blob/v6.8/include/uapi/asm-generic/unistd.h",
+    "https://github.com/torvalds/linux/blob/v6.8/arch/arm64/include/uapi/asm/unistd.h"
+  ]
+}

@@ -1,6 +1,6 @@
 # Development documentation
 
-Start with [current implementation status](implementation-status.md), [live acceptance status](acceptance-status.md) and [implementation board](kanban.md).
+Start with [current implementation status](implementation-status.md), [live acceptance status](acceptance-status.md), [release checkpoint](release-checkpoint.md) and [implementation board](kanban.md).
 
 1. [Product and acceptance](product.md)
 2. [Decisions, assumptions and unresolved gates](decisions.md)
@@ -12,7 +12,7 @@ Start with [current implementation status](implementation-status.md), [live acce
 8. [Security](security.md)
 9. [Observability](observability.md)
 10. [Frontend](frontend.md)
-11. [Local development and operations](local-development.md) and [backup/restore](operations-backup.md)
+11. [Local development and operations](local-development.md) and [backup/restore](operations-backup.md) and [isolated runtime recovery](operations-recovery.md)
 12. [Testing](testing.md) and [backlog](backlog.md)
 13. [Repository lifecycle](repositories.md)
 14. [Technical sources](sources.md) and [delivery evidence](delivery-status.md)
@@ -30,3 +30,9 @@ Machine-readable contracts in [packages/contracts](../packages/contracts/README.
 Additional native acceptance: [dependency contents](evidence/codex-dependencies-2026-10-10.json) and [three-process resource/API-orchestrator restart](evidence/codex-load-restart-2026-10-10.json).
 
 [Browser acceptance](evidence/frontend-ui-2026-10-10.json), [manual conflict resolution](evidence/codex-conflict-resolution-2026-10-10.json), and [operator actions requiring approval](operator-acceptance.md).
+
+[Native Architect plan, approval and edit evidence](evidence/codex-architect-plan-2026-10-10.json).
+
+[Recovered checkpoint/outbox and mock runtime evidence](evidence/runtime-recovery-2026-10-10.json).
+
+[Native approved skill/scoped MCP, independent review and owned-session evidence](evidence/codex-scoped-capabilities-2026-10-10.json).

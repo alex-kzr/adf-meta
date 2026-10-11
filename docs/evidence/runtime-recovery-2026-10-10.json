@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "namespace": "02703e14",
+  "source_snapshot_id": "20261010T185527Z-9e8590ed",
+  "source_snapshot_manifest_sha256": "760712e51723c0e268fa59f651599b893b7839856dc294501a46a41ec07cbbe7",
+  "started_at": "2026-10-10T20:31:45.627918+00:00",
+  "finished_at": "2026-10-10T20:32:55.198705+00:00",
+  "resource_preflight": {
+    "docker_memory_bytes": 16303869952,
+    "generation_memory_cap_bytes": 1879048192,
+    "measured_used_bytes": 2808991449,
+    "running_container_count": 13
+  },
+  "isolated_runtime_recovery_verified": true,
+  "pending_fixture_provenance": "created only in isolated generation A",
+  "source_services_changed": false,
+  "source_credentials_copied": false,
+  "paid_provider_calls": 0,
+  "images": {
+    "api": "sha256:b7e91591b729bb1437309510eb7e412e0ed2c6b03ef7457cb91ce444b8a7a538",
+    "frontend": "sha256:e67c674a4ce477326df5195a1d9b0a98127ffaba030615f74986e993c6760011",
+    "orch": "sha256:23625c97fd2182bf0ffbac7a8f017bd20b4f4d5edd22bebdb2d6f6f1a92394fa",
+    "pg": "postgres:18.0@sha256:41fc5342eefba6cc2ccda736aaf034bbbb7c3df0fdb81516eba1ba33f360162c",
+    "redis": "redis:7.4.5-alpine@sha256:bb186d083732f669da90be8b0f975a37812b15e913465bb14d845db72a4e3e08"
+  },
+  "checkpoint_outbox_restored": {
+    "checkpoint_count": 4,
+    "created_execution_ids": [
+      "cb15781d-b5a8-5f27-9aca-abc661a50b3a"
+    ],
+    "execution_count": 1,
+    "outbox_ids": [
+      "dcbe70b0-3743-4d9f-8073-b5c26969a55e"
+    ]
+  },
+  "redis_initially_empty": true,
+  "historical_source_runs": [
+    {
+      "execution_ids_unchanged": true,
+      "id": "0e109324-0d50-43a6-ac29-0ad6cf388b98",
+      "qa_status": "cancelled",
+      "snapshot_status": "paused"
+    },
+    {
+      "execution_ids_unchanged": true,
+      "id": "9f8aef58-2981-4820-b707-87f2864ccce9",
+      "qa_status": "completed",
+      "snapshot_status": "completed"
+    }
+  ],
+  "isolation": {
+    "a": {
+      "containers": [
+        {
+          "memory_bytes": 536870912,
+          "mount_count": 1,
+          "published_ports": 0,
+          "service": "pg"
+        },
+        {
+          "memory_bytes": 536870912,
+          "mount_count": 0,
+          "published_ports": 0,
+          "service": "api"
+        },
+        {
+          "memory_bytes": 536870912,
+          "mount_count": 0,
+          "published_ports": 0,
+          "service": "orch"
+        },
+        {
+          "memory_bytes": 134217728,
+          "mount_count": 1,
+          "published_ports": 0,
+          "service": "redis"
+        },
+        {
+          "memory_bytes": 134217728,
+          "mount_count": 0,
+          "published_ports": 0,
+          "service": "frontend"
+        }
+      ],
+      "internal_network": true
+    },
+    "b": {
+      "containers": [
+        {
+          "memory_bytes": 536870912,
+          "mount_count": 1,
+          "published_ports": 0,
+          "service": "pg"
+        },
+        {
+          "memory_bytes": 536870912,
+          "mount_count": 0,
+          "published_ports": 0,
+          "service": "api"
+        },
+        {
+          "memory_bytes": 536870912,
+          "mount_count": 0,
+          "published_ports": 0,
+          "service": "orch"
+        },
+        {
+          "memory_bytes": 134217728,
+          "mount_count": 1,
+          "published_ports": 0,
+          "service": "redis"
+        },
+        {
+          "memory_bytes": 134217728,
+          "mount_count": 0,
+          "published_ports": 0,
+          "service": "frontend"
+        }
+      ],
+      "internal_network": true
+    }
+  },
+  "frontend": {
+    "bytes": 835,
+    "status": 200
+  },
+  "missing_journal": {
+    "error_code": "EXECUTION_UNCERTAIN",
+    "missing_journal_fail_closed": true,
+    "provider_spawned": false
+  },
+  "run_id": "669db27c-2168-45de-9213-a119e3418ff1",
+  "run_status": "completed",
+  "recovered_execution_ids": [
+    "cb15781d-b5a8-5f27-9aca-abc661a50b3a"
+  ],
+  "completed_execution_ids": [
+    "cb15781d-b5a8-5f27-9aca-abc661a50b3a",
+    "cbe956fe-51c3-5040-93f5-b0dd32f150c8",
+    "69f009a8-e39d-556f-a8af-aec2b81c84ab",
+    "0b28ed8e-a638-545f-8629-c74270800ae6",
+    "1953b349-7029-548b-a27b-e9d5720c044f"
+  ],
+  "completed_operations": [
+    "agent_task",
+    "git_commit",
+    "integrate",
+    "review",
+    "test"
+  ],
+  "execution_count": 5,
+  "original_artifacts_verified": 13,
+  "new_artifacts": 5,
+  "duplicate_messages_acknowledged": 13,
+  "main_unchanged": true,
+  "integration_status": "passed",
+  "no_host_ports": true,
+  "no_source_mounts": true,
+  "mock_executor_supervisor_used": true,
+  "private_report": ".bootstrap/runtime-recovery/02703e14/report.json",
+  "private_report_sha256": "76081ab222ff60d0226756f31c75722e4d6c44c91108e10e410e033a90e90fd0",
+  "validation": {
+    "windows_unit_cases": 19,
+    "linux_unit_cases": 19,
+    "ruff": "E,F,I,UP,S PASS",
+    "mypy": "strict; worker source MYPYPATH; 3 files PASS",
+    "bandit": "zero issues; zero nosec",
+    "targeted_security_review": "PASS; source review only"
+  },
+  "limits": [
+    "Pending fixture was created only in isolated generation A, not unfinished source CLI work.",
+    "Missing journal fail-closed is an actual production reconciliation call for a new absent UUID, not process-death or native CLI recovery proof.",
+    "Production host network and detached worker consumer process were not tested; Docker-exec HTTP/Redis QA bridge used.",
+    "Frontend HTTP shell served; interactive isolated UI not exercised.",
+    "Langfuse data, provider OAuth credentials and source worker journals were not restored.",
+    "Source no-change is enforced by fixed actions/namespace ownership guards; root may independently operate source runtime."
+  ],
+  "source_hashes": {
+    "scripts/rehearse-recovery.py": "752ca11be2e48468d053fcc5d1aff36ae1c8a4f6ae581caa33c20d9391b6434b",
+    "scripts/recovery-http.py": "667dc4fb4cf8dd295334044e132cc193f40bb3cb8b16e4a869e59f362d7f432b",
+    "scripts/recovery-worker.py": "80bfe7b022d2ee1b5ef4cdf4ff1a50fd9ae5a9f072fde19861b3132a0dd71e52",
+    "tests/test_recovery_rehearsal.py": "bde87a44b7f1bca2b360da4c08398050704cfea8984d7cab0bf54e000316ba1c"
+  },
+  "restored_project_count": 2,
+  "restored_git_ref_counts": {
+    "753bdbd8-9886-463a-9ced-7089987b520a": 6,
+    "990c4a05-f339-4798-bb9c-5b0ca86c2972": 2
+  }
+}

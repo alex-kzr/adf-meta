@@ -8,6 +8,8 @@ Host WSL worker is a trusted process. Worktrees isolate concurrent changes, **no
 
 ## Permission profiles
 
+The table states policy intent. The adapter-specific paragraph below identifies current enforcement boundaries; it is not evidence of a Codex per-command shell allowlist or a separate host-account security boundary. Unverified provider/account restrictions remain acceptance gates.
+
 | Profile | Allowed | Denied / gate |
 | --- | --- | --- |
 | observe | Read approved repo snapshot, planner/reviewer structured output | Writes, shell/network beyond explicit tools |
@@ -16,7 +18,7 @@ Host WSL worker is a trusted process. Worktrees isolate concurrent changes, **no
 
 Policy binds exact repo/root, path patterns, executable+argv templates, env names, network origins (only where enforceable), MCP/tool allowlist and numeric limits. Execution approval records these versions. Noninteractive adapters return a denial instead of an unanswerable permission prompt. Codex/Claude flags differ; test configured permission modes, not generic assumed parity. Never default to `--dangerously-skip-permissions` or equivalent.
 
-Shell runs `shell=False` with argv arrays and dedicated process groups. Registered test commands can themselves run arbitrary code; authorization trusts their repo and dependencies. No textual command denylist is represented as a sandbox. Do not grant Docker socket, sudo or host-wide MCP filesystem access. Workers cannot modify policies to grant themselves rights.
+Worker-owned commands use `shell=False` with argv arrays and dedicated process sessions. The native Codex built-in shell remains governed by the verified coarse observe/trusted-development CLI sandbox; it does not enforce an ADF per-command allowlist. Registered ADF tests are separately bound to approved executable/argv templates. The reviewed owned `adf.scoped-files.v1` MCP server enforces exact assigned tools, canonical read paths, byte/time limits and symlink/hardlink denials; generic third-party scope metadata is not accepted as enforcement. Temporary approved native instruction skills are immutable checked bytes; adjacent scripts/assets are not granted execution rights. Source tests, native fixture evidence and queued deployment acceptance are distinct, as recorded in [acceptance status](acceptance-status.md). Registered test commands can themselves run arbitrary code; authorization trusts their repo and dependencies. No textual command denylist is represented as a sandbox. Do not grant Docker socket, sudo or host-wide MCP filesystem access. Workers cannot modify policies to grant themselves rights.
 
 ## Paths and Git
 

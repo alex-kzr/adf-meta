@@ -37,3 +37,22 @@ jobs:
           python scripts/export-bundles.py .bootstrap/ci-export
           python scripts/bootstrap-local.py .bootstrap/ci-export "$RUNNER_TEMP/adf-restored"
           python "$RUNNER_TEMP/adf-restored/scripts/verify.py"
+  recovery-helpers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          submodules: recursive
+          persist-credentials: false
+      - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        with:
+          python-version: '3.12.9'
+      - run: python -m pip install -r services/runtime-worker/requirements-dev.lock
+      - run: python -m pip install --no-deps -e services/runtime-worker
+      - run: ruff check scripts/rehearse-recovery.py scripts/recovery-http.py scripts/recovery-worker.py tests/test_recovery_rehearsal.py --select E4,E7,E9,F,S --ignore S603,S310
+      - run: mypy scripts/rehearse-recovery.py scripts/recovery-http.py scripts/recovery-worker.py --strict --follow-imports=silent
+        env:
+          MYPYPATH: services/runtime-worker/src
+      - run: bandit scripts/rehearse-recovery.py scripts/recovery-http.py scripts/recovery-worker.py -ll
+      - run: python -m unittest tests.test_recovery_rehearsal -v

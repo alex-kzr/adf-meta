@@ -63,7 +63,7 @@ After reviewing doctor and registering project/configuration/policy versions, st
 
 The project root defaults to `root/projects`; repeatable `--project-root` selects registered roots without exposing journals/tools as project scope. Worker supervision owns process groups and worktree locks independently of Redis consumer lifetime. Restart does not prove old-process death or authorize repeating uncertain effects. Follow [recovery](reliability.md) and inspect persistent execution/journal/Git evidence.
 
-Codex currently enforces its coarse read-only/workspace-write sandbox. A configured narrow tool registry or unverified Codex MCP scope is rejected as `CAPABILITY_UNSUPPORTED`; it is never silently expanded. Claude uses safe/restricted modes, explicit builtin tools and strict MCP configuration. Subscription cost is unknown unless actual billing evidence exists; CLI token counters are source-tagged.
+Codex enforces its coarse read-only/workspace-write sandbox for built-in tools. The reviewed worker source additionally supports exact assigned `mcp__<server>__<tool>` mappings through the owned `adf.scoped-files.v1` server, with exact read paths, byte/time limits and independent server denials. Generic MCP argv/scope contracts and unsupported built-in mappings fail with `CAPABILITY_UNSUPPORTED`; they are never silently expanded. Source contract tests, native trials and the currently installed runtime are distinguished in [acceptance status](acceptance-status.md). Claude uses safe/restricted modes, explicit builtin tools and strict MCP configuration. Subscription cost is unknown unless actual billing evidence exists; CLI token counters are source-tagged.
 
 ## Official Langfuse and Collector
 

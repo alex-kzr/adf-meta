@@ -1,0 +1,120 @@
+{
+  "observed_at": "2026-10-10T20:01:10.658156+00:00",
+  "run_id": "783d585d-9eee-4cc0-a173-790aec5e03c7",
+  "trace_id": "5342e44e756f6ebd07999ccff9bd3bab",
+  "project_id": "596dfcf6-4692-41f6-a997-a703dd125f99",
+  "fixture_repo": "/home/alex/ai-factory/projects/adf-conflict-20261010",
+  "status": "completed",
+  "mode": "planning",
+  "public_integration_status": "pending",
+  "result_integration_status": null,
+  "provider": "codex",
+  "agent_role": "Architect",
+  "permission_profile": "observe",
+  "skill_count": 0,
+  "tool_count": 0,
+  "mcp_server_count": 0,
+  "agent_id": "2955b06c-bb54-4412-8326-c03561b7bbcd",
+  "agent_config_version_id": "026018b7-6f21-4222-a440-93f706c00a6c",
+  "limits": {
+    "max_parallel_agents": 3,
+    "max_tasks_per_plan": 1,
+    "max_retries": 0,
+    "max_execution_minutes": 3,
+    "max_run_minutes": 15,
+    "max_output_bytes": 1048576,
+    "max_disk_bytes": 104857600,
+    "max_steps": 40
+  },
+  "root_base_sha": "6f962393aa76caa6e0289169b32a861a234cf919",
+  "initial_workflow_version_id": "3c5671e4-e382-4851-9b47-dc235d6af603",
+  "initial_workflow_graph_hash": "3cf11bffcfcb086539cae91e6ee52d06ec092dea3b8f067bf503edab886c477d",
+  "immutable_planning_workflow_preserved": true,
+  "planner_execution_id": "47f7ee50-3428-54b2-8285-c4ca9515e57c",
+  "planner_process_pid": 2079949,
+  "planner_process_epoch": 1,
+  "planner_attempt": 1,
+  "one_provider_session": true,
+  "duplicate_planner_cli_count": 0,
+  "structured_plan_schema_valid": true,
+  "task_count": 1,
+  "initial_task_id": "3408ff81-c58f-447b-8a31-3e4a3011c573",
+  "expected_files": [
+    "src/adf_demo/shared.py"
+  ],
+  "task_dependencies": [],
+  "structured_plan_reviewed_semantics": [
+    "Convert the existing mutable VALUES list to a tuple using Python 3.10-compatible syntax.",
+    "Preserve exported VALUES name and membership of 1.",
+    "Preserve existing registered checks; no test or configuration changes."
+  ],
+  "plan_unknowns_reviewed": [
+    "Registered check commands were not inspected or executed; the worker will run them separately."
+  ],
+  "initial_plan_hash": "261f3e45fd3850b2b816aa3b8f7dbbd2a19aff220bd342f13a13ede602f66057",
+  "initial_plan_approval_id": "83aa9454-f018-4c9e-8835-44a6466ae576",
+  "initial_plan_approval_snapshot_hash": "8c411b4b57cc817470ed0875601a12be4a2902c30fa9b56a2f6fa31a5c08c485",
+  "approval_bindings_verified": [
+    "action",
+    "agent_config_hash",
+    "agent_versions_hash",
+    "allowed_write_paths",
+    "dependency_hash",
+    "graph_hash",
+    "node_id",
+    "plan_hash",
+    "policy_hash",
+    "root_base_sha",
+    "tool_ids"
+  ],
+  "human_edit_after_initial_plan_approval": true,
+  "human_edit": "Add an acceptance-criterion clarification without changing task count or write scope.",
+  "edited_plan_hash": "85f255967436a3a7c7ad77038c4bd2508e05bacce820ee9c546e74968eaf83c5",
+  "edited_task_id": "ece7857e-6dcf-4ff7-8683-ca0947b1c1c5",
+  "old_approval_does_not_bind_edited_plan": true,
+  "edited_plan_requires_new_execution_approval": true,
+  "edited_proposal_refreshed_via_durable_command": true,
+  "edited_proposal_plan_hash": "85f255967436a3a7c7ad77038c4bd2508e05bacce820ee9c546e74968eaf83c5",
+  "edited_proposal_semantic_validation_passed": true,
+  "edited_proposal_workflow_version_id": "a00279b3-edbc-4c1f-a814-76943a2fbf48",
+  "edited_proposal_graph_hash": "1190c69b4572202eabe34be0a09445036c6b371b144f204a78d9f12f0efb39c2",
+  "edit_denials": {
+    "unsafe_relative_path": {
+      "status": 422,
+      "code": "INVALID_PATH"
+    },
+    "task_cap": {
+      "status": 422,
+      "code": "INVALID_PLAN"
+    },
+    "stale_revision": {
+      "status": 409,
+      "code": "VERSION_CONFLICT"
+    }
+  },
+  "unsupported_action_rejected": {
+    "action": "accept_plan",
+    "http_status": 422,
+    "code": "INVALID_WORKFLOW"
+  },
+  "coding_run_launched": false,
+  "writing_execution_count": 0,
+  "integration_execution_count": 0,
+  "git_commit_count": 0,
+  "sse_replayed_events": 30,
+  "sse_unique_ordered": true,
+  "artifact_hashes_verified": 1,
+  "default_main_unchanged": true,
+  "default_worktree_clean": true,
+  "planner_worktree_clean": true,
+  "planner_head_equals_root_base": true,
+  "fixture_has_no_remotes": true,
+  "worker_process_drain_verified": true,
+  "scope_limitations": [
+    "The public planning-run projection retains integration_status=pending; result.integration_status is null and no integration execution exists.",
+    "This exercises one actual native Codex Architect planning run; implementation and Claude execution are separate acceptance gates.",
+    "The current action vocabulary uses execute_plan even for a planning-only graph; policy allow_commit=false and Architect observe bound this approval to read-only planning.",
+    "The initial native plan was reviewed and approved before the bounded edit. The edited hash and proposal require fresh future execution approval; no coding run was started.",
+    "No credentials, task prompts, source code, provider output or raw artifact contents are stored in this report."
+  ]
+}
