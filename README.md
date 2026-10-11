@@ -17,6 +17,8 @@ PostgreSQL, Redis, OpenTelemetry Collector and Langfuse remain external products
 
 Current live results and remaining release gates: [acceptance status](docs/acceptance-status.md).
 
+Latest runtime checkpoint: the [fixed worker is published and installed](docs/fixed-worker-checkpoint.md). Its 146 tests and exact-commit CI pass. The bounded queue attempt reaches the shared owner but is blocked before any model call by the unchanged ancestor `.codex` guard. Dedicated owner/consumer are safely stopped; login remains completed and runtime readiness remains false.
+
 ## Repositories and offline restoration
 
 All four directories are real Git submodules. Their origins and `.gitmodules` now use the exact GitHub URLs supplied by the user; the umbrella origin is `https://github.com/alex-kzr/adf-meta`. Initial read-only `ls-remote` checks succeeded for all five repositories and advertised no refs. The authorized publication pushed modules before the umbrella and verified a fresh GitHub recursive clone with exact pins; see the delivery report for results. All four child repositories have successful GitHub CI for their current published commits; umbrella CI includes the same contract and offline restoration gates. Export committed repositories with `python scripts/export-bundles.py .bootstrap/export`, then restore with `python scripts/bootstrap-local.py <export-directory> <new-empty-destination>`. Read [repository lifecycle](docs/repositories.md) for the exact user push sequence and offline restoration. Bundles are delivery artifacts, not committed source.

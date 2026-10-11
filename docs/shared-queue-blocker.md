@@ -1,5 +1,7 @@
 # Shared queue acceptance: environment contract blocker
 
+Historical first queue attempt. The user subsequently authorized the narrow worker repair; it is published and installed. See [the current fixed-worker checkpoint](fixed-worker-checkpoint.md) for the next pre-thread blocker and safely stopped runtime. The evidence below remains unchanged.
+
 Observed on October 11, 2026 after the user's personal subscription login. This supersedes the login-pending part of [runtime preparation](dedicated-runtime.md). [Sanitized evidence](evidence/shared-queue-blocker-2026-10-11.json) records the single actual API/Redis probe. Whole runtime/MVP readiness remains false.
 
 ## What ran
@@ -32,7 +34,7 @@ The probe supervisor and all its owned sessions are proved stopped, and the work
 
 Only recorded new consumer/provider sessions were stopped, including verified native server session shutdown. No new ADF execution remains active. The prepared tools/profiles and authorized API update remain intact; the old worker installation/API image and exact settings rollback remain available. Existing API/UI/Langfuse probes return HTTP 200 and `runtime_ready=false`. No other service, account permission, Windows/firewall/listener or global Git security setting was modified.
 
-## Concrete repair proposal, not applied
+## Historical repair proposal (subsequently applied)
 
 Current runtime authorization pins worker `8af54fd` and excludes updating other services. Changing orchestrator deployment or installing a different worker commit therefore needs a separate scope decision. No pinned implementation was silently edited.
 
