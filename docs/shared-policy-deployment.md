@@ -1,4 +1,6 @@
-# Shared profile policy release and proposed deployment scope
+# Shared profile policy release and authorized deployment scope
+
+The exact scope below was approved at 16:09 UTC on October 11, 2026 and executed once. [The actual runtime checkpoint](shared-policy-runtime-checkpoint.md) supersedes installation-pending statements: 13c4624 is installed, three native turns each completed scoped MCP, then failed closed. All results are durable/ACKed; dedicated services are stopped. Full cancellation/recovery/output isolation acceptance remains incomplete. The following source-release description and original bounded scope are retained as historical evidence.
 
 This source-only release implements [ADR 007](adr/007-sealed-shared-profile-policy.md) and its [worker operator contract](../services/runtime-worker/docs/shared-profile-policy.md). The exact candidate worker is **`13c4624a8791fa4c9035c284a4689e412f0b7b42`**, matching this release's `services/runtime-worker` gitlink. The installed execution worker remains `a8bb1cc97015e9d46c25acdc9c88228cd65a4876`. Real profile/config/auth contents were not read or modified, and no new native/model/queue run occurred during this implementation.
 

@@ -17,13 +17,9 @@ PostgreSQL, Redis, OpenTelemetry Collector and Langfuse remain external products
 
 Current live results and remaining release gates: [acceptance status](docs/acceptance-status.md).
 
-Latest runtime checkpoint: the [fixed worker is published and installed](docs/fixed-worker-checkpoint.md). Its 146 tests and exact-commit CI pass. The bounded queue attempt reaches the shared owner but is blocked before any model call by the unchanged ancestor `.codex` guard. Dedicated owner/consumer are safely stopped; login remains completed and runtime readiness remains false.
+Latest runtime result: [the authorized sealed-policy deployment and one bounded queue trial](docs/shared-policy-runtime-checkpoint.md) installed worker `13c4624a` with unchanged dependencies/config and verified `a8bb1cc` rollback. Three simultaneous native turns each completed assigned scoped MCP, then the generation failed closed; an unexpected empty worktree-local `.codex` directory is preserved in gamma. All results are durable/ACKed, writers stopped and locks reacquired. Full single-job cancellation, active recovery and output isolation acceptance did not pass. Dedicated provider/consumer are stopped and readiness remains false.
 
-Latest source repair: [doctor now requires explicit operator profiles](docs/doctor-profile-repair.md), published at worker `859cc534` with 158 passing Linux tests and exact-commit CI. The execution venv remains at `a8bb1cc`; no runtime replacement, pending `.codex` rename or further model run accompanied this source change.
-
-Latest runtime result: the [authorized preserving rename and resumed queued test](docs/shared-resumed-checkpoint.md) completed with one native turn cancelled safely and two pre-thread failures. `HOME/.codex` stayed absent; a newly appearing explicit-profile `config.toml` is the current unchanged-guard blocker. Dedicated services are stopped. Native parallel skills/MCP/recovery acceptance and readiness remain false.
-
-Latest source change: [ADR 007's opt-in sealed profile policy](docs/adr/007-sealed-shared-profile-policy.md) avoids the pinned automatic trust write using an operator CLI override and fences configuration/Git marker drift. [The exact release and deployment scope](docs/shared-policy-deployment.md) distinguish this tested source patch from the unchanged installed `a8bb1cc`; no new model/queue run or profile edit is part of source work.
+[ADR 007](docs/adr/007-sealed-shared-profile-policy.md) and [its exact deployment scope](docs/shared-policy-deployment.md) describe the opt-in guard. Historical [doctor repair](docs/doctor-profile-repair.md), [fixed-worker checkpoint](docs/fixed-worker-checkpoint.md) and [preserving rename/resumed trial](docs/shared-resumed-checkpoint.md) retain their dated evidence.
 
 ## Repositories and offline restoration
 

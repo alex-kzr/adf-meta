@@ -1,6 +1,6 @@
 # ADR 007: Explicit sealed trust policy for the shared Codex profile
 
-Status: Accepted for opt-in source implementation. Exact-pin runtime deployment and native queued acceptance remain pending. October 11, 2026.
+Status: Accepted for opt-in implementation. Exact-pin deployment completed; one bounded native queued trial failed closed and full acceptance remains incomplete. October 11, 2026. [Actual runtime result and retained rollback](../shared-policy-runtime-checkpoint.md) supersede source-only installation-pending statements below.
 
 ## Reproduced cause
 
