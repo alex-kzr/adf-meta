@@ -25,6 +25,8 @@ Risk: an incorrect ownership/group/credential transfer could expose another user
 
 ## Interactive subscription authentication (required)
 
+The user has requested an investigation of Windows-login reuse before any further login request. Read [provider identity findings](provider-identity.md) first. Worktrees do not require per-job login. The commands below remain fallback operator instructions; they are not a request to authenticate now or authorization to copy/link credential stores. No broker or auth migration has been implemented.
+
 Enter the correct identity with `wsl -d Ubuntu -u adf-worker` from Windows (or the explicit operator `sudo -iu adf-worker` context), then `umask 077`. After the worker identity is agreed, the user signs in to the pinned WSL Codex and Claude CLIs in that identity's own terminal/home. Use `codex login` and the installed Claude `auth login` flow; complete any browser/account steps personally. Never paste credentials into chat or copy Windows authentication stores. If authentication is tested temporarily under existing `alex`, it proves adapter availability only, not the separate-user gate.
 
 Risk: CLI login persists subscription credentials in the selected Linux home. Confirm the intended account/subscription and verify provider health without printing token files. Then run one bounded native Claude fixture and scoped allowlist/denial tests. No paid API fallback or new subscription is assumed.

@@ -36,3 +36,5 @@ Additional native acceptance: [dependency contents](evidence/codex-dependencies-
 [Recovered checkpoint/outbox and mock runtime evidence](evidence/runtime-recovery-2026-10-10.json).
 
 [Native approved skill/scoped MCP, independent review and owned-session evidence](evidence/codex-scoped-capabilities-2026-10-10.json).
+
+[Provider identity reuse across Windows, WSL and parallel worktrees](provider-identity.md): read-only findings and a proposed persistent authority/broker, without credential changes.
