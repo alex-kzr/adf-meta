@@ -42,4 +42,6 @@ Additional native acceptance: [dependency contents](evidence/codex-dependencies-
 
 [Shared-provider implementation evidence](evidence/provider-shared-2026-10-11.json): 134 Linux tests, pinned schemas and native unauthenticated handshake; zero model calls/deployment.
 
-[Publication and dedicated-account evidence](evidence/publication-account-2026-10-11.json): all five implementation heads published with successful CI and a fresh recursive clone; `adf-worker` created with private directories and exactly two approved service files. Provider login and deployment remain pending.
+[Publication and dedicated-account evidence](evidence/publication-account-2026-10-11.json): all five implementation heads published with successful CI and a fresh recursive clone; `adf-worker` created with private directories and exactly two approved service files.
+
+[Dedicated runtime preparation, exact personal-login commands and API rollback](dedicated-runtime.md), with [sanitized deployment evidence](evidence/dedicated-runtime-2026-10-11.json): pinned tools/worker and private profiles installed, only API updated; personal login and native shared acceptance remain pending.

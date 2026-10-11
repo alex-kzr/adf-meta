@@ -1,0 +1,121 @@
+{
+  "recorded_at": "2026-10-11T08:38:21.587414+00:00",
+  "authorization": "Direct human exact-scope runtime preparation and API-only deployment instruction",
+  "preparation": {
+    "worker_commit": "8af54fd1590139fa0730e7705d276188c9be3ca3",
+    "installed_worker_source_files_verified": 22,
+    "uv": {
+      "version": "0.12.18",
+      "url": "https://github.com/astral-sh/uv/releases/download/0.12.18/uv-x86_64-unknown-linux-gnu.tar.gz",
+      "sha256": "89eadd7c76fc063887959510d5ba0ab1264dfd5f1143b925ddb73021a40acf16"
+    },
+    "node": {
+      "version": "24.21.0",
+      "url": "https://nodejs.org/dist/v24.21.0/node-v24.21.0-linux-x64.tar.xz",
+      "sha256": "fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6"
+    },
+    "python": {
+      "version": "3.12.9",
+      "distribution": "Astral python-build-standalone via pinned uv; not a python.org Linux binary"
+    },
+    "provider_cli": [
+      {
+        "package": "@openai/codex",
+        "version": "0.157.0",
+        "tarball": "https://registry.npmjs.org/@openai/codex/-/codex-0.157.0.tgz",
+        "integrity": "sha512-st1R2MhP3ndngOqj2SVh1qk6ED1lpgtlDxipDUyxlKfbsna0imwU2FdTnCjohFQpVh4bR5D5m1hA05AuW2v8Xg=="
+      },
+      {
+        "package": "@anthropic-ai/claude-code",
+        "version": "2.1.296",
+        "tarball": "https://registry.npmjs.org/@anthropic-ai/claude-code/-/claude-code-2.1.296.tgz",
+        "integrity": "sha512-OX/k/rpcthMqnFKOWcpNcbiLsMKtAjLOpQNJHlYiDCFUznWCIwdRTyl/p9SdHVrsrzZuPMCNqZjnpakIni6upw=="
+      }
+    ],
+    "profiles_empty": true,
+    "personal_login_launched": false,
+    "existing_authentication_copied": false
+  },
+  "verification": {
+    "actual_uid": 1001,
+    "primary_gid": 1002,
+    "groups": [
+      1002
+    ],
+    "filesystem": "ext4",
+    "private_directories_and_service_file_modes_verified": true,
+    "worker_commit": "8af54fd1590139fa0730e7705d276188c9be3ca3",
+    "installed_source_files_verified": 22,
+    "profiles": [
+      {
+        "provider": "codex",
+        "profile": "/home/adf-worker/ai-factory/provider-profiles/codex",
+        "installed": true,
+        "pin_matches": true,
+        "auth": "required",
+        "health": "blocked"
+      },
+      {
+        "provider": "claude",
+        "profile": "/home/adf-worker/ai-factory/provider-profiles/claude",
+        "installed": true,
+        "pin_matches": true,
+        "auth": "required",
+        "health": "blocked"
+      }
+    ],
+    "ready_for_real_execution": false,
+    "provider_or_consumer_started": false,
+    "model_calls": 0
+  },
+  "api_update": {
+    "api_commit": "a0e0205e85bd5e8f9c0d69d9316b7303f6add8ca",
+    "api_image": "sha256:745964d62ee6a1f508108ebe8f5362c4d2a91f04d5fdb638da5959a30d00d461",
+    "old_api_image_retained": "sha256:b7e91591b729bb1437309510eb7e412e0ed2c6b03ef7457cb91ce444b8a7a538",
+    "rollback_directory": "C:\\Users\\admin\\Documents\\workspace\\projects\\adf\\.bootstrap\\dedicated-api-20261011",
+    "allowed_roots": [
+      "/home/alex/ai-factory/projects",
+      "/home/adf-worker/ai-factory/projects"
+    ],
+    "all_other_api_environment_preserved": true,
+    "mounts_ports_security_options_preserved": true,
+    "unchanged_other_containers": 70,
+    "database_ready": true,
+    "runtime_ready": false,
+    "only_local_api_recreated": true
+  },
+  "drain_checks_before_and_after": {
+    "run_counts": {
+      "completed": 6,
+      "cancelled": 4
+    },
+    "nonterminal_executions": 0
+  },
+  "rollback": {
+    "prior_image_available": true,
+    "prior_worker_archive_manifest_crc_sha_verified": true,
+    "old_worker_source_files_in_archive": 13,
+    "exact_settings_reversal_dry_run_passed": true,
+    "compose_configuration_validated": true,
+    "live_rollback_rehearsal_performed": false,
+    "old_worker_environment_modified": false
+  },
+  "health_probes": {
+    "api_health": 200,
+    "api_ready": 200,
+    "frontend": 200,
+    "langfuse": 200
+  },
+  "personal_login_launched_by_assistant": false,
+  "setup_token_launched": false,
+  "auth_credentials_copied": false,
+  "secret_values_or_hashes_output": false,
+  "native_model_calls_in_this_phase": 0,
+  "shared_provider_or_consumer_started": false,
+  "paid_api_fallback_used": false,
+  "windows_firewall_listeners_global_git_security_changed": false,
+  "existing_users_permissions_changed": false,
+  "next_prerequisite": "User completes personal subscription login in both exact private profiles",
+  "native_queue_acceptance": "pending_user_login",
+  "mvp_ready": false
+}
