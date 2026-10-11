@@ -29,6 +29,7 @@ Start with [current implementation status](implementation-status.md), [live acce
 - [004: Local submodules](adr/004-local-submodules.md)
 - [005: Observability routing](adr/005-observability.md)
 - [006: Persistent provider authority and independent Codex jobs](adr/006-provider-profile-ownership.md)
+- [007: Proposed sealed shared-profile trust policy](adr/007-sealed-shared-profile-policy.md), with [18 no-model native thread probes and pinned source evidence](evidence/shared-profile-config-research-2026-10-11.json)
 
 Machine-readable contracts in [packages/contracts](../packages/contracts/README.md) are generated from the implemented API and checked against actual HTTP claims/events/results. Redacted live evidence: [three Codex agents](evidence/codex-three-agent-2026-10-10.json), [recovery and telemetry outage](evidence/codex-recovery-2026-10-10.json), [live CLI cancellation](evidence/codex-cancellation-2026-10-10.json), [Langfuse trace](evidence/langfuse-three-agent-2026-10-10.json), and [isolated backup restoration](evidence/isolated-backup-2026-10-10.json).
 

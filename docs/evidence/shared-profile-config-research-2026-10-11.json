@@ -1,0 +1,232 @@
+{
+  "recorded_at": "2026-10-11T15:19:03.267930+00:00",
+  "scope": "Read-only public pinned-source and empty testprofile research; no real profile/config access or runtime changes",
+  "codex_version": "0.157.0",
+  "node_version": "24.21.0",
+  "public_source": {
+    "tag": "rust-v0.157.0",
+    "tag_tree": "00c972ed5d6ff6499317fd41b7f23605b8e6850d",
+    "sources": [
+      {
+        "path": "codex-rs/app-server/src/request_processors/thread_processor.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/app-server/src/request_processors/thread_processor.rs",
+        "blob_sha": "57c10fe833cb800440e48c3cfaad1246d1d91a97",
+        "sha256": "6cbb64f37da05dfe25ff7f82b5f8a32b727fd25fd79ca98f431d508b365475d1",
+        "bytes": 249398
+      },
+      {
+        "path": "codex-rs/app-server/src/message_processor.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/app-server/src/message_processor.rs",
+        "blob_sha": "9e9a90437b3fddde282a0d05216907d77fa5a745",
+        "sha256": "f1a1bb0029e7c2f46de3048cbbc52b55ccca413dacb8ce67c63796372468318f",
+        "bytes": 79949
+      },
+      {
+        "path": "codex-rs/core/src/config/edit.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/core/src/config/edit.rs",
+        "blob_sha": "82ad54d530b12e77778a53027e42c7dc3c78a183",
+        "sha256": "02159e7636fa00ed5ea3788b697d94e909420e6366299a1bfa3ca77808987485",
+        "bytes": 36533
+      },
+      {
+        "path": "codex-rs/app-server/src/config_manager.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/app-server/src/config_manager.rs",
+        "blob_sha": "2467d4d4f1c7de318f671d94052a81ad431795d8",
+        "sha256": "9aab02f8480f984ed1421293cd6294d86b044b9f3cc01dc424ac5a92d33c084c",
+        "bytes": 22878
+      },
+      {
+        "path": "codex-rs/app-server/src/config_manager_service.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/app-server/src/config_manager_service.rs",
+        "blob_sha": "f7377c5b76e5c1d5c7787711c6880363b9f7deaf",
+        "sha256": "cb5e0862e3402aed6349d870f4a8b38472ad1835edd906f797ea1e3aeeac8209",
+        "bytes": 33170
+      },
+      {
+        "path": "codex-rs/core/src/config/mod.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/core/src/config/mod.rs",
+        "blob_sha": "9078708388e99f1334671758a9dcc44229846471",
+        "sha256": "0ca738441c0c0a3085e1d06da7606747f79f7d66f04cf363052c9b28a1abeaff",
+        "bytes": 197899
+      },
+      {
+        "path": "codex-rs/core/src/session/session.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/core/src/session/session.rs",
+        "blob_sha": "da91f5ed346d7e26d7f290b7bae447e97c034715",
+        "sha256": "b8c7568cb409f471ba6d511fd0d4761d8001f35e6f89eb003d444748838a7853",
+        "bytes": 92362
+      },
+      {
+        "path": "codex-rs/tui/src/app/config_persistence.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/tui/src/app/config_persistence.rs",
+        "blob_sha": "d04b74576dfa4f2a81e2b824447bd19137efac06",
+        "sha256": "09f5b837d1e796b10316b812c485d60c9307280351916b6af5a0c14f7cadf085",
+        "bytes": 79476
+      },
+      {
+        "path": "codex-rs/app-server/src/request_processors/config_processor.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/app-server/src/request_processors/config_processor.rs",
+        "blob_sha": "4176a55996f01d2383a89803d54198beb7490d33",
+        "sha256": "66d0f303742fc268f9f4557cc01418c89c85854ff58f3feb7321e19a891b1db2",
+        "bytes": 46283
+      }
+    ]
+  },
+  "source_blob_hashes_verified_against_tag_tree": true,
+  "confirmed_mechanism": {
+    "function": "thread_start_task",
+    "source_path": "codex-rs/app-server/src/request_processors/thread_processor.rs",
+    "call": "set_project_trust_level -> ConfigEditsBuilder::new(CODEX_HOME).apply_blocking",
+    "trigger": "explicit cwd; trust absent; non-projectless config; effective write permission for cwd",
+    "written_structure": "projects.<main Git root>.trust_level = trusted",
+    "ephemeral_does_not_suppress_write": true,
+    "security_relevant_trust_not_harmless_cache": true
+  },
+  "cases": [
+    {
+      "case": "readonly-empty",
+      "concurrent_thread_start": false,
+      "threads_started": 3,
+      "turns_started": 0,
+      "sandbox": "read-only",
+      "test_git_root": "/tmp/adf-config-no-model-zvf577kq/readonly-empty/repository",
+      "initial_test_config": null,
+      "final_test_config": null,
+      "preseed_config_bytes_unchanged": null,
+      "test_config_created": false,
+      "owner_cli_trust_override": false,
+      "default_home_codex_created": false,
+      "auth_file_created": false,
+      "owned_native_session_stopped": true
+    },
+    {
+      "case": "write-empty",
+      "concurrent_thread_start": false,
+      "threads_started": 3,
+      "turns_started": 0,
+      "sandbox": "workspace-write",
+      "test_git_root": "/tmp/adf-config-no-model-zvf577kq/write-empty/repository",
+      "initial_test_config": null,
+      "final_test_config": {
+        "projects": {
+          "/tmp/adf-config-no-model-zvf577kq/write-empty/repository": {
+            "trust_level": "trusted"
+          }
+        }
+      },
+      "preseed_config_bytes_unchanged": null,
+      "test_config_created": true,
+      "owner_cli_trust_override": false,
+      "default_home_codex_created": false,
+      "auth_file_created": false,
+      "owned_native_session_stopped": true
+    },
+    {
+      "case": "write-preseeded-exact-trust",
+      "concurrent_thread_start": false,
+      "threads_started": 3,
+      "turns_started": 0,
+      "sandbox": "workspace-write",
+      "test_git_root": "/tmp/adf-config-no-model-zvf577kq/write-preseeded-exact-trust/repository",
+      "initial_test_config": {
+        "projects": {
+          "/tmp/adf-config-no-model-zvf577kq/write-preseeded-exact-trust/repository": {
+            "trust_level": "trusted"
+          }
+        }
+      },
+      "final_test_config": {
+        "projects": {
+          "/tmp/adf-config-no-model-zvf577kq/write-preseeded-exact-trust/repository": {
+            "trust_level": "trusted"
+          }
+        }
+      },
+      "preseed_config_bytes_unchanged": true,
+      "test_config_created": false,
+      "owner_cli_trust_override": false,
+      "default_home_codex_created": false,
+      "auth_file_created": false,
+      "owned_native_session_stopped": true
+    },
+    {
+      "case": "write-owner-trust-override",
+      "concurrent_thread_start": false,
+      "threads_started": 3,
+      "turns_started": 0,
+      "sandbox": "workspace-write",
+      "test_git_root": "/tmp/adf-config-no-model-zvf577kq/write-owner-trust-override/repository",
+      "initial_test_config": null,
+      "final_test_config": null,
+      "preseed_config_bytes_unchanged": null,
+      "test_config_created": false,
+      "owner_cli_trust_override": true,
+      "default_home_codex_created": false,
+      "auth_file_created": false,
+      "owned_native_session_stopped": true
+    },
+    {
+      "case": "write-preseeded-exact-trust",
+      "concurrent_thread_start": true,
+      "threads_started": 3,
+      "turns_started": 0,
+      "sandbox": "workspace-write",
+      "test_git_root": "/tmp/adf-config-no-model-o5tkqral/write-preseeded-exact-trust/repository",
+      "initial_test_config": {
+        "projects": {
+          "/tmp/adf-config-no-model-o5tkqral/write-preseeded-exact-trust/repository": {
+            "trust_level": "trusted"
+          }
+        }
+      },
+      "final_test_config": {
+        "projects": {
+          "/tmp/adf-config-no-model-o5tkqral/write-preseeded-exact-trust/repository": {
+            "trust_level": "trusted"
+          }
+        }
+      },
+      "preseed_config_bytes_unchanged": true,
+      "test_config_created": false,
+      "owner_cli_trust_override": false,
+      "default_home_codex_created": false,
+      "auth_file_created": false,
+      "owned_native_session_stopped": true
+    },
+    {
+      "case": "write-owner-trust-override",
+      "concurrent_thread_start": true,
+      "threads_started": 3,
+      "turns_started": 0,
+      "sandbox": "workspace-write",
+      "test_git_root": "/tmp/adf-config-no-model-o5tkqral/write-owner-trust-override/repository",
+      "initial_test_config": null,
+      "final_test_config": null,
+      "preseed_config_bytes_unchanged": null,
+      "test_config_created": false,
+      "owner_cli_trust_override": true,
+      "default_home_codex_created": false,
+      "auth_file_created": false,
+      "owned_native_session_stopped": true
+    }
+  ],
+  "native_thread_start_requests": 18,
+  "native_turn_start_requests": 0,
+  "model_inference_calls": 0,
+  "login_setup_token_calls": 0,
+  "model_turn_behavior_tested": false,
+  "real_file_contents_or_creator_trace_established": false,
+  "real_profile_config_auth_contents_read": false,
+  "existing_auth_used_or_copied": false,
+  "real_profile_and_backup_metadata_unchanged": true,
+  "default_home_codex_remains_absent": true,
+  "all_temporary_native_sessions_stopped": true,
+  "production_provider_consumer_started": false,
+  "installed_execution_worker_commit": "a8bb1cc97015e9d46c25acdc9c88228cd65a4876",
+  "installed_execution_worker_changed": false,
+  "source_security_guard_changed": false,
+  "proposed_guard_implemented": false,
+  "proposed_contract": "ADR 007: exact operator trusted roots, closed TOML, fixed owner baseline, per-generation seal/drift fencing",
+  "runtime_ready": false,
+  "mvp_ready": false
+}

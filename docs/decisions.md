@@ -25,6 +25,8 @@ The deployment appendix's branch format and adapter interface win over earlier g
 
 ## Gates before real execution
 
+The [sealed shared-profile policy proposal](adr/007-sealed-shared-profile-policy.md) addresses the reproduced native automatic trust-write blocker. It is a proposed source/deployment contract, not an adopted permission expansion or implemented guard. Eighteen unauthenticated metadata-only thread starts support the design; no new model turn, profile edit or runtime deployment was performed.
+
 - Check current subscription terms, authorization, CLI flags and reported usage for the actual account. Generic documentation does not establish contractual permission.
 - Prove selected adapter permission controls can enforce required scopes. If not, disable autonomous writes; prompt prohibitions and shell filtering do not sandbox a host.
 - Accept execution of trusted local repositories under a dedicated regular WSL account; untrusted code requires future sandbox work.

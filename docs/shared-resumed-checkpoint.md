@@ -1,5 +1,7 @@
 # Preserved default directory and resumed shared queue checkpoint
 
+Subsequent read-only research: [proposed sealed profile policy](adr/007-sealed-shared-profile-policy.md) identifies and reproduces the pinned upstream automatic project-trust write using empty profiles, including three concurrent metadata threads. This does not implement a new guard or change the real profile/runtime; model turns in that research are zero.
+
 October 11, 2026. The human explicitly approved preserving `/home/adf-worker/.codex` as `/home/adf-worker/.codex.adf-backup-20261011` and continuing the bounded synthetic queue test. That exact rename is complete. The test reached one native thread/turn, then a different profile guard blocked its siblings. It is safely stopped and **not accepted**. [Sanitized evidence](evidence/shared-resumed-queue-2026-10-11.json) supersedes the rename-pending and zero-thread statements in [the earlier installed checkpoint](fixed-worker-checkpoint.md); historical evidence is preserved.
 
 ## Exact runtime boundary and preserving rename
