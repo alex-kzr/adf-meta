@@ -26,11 +26,11 @@ All three real queue claims reached the shared owner. The environment normalizat
 
 ## Exact remaining blocker
 
-`clean_config(profile, workspace)` in the worker rejects any ancestor `.codex` directory outside the explicit profile, including directories containing no known policy layer. The conflicting path is **`/home/adf-worker/.codex`**, owned by UID 1001 with mode 0700. Existence checks found none of `config.toml`, `rules`, `skills`, `AGENTS.md` or `environments.toml`. Directory/file content was not read. Its presence alone triggers `Shared job cannot inherit project or ancestor Codex configuration`.
+`clean_config(profile, workspace)` in the worker rejects any ancestor `.codex` directory outside the explicit profile, including directories containing no known policy layer. The conflicting path is **`/home/adf-worker/.codex`**, owned by UID 1001 with mode 0700. Existence checks found none of `config.toml`, `rules`, `skills`, `AGENTS.md` or `environments.toml`. A metadata-only immediate inventory shows one `tmp` entry and no root-level `auth.json` or `credentials.json`; this is not a recursive content/auth audit. File contents were not read. Its presence alone triggers `Shared job cannot inherit project or ancestor Codex configuration`.
 
 The dedicated profiles are separate paths under `ai-factory/provider-profiles`; their personal logins remain intact. The assistant did not read, copy, rename or delete the default `.codex` directory, and did not weaken the guard. Authentication does not authorize changing another authentication/configuration store.
 
-An operator can resolve this without changing the worker guard by preserving the whole conflicting directory outside Codex discovery, after explicitly authorizing that exact move or performing it personally. These commands are a reviewable proposal, **not performed**:
+A possible operator remedy is to preserve the whole conflicting directory outside Codex discovery, after explicitly authorizing that exact move or performing it personally. This preserves the worker guard. Its success must be verified after restart; it has not been rehearsed. These commands are a reviewable proposal, **not performed**:
 
 ```powershell
 wsl -d Ubuntu -u adf-worker
@@ -48,7 +48,7 @@ else
 fi
 ```
 
-The move preserves bytes and private ownership/mode; it neither copies credentials into the dedicated profiles nor changes another account. Undo only while ADF is drained/stopped and the original destination remains absent, by moving the held directory back. Do not delete it, print its contents or run another login. Alternatively, a separately reviewed source change could distinguish harmless default state from policy layers, but that needs verified pinned discovery behavior and security contract tests; this checkpoint does not claim such a fix.
+The move preserves bytes and private ownership/mode; it neither copies credentials into the dedicated profiles nor changes another account. Undo only while ADF is drained/stopped and the original destination remains absent, by moving the held directory back. Do not delete it, print its contents or run another login. Check whether native startup recreates the conflicting directory before resuming queued work; if it does, stop and preserve that evidence rather than repeatedly moving it. An isolated pinned `codex --version` probe with a fresh diagnostic HOME and the same explicit CODEX_HOME did not create `.codex` or `tmp`; this does not establish behavior of login status, interactive sessions or app-server startup. Alternatively, a separately reviewed source change could distinguish harmless default state from policy layers, but that needs verified pinned discovery behavior and security contract tests; this checkpoint does not claim such a fix.
 
 After the conflict is resolved, recheck drain, exact installed source/pins and rollback; start only the recorded ADF owner/consumer with the same profiles/shared backend. Continue the bounded acceptance using **new run/execution IDs**. Accepted IDs must never be replayed. Preserve the failed fixture/journals as evidence. Record actual outcomes before changing any readiness gate.
 
@@ -56,7 +56,7 @@ After the conflict is resolved, recheck drain, exact installed source/pins and r
 
 All three execution results are durable in API and Redis messages are ACKed. Every accepted job has a `no_thread` quiescence proof; supervisors and their owned sessions are stopped and every worktree lock was reacquired. Fixture main remains unchanged, its default checkout is clean, and temporary native skill materialization is removed. Cancellation was requested for nonterminal synthetic runs when the overlap gate failed. Only the recorded dedicated consumer/provider were then stopped, with native server session shutdown verified. There are no nonterminal executions. API/database, UI and Langfuse public probes return HTTP 200; `runtime_ready=false`. The umbrella verifier passes for 240 source files and its 91-test unittest run finishes OK (four documented platform/opt-in skips).
 
-The fixed worker remains installed and both private subscription profiles remain prepared/authenticated. Other services, users, Windows, firewall, listeners and global Git security were unchanged. The API-only rollback remains available as documented in [dedicated runtime preparation](dedicated-runtime.md#local-api-update-and-rollback).
+The fixed worker remains installed and both private subscription profiles remain prepared/authenticated. Other services, users, Windows, firewall, listeners and global Git security were unchanged. The API-only rollback remains available as documented in [dedicated runtime preparation](dedicated-runtime.md#local-api-update-and-rollback). Umbrella checkpoint `09a7daa0dd1bedaedf1870f10f52d74c2ee4d593` has [successful hosted CI](https://github.com/alex-kzr/adf-meta/actions/runs/38144214433); a fresh recursive GitHub clone resolves all four exact gitlinks, passes the verifier for 239 committed source files and the actual orchestrator compatibility test. The local verifier's 240-file count includes locally present ignored source text; it is not the committed-file count. Bootstrap code was unchanged.
 
 To revert the worker during an explicitly requested, drained/stopped rollback, use the retained source rather than a mutable checkout:
 

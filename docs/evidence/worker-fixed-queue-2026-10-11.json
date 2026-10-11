@@ -22,6 +22,12 @@
     "umbrella_unittest_skipped": 4,
     "umbrella_unittest_result": "OK; platform/opt-in skips",
     "umbrella_verifier_source_files": 240,
+    "published_umbrella_checkpoint": "09a7daa0dd1bedaedf1870f10f52d74c2ee4d593",
+    "published_umbrella_ci": "https://github.com/alex-kzr/adf-meta/actions/runs/38144214433",
+    "published_umbrella_ci_conclusion": "success",
+    "fresh_recursive_clone_verifier_source_files": 239,
+    "fresh_recursive_clone_actual_orchestrator_contract": "passed",
+    "fresh_recursive_clone_worker_pin": "a8bb1cc97015e9d46c25acdc9c88228cd65a4876",
     "hosted_ci": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38142701138",
     "hosted_ci_conclusion": "success"
   },
@@ -116,6 +122,18 @@
     "owner_uid": 1001,
     "mode": "0700",
     "known_configuration_layers_present": false,
+    "immediate_directory_entries": 1,
+    "immediate_entry_is_tmp_only": true,
+    "root_level_known_auth_files_present": false,
+    "recursive_auth_audit_performed": false,
+    "isolated_fresh_home_version_probe": {
+      "cli_version": "codex-cli 0.157.0",
+      "explicit_codex_home_retained": true,
+      "codex_directory_created": false,
+      "tmp_directory_created": false,
+      "auth_model_operation_requested": false,
+      "existing_default_directory_changed": false
+    },
     "contents_read_or_changed": false,
     "guard_rejects_directory_presence_even_without_known_layers": true
   },
