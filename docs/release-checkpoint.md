@@ -2,6 +2,16 @@
 
 October 11, 2026, local completion after host reconnection. The umbrella remains `adf-meta` at `C:\Users\admin\Documents\workspace\projects\adf`. All four child directories are independent repositories and real `160000` submodule gitlinks. `SPEC.md` is unchanged. Readiness remains false; see [acceptance status](acceptance-status.md) and [operator actions](operator-acceptance.md).
 
+## Latest publication and account update
+
+On October 11, the user's direct five-URL instruction authorized ordinary publication. Children were pushed before umbrella implementation snapshot `d941d535c3ca0cf3da1ce53291addf730d55af76`. Remote heads match frontend `92bfa64`, API `a0e0205`, orchestrator `6fe7c14` and worker `8af54fd`; all five exact-head CI runs pass. A fresh recursive GitHub clone resolves every pin and passes the verifier (230 files). The source verifier passes for 231 files. See [sanitized evidence](evidence/publication-account-2026-10-11.json); this subsequent documentation update records the completed operations.
+
+The user separately and directly authorized `adf-worker` in Ubuntu, only primary group `adf-worker`, private home/runtime/config directories (0700), and copying exactly the existing ADF worker/Redis service files into its config (0600, new owner). Provisioning completed as UID 1001/GID 1002. Checks from that actual UID prove the listed ownership/modes, no noninteractive sudo listing permission and no Docker socket access. Existing user/group metadata and source service files were preserved. No provider/Windows/admin credentials were copied, no personal login occurred, and no tools or services were installed for the new account.
+
+Account provisioning is complete; deployment is a separate pending scope. The proposed target is directly worker `8af54fd` at `/home/adf-worker/ai-factory/tools/worker-venv`, API `a0e0205`, and only the ADF launcher plus adding `/home/adf-worker/ai-factory/projects` to `ADF_ALLOWED_ROOTS` while retaining earlier roots. Persistent profiles must be outside projects/worktrees, for example `provider-profiles/codex` and `provider-profiles/claude` beneath the private runtime. Shared Codex requires a clean explicit profile. The user will complete personal CLI login after the approved tooling/profile preparation. Native shared/queued acceptance and complete identity isolation remain unproved; readiness stays false.
+
+The sections below preserve the earlier prepublication/preprovisioning checkpoint and approval history. Their unpublished/account-pending statements are historical and are superseded by this update; their running-service and native-acceptance limitations remain applicable.
+
 ## Exact child refs
 
 These published heads were observed through read-only `ls-remote`. Hosted CI links apply to the listed published heads; a green earlier build does not validate an unpublished child commit.

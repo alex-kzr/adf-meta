@@ -1,23 +1,16 @@
 # Minimal operator acceptance actions
 
-These are reviewable proposed actions, not authorization to change accounts, permissions, credentials or network configuration. None has been performed. See [acceptance status](acceptance-status.md) for source SPEC gates and additional hardening.
+This document distinguishes completed explicitly authorized provisioning from remaining proposals. It grants no permission to change accounts, permissions, credentials or network configuration. See [acceptance status](acceptance-status.md) for source SPEC gates and additional hardening.
 
 ## Separate WSL worker identity (required)
 
-Approve the exact Linux account `adf-worker` and new root `/home/adf-worker/ai-factory`, or specify different names. Use the existing WSL distro `Ubuntu`. Create only the new primary group `adf-worker`, with no sudo/docker/adm memberships or Docker socket access, and a private runtime home. The existing `alex` account and its credentials remain unchanged; do not copy its Codex/Claude authentication directories.
+Completed on October 11 after the user's direct exact-scope authorization: Ubuntu account `adf-worker` (UID 1001/GID 1002), only primary group `adf-worker`, and `/home/adf-worker`, `/home/adf-worker/ai-factory`, `/home/adf-worker/ai-factory/config` owned by that account with mode 0700. Exactly `/home/alex/ai-factory/config/worker-token` and `redis-worker-password` were copied to its config with the same filenames, new ownership and mode 0600. No secret values/hashes were printed or recorded. Existing users/groups and source files remain unchanged; no Codex/Claude/Windows/admin authentication was copied. See [evidence](evidence/publication-account-2026-10-11.json).
 
-After explicit approval, an operator with administrative access can create the account/root:
+The account password remains locked. Actual-UID verification reports only group `adf-worker`, denied noninteractive sudo listing and denied Docker socket access. Do not repeat account creation or credential copying. No pinned tools, provider profiles or runtime processes have yet been installed in the new account.
 
-```sh
-sudo adduser --disabled-password --gecos "" adf-worker
-sudo chmod 0700 /home/adf-worker
-sudo install -d -m 0700 -o adf-worker -g adf-worker /home/adf-worker/ai-factory
-sudo -iu adf-worker
-```
+The remaining deployment proposal prepares the locked worker `8af54fd` directly in `/home/adf-worker/ai-factory/tools/worker-venv`, pinned CLIs and private persistent profiles outside projects/worktrees, for example `/home/adf-worker/ai-factory/provider-profiles/codex` and `provider-profiles/claude`. Shared Codex refuses config/rules/skill layers in its explicit profile; do not delete existing profile configuration to bypass that check. Personal subscription credentials will be created only through the user's own interactive login. Prepare the new contour alongside the current runtime, retain rollback, stop dispatch and drain work before switching only ADF's provider owner/consumer. API deployment targets `a0e0205`; add the exact new project root to `ADF_ALLOWED_ROOTS` while preserving previous roots. Do not deploy an intermediate worker into the old `alex` environment, recursively change its ownership, or modify global Git/Docker security settings.
 
-Inside that identity, use the documented pinned installation/bootstrap commands to prepare its own tools, projects, journals and config. Copy only the narrowly required ADF worker token/Redis worker credential through an approved private operator step (0600 ownership); do not mount provider credentials into Docker. Provider credentials must be created through the user's own fresh interactive login. Prepare the new contour alongside the current runtime, stop dispatch and drain existing work before switching the ADF worker launcher/allowed-root registration. Do not recursively change ownership of the existing runtime or modify global Git/Docker security settings.
-
-Only the new account databases/home/root and the ADF launcher/allowed-root registration are in the proposed scope. Existing accounts/groups, the old runtime, Windows settings, firewall/listeners and global Git security are excluded. The only proposed credential transfer is the existing ADF worker token and Redis worker credential into new 0600 files; admin/provider credentials are excluded.
+Deployment/tooling/launcher changes and native model acceptance still require their exact user scope. Existing accounts/groups, Windows settings, firewall/listeners and global Git security are excluded. The two approved ADF service-file transfers are complete; no further credential transfer is proposed.
 
 Rollback: drain/stop exactly the new ADF worker, restore saved ADF launcher/allowed-root settings and the previous worker. Leave the new account unused/locked and preserve its private home; account/home deletion and auth revocation are separate user actions.
 
@@ -25,9 +18,9 @@ Risk: an incorrect ownership/group/credential transfer could expose another user
 
 ## Interactive subscription authentication (required)
 
-The user has requested an investigation of Windows-login reuse before any further login request. Read [provider identity findings](provider-identity.md) first. Worktrees do not require per-job login. The commands below remain fallback operator instructions; they are not a request to authenticate now or authorization to copy/link credential stores. No broker or auth migration has been implemented.
+The user has explicitly chosen personal login under the prepared new identity. Read [provider identity findings](provider-identity.md) and [shared-provider migration](../services/runtime-worker/docs/shared-provider.md) first. Worktrees do not require per-job login. A shared Codex authority and persistent supported profiles are implemented; no Windows/WSL credential broker or auth migration is implemented. Tool/profile preparation must precede the user's login, so the instructions below are not a request to authenticate before that preparation is approved and completed.
 
-Enter the correct identity with `wsl -d Ubuntu -u adf-worker` from Windows (or the explicit operator `sudo -iu adf-worker` context), then `umask 077`. After the worker identity is agreed, the user signs in to the pinned WSL Codex and Claude CLIs in that identity's own terminal/home. Use `codex login` and the installed Claude `auth login` flow; complete any browser/account steps personally. Never paste credentials into chat or copy Windows authentication stores. If authentication is tested temporarily under existing `alex`, it proves adapter availability only, not the separate-user gate.
+Enter the correct identity with `wsl -d Ubuntu -u adf-worker` from Windows, then `umask 077`. After pinned tools and exact private profile selectors are installed, the user signs in to the WSL CLIs from that identity's own terminal. Use the installed Codex `login` and Claude `auth login` flows with the same `CODEX_HOME`/`CLAUDE_CONFIG_DIR` paths configured for ADF; complete browser/account steps personally. Never paste credentials into chat or copy Windows authentication stores. The worker never initiates login, creates setup tokens or substitutes paid API access. Authentication under `alex` would prove adapter availability only, not this new identity's gate.
 
 Risk: CLI login persists subscription credentials in the selected Linux home. Confirm the intended account/subscription and verify provider health without printing token files. Then run one bounded native Claude fixture and scoped allowlist/denial tests. No paid API fallback or new subscription is assumed.
 

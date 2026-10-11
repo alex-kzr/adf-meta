@@ -41,3 +41,5 @@ Additional native acceptance: [dependency contents](evidence/codex-dependencies-
 [Provider identity reuse across Windows, WSL and parallel worktrees](provider-identity.md): initial read-only findings, followed by an opt-in shared Codex implementation and persistent Claude profiles; no credential changes. [Migration, protocol and remaining native gates](../services/runtime-worker/docs/shared-provider.md).
 
 [Shared-provider implementation evidence](evidence/provider-shared-2026-10-11.json): 134 Linux tests, pinned schemas and native unauthenticated handshake; zero model calls/deployment.
+
+[Publication and dedicated-account evidence](evidence/publication-account-2026-10-11.json): all five implementation heads published with successful CI and a fresh recursive clone; `adf-worker` created with private directories and exactly two approved service files. Provider login and deployment remain pending.

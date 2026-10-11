@@ -1,0 +1,81 @@
+{
+  "recorded_at": "2026-10-11T08:03:54Z",
+  "scope": "Completed ordinary publication and explicitly authorized Ubuntu account provisioning",
+  "publication": {
+    "child_first": true,
+    "force_push": false,
+    "repositories_created": false,
+    "published_implementation_snapshot": {
+      "adf-meta": "d941d535c3ca0cf3da1ce53291addf730d55af76",
+      "adf-web": "92bfa64f38202872dbf2999d9343884a12036959",
+      "adf-api": "a0e0205e85bd5e8f9c0d69d9316b7303f6add8ca",
+      "adf-orchestrator": "6fe7c1402864210fd8b6c2aed44695436c147f3f",
+      "adf-runtime-worker": "8af54fd1590139fa0730e7705d276188c9be3ca3"
+    },
+    "remote_shas_verified": true,
+    "exact_head_ci": {
+      "adf-meta": "https://github.com/alex-kzr/adf-meta/actions/runs/38122801555",
+      "adf-web": "https://github.com/alex-kzr/adf-web/actions/runs/38081761107",
+      "adf-api": "https://github.com/alex-kzr/adf-api/actions/runs/38122792882",
+      "adf-orchestrator": "https://github.com/alex-kzr/adf-orchestrator/actions/runs/38082038475",
+      "adf-runtime-worker": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38122797960"
+    },
+    "all_ci_conclusions": "success",
+    "source_verify_files": 231,
+    "fresh_github_recursive_clone": {
+      "all_five_commits_verified": true,
+      "all_statuses_clean": true,
+      "verify_files": 230,
+      "verify_result": "PASS"
+    }
+  },
+  "account": {
+    "distro": "Ubuntu",
+    "name": "adf-worker",
+    "uid": 1001,
+    "gid": 1002,
+    "primary_and_only_group": "adf-worker",
+    "password_locked": true,
+    "private_directories": [
+      "/home/adf-worker",
+      "/home/adf-worker/ai-factory",
+      "/home/adf-worker/ai-factory/config"
+    ],
+    "directory_mode": "0700",
+    "service_file_sources": [
+      "/home/alex/ai-factory/config/worker-token",
+      "/home/alex/ai-factory/config/redis-worker-password"
+    ],
+    "service_file_destinations": [
+      "/home/adf-worker/ai-factory/config/worker-token",
+      "/home/adf-worker/ai-factory/config/redis-worker-password"
+    ],
+    "service_file_owner": "adf-worker:adf-worker",
+    "service_file_mode": "0600",
+    "source_values_match_in_memory": true,
+    "secret_values_or_hashes_recorded": false,
+    "existing_users_and_groups_unchanged": true,
+    "verification_as_actual_new_uid": {
+      "sudo_noninteractive_list_allowed": false,
+      "docker_socket_access": false,
+      "provider_profile_directories_present": false
+    }
+  },
+  "effects_not_performed": {
+    "provider_auth_copy_or_login": true,
+    "windows_auth_or_admin_credential_copy": true,
+    "new_account_tools_installation": true,
+    "worker_or_api_deployment": true,
+    "windows_or_firewall_changes": true,
+    "global_git_security_changes": true,
+    "native_shared_model_acceptance": true
+  },
+  "remaining_gates": [
+    "Explicit deployment scope for worker 8af54fd under the new UID, API a0e0205 and the ADF-only launcher/allowed-root changes",
+    "Pinned tool installation and clean private operator profiles followed by the user's personal CLI login",
+    "Native shared execution, cancellation, config isolation, recovery and queued scoped-capability acceptance under the new UID",
+    "Foreign credential/DrvFs/interoperability and external-origin denial evidence"
+  ],
+  "mvp_acceptance_complete": false,
+  "authorization_note": "This record describes completed actions and grants no additional permissions."
+}
