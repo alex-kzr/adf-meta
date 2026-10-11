@@ -24,6 +24,7 @@ Start with [current implementation status](implementation-status.md), [live acce
 - [003: Declarative workflows and approval](adr/003-workflows-and-approval.md)
 - [004: Local submodules](adr/004-local-submodules.md)
 - [005: Observability routing](adr/005-observability.md)
+- [006: Persistent provider authority and independent Codex jobs](adr/006-provider-profile-ownership.md)
 
 Machine-readable contracts in [packages/contracts](../packages/contracts/README.md) are generated from the implemented API and checked against actual HTTP claims/events/results. Redacted live evidence: [three Codex agents](evidence/codex-three-agent-2026-10-10.json), [recovery and telemetry outage](evidence/codex-recovery-2026-10-10.json), [live CLI cancellation](evidence/codex-cancellation-2026-10-10.json), [Langfuse trace](evidence/langfuse-three-agent-2026-10-10.json), and [isolated backup restoration](evidence/isolated-backup-2026-10-10.json).
 
@@ -37,4 +38,6 @@ Additional native acceptance: [dependency contents](evidence/codex-dependencies-
 
 [Native approved skill/scoped MCP, independent review and owned-session evidence](evidence/codex-scoped-capabilities-2026-10-10.json).
 
-[Provider identity reuse across Windows, WSL and parallel worktrees](provider-identity.md): read-only findings and a proposed persistent authority/broker, without credential changes.
+[Provider identity reuse across Windows, WSL and parallel worktrees](provider-identity.md): initial read-only findings, followed by an opt-in shared Codex implementation and persistent Claude profiles; no credential changes. [Migration, protocol and remaining native gates](../services/runtime-worker/docs/shared-provider.md).
+
+[Shared-provider implementation evidence](evidence/provider-shared-2026-10-11.json): 134 Linux tests, pinned schemas and native unauthenticated handshake; zero model calls/deployment.

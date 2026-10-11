@@ -19,6 +19,7 @@ Current user instructions precede SPEC, then documented design choices. The user
 | `done` task requires successful final integration | Task branch completion is recorded separately |
 | Diagnostic scaffolds remain unready | Distinguishes design from functioning MVP |
 | Contracts remain in umbrella | No fifth service or duplicate schema authority |
+| Persistent operator profiles; opt-in single Codex app-server | Keeps one refresh authority while jobs have independent threads/worktrees; see [ADR 006](adr/006-provider-profile-ownership.md) |
 
 The deployment appendix's branch format and adapter interface win over earlier generic examples: `factory/task/<task-id>/<execution-id>`, `factory/integration/<run-id>`; `probe/execute/cancel/collect_usage`. Approval is an explicit node; integration is a registered post-task operation. UI DAGs remain acyclic while retries are internal runtime transitions. `needs_resolution` is an integration substatus of a paused run, not a new run-status enum.
 

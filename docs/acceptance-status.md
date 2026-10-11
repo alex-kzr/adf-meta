@@ -1,5 +1,7 @@
 # Live acceptance status
 
+October 11 provider implementation update: [persistent profiles/shared Codex](../services/runtime-worker/docs/shared-provider.md) and [ADR 006](adr/006-provider-profile-ownership.md) are committed locally. [134 Linux tests, pinned schemas and a native empty-profile handshake](evidence/provider-shared-2026-10-11.json) pass; no native model calls, new login, credential transfer, service installation or publication of these commits occurred. Native shared three-session capabilities/cancellation/crash acceptance and the intended UID/profile remain pending. The existing exact publication/account/deploy approval questions remain unresolved; this implementation approval does not widen those scopes. Readiness remains false.
+
 October 10, 2026. This report separates implemented behavior, observed acceptance and remaining work. `mvp_ready` remains **false**. Health checks and successful CI do not complete missing SPEC evidence. The source SPEC remains unchanged.
 
 ## Acceptance evidence

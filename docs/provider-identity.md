@@ -1,6 +1,12 @@
 # Provider identity reuse: Windows, WSL and parallel worktrees
 
-Read-only investigation, October 11, 2026. This is a recommendation for evaluation, not an implemented adapter or permission to transfer credentials. No authentication contents were read, hashed, copied, linked or published; no login, logout, token generation or credential-access change was performed. The operator is not asked to log in again until a reuse strategy is chosen.
+Initial read-only investigation, October 11, 2026, followed by the user's accepted local implementation. No authentication contents were read, hashed, copied, linked or published; no login, logout, token generation or credential-access change was performed. Existing observations below describe the initial research, not a credential migration.
+
+## Implemented update
+
+The worker now supports existing private persistent Codex/Claude directories and an opt-in shared Codex owner via `provider-server` + `serve --codex-backend shared`. The compatible default remains subprocess mode. Claude's supported CLI profile is preferred; no automatic new OAuth token is introduced. Job-specific cwd/model/skill/MCP settings remain independent; routine cancellation interrupts only one thread, and crash/restart never replays an accepted execution ID. See [ADR 006](adr/006-provider-profile-ownership.md) and the [module migration guide](../services/runtime-worker/docs/shared-provider.md).
+
+The installed native 0.157.0 binary passed an isolated empty-profile initialize/account-read handshake with zero thread/model calls. Offline subprocess/socket/FD tests verify concurrency, cancellation, uncertain closure, crash/recovery, auth failures and retained cleanup. Native shared model/skill/MCP cleanup and dedicated UID/profile/deployment acceptance are still pending. No new login is requested; readiness remains false. Windows-auth bridging remains a separate unimplemented option.
 
 ## Observed installations and storage metadata
 
@@ -29,7 +35,7 @@ For Codex, evaluate **one persistent WSL app-server under `adf-worker`**, with s
 
 If preserving the Windows login as the sole authority is essential, evaluate an authenticated local broker rather than sharing its refresh cache. [App-server external ChatGPT tokens](https://learn.chatgpt.com/docs/app-server) are an experimental integration: a host that already owns the auth lifecycle supplies access tokens and handles refresh requests. This is not an endpoint for extracting the desktop app's credentials. A Windows-to-WSL bridge therefore needs an explicit supported token source, a sole refresh owner, protected IPC and new adapter tests. Existing Windows desktop/CLI clients must not independently rotate a duplicated refresh token. Do not assume Windows 0.162.1 and WSL 0.157.0 protocol compatibility.
 
-For Claude, the practical broker candidate is one separately approved `setup-token` provision, kept in protected operator storage and supplied only to trusted CLI launches. It permits parallel jobs without distributing a rotating login file. It is not implemented: ADF's `restricted_env` currently strips secret variables and rejects `CLAUDE_CODE_OAUTH_TOKEN` in ordinary `env_allowlist`. A trusted launcher channel, explicit redaction registration, expiry handling and child-environment tests would be required. Credentials must never become agent configuration, command arguments, API payloads or trace attributes. Same-UID shell execution is not a strong secret-isolation boundary.
+For Claude, the adopted implementation reuses an operator-owned supported CLI profile through `CLAUDE_CONFIG_DIR`, outside jobs. A separately approved `setup-token` provision remains an optional alternative and is not generated or injected by ADF. `restricted_env` continues to reject `CLAUDE_CODE_OAUTH_TOKEN` in ordinary `env_allowlist`. Token injection would require a separately reviewed trusted launcher, redaction and expiry handling. Credentials must never become agent configuration, command arguments, API payloads or trace attributes. Same-UID shell execution is not a strong secret-isolation boundary; native parallel refresh behavior is not yet verified.
 
 ## Adapter gates before adoption
 

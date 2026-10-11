@@ -1,5 +1,7 @@
 # Reliability and lifecycle
 
+The opt-in [shared Codex backend](../services/runtime-worker/docs/shared-provider.md) adds generation and per-thread quiescence journals. A dead bridge alone is insufficient: `thread/closed` or verified whole-server SID death is required before releasing the execution lock. Missing closure retains skills/configs and yields `uncertain`. Accepted IDs are never replayed after restart; ledger retries need fresh IDs after stopped-proof fencing. [ADR 006](adr/006-provider-profile-ownership.md) preserves default subprocess mode and existing API contracts.
+
 | Entity | States and guards |
 | --- | --- |
 | Task | draft -> ready; ready -> blocked/running/cancelled; blocked -> ready/cancelled; running -> review/failed/cancelled; review -> running (bounded repair)/done/failed/cancelled. done requires final integration. |

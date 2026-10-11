@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-11",
+  "scope": "Local persistent profiles and opt-in shared Codex; no production deployment",
+  "worker_commits": {
+    "profiles": "faa9164995c1779466c81700337ab107d6ed6f3d",
+    "shared": "8af54fd1590139fa0730e7705d276188c9be3ca3"
+  },
+  "verification": {
+    "linux_pytest_passed": 134,
+    "pytest_duration_seconds": 27.41,
+    "new_shared_cases": 11,
+    "ruff_src_tests": "passed",
+    "strict_mypy_source_files": 22,
+    "bandit_medium_high_findings": 0,
+    "public_schema_contracts": 5,
+    "codex_version": "0.157.0",
+    "node_version": "24.21.0",
+    "tag_tree": "00c972ed5d6ff6499317fd41b7f23605b8e6850d"
+  },
+  "offline_cases": [
+    "Three simultaneous jobs, one real wire-double process, distinct cwd/model/skill/MCP",
+    "Cancel one thread; siblings complete; token normalization",
+    "Unsubscribe without closed is uncertain; lock and launch files retained",
+    "Crash and new generation without accepted-ID replay",
+    "Orphan server cleanup with recorded owner-dead and SID/pidfd proof",
+    "Missing/expired/revoked auth; no login or raw auth error; dispatch blocked",
+    "Private reasoning/tool arguments excluded; environment overrides refused",
+    "Generated thread/turn/interrupt/unsubscribe/closed validate against pinned schemas"
+  ],
+  "native_handshake": {
+    "actual_binary": "Codex 0.157.0",
+    "profile": "Empty temporary directory, separate from existing profiles",
+    "strict_baseline_launch": "passed",
+    "initialize": "passed",
+    "account_read_refresh_token_false": "passed",
+    "account_present": false,
+    "thread_calls": 0,
+    "model_calls": 0,
+    "dedicated_sid_stopped": true,
+    "existing_credential_contents_read": false
+  },
+  "effects": {
+    "new_commits_pushed": false,
+    "account_created": false,
+    "services_deployed": false,
+    "login_or_logout": false,
+    "oauth_token_generated": false,
+    "windows_auth_copied_or_linked": false,
+    "credential_permissions_changed": false
+  },
+  "limits": [
+    "Native shared model/skill/MCP/cancellation/descendant cleanup acceptance pending",
+    "AuthManager serialization supported by pinned source; real rotation not forced",
+    "Same-UID trusted code, not hostile-code isolation or Windows/WSL auth bridge",
+    "Dedicated minimally privileged UID/profile and deployment separately approval-blocked",
+    "Subprocess remains default; shared per-job environment overrides unsupported",
+    "MVP readiness remains false"
+  ]
+}
