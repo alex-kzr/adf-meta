@@ -2,7 +2,7 @@
 
 Status: Accepted for opt-in implementation. Exact-pin deployment completed; one bounded native queued trial failed closed and full acceptance remains incomplete. October 11, 2026. [Actual runtime result and retained rollback](../shared-policy-runtime-checkpoint.md) supersede source-only installation-pending statements below.
 
-Later source finding: [pinned sandbox diagnosis/recovery repair](../shared-sandbox-recovery-repair.md) establishes that workspace-write creates a transient host `.codex`, incompatible with this ADR's unchanged strict absence rule. Sealed native writes now fail before threads; read-only remains supported. [A proposed parallel write design](../shared-write-path.md) keeps native read-only and makes the trusted worker apply validated structured patches under original job authorization. It is not implemented or deployed; coding/MVP acceptance remains open. The strict guard and manifest are not broadened.
+Later source finding: [pinned sandbox diagnosis/recovery repair](../shared-sandbox-recovery-repair.md) establishes that workspace-write creates a transient host `.codex`, incompatible with this ADR's unchanged strict absence rule. Sealed native writes fail before threads; read-only remains supported. The subsequent bounded [shared-patch implementation](../shared-patch-source.md) keeps native generation read-only and makes the trusted worker apply validated structured patches under original job authorization. It is implemented in source, not installed or natively accepted. [ADR 008](008-shared-patch-and-isolated-checks.md) records its closed Python checks and remaining gates. The strict guard and manifest are not broadened; coding/MVP readiness stays false.
 
 ## Reproduced cause
 

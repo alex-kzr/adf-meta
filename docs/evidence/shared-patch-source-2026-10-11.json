@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-11",
+  "scope": "source-only implementation, offline regression and publication",
+  "source_commits": {
+    "runtime_worker": "a0b2abad379802242091d16398b2e7c34c756026",
+    "orchestrator": "9932a87e676b651c7ff2eb89246b900c6d0f843e",
+    "api_unchanged": "a0e0205e85bd5e8f9c0d69d9316b7303f6add8ca",
+    "frontend_unchanged": "92bfa64f38202872dbf2999d9343884a12036959"
+  },
+  "worker_offline_qa": {
+    "python": "3.12.9",
+    "tests_passed": 291,
+    "tests_skipped": 0,
+    "ruff": "passed",
+    "strict_mypy_files": 28,
+    "bandit_medium": 0,
+    "bandit_high": 0,
+    "namespace_launcher_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c",
+    "namespace_fixture_executed": true,
+    "three_developer_failure_repair_review_commit_serial_integration": "passed",
+    "main_unchanged": true,
+    "provider_double_only": true
+  },
+  "worker_exact_ci": {
+    "head_sha": "a0b2abad379802242091d16398b2e7c34c756026",
+    "url": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38165325565",
+    "conclusion": "success"
+  },
+  "orchestrator_qa": {
+    "tests_passed": 33,
+    "ruff": "passed",
+    "strict_mypy_files": 11,
+    "bandit_medium": 0,
+    "bandit_high": 0,
+    "exact_ci": "https://github.com/alex-kzr/adf-orchestrator/actions/runs/38164378320",
+    "exact_ci_conclusion": "success"
+  },
+  "umbrella_offline_qa": {
+    "tests_run": 94,
+    "documented_platform_tests_skipped": 4,
+    "api_model_snapshots_unchanged": 6,
+    "markdown_schema_openapi_gitlinks_secret_patterns": "passed",
+    "spec_sha256": "3494049865774af023fa49427feb3f71b8865dc82adcac3d7e5bc6a81cdde5a2"
+  },
+  "independent_readonly_source_review": {
+    "remaining_blocking_p1_p2": 0,
+    "runtime_native_acceptance_claimed": false
+  },
+  "installed_runtime_readonly_evidence": {
+    "worker_commit": "13c4624a8791fa4c9035c284a4689e412f0b7b42",
+    "installed_and_retained_source_files_verified": 23,
+    "recorded_provider_consumer_native_server_stopped": true,
+    "profile_directory_uid": 1001,
+    "profile_directory_mode": "0700",
+    "profile_contents_read": false,
+    "default_codex_layer_absent": true,
+    "observed_file_metadata_or_content_modified": false
+  },
+  "runtime_installed_or_activated": false,
+  "sealed_manifest_or_policy_changed": false,
+  "auth_or_secret_values_read_or_copied": false,
+  "dependency_upgrades": false,
+  "native_provider_thread_turn_or_model_calls": 0,
+  "paid_api_fallback": false,
+  "ready_for_real_execution": false,
+  "remaining_gates": [
+    "separate exact installation and bounded subscription acceptance approval",
+    "native generation secret-read isolation",
+    "Node/React/build/thread/subprocess checker support"
+  ]
+}

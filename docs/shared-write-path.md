@@ -1,6 +1,6 @@
 # Path to parallel writing agents with pinned Codex
 
-October 11, 2026. **Proposed implementation, not an enabled capability or completed MVP.** The [source repair](shared-sandbox-recovery-repair.md) deliberately rejects sealed native workspace-write. The requirement for three parallel coding agents remains open. Installed runtime, current security policy, permissions, profiles and service settings were not changed to research this path.
+October 11, 2026. **Historical design proposal; subsequent bounded source implementation is documented separately.** See [implemented behavior](shared-patch-source.md), [ADR 008](adr/008-shared-patch-and-isolated-checks.md) and [separate installation/acceptance scope](shared-patch-deployment.md). Statements below about unimplemented work describe the original investigation checkpoint. Source publication does not enable the installed runtime or establish native/MVP acceptance; installed `13c4624a`, security policy and authorizations remain unchanged.
 
 ## Recommended minimum: shared read-only generation, worker-applied patches
 

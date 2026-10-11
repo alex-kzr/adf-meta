@@ -1,6 +1,6 @@
 # Development documentation
 
-[Latest source-only sandbox/recovery diagnosis and repair](shared-sandbox-recovery-repair.md), with [sanitized evidence](evidence/shared-sandbox-recovery-source-2026-10-11.json): strict guard preserved; sealed writes fail before threads, owned terminal recovery does not execute new jobs. [Proposed compatible parallel write backend](shared-write-path.md) lists exact source implementation, isolation and approval boundaries. Installed `13c4624a` and stopped runtime remain unchanged; full coding/MVP acceptance remains pending.
+[Latest source-only shared-patch implementation](shared-patch-source.md) and [ADR 008](adr/008-shared-patch-and-isolated-checks.md): bounded structured generation, durable authorized writer, isolated single-process Python checks and fresh repair through independent review/serial integration. [Separate exact installation and subscription acceptance scope](shared-patch-deployment.md) remains pending. Installed `13c4624a`, policy/auth and stopped runtime are unchanged; full coding/MVP acceptance remains pending.
 
 [Latest sealed-policy deployment and bounded shared trial](shared-policy-runtime-checkpoint.md): worker `13c4624a` installed; three simultaneous native turns each completed scoped MCP, then failed closed. Results/ACKs/stopped writers/locks are verified. Full cancellation/recovery/output isolation acceptance remains incomplete; services are stopped. [Sanitized runtime evidence](evidence/shared-profile-policy-runtime-2026-10-11.json) records the limits.
 
@@ -32,6 +32,7 @@ Start with [current implementation status](implementation-status.md), [live acce
 - [005: Observability routing](adr/005-observability.md)
 - [006: Persistent provider authority and independent Codex jobs](adr/006-provider-profile-ownership.md)
 - [007: Opt-in sealed shared-profile trust policy](adr/007-sealed-shared-profile-policy.md), with [18 no-model native thread probes and pinned source evidence](evidence/shared-profile-config-research-2026-10-11.json), [exact deployment scope](shared-policy-deployment.md) and [actual bounded runtime result](shared-policy-runtime-checkpoint.md)
+- [008: Guarded shared patches and isolated single-process Python checks](adr/008-shared-patch-and-isolated-checks.md), with [current source release](shared-patch-source-checkpoint.md), [offline evidence](evidence/shared-patch-source-2026-10-11.json) and [separate installation/acceptance scope](shared-patch-deployment.md)
 
 Machine-readable contracts in [packages/contracts](../packages/contracts/README.md) are generated from the implemented API and checked against actual HTTP claims/events/results. Redacted live evidence: [three Codex agents](evidence/codex-three-agent-2026-10-10.json), [recovery and telemetry outage](evidence/codex-recovery-2026-10-10.json), [live CLI cancellation](evidence/codex-cancellation-2026-10-10.json), [Langfuse trace](evidence/langfuse-three-agent-2026-10-10.json), and [isolated backup restoration](evidence/isolated-backup-2026-10-10.json).
 

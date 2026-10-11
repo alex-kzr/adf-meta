@@ -1,6 +1,6 @@
 # Local release and publication checkpoint
 
-Latest source-only release: [sandbox capability and recovery repair](shared-sandbox-recovery-repair.md) preserves the strict guard, declares the sealed write limitation and adds no-execution owned-journal reconciliation; 247 isolated Linux tests pass. [The proposed patch backend for parallel coding](shared-write-path.md) remains unimplemented. Installed `13c4624a` and stopped runtime remain unchanged; source publication is separate from a new deployment or native trial.
+Latest source-only release: [shared-patch implementation](shared-patch-source.md) completes the bounded source loop with a durable writer, closed Python checker and explicit reconciliation fences. [ADR 008](adr/008-shared-patch-and-isolated-checks.md) and [separate installation/acceptance scope](shared-patch-deployment.md) record limitations and approval boundaries. Installed `13c4624a`, unchanged policy/auth and stopped runtime are preserved; source publication is separate from deployment or a native trial. Older pins below are historical.
 
 Latest runtime checkpoint: [authorized preserving rename and resumed shared queue](shared-resumed-checkpoint.md). Installed worker remains `a8bb1cc`; published source remains `859cc534`. The exact default directory is backed up, one native turn is cancelled safely, and two pre-thread failures reveal an explicit-profile `config.toml` guard blocker. Dedicated services are stopped and readiness is false. No further runtime pin replacement or profile/guard remedy was performed.
 

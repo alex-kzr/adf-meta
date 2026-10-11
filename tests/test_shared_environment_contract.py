@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class SharedEnvironmentContractTests(unittest.TestCase):
     def test_fixture_matches_actual_orchestrator_request_builder(self) -> None:
-        fixture = json.loads((ROOT / "services/runtime-worker/tests/fixtures/orchestrator-6fe7c14-shared-envelope.json").read_text())
+        fixture = json.loads((ROOT / "services/runtime-worker/tests/fixtures/orchestrator-shared-envelope.json").read_text())
         source = (ROOT / "services/orchestrator/src/adf_orchestrator/engine.py").read_bytes().replace(b"\r\n", b"\n")
         self.assertEqual(hashlib.sha256(source).hexdigest(), fixture["request_builder_source_sha256"])
         module = ast.parse(source)
