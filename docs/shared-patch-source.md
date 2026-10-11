@@ -1,4 +1,6 @@
 # Shared-patch source implementation
+Current shared source also requires [operator-owned native read permissions](shared-native-read-policy.md). The legacy native preflight FAILED; source canaries and future installation/acceptance are separate. The exact scope below must include both mandatory operator flags; old source hashes remain historical.
+
 
 October 11, 2026. The opt-in worker backend implements the bounded path proposed in [the original investigation](shared-write-path.md). Runtime installation and native acceptance have not happened. Installed worker stays `13c4624a8791fa4c9035c284a4689e412f0b7b42`; provider/consumer stay stopped, auth/manifest/security policy are unchanged, and readiness remains false. [ADR 008](adr/008-shared-patch-and-isolated-checks.md) records the checker decision and remaining limitations.
 

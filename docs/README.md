@@ -1,5 +1,7 @@
 # Development documentation
 
+[Current native read isolation source and exact deployment boundary](shared-native-read-policy.md), [ADR 009](adr/009-operator-owned-native-read-policy.md) and [source evidence](evidence/shared-native-read-source-2026-10-11.json) and [exact source checkpoint](shared-native-read-source-checkpoint.md): legacy preflight FAILED; new synthetic actual-native command/metadata through closed IPC passes. No installation, authentication change or model/queue acceptance.
+
 [Latest source-only shared-patch implementation](shared-patch-source.md) and [ADR 008](adr/008-shared-patch-and-isolated-checks.md): bounded structured generation, durable authorized writer, isolated single-process Python checks and fresh repair through independent review/serial integration. [Separate exact installation and subscription acceptance scope](shared-patch-deployment.md) remains pending. Installed `13c4624a`, policy/auth and stopped runtime are unchanged; full coding/MVP acceptance remains pending.
 
 [Latest sealed-policy deployment and bounded shared trial](shared-policy-runtime-checkpoint.md): worker `13c4624a` installed; three simultaneous native turns each completed scoped MCP, then failed closed. Results/ACKs/stopped writers/locks are verified. Full cancellation/recovery/output isolation acceptance remains incomplete; services are stopped. [Sanitized runtime evidence](evidence/shared-profile-policy-runtime-2026-10-11.json) records the limits.

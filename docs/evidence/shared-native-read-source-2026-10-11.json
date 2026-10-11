@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-11",
+  "scope": "source-only",
+  "legacy_native_preflight": "FAILED: synthetic external/auth/config canaries readable",
+  "new_source_canary": "PASS: actual native metadata and standalone command probes through synthetic closed ADF IPC",
+  "pins": {
+    "codex": "0.157.0",
+    "codex_binary_sha256": "1a822376d4634ac32dddc030e5117c63359f7f8cd4b1b64382c68190287d0258",
+    "bwrap_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
+  },
+  "actual_native_methods": [
+    "initialize",
+    "thread/start",
+    "skills/list",
+    "mcpServerStatus/list",
+    "thread/unsubscribe"
+  ],
+  "actual_native_turn_start_calls": 0,
+  "model_calls": 0,
+  "real_auth_or_secret_contents_read": false,
+  "synthetic_canaries": {
+    "assigned_marker_read": true,
+    "selected_skill_read": true,
+    "unapproved_skill_denied": true,
+    "outside_auth_config_denied": true,
+    "nested_private_files_denied": true,
+    "hardlinks_denied": true,
+    "symlink_parent_proc_aliases_denied": true,
+    "sibling_worktrees_denied": true,
+    "write_denied": true,
+    "command_network_denied": true
+  },
+  "ipc_jobs": {
+    "concurrent": 3,
+    "cancelled": 1,
+    "successful_siblings": 2,
+    "owner_lifecycle": "protocol double; actual native metadata/command only"
+  },
+  "native_capability_metadata": {
+    "selected_skill_only_enabled": true,
+    "mcp_tools": [
+      "read_marker"
+    ],
+    "model_tool_invocation_verified": false
+  },
+  "protocol_schemas": "actual generated experimental ThreadStartParams/Response; both validated",
+  "installed_runtime_changed": false,
+  "installed_worker": "13c4624a8791fa4c9035c284a4689e412f0b7b42",
+  "deployment_performed": false,
+  "subscription_api_redis_acceptance": false,
+  "ready_for_real_execution": false,
+  "checks": {
+    "linux_worker_tests_passed": 356,
+    "linux_worker_tests_skipped": 0,
+    "ruff": "PASS",
+    "mypy": {
+      "status": "PASS",
+      "source_files": 29
+    },
+    "bandit": {
+      "medium": 0,
+      "high": 0,
+      "low": 17
+    },
+    "umbrella_tests_run": 94,
+    "umbrella_platform_skips": 4,
+    "umbrella_verify": "PASS: 279 source files, docs/contracts/gitlinks/SPEC/heuristic secret checks",
+    "api_snapshots": {
+      "count": 6,
+      "status": "unchanged"
+    },
+    "independent_review": {
+      "blocking_findings": 0,
+      "scope": "source/security/code/docs; reviewer did not run runtime/models"
+    },
+    "installed_provenance": {
+      "installed_and_retained_source_files_matched": 23,
+      "recorded_provider_consumer_native_server_stopped": true,
+      "profile_owners": 1001,
+      "profile_modes": "0700",
+      "profile_contents_read": false,
+      "observed_runtime_file_metadata_unchanged": true
+    }
+  },
+  "limits": [
+    "public platform and approved tool contents remain readable",
+    "tool root identity sealed; recursive contents not sealed",
+    "trusted same-UID host; snapshots not atomic against hostile mutation",
+    "all builtin tool routes/model-selected tools not exercised",
+    "fake refresh/recovery is not subscription/queue acceptance"
+  ],
+  "worker_source_commit": "a74b8b9381473a4feb936238a643e084a47efacb",
+  "worker_ci_url": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38173103422"
+}

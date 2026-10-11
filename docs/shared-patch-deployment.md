@@ -1,4 +1,6 @@
 # Separate shared-patch installation and bounded acceptance scope
+Current shared source also requires [operator-owned native read permissions](shared-native-read-policy.md). The legacy native preflight FAILED; source canaries and future installation/acceptance are separate. The exact scope below must include both mandatory operator flags; old source hashes remain historical.
+
 
 Prepared October 11, 2026. **Not executed or authorized by source publication.** Use the exact worker/orchestrator commit pins from the [source release checkpoint](shared-patch-source-checkpoint.md), never a floating `main`. Installed worker remains `13c4624a8791fa4c9035c284a4689e412f0b7b42`. [ADR 008](adr/008-shared-patch-and-isolated-checks.md) and [source behavior](shared-patch-source.md) define the bounded Python capability.
 

@@ -1,4 +1,6 @@
 # Shared-patch source release checkpoint
+Current shared source also requires [operator-owned native read permissions](shared-native-read-policy.md). The legacy native preflight FAILED; source canaries and future installation/acceptance are separate. The exact scope below must include both mandatory operator flags; old source hashes remain historical.
+
 
 October 11, 2026. Source delivery only; no installation or native/model acceptance. The [source contract and phases](shared-patch-source.md), [ADR 008](adr/008-shared-patch-and-isolated-checks.md) and [separate exact installation/acceptance scope](shared-patch-deployment.md) are the current documents. Older release checkpoints retain their historical pins/results.
 

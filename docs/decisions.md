@@ -23,6 +23,10 @@ Current user instructions precede SPEC, then documented design choices. The user
 
 The deployment appendix's branch format and adapter interface win over earlier generic examples: `factory/task/<task-id>/<execution-id>`, `factory/integration/<run-id>`; `probe/execute/cancel/collect_usage`. Approval is an explicit node; integration is a registered post-task operation. UI DAGs remain acyclic while retries are internal runtime transitions. `needs_resolution` is an integration substatus of a paused run, not a new run-status enum.
 
+## Current native isolation decision
+
+[ADR 009](adr/009-operator-owned-native-read-policy.md) supersedes the legacy read-only assumption for current shared source: require both operator manifests, owner-only named native grants and durable capability reconstruction. The legacy secret-read preflight FAILED. New synthetic real-IPC/native command and metadata evidence passes, with public platform roots, same-UID and unverified tool-route limits. [Deployment scope](shared-native-read-policy.md) remains separate; runtime stays stopped and readiness false.
+
 ## Gates before real execution
 
 The [sandbox diagnosis and recovery repair](shared-sandbox-recovery-repair.md) shows that strict sealed policy cannot support pinned native workspace-write: a transient host metadata mount triggers its absence guard. The opt-in [shared-patch source implementation](shared-patch-source.md) now uses native read-only structured generation, original authorized host writes and a separate closed Python checker; the existing bounded repair/review/serial integration loop is retained. [ADR 008](adr/008-shared-patch-and-isolated-checks.md) states the remaining Node/build and native-read limitations. [Installation and fresh subscription acceptance](shared-patch-deployment.md) require a separate exact scope; installed `13c4624a`, old policy and stopped services are unchanged, and MVP remains incomplete.
