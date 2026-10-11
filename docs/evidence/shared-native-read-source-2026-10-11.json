@@ -89,6 +89,14 @@
     "all builtin tool routes/model-selected tools not exercised",
     "fake refresh/recovery is not subscription/queue acceptance"
   ],
-  "worker_source_commit": "a74b8b9381473a4feb936238a643e084a47efacb",
-  "worker_ci_url": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38173103422"
+  "worker_source_commit": "f5a713a3df44ffdad58aaa80fc3a36157e6c2736",
+  "worker_ci_url": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38173696418",
+  "ci_correction": {
+    "first_candidate_run": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38173103422",
+    "first_candidate_result": "failed synthetic /tmp namespace placement; 355 other tests passed",
+    "production_policy_changed": false,
+    "correction": "private tmpfs before public/synthetic binds; regular CI package instead of editable link",
+    "local_private_tmp_native_canary": "PASS:1 test; real auth mounts/model calls/runtime changes=0",
+    "independent_review": "no blockers"
+  }
 }

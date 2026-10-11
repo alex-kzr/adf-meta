@@ -6,12 +6,12 @@ October 11, 2026. Source publication only. [Current policy, evidence and exact f
 
 | Repository | Exact source commit | Change |
 | --- | --- | --- |
-| adf-runtime-worker | `a74b8b9381473a4feb936238a643e084a47efacb` | Mandatory operator named native-read policy, durable skills/MCP reconstruction, generation/Git fences and synthetic native regressions |
+| adf-runtime-worker | `f5a713a3df44ffdad58aaa80fc3a36157e6c2736` | Mandatory operator named native-read policy, durable skills/MCP reconstruction, generation/Git fences and synthetic native regressions |
 | adf-api | `a0e0205e85bd5e8f9c0d69d9316b7303f6add8ca` | Unchanged |
 | adf-orchestrator | `9932a87e676b651c7ff2eb89246b900c6d0f843e` | Unchanged |
 | adf-web | `92bfa64f38202872dbf2999d9343884a12036959` | Unchanged |
 
-The umbrella commits English documentation/evidence and the child gitlink after the worker. The final delivery gives its exact commit and CI receipt, avoiding a self-referential commit hash. Worker [exact-commit workflow](https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38173103422) contains the static, complete Linux and pinned public native-canary gates; publication alone does not establish workflow success or native runtime acceptance.
+The umbrella commits English documentation/evidence and the child gitlink after the worker. The final delivery gives its exact commit and CI receipt, avoiding a self-referential commit hash. Worker [exact-commit workflow](https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38173696418) contains the static, complete Linux and pinned public native-canary gates; publication alone does not establish workflow success or native runtime acceptance.
 
 ## Local checks and independent review
 
@@ -20,6 +20,8 @@ The complete worker suite passes **356 Linux tests, zero skips** in a fresh priv
 An independent read-only source/security reviewer found no remaining blockers after capability reconstruction, permission/account gates, exact sibling masks, private/public-root overlap refusal and native receipt inheritance fixes. Review inspected pinned protocol/tool implementation and synthetic fixtures; it did not execute runtime/model acceptance. [Sanitized verification evidence](evidence/shared-native-read-source-2026-10-11.json) records the source canary and limits.
 
 Actual native ThreadStartParams/Response validate against the pinned generated experimental schema. Real ADF Unix IPC and SCM_RIGHTS carry three temporary allocations; one cancellation leaves two successful siblings. Actual Codex metadata and standalone command probes confirm assigned reads, selected instruction availability, denied private/external/alias/hardlink/sibling paths, denied writes/network, selected-only skill metadata and narrowed `read_marker` MCP inventory. Lifecycle turns/refresh/crash/recovery are synthetic protocol-double tests. Actual native model turn count is zero; no real authorizations or secret contents were used.
+
+The first candidate CI exposed a synthetic namespace placement bug: mounting `/tmp` after binding a `/tmp` test root hid that root. The final test-only correction mounts private tmpfs first and uses a regular CI package installation so owned MCP code is inside the public Python mount. An actual canary in an additional private namespace with `/tmp` roots passes (one targeted test); no existing ancestor layer was removed or bypassed. The complete suite remains required in the final exact-commit workflow.
 
 ## Runtime preserved and open gates
 
