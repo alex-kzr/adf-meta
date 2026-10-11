@@ -96,6 +96,15 @@ def container_bindings() -> dict[str, Any]:
     return {'ok': bool(ids) and all(item['host_ip'] in {'127.0.0.1', '::1'} for item in ports), 'bindings': ports, 'external_host_denial': 'unverified'}
 
 
+def worker_doctor_argv(args: argparse.Namespace, canonical: Path) -> list[str]:
+    argv = [str(args.worker), 'doctor', '--root', str(canonical)]
+    for flag, value in (('--node', args.node), ('--codex', args.codex), ('--claude', args.claude),
+                        ('--codex-home', args.codex_home), ('--claude-config-dir', args.claude_config_dir)):
+        if value is not None:
+            argv.extend([flag, str(value)])
+    return argv
+
+
 def diagnose(args: argparse.Namespace) -> dict[str, Any]:
     runtime = args.root.expanduser()
     linux = platform.system() == 'Linux'
@@ -107,12 +116,7 @@ def diagnose(args: argparse.Namespace) -> dict[str, Any]:
     socket_access = any(os.access(path, os.W_OK) for path in ('/var/run/docker.sock', '/run/docker.sock'))
     privilege = {'process_unprivileged': linux and os.geteuid() != 0, 'groups': groups, 'docker_socket_access': socket_access, 'dedicated_account_verified': False, 'least_privilege_verified': False}
     report: dict[str, Any] = {'schema_version': 1, 'wsl2': wsl, 'ext4_runtime': {'ok': root_ok, 'root': str(canonical), 'filesystem': filesystem.get('value')}, 'privileges': privilege}
-    argv = [str(args.worker), 'doctor', '--root', str(canonical)]
-    if args.codex:
-        argv.extend(['--codex', args.codex])
-    if args.claude:
-        argv.extend(['--claude', args.claude])
-    worker = command(argv, timeout=45)
+    worker = command(worker_doctor_argv(args, canonical), timeout=45)
     if worker['ok']:
         try:
             worker = {'ok': True, 'report': json.loads(worker['value'])}
@@ -131,16 +135,23 @@ def diagnose(args: argparse.Namespace) -> dict[str, Any]:
     return report
 
 
-def main() -> None:
+def argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path.home() / 'ai-factory')
     parser.add_argument('--worker', type=Path)
+    parser.add_argument('--node', type=Path)
     parser.add_argument('--codex')
     parser.add_argument('--claude')
+    parser.add_argument('--codex-home', type=Path)
+    parser.add_argument('--claude-config-dir', type=Path)
     parser.add_argument('--api-url', default='http://127.0.0.1:8080')
     parser.add_argument('--redis-url', default='redis://adf_worker@127.0.0.1:6380/0')
     parser.add_argument('--redis-password-file', type=Path)
-    args = parser.parse_args()
+    return parser
+
+
+def main() -> None:
+    args = argument_parser().parse_args()
     args.worker = args.worker or args.root.expanduser() / 'tools/worker-venv/bin/adf-worker'
     report = diagnose(args)
     print(json.dumps(report, indent=2))

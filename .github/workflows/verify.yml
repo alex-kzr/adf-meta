@@ -24,7 +24,7 @@ jobs:
       - run: ruff check scripts/init-local-env.py tests/test_local_configuration.py --select E4,E7,E9,F,S
       - run: mypy scripts/init-local-env.py tests/test_local_configuration.py --strict --follow-imports=skip
       - run: bandit scripts/init-local-env.py -ll
-      - run: ruff check scripts/doctor.py --select E4,E7,E9,F,S --ignore S603,S310
+      - run: ruff check scripts/doctor.py tests/test_doctor_profiles.py --select E4,E7,E9,F,S --ignore S603,S310
       - run: mypy scripts/doctor.py --strict --follow-imports=skip
       - run: ruff check scripts/export-api-contract.py tests/test_contract_snapshot.py scripts/snapshot-runtime.py tests/test_snapshot_runtime.py --select E4,E7,E9,F,S --ignore S603,S310
       - run: mypy scripts/export-api-contract.py tests/test_contract_snapshot.py scripts/snapshot-runtime.py tests/test_snapshot_runtime.py --strict --follow-imports=skip

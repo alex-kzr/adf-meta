@@ -1,0 +1,28 @@
+# Doctor source repair and installed runtime boundary
+
+October 11, 2026. Worker source **`859cc5341643d2031a622e662dbaf23be2c5badb`** repairs diagnostic profile selection. It is published with [successful exact-commit CI](https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38146428340). The dedicated execution venv remains on **`a8bb1cc97015e9d46c25acdc9c88228cd65a4876`**; this source repair has not replaced that installation. Use the installed shared backend's existing preflight for the current acceptance attempt, rather than its old unprofiled doctor. See [installed runtime and queue blocker](fixed-worker-checkpoint.md).
+
+## Diagnostic behavior
+
+Previously, doctor constructed adapters without the operator's persistent profile. Environment sanitization then removed the profile selectors, allowing native diagnostics to inspect the default store instead of the selected runtime store. The repair requires explicit `--codex-home` and `--claude-config-dir` selections for native probes and uses the existing private `ProviderProfile` validation. It supplies the selected `CODEX_HOME` or `CLAUDE_CONFIG_DIR` to both version and official read-only auth-status commands. The umbrella doctor/bootstrap wrappers forward these options and `--node` as separate arguments. Read [worker diagnostic instructions](../services/runtime-worker/docs/doctor-profiles.md) and [local development](local-development.md).
+
+An omitted native profile reports `PROFILE_REQUIRED`, `auth: unknown`, `installed: null` and `probe_performed: false`; it invokes no native CLI for that provider, including when the operator shell has a selector. A missing, public, relative, symlinked or outside-home directory fails existing validation before spawning a CLI. Profiles are neither created nor authenticated by doctor. The other provider's selector and credential/API-key variables remain excluded from the child environment.
+
+Only trusted operator command-line options changed. Jobs cannot override provider profiles or OAuth environment. Request contracts, `restricted_env`, shared configuration validation and the ancestor `.codex` guard are unchanged. No login, setup-token, credential copy, paid API fallback or model execution was added. Readiness remains false.
+
+## Verification
+
+- Twelve worker regressions use empty temporary homes, private explicit profiles and executable fixtures that record the actual child environment. They cover both the CLI and direct diagnostic path, absent and independent profile selections, invalid paths, no default `.codex` creation and continued job-environment rejection. All **158 Linux worker tests** pass; Ruff, strict mypy (22 source files) and Bandit medium/high checks pass.
+- Three umbrella regressions check argument forwarding, omitted selectors and the actual diagnostic call path without native/network calls. The full root suite completes 94 tests with four documented platform/opt-in skips. The root verifier passes for 245 locally present source files, including ignored vendor source text; it checks links, schemas, four gitlinks and unchanged SPEC. Root Ruff, Linux-targeted strict mypy, Bandit medium/high and wrapper shell syntax checks pass. The root CI workflow includes their lint check and the existing test suite.
+- An additional smoke check runs the repaired source from a separate QA venv against the real pinned Codex **0.157.0** and Claude Code **2.1.296**, with Node **24.21.0**, using an entirely empty temporary HOME and two private empty temporary profiles. Version pins match, both auth statuses correctly require login in those empty fixtures, and no default `HOME/.codex` is created. Existing authenticated profiles are not used or modified. There are **zero model, login or setup-token calls**.
+- Installed execution-source hashes still match `a8bb1cc`; the retained original `8af54fd` rollback source is preserved. This QA venv is not the execution venv.
+
+These checks establish diagnostic behavior, not shared queued native acceptance or authentication of a real operator profile. [Sanitized source evidence](evidence/doctor-profile-repair-2026-10-11.json) records the boundary.
+
+## Remaining runtime blocker
+
+The existing `/home/adf-worker/.codex` directory still blocks the unchanged ancestor guard. The proposed preserving rename to `/home/adf-worker/.codex.adf-backup-20261011` awaits the human's answer and **has not been performed**. Dedicated provider/consumer remain stopped, and no further queued/model run was started for this repair. Previous failed queue results and IDs remain immutable evidence. Native three-way overlap, settings isolation, skills/MCP, cancellation and crash recovery in this dedicated shared contour are still unaccepted.
+
+The pinned read-only experiment used another empty temporary HOME. With explicit `CODEX_HOME`, version, login status and app-server initialization did not create `HOME/.codex`. Without that selector, app-server initialization created it. No model/thread/turn/account-refresh request was issued; this does not identify the creator of the existing `.codex/tmp`, or prove behavior during a model turn. Official [Codex config and state documentation](https://learn.chatgpt.com/docs/config-file/config-advanced#config-and-state-locations) describes `CODEX_HOME` and the default `~/.codex` location; the exact pinned behavior above is experimental evidence.
+
+Do not install the new source pin, move the conflicting directory, weaken the guard or retry native execution as an automatic consequence of publishing this source repair. Follow the separately authorized runtime transition and fresh drain/preflight checks after the pending operator decision.

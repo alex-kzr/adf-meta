@@ -1,5 +1,7 @@
 # Fixed worker installation and remaining shared queue blocker
 
+Source-only follow-up: worker `859cc5341643d2031a622e662dbaf23be2c5badb` repairs [explicit diagnostic profiles](doctor-profile-repair.md) with 158 passing tests and successful CI. The execution venv described here remains `a8bb1cc`; it was not replaced. Use the installed shared preflight for the current acceptance, not its old unprofiled doctor. The operator rename remains pending and no new model call occurred.
+
 October 11, 2026. This is the current runtime checkpoint and supersedes the deployment/repair proposal in [the first queue failure](shared-queue-blocker.md). [Sanitized evidence](evidence/worker-fixed-queue-2026-10-11.json) records installed bytes and the actual second queue attempt. Native acceptance and whole MVP readiness remain false.
 
 ## Published and installed repair
@@ -40,9 +42,9 @@ wsl -d Ubuntu -u adf-worker
 # First ensure ADF dispatch is drained and the dedicated owner/consumer are stopped.
 # These exact paths belong to adf-worker; never substitute another user's directory.
 if [ -d /home/adf-worker/.codex ] && [ ! -L /home/adf-worker/.codex ] && \
-   [ ! -e /home/adf-worker/.codex-adf-held-20261011 ] && \
-   [ ! -L /home/adf-worker/.codex-adf-held-20261011 ]; then
-  mv -T --no-clobber -- /home/adf-worker/.codex /home/adf-worker/.codex-adf-held-20261011
+   [ ! -e /home/adf-worker/.codex.adf-backup-20261011 ] && \
+   [ ! -L /home/adf-worker/.codex.adf-backup-20261011 ]; then
+  mv -T --no-clobber -- /home/adf-worker/.codex /home/adf-worker/.codex.adf-backup-20261011
 else
   echo 'Source/destination preconditions failed; nothing moved.'
 fi

@@ -12,7 +12,7 @@ while (($#)); do
     --root) root="$2"; shift 2 ;;
     --token-file) token_file="$2"; shift 2 ;;
     --redis-password-file) redis_file="$2"; shift 2 ;;
-    --codex|--claude|--api-url|--redis-url) doctor_args+=("$1" "$2"); shift 2 ;;
+    --node|--codex|--claude|--codex-home|--claude-config-dir|--api-url|--redis-url) doctor_args+=("$1" "$2"); shift 2 ;;
     *) echo "Unknown bootstrap option: $1" >&2; exit 2 ;;
   esac
 done

@@ -17,6 +17,8 @@ Start with [current implementation status](implementation-status.md), [live acce
 13. [Repository lifecycle](repositories.md)
 14. [Technical sources](sources.md) and [delivery evidence](delivery-status.md)
 
+[Doctor explicit-profile source repair](doctor-profile-repair.md): selected profiles reach native diagnostics; 158 worker tests and pinned empty-profile smoke pass. Source `859cc534` is separate from installed runtime `a8bb1cc`; the operator rename and native queue acceptance remain pending.
+
 ## Architecture decision records
 
 - [001: Four deployment units](adr/001-deployment-units.md)

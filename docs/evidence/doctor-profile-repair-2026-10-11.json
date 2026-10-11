@@ -1,0 +1,57 @@
+{
+  "recorded_date": "2026-10-11",
+  "scope": "Source-only explicit operator profile repair in doctor",
+  "worker_source_commit": "859cc5341643d2031a622e662dbaf23be2c5badb",
+  "worker_ci": {
+    "url": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38146428340",
+    "head_sha": "859cc5341643d2031a622e662dbaf23be2c5badb",
+    "conclusion": "success"
+  },
+  "installed_execution_worker_commit": "a8bb1cc97015e9d46c25acdc9c88228cd65a4876",
+  "installed_execution_source_files_matching_snapshot": 22,
+  "execution_venv_replaced": false,
+  "retained_rollback_source_commit": "8af54fd1590139fa0730e7705d276188c9be3ca3",
+  "local_worker_checks": {
+    "linux_pytest_passed": 158,
+    "new_doctor_regressions": 12,
+    "ruff": "pass",
+    "strict_mypy_source_files": 22,
+    "strict_mypy": "pass",
+    "bandit_medium_high_findings": 0
+  },
+  "local_umbrella_checks": {
+    "unittest_total": 94,
+    "unittest_skipped_documented_platform_or_opt_in": 4,
+    "unittest_result": "OK",
+    "new_forwarding_regressions": 3,
+    "verifier_locally_present_source_files": 245,
+    "verifier": "pass; local count includes ignored vendor source text",
+    "spec_unchanged": true,
+    "ruff": "pass",
+    "linux_targeted_strict_mypy": "pass",
+    "bandit_medium_high_findings": 0,
+    "wrapper_shell_syntax": "pass"
+  },
+  "pinned_empty_profile_smoke": {
+    "home_and_profiles": "empty private temporary directories, separate QA venv",
+    "node": "24.21.0",
+    "codex": "0.157.0",
+    "claude": "2.1.296",
+    "version_pins_match": true,
+    "codex_auth": "required in empty test profile",
+    "claude_auth": "required in empty test profile",
+    "default_home_codex_created": false,
+    "existing_authenticated_profiles_used_or_modified": false,
+    "model_calls": 0,
+    "login_calls": 0,
+    "setup_token_calls": 0
+  },
+  "job_profile_or_oauth_override_enabled": false,
+  "ancestor_codex_guard_changed": false,
+  "rename_performed": false,
+  "pending_rename_destination": "/home/adf-worker/.codex.adf-backup-20261011",
+  "dedicated_provider_and_consumer": "stopped",
+  "queued_native_acceptance": "blocked pending operator decision and fresh preflight",
+  "runtime_ready": false,
+  "mvp_ready": false
+}

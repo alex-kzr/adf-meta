@@ -35,17 +35,23 @@ bash scripts/bootstrap-wsl.sh \
   --root /home/alex/ai-factory \
   --token-file .bootstrap/secrets/worker-token \
   --redis-password-file .bootstrap/secrets/redis-worker-password \
+  --node /absolute/path/to/pinned/node \
   --codex /home/alex/.local/bin/codex \
-  --claude /home/alex/ai-factory/tools/node_modules/.bin/claude
+  --claude /home/alex/ai-factory/tools/node_modules/.bin/claude \
+  --codex-home /home/alex/ai-factory/provider-profiles/codex \
+  --claude-config-dir /home/alex/ai-factory/provider-profiles/claude
 
 bash scripts/doctor.sh \
   --root /home/alex/ai-factory \
+  --node /absolute/path/to/pinned/node \
   --codex /home/alex/.local/bin/codex \
   --claude /home/alex/ai-factory/tools/node_modules/.bin/claude \
+  --codex-home /home/alex/ai-factory/provider-profiles/codex \
+  --claude-config-dir /home/alex/ai-factory/provider-profiles/claude \
   --redis-password-file /home/alex/ai-factory/config/redis-worker-password
 ```
 
-Doctor reports actual CLI versions/auth status, ext4 filesystem, current groups/socket access, authenticated Redis health, API readiness and Docker host bindings. It neither installs nor authenticates software nor starts jobs. `runtime_healthy` is operational health; `mvp_ready` remains false until the umbrella gates pass. A missing provider does not become a mock-provider success. External-host denial and dedicated-account privilege remain explicit unknown gates.
+Doctor reports actual CLI versions/auth status for explicitly selected existing private profiles, ext4 filesystem, current groups/socket access, authenticated Redis health, API readiness and Docker host bindings. Provision/authenticate those profiles personally before diagnosing them. The source repair forwards `--codex-home`, `--claude-config-dir` and `--node` through both wrappers. Omitted profiles report `PROFILE_REQUIRED` without invoking their CLIs; shell selectors are not implicitly adopted. It neither installs nor authenticates software nor starts jobs. See [diagnostic profile behavior](../services/runtime-worker/docs/doctor-profiles.md). The dedicated installed worker remains `a8bb1cc`; use its current shared preflight until an updated installation is separately authorized. `runtime_healthy` is operational health; `mvp_ready` remains false until the umbrella gates pass. A missing provider does not become a mock-provider success. External-host denial and dedicated-account privilege remain explicit unknown gates.
 
 After reviewing doctor and registering project/configuration/policy versions, start the implemented consumer:
 
