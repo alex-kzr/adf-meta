@@ -19,7 +19,7 @@ The last published umbrella is `5a4e600046f130678111b533987de9aea1e4220a`, with 
 
 The October 11 read-only reconnect check received HTTP 200 from frontend `http://127.0.0.1:8088`, API health/readiness `http://127.0.0.1:8080` and Langfuse `http://127.0.0.1:3000`. API readiness reports `database_ready: true` and `runtime_ready: false`; healthy services do not imply accepted MVP readiness. Existing core containers remain healthy and their published ports are loopback. No services, identities, authentication stores or network settings were changed during reconnect completion.
 
-The existing healthy API still runs `9a55fac`; its image ID is `sha256:b7e91591b729bb1437309510eb7e412e0ed2c6b03ef7457cb91ce444b8a7a538`. The production worker venv still contains `e39b1e5`; its previous consumer was restored after the rejected installation. Frontend `92bfa64` and orchestrator `6fe7c14` were rebuilt in the existing local contour. A candidate API image was built but was not installed. New native scoped-capability trials use only a disposable ext4 fixture and the existing editable test venv; they do not prove queued API/Redis deployment.
+The existing healthy API still runs `9a55fac`; its image ID is `sha256:b7e91591b729bb1437309510eb7e412e0ed2c6b03ef7457cb91ce444b8a7a538`. The production worker venv still contains `e39b1e5`; reconnect byte checks of installed adapters/process/supervisor match that commit. Its previous consumer was restored after the October 10 rejected installation, but the October 11 check finds its old PID absent and no own-user ADF `serve` process. Starting/replacing the consumer remains pending deployment authorization; reconnection alone did not authorize it. Frontend `92bfa64` and orchestrator `6fe7c14` were rebuilt in the existing local contour. A candidate API image was built but was not installed. New native scoped-capability trials use only a disposable ext4 fixture and the existing editable test venv; they do not prove queued API/Redis deployment.
 
 ## Verified evidence and limitations
 
@@ -45,9 +45,9 @@ The pending publication request is restricted to ordinary `main` pushes to the f
 5. Supply an authorized external host or suitable VM for the bounded ADF-port denial probe. Do not widen listeners or add inbound firewall exceptions.
 
 ```powershell
-python scripts/export-bundles.py .bootstrap/export-release-20261011
-python scripts/bootstrap-local.py .bootstrap/export-release-20261011 C:\Users\admin\AppData\Local\Temp\adf-restored-release-20261011
-python C:\Users\admin\AppData\Local\Temp\adf-restored-release-20261011\scripts\verify.py
+python scripts/export-bundles.py .bootstrap/export-release-20261011-final
+python scripts/bootstrap-local.py .bootstrap/export-release-20261011-final C:\Users\admin\AppData\Local\Temp\adf-restored-release-20261011-final
+python C:\Users\admin\AppData\Local\Temp\adf-restored-release-20261011-final\scripts\verify.py
 ```
 
 Export only clean committed state. The destination must not exist. Bundles/private reports/credentials/runtime files remain ignored; bootstrap uses command-local file permission and fresh local mirror URLs without changing committed `.gitmodules` or global Git settings.
