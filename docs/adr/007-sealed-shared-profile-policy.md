@@ -1,6 +1,6 @@
 # ADR 007: Explicit sealed trust policy for the shared Codex profile
 
-Status: Proposed, source/design validation only. No worker guard or installed runtime change is implemented by this ADR. October 11, 2026.
+Status: Accepted for opt-in source implementation. Exact-pin runtime deployment and native queued acceptance remain pending. October 11, 2026.
 
 ## Reproduced cause
 
@@ -23,9 +23,9 @@ Eighteen unauthenticated `thread/start` requests used six fresh private test pro
 
 These direct metadata-only probes bypass the current ADF clean-profile guard and are not API/Redis/native model acceptance. No model turn was run. TUI preference/notice persistence and explicit app-server config-write RPCs are separate upstream paths; ADF does not use the TUI or expose those RPCs through its bridge. This investigation does not assert that all future model-turn state mutations are absent. Any unreviewed configuration mutation must stop execution, rather than extend the allowlist automatically.
 
-## Proposed minimum change
+## Implemented minimum change
 
-Introduce an **opt-in operator-owned sealed project-trust policy**, while keeping today's absence-only mode as the default. Do not permit `config.toml` solely because it exists or its hash was approved. The content must satisfy an exact closed schema and an explicitly selected project set:
+An **opt-in operator-owned sealed project-trust policy** keeps absence-only mode as the default. The simpler owner CLI override prevents the reproduced automatic trust write; it does not authorize arbitrary existing config. Absent config is accepted and sealed as absent. If present, its content must satisfy an exact closed schema and an explicitly selected project set:
 
 ```toml
 [projects."/home/adf-worker/ai-factory/projects/shared-acceptance-resumed-20261011"]
@@ -40,12 +40,14 @@ After schema validation, seal the exact config bytes for that owner generation. 
 
 The server's existing fixed feature/network/approval/skills/MCP baseline remains authoritative. Derive the identical `projects` override only from the validated operator manifest. Inject it inside the owner after validating the client frame; clients and jobs may not supply a `projects` field or OAuth/env selectors. This avoids the automatic trust-write branch. An existing file is reusable only if it already equals the explicit closed policy; the source change must not provision, merge, repair, delete or replace it implicitly.
 
-## Exact implementation points
+## Source implementation
+
+The [worker contract](../../services/runtime-worker/docs/shared-profile-policy.md) documents the implemented JSON manifest, owner CLI override, immutable file/Git marker seals, allocation-target lock binding, independent drift monitor and transitive receipt fencing. The [release/deployment scope](../shared-policy-deployment.md) records the exact published pin and separate approval boundary. No new service, job field or config-writing process was introduced.
 
 1. Add `profile_policy.py` with a closed-schema validator and per-generation byte seal. Add an operator-only `provider-server --shared-profile-policy <private-manifest>` option. Omission retains the current guard; API/Redis/job schemas and `restricted_env` do not change.
 2. In `server_command`, validate/seal before any CLI version/auth probe or app-server launch. Pass the trusted immutable policy to `SharedServer`; never serialize config contents into broker journals.
 3. In `_handle`, verify allocator/main-root binding and both ancestry sets before native dispatch. Reject client trust/config overrides with the existing fixed baseline validation, then add only the owner's derived project trust to native parameters.
-4. Serialize the config validation plus `thread/start` segment. Recheck the seal after startup **before `turn/start`**. During active turns and before success/commit eligibility, verify drift again. On mismatch, block the generation/health, interrupt and close its active threads; if closure cannot be proven, retain locks/materialization and mark uncertain. Keep accepted-ID tombstones and existing fencing/ACK rules.
+4. Serialize config validation plus native thread/turn setup. Recheck the seal after startup **before `turn/start`**. During active turns and before success/commit eligibility, verify drift again. The independent polling monitor and running handlers do not wait on a slow dispatch RPC. On mismatch, block the generation/health, interrupt and close active siblings; if closure cannot be proven, retain locks/materialization and mark uncertain. Keep accepted-ID tombstones and existing fencing/ACK rules. Allocation receipts preserve the original worktree marker seal across review/repair/predecessor/integration paths; copies validate trusted local source evidence under bounded journal writer locks and never reseal drift.
 5. Keep configuration writing out of ordinary startup. If an existing real file fails validation, stop with a fixed classification and preserve it. A separately reviewed exact baseline installation/backup operation is needed only if the operator later chooses that remedy.
 
 ## Required source and integration checks
@@ -53,9 +55,9 @@ The server's existing fixed feature/network/approval/skills/MCP baseline remains
 - Offline contract tests: absence-only default remains unchanged; exactly declared trust accepted; unknown root/key/value, provider/env/MCP/hooks/model/notice/inclusion settings, malformed TOML, links, broad permissions, large files and concurrent replacement rejected without printing sentinels.
 - Real subprocess/Unix-socket tests: jobs cannot change the owner's policy; distinct approved allocations work; wrong allocator/main-root or main-root `.codex` layers fail before native requests. Three concurrent starts preserve the seal.
 - Drift tests: mutation before start blocks launch; mutation between thread/start and turn/start yields no turn; mutation during one active turn blocks the generation and cancels siblings with closure/lock proofs. Missing closure remains uncertain and prevents cleanup/ACK/commit. Restart never replays an accepted ID.
-- Native empty-profile test: exact policy/owner baseline plus three worktrees and concurrent starts, no turns/auth/model calls, stable bytes and stopped SID proof. The current upstream experiments pass; the proposed **ADF integration** tests have not yet been implemented.
+- Native empty-profile experiments: exact owner baseline plus three worktrees and concurrent starts, no turns/auth/model calls, stable bytes and stopped SID proof. The historical upstream experiments pass. New ADF source integration uses fake-provider IPC and temporary profiles; no new native run was performed during this implementation. Native queue acceptance remains a separate gate.
 - After source checks/CI and separate exact-pin deployment authorization, retain immutable `a8bb1cc` rollback, recheck drain and validate the existing profile against the reviewed manifest without outputting its contents. Only provider/consumer may be updated. Then run the existing bounded synthetic API/Redis skills/MCP/cancel/recovery acceptance using fresh IDs, subscription auth and no paid fallback.
 
 ## Current decision boundary
 
-This is a concrete tested design proposal, not a ready-to-deploy worker patch. The installed `a8bb1cc`, published doctor source `859cc534`, real profile config/auth, backup and current guard remain unchanged. Actual profile content need not be read to approve the design. During a later explicitly authorized deployment, the closed validator would need to read **only `CODEX_HOME/config.toml`** to classify it against the exact reviewed policy, without printing values; no `auth.json`, token or other credential read by the assistant is required. It must not assume the real file matches the synthetic reproduction. Native model acceptance and readiness remain false.
+This is an opt-in source patch with isolated security/lifecycle regression tests and an independent static review. The installed `a8bb1cc`, real profile config/auth and preserving backup remain unchanged; current live default guard is still restrictive. Actual profile content was not read for source implementation. During a later explicitly authorized exact-pin deployment, the closed validator would read **only `CODEX_HOME/config.toml`** to classify it against the reviewed policy without printing values; no `auth.json`, token or other credential read by the assistant is required. An invalid file is preserved and blocks startup. Pre/post checks and polling detect drift within a trusted same-UID host but are not an atomic hostile-code sandbox. Native model acceptance and readiness remain false.

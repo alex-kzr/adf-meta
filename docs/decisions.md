@@ -25,7 +25,7 @@ The deployment appendix's branch format and adapter interface win over earlier g
 
 ## Gates before real execution
 
-The [sealed shared-profile policy proposal](adr/007-sealed-shared-profile-policy.md) addresses the reproduced native automatic trust-write blocker. It is a proposed source/deployment contract, not an adopted permission expansion or implemented guard. Eighteen unauthenticated metadata-only thread starts support the design; no new model turn, profile edit or runtime deployment was performed.
+The opt-in [sealed shared-profile policy](adr/007-sealed-shared-profile-policy.md) implements an owner CLI trust override, closed manifest/config validation, immutable seals and drift/commit fencing for the reproduced automatic trust-write blocker. Default deny remains unchanged. Eighteen historical unauthenticated metadata-only starts support the upstream mechanism; new source tests use temporary fake-provider profiles with no model calls. [Exact-pin deployment and bounded acceptance](shared-policy-deployment.md) require a separate reviewed scope; real profile contents and installed runtime were not changed by source implementation.
 
 - Check current subscription terms, authorization, CLI flags and reported usage for the actual account. Generic documentation does not establish contractual permission.
 - Prove selected adapter permission controls can enforce required scopes. If not, disable autonomous writes; prompt prohibitions and shell filtering do not sandbox a host.

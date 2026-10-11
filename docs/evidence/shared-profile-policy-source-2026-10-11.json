@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-11",
+  "scope": "source-only ADR 007 implementation; no runtime deployment or native acceptance",
+  "worker_commit": "13c4624a8791fa4c9035c284a4689e412f0b7b42",
+  "worker_publication": {
+    "origin": "https://github.com/alex-kzr/adf-runtime-worker",
+    "remote_main_equals_commit": true,
+    "exact_commit_ci_run_id": 38153462401,
+    "exact_commit_ci_url": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38153462401",
+    "exact_commit_ci_status": "completed",
+    "exact_commit_ci_conclusion": "success"
+  },
+  "installed_worker_unchanged": "a8bb1cc97015e9d46c25acdc9c88228cd65a4876",
+  "real_profile_config_or_auth_contents_read": false,
+  "real_profile_config_or_auth_modified": false,
+  "installed_execution_venv_modified": false,
+  "separate_source_qa_venv_updated": true,
+  "new_native_provider_turn_starts": 0,
+  "new_provider_model_calls": 0,
+  "new_api_redis_acceptance_jobs": 0,
+  "local_worker_checks": {
+    "python": "3.12.9",
+    "platform": "Ubuntu WSL, adf-worker, synthetic temporary repositories and profiles",
+    "pytest_passed": 234,
+    "pytest_failed": 0,
+    "ruff": "passed",
+    "strict_mypy": "passed, 23 source files",
+    "bandit_medium_high_findings": 0
+  },
+  "local_umbrella_checks": {
+    "unittest_cases": 94,
+    "passed": 90,
+    "documented_platform_or_opt_in_skips": 4,
+    "failed": 0,
+    "docs_contracts_gitlinks_secret_heuristics": "passed",
+    "spec_sha256": "3494049865774af023fa49427feb3f71b8865dc82adcac3d7e5bc6a81cdde5a2"
+  },
+  "independent_review": {
+    "method": "separate agent, read-only static source re-review",
+    "all_reported_p1_p2_addressed": true,
+    "new_findings_in_reviewed_patch": 0,
+    "reviewer_ran_full_suite": false,
+    "reviewer_ran_models_or_read_real_profiles": false
+  },
+  "security_regressions": [
+    "default absence-only guard and pre-probe validation",
+    "exact closed manifest/trust-only TOML; unknown fields and roots denied",
+    "canonical paths, symlinks and loops, hardlinks, UID/mode/size and concurrent replacement",
+    "nested JSON/TOML parser exhaustion becomes fixed permission failure",
+    "owner-only project trust injection; no job policy expansion",
+    "durable allocator/main Git root binding and target execution lock for separate review dispatch",
+    "worktree .git pointer seal before/after binding and during execution",
+    "immutable inherited marker seal including validator-to-bind replacement race",
+    "three separate approved allocations without config creation",
+    "pre-thread, post-thread/pre-turn, post-turn and pre-success drift fences",
+    "independent drift interruption despite delayed sibling start",
+    "three sibling interruption/closure and retained locks when close is unproved",
+    "accepted execution tombstones survive restart with no replay",
+    "later commit and transitive repair/predecessor/integration receipt fencing",
+    "bounded private source journal reads coordinated with atomic writer locks"
+  ],
+  "candidate_deployment_manifest": "/home/adf-worker/ai-factory/tools/shared-profile-policy.json",
+  "candidate_exact_project_roots": [
+    "/home/adf-worker/ai-factory/projects/shared-acceptance-resumed-20261011"
+  ],
+  "candidate_manifest_created_in_runtime": false,
+  "deployment_approval_and_native_queued_acceptance_pending": true,
+  "mvp_ready": false,
+  "limitations": [
+    "same-UID trusted-host snapshots are not an atomic hostile-code sandbox",
+    "source fake-provider IPC tests do not establish native queue/skills/MCP acceptance",
+    "existing real config remains unclassified; later authorized validation may fail closed",
+    "retired generation evidence requires fresh reviewed attempts rather than automatic reauthorization"
+  ]
+}
