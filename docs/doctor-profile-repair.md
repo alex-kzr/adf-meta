@@ -1,5 +1,7 @@
 # Doctor source repair and installed runtime boundary
 
+Subsequent runtime update: [the authorized preserving rename and resumed shared test](shared-resumed-checkpoint.md) supersede the rename-pending/zero-native-turn status recorded below. The doctor source repair is still not installed; execution remains on `a8bb1cc`, services are stopped, and the new explicit-profile config blocker preserves the same guard/readiness gates.
+
 October 11, 2026. Worker source **`859cc5341643d2031a622e662dbaf23be2c5badb`** repairs diagnostic profile selection. It is published with [successful exact-commit CI](https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38146428340). The dedicated execution venv remains on **`a8bb1cc97015e9d46c25acdc9c88228cd65a4876`**; this source repair has not replaced that installation. Use the installed shared backend's existing preflight for the current acceptance attempt, rather than its old unprofiled doctor. See [installed runtime and queue blocker](fixed-worker-checkpoint.md).
 
 ## Diagnostic behavior

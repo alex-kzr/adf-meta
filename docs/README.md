@@ -1,5 +1,7 @@
 # Development documentation
 
+[Latest preserving rename and resumed shared acceptance](shared-resumed-checkpoint.md): exact rename complete; one accepted native turn cancelled with closure proof; two pre-thread profile-config failures. Services are safely stopped and further native acceptance requires a separate scope decision.
+
 Start with [current implementation status](implementation-status.md), [live acceptance status](acceptance-status.md), [release checkpoint](release-checkpoint.md) and [implementation board](kanban.md).
 
 1. [Product and acceptance](product.md)

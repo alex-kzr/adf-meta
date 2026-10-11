@@ -1,0 +1,344 @@
+{
+  "recorded_at": "2026-10-11T14:50:52.435130+00:00",
+  "scope": "Explicitly authorized preserving rename and continuation of bounded synthetic shared acceptance",
+  "installed_worker_commit": "a8bb1cc97015e9d46c25acdc9c88228cd65a4876",
+  "published_worker_source_commit": "859cc5341643d2031a622e662dbaf23be2c5badb",
+  "api_commit": "a0e0205e85bd5e8f9c0d69d9316b7303f6add8ca",
+  "source_doctor_fix_installed": false,
+  "old_doctor_invoked": false,
+  "rename": {
+    "recorded_at": "2026-10-11T14:39:20.784156+00:00",
+    "source": "/home/adf-worker/.codex",
+    "target": "/home/adf-worker/.codex.adf-backup-20261011",
+    "rename_performed": true,
+    "atomic_no_replace": true,
+    "source_absent": true,
+    "same_inode_device_owner_mode_mtime": true,
+    "before": {
+      "uid": 1001,
+      "gid": 1002,
+      "mode": "0700",
+      "device": 2096,
+      "inode": 229461,
+      "mtime_ns": 1791707355830878819
+    },
+    "after": {
+      "uid": 1001,
+      "gid": 1002,
+      "mode": "0700",
+      "device": 2096,
+      "inode": 229461,
+      "mtime_ns": 1791707355830878819
+    },
+    "provider_profile_directory_metadata_unchanged": true,
+    "contents_read": false,
+    "rollback": "With ADF drained/stopped and original absent, perform no-replace reverse rename of this same directory."
+  },
+  "startup": {
+    "shared_auth": "ready",
+    "shared_health": "ready",
+    "codex_backend": "shared",
+    "max_parallel": 3,
+    "generation": "e9646331-f296-41a8-9590-26d97dbf3d6c",
+    "explicit_provider_profiles": true,
+    "default_home_codex_absent_before_dispatch": true,
+    "ancestor_guard_passed_before_dispatch": true
+  },
+  "fixture": {
+    "repo_path": "/home/adf-worker/ai-factory/projects/shared-acceptance-resumed-20261011",
+    "root_base_sha": "ff3b0d4703e4b71e42c90b4ac5d22b7c8d5dbb63",
+    "synthetic_data_only": true,
+    "no_remote": true,
+    "max_parallel_jobs": 3,
+    "max_retries": 0,
+    "execution_timeout_seconds": 180
+  },
+  "runs": [
+    {
+      "scope": "alpha",
+      "run_id": "742ace26-e548-4e18-9751-fe3a35d6c252",
+      "status": "cancelled",
+      "idempotent_creation": true,
+      "exact_snapshot_approved": true,
+      "executions": [
+        {
+          "id": "8d5988d1-a7d9-5866-971c-de4fad597f62",
+          "operation": "agent_task",
+          "status": "cancelled",
+          "error_code": "CANCEL_REQUESTED",
+          "process_stopped": true
+        }
+      ]
+    },
+    {
+      "scope": "beta",
+      "run_id": "6e06c27b-aa81-44de-86a4-612bd1066f48",
+      "status": "failed",
+      "idempotent_creation": true,
+      "exact_snapshot_approved": true,
+      "executions": [
+        {
+          "id": "778408bc-d8ba-5ba1-ae77-3e768fe352e7",
+          "operation": "agent_task",
+          "status": "failed",
+          "error_code": "PERMISSION_DENIED",
+          "process_stopped": true
+        }
+      ]
+    },
+    {
+      "scope": "gamma",
+      "run_id": "0b13367d-611c-4185-bd6e-f82f5531cde6",
+      "status": "failed",
+      "idempotent_creation": true,
+      "exact_snapshot_approved": true,
+      "executions": [
+        {
+          "id": "747af473-ae17-5eb9-a91a-61ce89332286",
+          "operation": "agent_task",
+          "status": "failed",
+          "error_code": "PERMISSION_DENIED",
+          "process_stopped": true
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "execution_id": "747af473-ae17-5eb9-a91a-61ce89332286",
+      "generation": "e9646331-f296-41a8-9590-26d97dbf3d6c",
+      "status": "failed",
+      "thread_id": null,
+      "turn_id": null,
+      "quiesced": true,
+      "proof": "no_thread",
+      "code": "PERMISSION_DENIED",
+      "run_id": "0b13367d-611c-4185-bd6e-f82f5531cde6",
+      "supervisor": {
+        "pgid": 650143,
+        "pid": 650143,
+        "session_id": 650143,
+        "start_ticks": 11407570,
+        "state": "R"
+      },
+      "supervisor_alive": false,
+      "redis_acked": true,
+      "result_persisted": true,
+      "terminal_persisted": true,
+      "owned_sessions_stopped": true,
+      "workspace_path": "/home/adf-worker/ai-factory/worktrees/7223cbc6-55cb-4ba1-9875-34979eda39c0/0b13367d-611c-4185-bd6e-f82f5531cde6/747af473-ae17-5eb9-a91a-61ce89332286",
+      "slot": 2,
+      "skill_events": [
+        {
+          "provider": "codex",
+          "name": "adf-parallel-gamma",
+          "sha256": "71fddcfc6ace37ce8c786e1cb38f98460c1cc2d9bd49794c819bdf5a96942b0e",
+          "native": true
+        }
+      ],
+      "mcp_events": [],
+      "request_env_allowlist": [
+        "PATH",
+        "HOME",
+        "LANG",
+        "TERM"
+      ],
+      "agent_config_version_id": "2d7c57fa-f848-4d0b-b4a1-97853c3b6171",
+      "assigned_mcp_names": [
+        "filesgamma"
+      ],
+      "assigned_skill_hashes": [
+        "71fddcfc6ace37ce8c786e1cb38f98460c1cc2d9bd49794c819bdf5a96942b0e"
+      ]
+    },
+    {
+      "execution_id": "778408bc-d8ba-5ba1-ae77-3e768fe352e7",
+      "generation": "e9646331-f296-41a8-9590-26d97dbf3d6c",
+      "status": "failed",
+      "thread_id": null,
+      "turn_id": null,
+      "quiesced": true,
+      "proof": "no_thread",
+      "code": "PERMISSION_DENIED",
+      "run_id": "6e06c27b-aa81-44de-86a4-612bd1066f48",
+      "supervisor": {
+        "pgid": 650142,
+        "pid": 650142,
+        "session_id": 650142,
+        "start_ticks": 11407568,
+        "state": "R"
+      },
+      "supervisor_alive": false,
+      "redis_acked": true,
+      "result_persisted": true,
+      "terminal_persisted": true,
+      "owned_sessions_stopped": true,
+      "workspace_path": "/home/adf-worker/ai-factory/worktrees/7223cbc6-55cb-4ba1-9875-34979eda39c0/6e06c27b-aa81-44de-86a4-612bd1066f48/778408bc-d8ba-5ba1-ae77-3e768fe352e7",
+      "slot": 1,
+      "skill_events": [
+        {
+          "provider": "codex",
+          "name": "adf-parallel-beta",
+          "sha256": "c70f00cbb2461597918317aca1d7061fa7558719361b9f07e2e6ddd09d13a6d8",
+          "native": true
+        }
+      ],
+      "mcp_events": [],
+      "request_env_allowlist": [
+        "PATH",
+        "HOME",
+        "LANG",
+        "TERM"
+      ],
+      "agent_config_version_id": "749d95a2-3ebe-4a3f-ac6a-ec4c959528e8",
+      "assigned_mcp_names": [
+        "filesbeta"
+      ],
+      "assigned_skill_hashes": [
+        "c70f00cbb2461597918317aca1d7061fa7558719361b9f07e2e6ddd09d13a6d8"
+      ]
+    },
+    {
+      "execution_id": "8d5988d1-a7d9-5866-971c-de4fad597f62",
+      "generation": "e9646331-f296-41a8-9590-26d97dbf3d6c",
+      "status": "cancelled",
+      "thread_id": "01a12b6a-36ee-79e3-9636-940859c944da",
+      "turn_id": "01a12b6a-3759-76c2-aadc-d376145071f2",
+      "quiesced": true,
+      "proof": "thread_closed",
+      "code": "CANCEL_REQUESTED",
+      "run_id": "742ace26-e548-4e18-9751-fe3a35d6c252",
+      "supervisor": {
+        "pgid": 650141,
+        "pid": 650141,
+        "session_id": 650141,
+        "start_ticks": 11407565,
+        "state": "R"
+      },
+      "supervisor_alive": false,
+      "redis_acked": true,
+      "result_persisted": true,
+      "terminal_persisted": true,
+      "owned_sessions_stopped": true,
+      "workspace_path": "/home/adf-worker/ai-factory/worktrees/7223cbc6-55cb-4ba1-9875-34979eda39c0/742ace26-e548-4e18-9751-fe3a35d6c252/8d5988d1-a7d9-5866-971c-de4fad597f62",
+      "slot": 0,
+      "skill_events": [
+        {
+          "provider": "codex",
+          "name": "adf-parallel-alpha",
+          "sha256": "5a7d8bf72726d7ecc9bd4fdf7e006841d7b91915133530121060e5d091a1fd6e",
+          "native": true
+        }
+      ],
+      "mcp_events": [],
+      "request_env_allowlist": [
+        "PATH",
+        "HOME",
+        "LANG",
+        "TERM"
+      ],
+      "agent_config_version_id": "a26c4c69-4984-4916-9b4f-11b2f2b03ccf",
+      "assigned_mcp_names": [
+        "filesalpha"
+      ],
+      "assigned_skill_hashes": [
+        "5a7d8bf72726d7ecc9bd4fdf7e006841d7b91915133530121060e5d091a1fd6e"
+      ]
+    }
+  ],
+  "native": {
+    "threads_started": 1,
+    "turn_start_requests_accepted": 1,
+    "backend_model_http_calls": null,
+    "backend_call_count_limitation": "No transport counter or usage was recorded before cancellation. One accepted turn/start is observed; it is not an exact backend HTTP request count.",
+    "completed_model_outputs_observed": 0,
+    "reported_usage": null,
+    "mcp_calls": 0,
+    "three_native_jobs_overlapped": false,
+    "active_turn_cancellation": "verified for alpha: API cancellation, thread_closed, stopped supervisor/owned sessions, durable result and ACK",
+    "cancellation_sibling_isolation": "not accepted: other two jobs failed before native threads",
+    "consumer_crash_injected": false,
+    "native_crash_recovery": "not performed after parallel gate failed",
+    "native_skills_mcp_config_isolation": "not accepted; distinct approved snapshots materialized, one native thread dispatched, no MCP events",
+    "paid_api_fallback": false
+  },
+  "new_blocker": {
+    "code": "PERMISSION_DENIED",
+    "guard": "clean_config(profile)",
+    "path": "/home/adf-worker/ai-factory/provider-profiles/codex/config.toml",
+    "first_observed_during_native_thread_start": true,
+    "mtime_utc": "2026-10-11T14:42:23.574548+00:00",
+    "metadata": [
+      {
+        "name": "config.toml",
+        "directory": false,
+        "symlink": false,
+        "uid": 1001,
+        "mode": "0o600",
+        "mtime_ns": 1791729743574547775
+      }
+    ],
+    "content_read": false,
+    "assistant_modified_or_removed_file": false,
+    "guard_changed": false,
+    "default_home_codex_reappeared": false,
+    "creator_not_proven_by_file_trace": true
+  },
+  "post_stop_verification": {
+    "installed_source_matches_a8bb1cc": true,
+    "installed_python_source_files": 22,
+    "source_doctor_fix_859cc_not_installed": true,
+    "retained_8af_rollback_hashes_match": true,
+    "native_server_session_dead": true,
+    "dedicated_provider_consumer_stopped": true,
+    "proofs": [
+      {
+        "execution_id": "8d5988d1-a7d9-5866-971c-de4fad597f62",
+        "proof": "thread_closed",
+        "worktree_lock_reacquired": true,
+        "owned_sessions_stopped": true,
+        "result_persisted": true,
+        "redis_acked": true,
+        "native_skill_materialization_removed": true
+      },
+      {
+        "execution_id": "778408bc-d8ba-5ba1-ae77-3e768fe352e7",
+        "proof": "no_thread",
+        "worktree_lock_reacquired": true,
+        "owned_sessions_stopped": true,
+        "result_persisted": true,
+        "redis_acked": true,
+        "native_skill_materialization_removed": true
+      },
+      {
+        "execution_id": "747af473-ae17-5eb9-a91a-61ce89332286",
+        "proof": "no_thread",
+        "worktree_lock_reacquired": true,
+        "owned_sessions_stopped": true,
+        "result_persisted": true,
+        "redis_acked": true,
+        "native_skill_materialization_removed": true
+      }
+    ],
+    "default_checkout_clean": true,
+    "main_unchanged": true,
+    "no_remotes": true,
+    "preserved_backup_inode_owner_mode_mtime": true,
+    "default_home_codex_absent": true,
+    "provider_profile_roots_remain_private_owned_0700": true,
+    "profile_or_backup_contents_read": false
+  },
+  "safe_state": {
+    "nonterminal_executions": 0,
+    "provider_consumer_stopped": true,
+    "api_ui_langfuse_http_health": 200,
+    "runtime_ready": false,
+    "mvp_ready": false,
+    "existing_users_windows_firewall_listeners_other_services_changed": false,
+    "global_git_security_changed": false,
+    "auth_copied": false,
+    "login_or_setup_token_run": false,
+    "secret_values_output": false
+  },
+  "required_scope_decision": "A separately reviewed profile/config isolation remedy is needed. Preserve config and backup; do not delete/move another profile file, weaken guard, install another pin or repeat model runs automatically."
+}

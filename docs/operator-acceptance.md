@@ -1,5 +1,7 @@
 # Minimal operator acceptance actions
 
+Latest authorized operation: [preserving default-directory rename and bounded shared test](shared-resumed-checkpoint.md) completed. No personal login is needed again. The exact backup is retained, installed worker stays `a8bb1cc`, and dedicated owner/consumer are stopped after one active turn cancellation and two pre-thread profile-config guard failures. Do not delete/move the newly appearing explicit-profile `config.toml`, weaken the guard, install another pin or repeat model runs as an automatic follow-up. The remaining remedy requires a separately reviewed scope decision; readiness stays false.
+
 This document distinguishes completed explicitly authorized provisioning from remaining proposals. It grants no permission to change accounts, permissions, credentials or network configuration. See [acceptance status](acceptance-status.md) for source SPEC gates and additional hardening.
 
 ## Separate WSL worker identity (required)

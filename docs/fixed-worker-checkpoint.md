@@ -1,5 +1,7 @@
 # Fixed worker installation and remaining shared queue blocker
 
+Subsequent authorized action: [the exact preserving rename and resumed test](shared-resumed-checkpoint.md) completed. The proposal below is now historical: the backup exists, `HOME/.codex` remains absent, one native turn was cancelled with closure proof, and two pre-thread failures reveal a different explicit-profile `config.toml` guard blocker. Installed `a8bb1cc` and the guard are unchanged; services are stopped and native acceptance remains incomplete.
+
 Source-only follow-up: worker `859cc5341643d2031a622e662dbaf23be2c5badb` repairs [explicit diagnostic profiles](doctor-profile-repair.md) with 158 passing tests and successful CI. The execution venv described here remains `a8bb1cc`; it was not replaced. Use the installed shared preflight for the current acceptance, not its old unprofiled doctor. The operator rename remains pending and no new model call occurred.
 
 October 11, 2026. This is the current runtime checkpoint and supersedes the deployment/repair proposal in [the first queue failure](shared-queue-blocker.md). [Sanitized evidence](evidence/worker-fixed-queue-2026-10-11.json) records installed bytes and the actual second queue attempt. Native acceptance and whole MVP readiness remain false.
