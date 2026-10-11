@@ -1,0 +1,148 @@
+{
+  "recorded_at": "2026-10-11T13:04:31.274281+00:00",
+  "status": "blocked_environment_contract",
+  "actual_user": "adf-worker",
+  "profiles_status_checked_using_native_cli_only": [
+    {
+      "provider": "codex",
+      "profile": "/home/adf-worker/ai-factory/provider-profiles/codex",
+      "installed": true,
+      "pin_matches": true,
+      "auth": "ready",
+      "health": "ready"
+    },
+    {
+      "provider": "claude",
+      "profile": "/home/adf-worker/ai-factory/provider-profiles/claude",
+      "installed": true,
+      "pin_matches": true,
+      "auth": "ready",
+      "health": "ready"
+    }
+  ],
+  "pins": {
+    "worker": "8af54fd1590139fa0730e7705d276188c9be3ca3",
+    "api": "a0e0205e85bd5e8f9c0d69d9316b7303f6add8ca",
+    "orchestrator": "6fe7c1402864210fd8b6c2aed44695436c147f3f",
+    "codex": "0.157.0",
+    "claude": "2.1.296",
+    "python": "3.12.9",
+    "node": "24.21.0",
+    "uv": "0.12.18"
+  },
+  "running_orchestrator_request_source_sha256": "ff2acb796a39c3338b91c6251ac9f950a1f16364ac7763deec6eb1b97b3027a8",
+  "running_source_matches_commit_verified": true,
+  "startup": {
+    "provider_health": "ready",
+    "provider_auth": "ready",
+    "consumer_codex_backend": "shared",
+    "max_parallel": 3,
+    "other_services_restarted": false
+  },
+  "actual_queue_probe": {
+    "project_id": "856620fe-6655-462b-bd07-64c96408a6e6",
+    "task_id": "9be5c005-3b4f-4c22-b1bc-0e274e6da9dc",
+    "run_id": "67398f61-5346-43c5-ba61-4be1ee0ba004",
+    "root_base_sha": "0f941376a1439819f0d70cb1ca03873e3466c626",
+    "skill_id": "2274f522-f059-46b6-bf52-a0d695335cc9",
+    "server_id": "c79f1d9d-6ae3-43ea-b978-3358437a5bac",
+    "tool_id": "8681d746-5fac-4376-948e-3717eeea5c66",
+    "agent_version": "922ac286-b72f-4191-a18a-9602f2328a9c",
+    "idempotent_run_creation_verified": true,
+    "run_status": "failed",
+    "executions": [
+      {
+        "id": "3df02fe5-e222-56f8-9862-958451774983",
+        "operation": "agent_task",
+        "status": "failed",
+        "error_code": "CAPABILITY_UNSUPPORTED",
+        "process_stopped": true
+      }
+    ],
+    "raw_provider_content_recorded": false
+  },
+  "cleanup": {
+    "queue_proof": {
+      "execution_id": "3df02fe5-e222-56f8-9862-958451774983",
+      "run_id": "67398f61-5346-43c5-ba61-4be1ee0ba004",
+      "observed_env_allowlist": [
+        "PATH",
+        "HOME",
+        "LANG",
+        "TERM"
+      ],
+      "worker_backend": "shared",
+      "worker_profiles_exact": true,
+      "registered_skill_count": 1,
+      "registered_tool_count": 1,
+      "registered_mcp_count": 1,
+      "request_skill_hash": "116bf2cba880b00466ba0a1efbcb89a43c6e14e4fec5ade21ed76e43d341ad7a",
+      "redis_message_id": "1791723516958-0",
+      "redis_acked": true,
+      "terminal_persisted": true,
+      "result_persisted": true,
+      "error_code": "CAPABILITY_UNSUPPORTED",
+      "provider_job_acceptances": 0,
+      "native_thread_model_calls": 0,
+      "supervisor_dead": true,
+      "owned_sessions_stopped": true,
+      "worktree_lock_reacquired": true,
+      "skill_materialization_removed": true,
+      "main_unchanged": true,
+      "default_checkout_clean": true,
+      "no_remotes": true,
+      "native_capability_acceptance_passed": false
+    },
+    "generation": "17f5d936-f7a3-4499-94c3-27bbcd718573",
+    "owner": {
+      "pgid": 374677,
+      "pid": 374677,
+      "session_id": 374677,
+      "start_ticks": 10760486,
+      "state": "R"
+    },
+    "consumer": {
+      "pgid": 374799,
+      "pid": 374799,
+      "session_id": 374799,
+      "start_ticks": 10760628,
+      "state": "R"
+    },
+    "server": {
+      "pgid": 374738,
+      "pid": 374738,
+      "session_id": 374738,
+      "start_ticks": 10760511,
+      "state": "R"
+    },
+    "all_recorded_sessions_stopped": true,
+    "socket_removed": true
+  },
+  "post_stop_nonterminal_executions": 0,
+  "post_stop_run_counts": {
+    "completed": 6,
+    "failed": 1,
+    "cancelled": 4
+  },
+  "health_probes": {
+    "api_health": 200,
+    "api_ready": 200,
+    "frontend": 200,
+    "langfuse": 200
+  },
+  "native_model_calls": 0,
+  "paid_api_fallback": false,
+  "login_or_setup_token_launched_by_assistant": false,
+  "auth_files_read_by_assistant": false,
+  "secret_values_or_hashes_output": false,
+  "three_parallel_native_jobs": "not_performed_due_to_first_contract_blocker",
+  "native_settings_skills_mcp_isolation": "not_performed; assigned snapshots transferred through real queue",
+  "separate_native_cancellation": "not_performed",
+  "active_native_crash_recovery": "not_performed",
+  "idempotent_api_run_creation": "verified",
+  "unrequested_pinned_code_or_other_service_changes": false,
+  "safe_state": "New dedicated provider/consumer stopped; API remains at authorized A0 with previous roots plus new root; login retained; old rollback available",
+  "required_scope_decision": "Approve reviewed worker repair and a new exact commit pin, or separately authorize orchestrator change",
+  "runtime_ready": false,
+  "mvp_ready": false
+}

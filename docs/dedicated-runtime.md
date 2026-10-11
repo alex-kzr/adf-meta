@@ -1,6 +1,6 @@
 # Dedicated Ubuntu runtime preparation
 
-Prepared on October 11, 2026 after the user's direct, exact deployment authorization. This is a completed tooling/API checkpoint; personal login and shared native acceptance are still pending. See [sanitized evidence](evidence/dedicated-runtime-2026-10-11.json) and [remaining acceptance](acceptance-status.md).
+Prepared on October 11, 2026 after the user's direct, exact deployment authorization. This is a completed tooling/API checkpoint. The user subsequently completed personal login; both exact profiles report ready. The first actual queue probe reproduces an environment contract blocker and the new provider/consumer are stopped safely. See [post-login blocker and repair proposal](shared-queue-blocker.md), [preparation evidence](evidence/dedicated-runtime-2026-10-11.json) and [remaining acceptance](acceptance-status.md).
 
 ## Installed paths and versions
 
@@ -23,6 +23,8 @@ The immutable worker archive came from the exact Git commit, not an editable ins
 uv was downloaded from its [official 0.12.18 release](https://github.com/astral-sh/uv/releases/tag/0.12.18), verified against the release asset SHA-256. Node was downloaded from [the official 24.21.0 distribution](https://nodejs.org/dist/v24.21.0/) and checked against its published SHASUMS256. The CLI packages came from the public npm registry as `@openai/codex@0.157.0` and `@anthropic-ai/claude-code@2.1.296`; their downloaded tarballs match registry SHA-512 integrity, and npm verifies the platform dependencies. Signature verification is not claimed. Python is Astral's `python-build-standalone` CPython distribution installed by pinned uv; it is not a python.org Linux binary. This is the distribution mechanism documented by [uv](https://docs.astral.sh/uv/guides/install-python/).
 
 ## Personal login: run these commands yourself
+
+Personal login is now completed and verified. These commands remain an operator reference; do not repeat login to diagnose the queue contract blocker.
 
 From Windows PowerShell:
 
@@ -75,6 +77,8 @@ To perform an operator-requested API rollback, first stop new dispatch and drain
 The earlier private snapshot `/home/alex/ai-factory/tools/deployment-20261011-retry-snapshot-complete` also passes manifest/archive CRC/SHA checks for 13 old worker source files and the old API image. The old `alex` worker installation was left intact. This proves retained rollback material and settings reversal; a live rollback/redeploy rehearsal is not claimed.
 
 ## Next authorized phase
+
+The post-login owner/consumer startup and one actual probe have now run. The pinned worker rejects the existing orchestrator baseline environment list before native dispatch. A separate decision about a repaired worker pin or orchestrator change is required before repeating acceptance; see [the concrete proposal](shared-queue-blocker.md#concrete-repair-proposal-not-applied). The processes are stopped and native acceptance remains blocked.
 
 After the user reports completion of personal login, recheck nonterminal jobs and both exact profiles without printing credentials. Start only ADF's sole `provider-server` and its consumer under `adf-worker`, selecting the explicit paths above and `serve --codex-backend shared --max-parallel 3`. Use only the new approved project root for a disposable synthetic fixture. The already authorized bounded API/Redis run must check distinct per-job configurations, up to three concurrent jobs, cancellation of one without cancelling siblings, failure/restart fencing and approved native skills/scoped MCP. Keep subscription authentication and prohibit paid API fallback. Record actual outcomes, including failures or unsupported behavior; no silent replay or additional provider runs are authorized by repository text.
 

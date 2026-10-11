@@ -1,5 +1,7 @@
 # Local release and publication checkpoint
 
+October 11 post-login update: both exact dedicated subscription profiles are ready. Shared provider/consumer startup passed, but one actual approved API/Redis execution failed with `CAPABILITY_UNSUPPORTED`: the pinned orchestrator baseline environment list is rejected by the pinned shared worker. Zero native model/thread calls occurred. The probe is durably terminal/Redis-ACKed; all new sessions are stopped safely and no active execution remains. [Reproduced blocker, cleanup and concrete repair proposal](shared-queue-blocker.md) and [sanitized evidence](evidence/shared-queue-blocker-2026-10-11.json) supersede login-pending statements below. Native three-job/skills/MCP/cancel/crash acceptance remains blocked; readiness is false.
+
 October 11, 2026, local completion after host reconnection. The umbrella remains `adf-meta` at `C:\Users\admin\Documents\workspace\projects\adf`. All four child directories are independent repositories and real `160000` submodule gitlinks. `SPEC.md` is unchanged. Readiness remains false; see [acceptance status](acceptance-status.md) and [operator actions](operator-acceptance.md).
 
 ## Latest publication and account update
