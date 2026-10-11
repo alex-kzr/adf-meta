@@ -1,5 +1,7 @@
 # Development documentation
 
+[Latest source-only sandbox/recovery diagnosis and repair](shared-sandbox-recovery-repair.md), with [sanitized evidence](evidence/shared-sandbox-recovery-source-2026-10-11.json): strict guard preserved; sealed writes fail before threads, owned terminal recovery does not execute new jobs. [Proposed compatible parallel write backend](shared-write-path.md) lists exact source implementation, isolation and approval boundaries. Installed `13c4624a` and stopped runtime remain unchanged; full coding/MVP acceptance remains pending.
+
 [Latest sealed-policy deployment and bounded shared trial](shared-policy-runtime-checkpoint.md): worker `13c4624a` installed; three simultaneous native turns each completed scoped MCP, then failed closed. Results/ACKs/stopped writers/locks are verified. Full cancellation/recovery/output isolation acceptance remains incomplete; services are stopped. [Sanitized runtime evidence](evidence/shared-profile-policy-runtime-2026-10-11.json) records the limits.
 
 Start with [current implementation status](implementation-status.md), [live acceptance status](acceptance-status.md), [release checkpoint](release-checkpoint.md) and [implementation board](kanban.md).

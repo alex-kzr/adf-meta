@@ -17,6 +17,8 @@ PostgreSQL, Redis, OpenTelemetry Collector and Langfuse remain external products
 
 Current live results and remaining release gates: [acceptance status](docs/acceptance-status.md).
 
+Latest source repair: [pinned sandbox diagnosis and recovery-only](docs/shared-sandbox-recovery-repair.md) preserve the strict guard, reject incompatible sealed writes before native dispatch, and reconcile owned journals without new execution. [The proposed path to parallel writing agents](docs/shared-write-path.md) uses native read-only generation plus worker-applied validated patches; its implementation and native acceptance remain open. Installed worker stays `13c4624a`, dedicated services remain stopped, and MVP readiness is false.
+
 Latest runtime result: [the authorized sealed-policy deployment and one bounded queue trial](docs/shared-policy-runtime-checkpoint.md) installed worker `13c4624a` with unchanged dependencies/config and verified `a8bb1cc` rollback. Three simultaneous native turns each completed assigned scoped MCP, then the generation failed closed; an unexpected empty worktree-local `.codex` directory is preserved in gamma. All results are durable/ACKed, writers stopped and locks reacquired. Full single-job cancellation, active recovery and output isolation acceptance did not pass. Dedicated provider/consumer are stopped and readiness remains false.
 
 [ADR 007](docs/adr/007-sealed-shared-profile-policy.md) and [its exact deployment scope](docs/shared-policy-deployment.md) describe the opt-in guard. Historical [doctor repair](docs/doctor-profile-repair.md), [fixed-worker checkpoint](docs/fixed-worker-checkpoint.md) and [preserving rename/resumed trial](docs/shared-resumed-checkpoint.md) retain their dated evidence.

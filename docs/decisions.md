@@ -25,6 +25,8 @@ The deployment appendix's branch format and adapter interface win over earlier g
 
 ## Gates before real execution
 
+The later [sandbox diagnosis and recovery repair](shared-sandbox-recovery-repair.md) shows that strict sealed policy cannot support pinned native workspace-write: a transient host metadata mount triggers its absence guard. Source now rejects that capability without blocking read-only siblings. [Shared read-only generation plus worker-applied structured patches](shared-write-path.md) is the proposed route to parallel coding, not an adopted user requirement or an implemented backend. Deployment and fresh native model acceptance require new exact scopes; MVP remains incomplete.
+
 The opt-in [sealed shared-profile policy](adr/007-sealed-shared-profile-policy.md) implements an owner CLI trust override, closed manifest/config validation, immutable seals and drift/commit fencing for the reproduced automatic trust-write blocker. Default deny remains unchanged. Eighteen historical unauthenticated metadata-only starts support the upstream mechanism; new source tests use temporary fake-provider profiles with no model calls. [Exact-pin deployment and bounded acceptance](shared-policy-deployment.md) require a separate reviewed scope; real profile contents and installed runtime were not changed by source implementation.
 
 - Check current subscription terms, authorization, CLI flags and reported usage for the actual account. Generic documentation does not establish contractual permission.

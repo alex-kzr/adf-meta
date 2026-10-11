@@ -1,5 +1,7 @@
 # Sealed shared policy: deployment and bounded runtime result
 
+Later source-only follow-up: [sandbox/recovery diagnosis](shared-sandbox-recovery-repair.md) resolves the previously unknown mechanism using pinned source, a no-model reproduction, retained synthetic-target registry evidence and an inert replay of the startup helper. [The proposed compatible writing route](shared-write-path.md) remains future source work. Historical runtime evidence below is preserved; installed `13c4624a` and stopped sessions were not changed by that investigation.
+
 October 11, 2026. The operator approved the exact [ADR 007 deployment scope](shared-policy-deployment.md) at 16:09 UTC. Worker **`13c4624a8791fa4c9035c284a4689e412f0b7b42`** is installed in `/home/adf-worker/ai-factory/tools/worker-venv`. The single three-job API/Redis trial reached three concurrent native Codex turns and completed one assigned scoped MCP call per job, then **failed closed**. Full cancellation/recovery/output isolation acceptance did not pass. Runtime and MVP readiness remain **false**. [Sanitized evidence](evidence/shared-profile-policy-runtime-2026-10-11.json) records exact IDs and limitations.
 
 ## Deployment and final state

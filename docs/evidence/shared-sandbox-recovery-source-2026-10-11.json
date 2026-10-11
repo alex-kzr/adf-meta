@@ -1,0 +1,338 @@
+{
+  "date": "2026-10-11",
+  "scope": "source-only-diagnosis-and-offline-repair",
+  "installed_worker_commit": "13c4624a8791fa4c9035c284a4689e412f0b7b42",
+  "runtime_replaced": false,
+  "published_worker_commit": "8ab95f4cda40ab750f2d6dcd31c84960f32620aa",
+  "worker_exact_commit_ci": {
+    "run_id": 38159529141,
+    "conclusion": "success",
+    "head_sha": "8ab95f4cda40ab750f2d6dcd31c84960f32620aa",
+    "url": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38159529141"
+  },
+  "final_runtime_readonly_verification": {
+    "installed_worker_commit": "13c4624a8791fa4c9035c284a4689e412f0b7b42",
+    "installed_and_retained_source_hashes_verified": 23,
+    "recorded_provider_consumer_and_native_server_stopped": true,
+    "generation": "873a0596-d4db-4277-8b24-9acbe307fb80",
+    "profiles": {
+      "codex": {
+        "uid": 1001,
+        "mode": "0o700",
+        "contents_not_read": true
+      },
+      "claude": {
+        "uid": 1001,
+        "mode": "0o700",
+        "contents_not_read": true
+      }
+    },
+    "default_codex_layer_absent": true,
+    "secret_files_read_or_modified": false,
+    "runtime_content_or_observed_file_metadata_modified": false,
+    "new_thread_turn_or_model_calls": 0
+  },
+  "provider_consumer_remain_stopped": true,
+  "new_queued_jobs": 0,
+  "new_thread_start": 0,
+  "new_turn_start": 0,
+  "new_model_calls": 0,
+  "secrets_read_copied_or_printed": false,
+  "policy_guard_weakened": false,
+  "public_sources": {
+    "tag_tree": "00c972ed5d6ff6499317fd41b7f23605b8e6850d",
+    "sources": [
+      {
+        "path": "codex-rs/linux-sandbox/src/bwrap.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/linux-sandbox/src/bwrap.rs",
+        "blob_sha": "1218496abaf62d0b4d8939e2729d6615b0bf9573",
+        "sha256": "c8959efb1685c3da5598fb4475bd3a986b7408b8f2f02d9678a3db1d182b6539",
+        "bytes": 111068
+      },
+      {
+        "path": "codex-rs/linux-sandbox/src/linux_run_main.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/linux-sandbox/src/linux_run_main.rs",
+        "blob_sha": "480de987c583fb5639258286e2c5d26c12121fe7",
+        "sha256": "263eb1467177d0ff91a9c9f57726d3f5483dc0d8fc8650a60d6d11934f3357c0",
+        "bytes": 56361
+      },
+      {
+        "path": "codex-rs/linux-sandbox/src/lib.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/linux-sandbox/src/lib.rs",
+        "blob_sha": "e4056e1589e6c9d73479068a861f2ca27faae73f",
+        "sha256": "242787f4c2d3f21b9b0705a6776238de9a41d66e7c384a283b9fd9ebb726dda0",
+        "bytes": 1109
+      },
+      {
+        "path": "codex-rs/linux-sandbox/src/landlock.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/linux-sandbox/src/landlock.rs",
+        "blob_sha": "140daaf8afc9ca83052a780ed4bda9fc846a2e15",
+        "sha256": "4f92e49f44694d2c946ab2cb96fa4293daf52023b674a63332a863bb00c1370d",
+        "bytes": 13899
+      },
+      {
+        "path": "codex-rs/cli/src/debug_sandbox.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/cli/src/debug_sandbox.rs",
+        "blob_sha": "55d71d6dc0dae5fdd2c54bf8009ced9df8773124",
+        "sha256": "09cd0e767bf4d52ac938418adc460960c09f58c6c0831b06c6fc59ae15751288",
+        "bytes": 45022
+      },
+      {
+        "path": "codex-rs/protocol/src/sandbox.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/protocol/src/sandbox.rs",
+        "blob_sha": "b0304634ad8fb45be9b35b48591ef6c6a4e62099",
+        "sha256": "44f482ec2de0fa97339b7748c1c8b879c10ba45e122d7175b0dc08e2e18f0112",
+        "bytes": 1271
+      }
+    ]
+  },
+  "write_path_public_sources": {
+    "tag_tree": "00c972ed5d6ff6499317fd41b7f23605b8e6850d",
+    "sources": [
+      {
+        "path": "codex-rs/codex-mcp/src/connection_manager.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/codex-mcp/src/connection_manager.rs",
+        "blob_sha": "dda2edd914a1e89b33f2b222b0adbcdda49d1e4f",
+        "sha256": "8f8eee87ebebb4f3893f6278c72f641f297b8c41ea1621d6a75174fc2e404375",
+        "bytes": 44499
+      },
+      {
+        "path": "codex-rs/codex-mcp/src/rmcp_client.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/codex-mcp/src/rmcp_client.rs",
+        "blob_sha": "d185c6f57881e37a94bc2efd603ee485f97e5469",
+        "sha256": "0c3ced68da4e81a17618279cdce6d86ee574b889c332316c5907da7aa6569a23",
+        "bytes": 55532
+      },
+      {
+        "path": "codex-rs/core/tests/suite/rmcp_client.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/core/tests/suite/rmcp_client.rs",
+        "blob_sha": "bad5c1135b6d92d02565682bf782877a9f90bee6",
+        "sha256": "56b51fc1c67b2630c0ebec12801fd00d7694bf632a161fdad8f9a33b0768fa95",
+        "bytes": 170979
+      },
+      {
+        "path": "codex-rs/rmcp-client/src/rmcp_client.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/rmcp-client/src/rmcp_client.rs",
+        "blob_sha": "408d1b53ffd20037284fdd326260aefade07695b",
+        "sha256": "ec7754192199a75be660a5c267cd5f9a57527fb02ba15ed42bc4d09e98e906d0",
+        "bytes": 64044
+      },
+      {
+        "path": "codex-rs/codex-mcp/src/server.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/codex-mcp/src/server.rs",
+        "blob_sha": "a7ad0583c57fe8a3b733c10309ca6f3d6f2eb4e2",
+        "sha256": "5431348553d629f07dbf50c1e3dffa544a6d522c6282a7692aa9304beffa054c",
+        "bytes": 16931
+      },
+      {
+        "path": "codex-rs/codex-mcp/src/server_tests.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/codex-mcp/src/server_tests.rs",
+        "blob_sha": "7365f75573ec8cd1dc372eead321f43c931267a5",
+        "sha256": "7ea44a0e45c14b03f52d2b5be5718fdd2f5edf8865717cf4d4614768a515dc36",
+        "bytes": 1550
+      },
+      {
+        "path": "codex-rs/rmcp-client/src/bin/test_mcp_2026_discovery_stdio_server.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/rmcp-client/src/bin/test_mcp_2026_discovery_stdio_server.rs",
+        "blob_sha": "fc3af65944258d18731493994fcf0a18e5f8ce1a",
+        "sha256": "e99c52a4aabba33bcc3a8be14c1d0d13ee2b570d5929769c2b0aeb4c00d7c199",
+        "bytes": 2310
+      },
+      {
+        "path": "codex-rs/rmcp-client/src/bin/test_mcp_2026_stdio_server.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/rmcp-client/src/bin/test_mcp_2026_stdio_server.rs",
+        "blob_sha": "3f6afd99f3691e27cb3e24b570698218a5009221",
+        "sha256": "02224a4a998359a1e35c15ab489bcb3463dbdd0a0cec23428e8d15f06ec6b3d8",
+        "bytes": 9971
+      },
+      {
+        "path": "codex-rs/rmcp-client/src/bin/test_stdio_server.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/rmcp-client/src/bin/test_stdio_server.rs",
+        "blob_sha": "79a2e1c066c849aa3fd1cd91090e6c1ef11730a5",
+        "sha256": "f36c2145047075c35f29b3a8fa4c79ae9b343527c4ecda2376da909bdc69aa7e",
+        "bytes": 41501
+      },
+      {
+        "path": "codex-rs/rmcp-client/src/bounded_stdio_transport.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/rmcp-client/src/bounded_stdio_transport.rs",
+        "blob_sha": "fdde9f698ef29e4a8c0183e4b32ab2d835df8e74",
+        "sha256": "a041ca66c7b90b8f990d0d71da29c51f2c402a1fa9d82e2e2a5821a4b5e69703",
+        "bytes": 4320
+      },
+      {
+        "path": "codex-rs/rmcp-client/src/local_stdio_transport.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/rmcp-client/src/local_stdio_transport.rs",
+        "blob_sha": "381aad1a9971db29fc42fd77fb60f6ab9b0e227a",
+        "sha256": "671eff30337c4171f8466c33ff096941f03e63648b2f5a374c5c49c9855d80dd",
+        "bytes": 3416
+      },
+      {
+        "path": "codex-rs/rmcp-client/src/stdio_server_launcher.rs",
+        "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.157.0/codex-rs/rmcp-client/src/stdio_server_launcher.rs",
+        "blob_sha": "65ba1f0c5a09dc728e6d00a6d63b24977b0f480d",
+        "sha256": "b4d1ca8e2b4c291bd9c33b95c59f6d394614a61f0e8b8fa41a982b1acb95eb0f",
+        "bytes": 28083
+      }
+    ]
+  },
+  "readonly_host_write_mechanism": {
+    "native_threads": 0,
+    "native_turns": 0,
+    "model_calls": 0,
+    "auth_read_or_copied": false,
+    "existing_runtime_modified": false,
+    "native_sandbox_mode": "read-only",
+    "synthetic_command_processes": 3,
+    "live_provider_mcp_write_verified": false,
+    "production_write_broker_implemented": false,
+    "three_simultaneously_alive": true,
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "host_codex_observed": false,
+    "native_write_denied": true,
+    "host_writes_distinct": true,
+    "profile_config_absent": true,
+    "stderr_hashes": [
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ]
+  },
+  "isolated_native_sandbox": {
+    "command": [
+      "/bin/sleep",
+      "3"
+    ],
+    "native_turn_start_count": 0,
+    "thread_start_count": 0,
+    "model_calls": 0,
+    "auth_files_read_or_copied": false,
+    "existing_runtime_files_modified": false,
+    "exit_code": 0,
+    "host_codex_layer_observations": [
+      {
+        "directory": true,
+        "uid": 1001,
+        "mode": "0o755",
+        "empty": true
+      }
+    ],
+    "host_codex_layer_present_after_normal_exit": false,
+    "synthetic_profile_config_present": false,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "retained_actual_target_registry": {
+    "execution_id": "b6b76ed2-4cf3-5836-a87a-d08dc95963c5",
+    "marker_directory_exists": true,
+    "markers": [
+      {
+        "pid": 937995,
+        "known_classification": "synthetic",
+        "mtime_ns": 1791735544907687598,
+        "uid": 1001,
+        "mode": "0o600",
+        "pid_currently_present": false
+      }
+    ],
+    "runtime_or_registry_files_modified": false,
+    "secret_or_profile_files_read": false
+  },
+  "gamma_directory": {
+    "uid": 1001,
+    "mode": "0o755",
+    "empty": true,
+    "inode": 321414,
+    "mtime_ns": 1791735544922449009,
+    "preserved": true
+  },
+  "historical_timing_utc": {
+    "first_sibling_failure": "2026-10-11T16:19:04.989600Z",
+    "gamma_command_started": "2026-10-11T16:19:05.054444Z"
+  },
+  "precise_mkdir_syscall_audit_retained": false,
+  "recovery_start_branch_replay": {
+    "helper_sha256": "67f3325286b0e7d56f85a745847aed08220c33c50877eeb7a7de401bf68e86b0",
+    "classification": "OWNER_READINESS_TIMEOUT_BEFORE_CONSUMER_LAUNCH",
+    "uncaught_runtime_error_exit_code": 1,
+    "calls": {
+      "policy_validation": 1,
+      "provider_reuse": 1,
+      "consumer_launch": 0,
+      "health_probes": 40,
+      "provider_stops": 1,
+      "sleep_count": 40
+    },
+    "simulated_wait_seconds": 10.0,
+    "historical_stderr_retained": false,
+    "runtime_files_read_or_written": false,
+    "real_processes_started_or_stopped": false,
+    "thread_start": 0,
+    "turn_start": 0,
+    "model_calls": 0
+  },
+  "dedicated_logs": {
+    "provider_bytes": 0,
+    "consumer_bytes": 0
+  },
+  "source_checks": {
+    "linux_pytest_passed": 247,
+    "ruff": "passed",
+    "strict_mypy_source_files": 23,
+    "bandit_medium": 0,
+    "bandit_high": 0,
+    "network_downloads": false,
+    "dependency_upgrades": false,
+    "fresh_private_test_paths": "/var/tmp",
+    "initial_qa_environment_failures": [
+      "missing-build-setuptools",
+      "missing-copied-ruff",
+      "preexisting-tmp-ancestor-layer-and-long-socket-paths"
+    ]
+  },
+  "umbrella_local_checks": {
+    "source_files_verified": 260,
+    "unittest_ran": 94,
+    "documented_skips": 4,
+    "spec_unchanged": true,
+    "links_contracts_gitlinks_secret_heuristic": "passed"
+  },
+  "independent_review": {
+    "source_p1_p2_findings": 0,
+    "writing_path": "realistic-proposal-not-implemented",
+    "required_proposal_clarifications": [
+      "nonterminal-generated-phase",
+      "bounded-patch-output",
+      "partial-patch-uncertainty"
+    ],
+    "clarifications_in_document": true
+  },
+  "source_behavior": {
+    "sealed_permission_profiles": [
+      "observe",
+      "read_only"
+    ],
+    "sealed_workspace_write": "CAPABILITY_UNSUPPORTED_BEFORE_THREAD",
+    "unsupported_write_blocks_generation": false,
+    "strict_no_layers_preserved": true,
+    "recovery_new_api_claims": 0,
+    "recovery_supervisor_spawns": 0,
+    "recovery_provider_probes": 0,
+    "recovery_stream_reads_or_reassignment": 0,
+    "terminal_ack_requires_stopped_and_api_terminal_proof": true
+  },
+  "mvp_ready": false,
+  "native_write_acceptance": "blocked",
+  "deployment_authorization_needed": true,
+  "recommended_writing_path": {
+    "backend": "proposed-shared-patch",
+    "native_sandbox": "read-only",
+    "writer": "worker-applies-validated-structured-result-after-thread-closure",
+    "implemented": false,
+    "requires_guard_exception": false,
+    "existing_mcp_v1_remains_read_only": true,
+    "native_model_acceptance_verified": false
+  }
+}
