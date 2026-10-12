@@ -1,5 +1,8 @@
 # Shared native read policy: source delivery and deployment boundary
 
+> Historical October 11 source/proposal record. The separately authorized October 12 installation and blocked queue trial are recorded in the [current runtime checkpoint](shared-patch-runtime-checkpoint.md); its installed-state evidence supersedes this document's historical statements. Readiness remains false.
+
+
 October 11, 2026. This release changes worker source only. It does not install a worker, create an operator manifest/profile, change authentication or restart runtime services. Installed worker `13c4624a8791fa4c9035c284a4689e412f0b7b42` remains the retained runtime; the dedicated provider-server and consumer remain stopped. Readiness remains false.
 
 ## Current result and the legacy failure

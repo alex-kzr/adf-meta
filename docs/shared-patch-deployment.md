@@ -1,4 +1,7 @@
 # Separate shared-patch installation and bounded acceptance scope
+
+> Historical October 11 source/proposal record. The separately authorized October 12 installation and blocked queue trial are recorded in the [current runtime checkpoint](shared-patch-runtime-checkpoint.md); its installed-state evidence supersedes this document's historical statements. Readiness remains false.
+
 Current shared source also requires [operator-owned native read permissions](shared-native-read-policy.md). The legacy native preflight FAILED; source canaries and future installation/acceptance are separate. The exact scope below must include both mandatory operator flags; old source hashes remain historical.
 
 

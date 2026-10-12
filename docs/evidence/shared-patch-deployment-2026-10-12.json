@@ -1,0 +1,228 @@
+{
+  "date": "2026-10-12",
+  "scope": "authorized exact-pin deployment and one bounded synthetic API/Redis trial",
+  "result": "BLOCKED: native startup outcome uncertain; runtime stopped; readiness false",
+  "installed": {
+    "worker": "f5a713a3df44ffdad58aaa80fc3a36157e6c2736",
+    "worker_python_files": 29,
+    "orchestrator": "9932a87e676b651c7ff2eb89246b900c6d0f843e",
+    "orchestrator_python_files": 11,
+    "orchestrator_image": "sha256:e661b27513d510ae5c956598eb49df2fbe76c1f22fbbe8f20154218328df2753",
+    "api": "a0e0205e85bd5e8f9c0d69d9316b7303f6add8ca",
+    "frontend": "92bfa64f38202872dbf2999d9343884a12036959",
+    "tool_versions": {
+      "python": "3.12.9",
+      "uv": "0.12.18",
+      "node": "24.21.0",
+      "codex": "0.157.0",
+      "claude_code": "2.1.296"
+    },
+    "runtime_dependency_count": 27,
+    "runtime_dependencies_unchanged": true,
+    "manifests": [
+      {
+        "path": "tools/shared-native-read-policy.json",
+        "mode": "0600",
+        "owner": "adf-worker"
+      },
+      {
+        "path": "tools/shared-patch-check-sandbox.json",
+        "mode": "0600",
+        "owner": "adf-worker"
+      }
+    ],
+    "profile_directories_owned_0700": true,
+    "existing_trust_and_config_bytes_unchanged": true,
+    "original_orchestrator_settings_preserved": true,
+    "telemetry_correction": "restored original true flag using exact hash-proven previous settings; ENV order normalized for comparison",
+    "env_and_compose_files_unchanged": true,
+    "other_container_ids_unchanged": true
+  },
+  "drain": {
+    "api_active_executions": 0,
+    "redis_pending": 0,
+    "dedicated_sessions_stopped": true,
+    "historical_job_locks_reacquired": 9
+  },
+  "rollback": {
+    "worker": "13c4624a8791fa4c9035c284a4689e412f0b7b42",
+    "fresh_environment_verified": true,
+    "new_package_files": 29,
+    "old_package_files": 23,
+    "new_only_modules_removed": [
+      "check_bootstrap.py",
+      "check_payload.py",
+      "check_sandbox.py",
+      "native_read_policy.py",
+      "patches.py",
+      "shared_patch_adapter.py"
+    ],
+    "orchestrator_source": "6fe7c1402864210fd8b6c2aed44695436c147f3f",
+    "orchestrator_image": "sha256:23625c97fd2182bf0ffbac7a8f017bd20b4f4d5edd22bebdb2d6f6f1a92394fa",
+    "retained_image_tag": "adf-orchestrator:rollback-23625c97fd21",
+    "active_runtime_rolled_back": false,
+    "old_native_read_mode_safe_to_resume": false
+  },
+  "no_model_gates": {
+    "checks": [
+      {
+        "check": "ruff",
+        "exit_code": 0
+      },
+      {
+        "check": "mypy",
+        "exit_code": 0
+      },
+      {
+        "check": "bandit",
+        "exit_code": 0
+      },
+      {
+        "check": "pytest",
+        "exit_code": 0
+      }
+    ],
+    "native_canary_passed": 1,
+    "native_canary_deselected": 107,
+    "native_canary_elapsed_sec": 8.6,
+    "worker_source_files_checked": 29,
+    "checker": [
+      {
+        "gate": "empty_snapshot",
+        "status": "succeeded",
+        "exit_code": 0,
+        "process_stopped": true
+      },
+      {
+        "gate": "trusted_isolation_probe",
+        "status": "succeeded",
+        "exit_code": 0,
+        "process_stopped": true
+      }
+    ],
+    "trust_valid": true,
+    "native_read_policy_valid": true,
+    "native_policy_seal": "765490ce7dbaf2b0d2ea970a237ce1742154e2186ea2233f74f02c3c90c6451d",
+    "model_calls": 0,
+    "real_model_tool_invocation_verified": false,
+    "persistent_owner_per_thread_configuration_transition_verified": false,
+    "fixture_limit": "actual native metadata starts a separate app-server with job startup config; lifecycle turns use a protocol double"
+  },
+  "trial": {
+    "project_id": "7223cbc6-55cb-4ba1-9875-34979eda39c0",
+    "run_id": "67727194-095a-4e9e-afde-6af74ca84247",
+    "generation": "46c6e696-37fa-4047-931d-bf3d3a6e6a98",
+    "started_utc": "2026-10-12T03:12:43Z",
+    "runtime_stopped_utc": "2026-10-12T03:18:23Z",
+    "wall_limit_sec": 1200,
+    "elapsed_sec": 339.76,
+    "max_parallel": 3,
+    "turn_limit": 10,
+    "accepted_attempts_charged": 3,
+    "confirmed_native_turns": 0,
+    "unused_budget": 7,
+    "budget_closed": true,
+    "idempotent_run_creation_verified": true,
+    "api_run_status": "running",
+    "cancel_requested": true,
+    "redis_pending": 3,
+    "jobs": [
+      {
+        "execution_id": "f0d9cf44-eaae-5dba-bbb7-5fefccc44410",
+        "status": "uncertain",
+        "thread_id": null,
+        "turn_id": null,
+        "proof": "server_session_dead",
+        "quiesced": true,
+        "stopped_proof": {
+          "child_group_stopped": true,
+          "worktree_lock_reacquired": true
+        },
+        "owned_sessions_stopped": true,
+        "redis_acked": false,
+        "result_persisted": true,
+        "terminal_persisted": false,
+        "patch_generation_intent_present": true,
+        "patch_generation_complete": false,
+        "patch_intents_present": false,
+        "retained_skill_files": 1,
+        "unexpected_project_edits": [],
+        "native_receipt_present": true
+      },
+      {
+        "execution_id": "b17996ac-323a-5485-8cfc-25704aa98653",
+        "status": "uncertain",
+        "thread_id": null,
+        "turn_id": null,
+        "proof": "server_session_dead",
+        "quiesced": true,
+        "stopped_proof": {
+          "child_group_stopped": true,
+          "worktree_lock_reacquired": true
+        },
+        "owned_sessions_stopped": true,
+        "redis_acked": false,
+        "result_persisted": true,
+        "terminal_persisted": false,
+        "patch_generation_intent_present": true,
+        "patch_generation_complete": false,
+        "patch_intents_present": false,
+        "retained_skill_files": 1,
+        "unexpected_project_edits": [],
+        "native_receipt_present": true
+      },
+      {
+        "execution_id": "09f04ce2-9b40-5469-9f54-8ccfd050d63e",
+        "status": "uncertain",
+        "thread_id": null,
+        "turn_id": null,
+        "proof": "server_session_dead",
+        "quiesced": true,
+        "stopped_proof": {
+          "child_group_stopped": true,
+          "worktree_lock_reacquired": true
+        },
+        "owned_sessions_stopped": true,
+        "redis_acked": false,
+        "result_persisted": true,
+        "terminal_persisted": false,
+        "patch_generation_intent_present": true,
+        "patch_generation_complete": false,
+        "patch_intents_present": false,
+        "retained_skill_files": 1,
+        "unexpected_project_edits": [],
+        "native_receipt_present": true
+      }
+    ],
+    "provider_consumer_native_stopped": true,
+    "main_unchanged_and_clean": true,
+    "project_check_restored": true,
+    "unverified_stages": [
+      "native generation",
+      "live skill/MCP invocation",
+      "test/repair",
+      "independent review",
+      "commit/integration",
+      "single-job cancellation",
+      "consumer fault recovery",
+      "provider fault recovery"
+    ],
+    "forced_acks": 0,
+    "extra_model_replays": 0,
+    "paid_api_fallback": false
+  },
+  "source_review": {
+    "upstream_cause_known": false,
+    "rpc_diagnostic_gap": "provider error, malformed result and synthetic transport error fold into PROVIDER_FAILED; missing thread ID after spawn intent folds into EXECUTION_UNCERTAIN",
+    "canary_parity_gap": "per-job startup config and worktree cwd differ from production singleton baseline startup and later per-thread overrides",
+    "null_ids_prove_no_upstream_thread": false,
+    "startup_cli_baseline_always_overrides_request_proven": false,
+    "recommended_next_scope": "source-only sanitized RPC receipts and production-parity no-model harness; no queue replay or wider permissions"
+  },
+  "auth": {
+    "auth_copied": false,
+    "secret_values_printed": false,
+    "login_or_setup_token_run": false
+  },
+  "ready_for_real_execution": false
+}

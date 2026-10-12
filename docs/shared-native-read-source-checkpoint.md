@@ -1,5 +1,8 @@
 # Shared native read source release checkpoint
 
+> Historical October 11 source/proposal record. The separately authorized October 12 installation and blocked queue trial are recorded in the [current runtime checkpoint](shared-patch-runtime-checkpoint.md); its installed-state evidence supersedes this document's historical statements. Readiness remains false.
+
+
 October 11, 2026. Source publication only. [Current policy, evidence and exact future deployment scope](shared-native-read-policy.md), [ADR 009](adr/009-operator-owned-native-read-policy.md) and [worker manifest contract](../services/runtime-worker/docs/native-read-policy.md) define this release. Earlier checkpoints retain historical source and runtime results.
 
 ## Repository pins
