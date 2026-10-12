@@ -159,7 +159,10 @@ class LocalConfigurationTests(unittest.TestCase):
         self.run_prepare()
 
         rows = (self.secrets_dir / "redis-acl").read_text(encoding="utf-8").splitlines()
-        self.assertEqual(rows[0], "user default off")
+        self.assertEqual(
+            rows[0],
+            "user default off resetpass ~adf:executions +select +xclaim +xgroup|setid",
+        )
         users = {row.split()[1]: row.split() for row in rows[1:]}
         self.assertEqual(set(users), set(PASSWORD_FILES))
 

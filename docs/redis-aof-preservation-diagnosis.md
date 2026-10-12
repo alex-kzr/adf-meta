@@ -1,5 +1,7 @@
 # Redis AOF preservation diagnosis and proposed recovery scope
 
+Subsequent runtime update: the separately approved [Redis repair](redis-repair-runtime-checkpoint.md) completed with exact PEL=3 and unchanged AOF/data. The historical PEL=0 observations below remain dated evidence. The metadata/package diagnostic and Langfuse migration were not executed by that repair; host consumer/provider remain stopped.
+
 October 12, 2026. **Read-only production diagnosis; synthetic regression only. No production repair or restart is authorized by this document.** The installed worker remains `f5a713a3df44ffdad58aaa80fc3a36157e6c2736`, provider/consumer remain stopped, and the approved authenticated metadata window is unused. Readiness is false.
 
 ## Proven mechanism

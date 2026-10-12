@@ -1,6 +1,8 @@
 # One ADF Compose project: source plan and migration gates
 
-October 12, 2026. **Canonical source entrypoint prepared; live regrouping not applied.** The requested Docker Desktop group is the Compose project `adf`. Existing production containers are still split between `adf` and `adf-langfuse`; their current names, images, environments, bindings and data have not been changed by this task. Redis preservation is blocked; no data backup or recreation has been performed.
+Subsequent runtime update: the separately approved [Redis repair](redis-repair-runtime-checkpoint.md) completed with exact PEL=3 and unchanged AOF/data. The historical PEL=0 observations below remain dated evidence. The metadata/package diagnostic and Langfuse migration were not executed by that repair; host consumer/provider remain stopped.
+
+October 12, 2026. **Canonical source entrypoint prepared; live regrouping not applied.** The requested Docker Desktop group is the Compose project `adf`. Existing production containers are still split between `adf` and `adf-langfuse`; their current names, images, environments, bindings and data have not been changed by this task. Redis preservation passed in the separately approved repair; no Langfuse migration backup or container recreation has been performed.
 
 ## Managed scope
 
@@ -52,7 +54,7 @@ It refuses missing targets, wrong project/service labels, additional `adf` membe
 
 ## Current blockers and concrete migration scope
 
-The [Redis diagnosis](redis-aof-preservation-diagnosis.md) proves an AOF/ACL transaction replay problem; grouping does not require touching core Redis and must not become a Redis recovery workaround. Resolve preservation under a separate explicit scope first. No production backup destination or backup procedure has been agreed for this migration.
+The [Redis diagnosis](redis-aof-preservation-diagnosis.md) proves an AOF/ACL transaction replay problem; grouping does not require touching core Redis and must not become a Redis recovery workaround. The separately approved Redis repair has passed its preservation gate. No production Langfuse backup destination or backup procedure has been agreed for this migration.
 
 A read-only inventory also found **33 old recovery QA container members** carrying Compose project `adf`, outside the 13 production targets. A retained QA API image itself contains baked `adf` project/API service labels, explaining at least that fixture's inherited membership. Do not assume all history is disposable, sweep these containers, edit their labels or run `--remove-orphans`. Keep them untouched until an operator decides whether to retain/archive/recreate their test history under distinct QA projects. Their mistaken labels currently prevent an exclusive production group and block the guarded start. Future QA images must not inherit production Compose labels; address that separately with fixture contract tests.
 

@@ -1,0 +1,223 @@
+{
+  "authorization_utc": "2026-10-12 09:07 UTC",
+  "installed_worker": "f5a713a3df44ffdad58aaa80fc3a36157e6c2736",
+  "private_backup": {
+    "private_backup_path": "/root/adf-redis-repair-backups/20261012T094116Z-69814180",
+    "manifest_sha256": "0771e539fb45ada280503bde33f3ad5a7856e3a660e50d3930ea22d1895026ca",
+    "files": {
+      "appendonly.aof.1.incr.aof": {
+        "bytes": 50953,
+        "sha256": "d5b9927a259e6d9d218bd852696505fa070e2daa4fc794a731b98fd63dfe6961"
+      },
+      "appendonly.aof.1.base.rdb": {
+        "bytes": 88,
+        "sha256": "6b7ceb65e0c3249885e37acb5e5f4ab96d7b0cc4a7bd0684906415a08e326657"
+      },
+      "appendonly.aof.manifest": {
+        "bytes": 88,
+        "sha256": "ca465c5845ad4d4c0a2b4cda8853efeb9423cb4242a4eaaa5ecbaa00a4e75492"
+      },
+      "dump.rdb": {
+        "bytes": 5750,
+        "sha256": "4b59a7f9218db09137bd02e1e5278d2685b432ebc8c825f5784a5b1a02876fd9"
+      },
+      "users.acl": {
+        "bytes": 541,
+        "sha256": "fef0a086d225dba0f17fbd4f6a1bba53129df9d0299d3f58faefd1fef87f8d9e"
+      },
+      "container.json": {
+        "bytes": 8367,
+        "sha256": "f9c6f1ee89152da75df7ea184c9cf23af78c71739dbe56327509a561b57cdefd"
+      }
+    },
+    "root_owned_private_ext4": true
+  },
+  "operational_helper_sha256": "c546e6596c6ef42bf684932002373b7e70ef9dfd030ac5801b8b051b42cbd4f4",
+  "isolated_restore": {
+    "isolated_restore_verified": true,
+    "rollback_rehearsed": true,
+    "private_input_only": true,
+    "host_network_or_ipc": false,
+    "cases": [
+      {
+        "pending": 0,
+        "pending_ids": [],
+        "stream_length": 70,
+        "stream_entry_count": 70,
+        "stream_content_sha256": "aa68cf51d7e76b30837b1d9ed5cff5eee18117bd6d90a2e6861b3334b26e0f89",
+        "target_ids_present": true,
+        "default_auth_rejected": true,
+        "aof_enabled": true,
+        "aof_rewrite_in_progress": false,
+        "case": "original-backup",
+        "aof_exec_noperm_errors": 153,
+        "loaded_aof_hashes_unchanged": true
+      },
+      {
+        "pending": 3,
+        "pending_ids": [
+          "1791774765065-0",
+          "1791774765075-0",
+          "1791774765082-0"
+        ],
+        "stream_length": 70,
+        "stream_entry_count": 70,
+        "stream_content_sha256": "aa68cf51d7e76b30837b1d9ed5cff5eee18117bd6d90a2e6861b3334b26e0f89",
+        "target_ids_present": true,
+        "default_auth_rejected": true,
+        "aof_enabled": true,
+        "aof_rewrite_in_progress": false,
+        "case": "narrow-repair",
+        "aof_exec_noperm_errors": 0,
+        "loaded_aof_hashes_unchanged": true
+      },
+      {
+        "pending": 0,
+        "pending_ids": [],
+        "stream_length": 70,
+        "stream_entry_count": 70,
+        "stream_content_sha256": "aa68cf51d7e76b30837b1d9ed5cff5eee18117bd6d90a2e6861b3334b26e0f89",
+        "target_ids_present": true,
+        "default_auth_rejected": true,
+        "aof_enabled": true,
+        "aof_rewrite_in_progress": false,
+        "case": "rollback-original",
+        "aof_exec_noperm_errors": 153,
+        "loaded_aof_hashes_unchanged": true
+      }
+    ],
+    "role_acl_bytes_unchanged": true
+  },
+  "live_before": {
+    "pending": 0,
+    "pending_ids": [],
+    "stream_length": 70,
+    "stream_entry_count": 70,
+    "stream_content_sha256": "aa68cf51d7e76b30837b1d9ed5cff5eee18117bd6d90a2e6861b3334b26e0f89",
+    "target_ids_present": true,
+    "default_auth_rejected": true,
+    "aof_enabled": true,
+    "aof_rewrite_in_progress": false
+  },
+  "live_after": {
+    "pending": 3,
+    "pending_ids": [
+      "1791774765065-0",
+      "1791774765075-0",
+      "1791774765082-0"
+    ],
+    "stream_length": 70,
+    "stream_entry_count": 70,
+    "stream_content_sha256": "aa68cf51d7e76b30837b1d9ed5cff5eee18117bd6d90a2e6861b3334b26e0f89",
+    "target_ids_present": true,
+    "default_auth_rejected": true,
+    "aof_enabled": true,
+    "aof_rewrite_in_progress": false
+  },
+  "redis_container_id": "b8bbc58f0cb4dfe0fc1066e757ece69c73562c3234cace19ffa86ff75d9612a9",
+  "redis_image_id": "sha256:f218e591b571a4129aa29a8566b597d849fba21af7be853d31b03122b20db5e9",
+  "redis_volume": "adf_redis-data",
+  "same_container_image_volume_ports_settings": true,
+  "role_acl_rows_byte_for_byte_unchanged": true,
+  "role_acl_rows_sha256": "a14543e0640ab40efd0682b02fda811af44f2720727933786cb8025ca3de5129",
+  "default_acl_row": "user default off resetpass ~adf:executions +select +xclaim +xgroup|setid",
+  "default_auth_rejected": true,
+  "source_aof_base_manifest_bytes_unchanged": true,
+  "orchestrator_same_identity_resumed": true,
+  "unrelated_containers_unchanged_count": 69,
+  "services_after": [
+    {
+      "name": "adf-postgres-1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": "0"
+    },
+    {
+      "name": "adf-redis-1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": "0"
+    },
+    {
+      "name": "adf-migrator-1",
+      "state": "exited",
+      "health": "none",
+      "exit_code": "0"
+    },
+    {
+      "name": "adf-api-1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": "0"
+    },
+    {
+      "name": "adf-orchestrator-1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": "0"
+    },
+    {
+      "name": "adf-frontend-1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": "0"
+    },
+    {
+      "name": "adf-otel-collector-1",
+      "state": "running",
+      "health": "none",
+      "exit_code": "0"
+    },
+    {
+      "name": "adf-langfuse-langfuse-web-1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": "0"
+    },
+    {
+      "name": "adf-langfuse-langfuse-worker-1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": "0"
+    },
+    {
+      "name": "adf-langfuse-postgres-1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": "0"
+    },
+    {
+      "name": "adf-langfuse-redis-1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": "0"
+    },
+    {
+      "name": "adf-langfuse-clickhouse-1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": "0"
+    },
+    {
+      "name": "adf-langfuse-minio-1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": "0"
+    }
+  ],
+  "api_run_status": "running",
+  "api_execution_statuses": [
+    "uncertain",
+    "uncertain",
+    "uncertain"
+  ],
+  "provider_consumer_native_stopped": true,
+  "old_journals_results_locks_main_preserved": true,
+  "queue_operator_ack_claim_replay_operations": 0,
+  "native_owner_thread_turn_model_calls": 0,
+  "langfuse_grouping_applied": false,
+  "qa_containers_touched": false,
+  "ready_for_real_execution": false,
+  "rollback_rehearsed_but_not_needed": true,
+  "private_backup_uploaded_or_committed": false
+}

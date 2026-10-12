@@ -1,5 +1,7 @@
 # Proposed authenticated metadata-only comparison
 
+Subsequent runtime update: the separately approved [Redis repair](redis-repair-runtime-checkpoint.md) completed with exact PEL=3 and unchanged AOF/data. The historical PEL=0 observations below remain dated evidence. The metadata/package diagnostic and Langfuse migration were not executed by that repair; host consumer/provider remain stopped.
+
 October 12, 2026. **Concrete next scope; not executed by source publication.** The operator subsequently authorized this scope at 06:44 UTC; the [execution checkpoint](shared-auth-metadata-runtime-checkpoint.md) stopped at prerequisite inspection before installation/native startup; a separately authorized Docker restoration later exposed Redis PEL=0 instead of required3. Use only the exact published worker pin and successful exact-commit CI in the [source checkpoint](shared-rpc-source-checkpoint.md#exact-source-release). The public Node/npm launcher, production factory environment/arguments and empty-profile persistent-owner check already pass; do not deploy an intermediate pin to investigate that public difference again. Existing local-profile behavior is the next comparison; cloud/network behavior and the discarded historical RPC cause remain separate questions.
 
 ## Paths and preserved state

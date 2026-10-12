@@ -37,7 +37,9 @@ def prepare(root: Path) -> None:
     if acl.is_symlink():
         raise ValueError("Redis ACL file cannot be a symlink")
     if not acl.exists():
-        rows = ["user default off"]
+        # EXEC checks the disabled default user's ACL while replaying stream claims.
+        # Authentication stays disabled; only this stream's loader commands are granted.
+        rows = ["user default off resetpass ~adf:executions +select +xclaim +xgroup|setid"]
         roles = (
             ("adf_orchestrator", "redis-password", "+ping +hello +client|setname +client|setinfo +xadd +xlen +xgroup|create"),
             ("adf_worker", "redis-worker-password", "+ping +hello +client|setname +client|setinfo +xreadgroup +xack +xpending +xautoclaim +xgroup|create"),
