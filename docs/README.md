@@ -4,7 +4,7 @@
 
 [Public initialize diagnosis](public-initialize-diagnosis.md) proves the full-RO-profile helper is incompatible with pinned SQLite/installation-ID writes; an empty writable control initializes and closes correctly. Three focused source regressions pass; installed0dd, real auth, queue and services remain unchanged. This does not attribute discarded production errors or grant another native window.
 
-Latest October 12 runtime result: [completed existing-profile metadata window](shared-auth-metadata-completed-checkpoint.md) installed worker `0dd5ac7` with verified f5 rollback. `initialize` ended with `transport_closed` in 88 ms; zero threads/turns, used one-owner allowance, all owned processes stopped. Old three uncertain/unACKed deliveries and all 70 Redis entries remain unchanged; provider/consumer stay stopped and readiness is false. Earlier installed-state statements below are dated history.
+Operational status belongs in protected local reports. Earlier deployment checkpoints below are dated history and do not establish current queue or service state. The [provider fixture guide](provider-fixtures-and-maintenance.md) describes source verification and protected maintenance. Keep readiness false until the documented authenticated execution and recovery gates pass; source fixtures alone cannot satisfy those gates.
 
 [Completed authorized Redis repair](redis-repair-runtime-checkpoint.md), with [sanitized evidence](evidence/redis-repair-runtime-2026-10-12.json): exact PEL=3 restored, AOF and all 70 entries unchanged, default AUTH rejected, same Redis/orchestrator resumed and 69 other containers preserved. API stays three uncertain; host worker remains stopped; readiness remains false.
 

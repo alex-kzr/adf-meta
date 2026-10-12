@@ -1,6 +1,6 @@
 # Decisions, assumptions and release gates
 
-Latest October 12 runtime result: [completed existing-profile metadata window](shared-auth-metadata-completed-checkpoint.md) installed worker `0dd5ac7` with verified f5 rollback. `initialize` ended with `transport_closed` in 88 ms; zero threads/turns, used one-owner allowance, all owned processes stopped. Old three uncertain/unACKed deliveries and all 70 Redis entries remain unchanged; provider/consumer stay stopped and readiness is false. Earlier installed-state statements below are dated history.
+Operational status belongs in protected local reports. Earlier deployment checkpoints below are dated history and do not establish current queue or service state. The [provider fixture guide](provider-fixtures-and-maintenance.md) describes source verification and protected maintenance. Keep readiness false until the documented authenticated execution and recovery gates pass; source fixtures alone cannot satisfy those gates.
 
 ## Source precedence
 
