@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-12",
+  "authorization_utc": "2026-10-12 06:44 UTC",
+  "scope_document": "../shared-auth-metadata-scope.md",
+  "result": "BLOCKED_BEFORE_INSTALLATION_OR_NATIVE_START",
+  "preflight_failure": {
+    "category": "prerequisite_unavailable",
+    "rpc_category": null,
+    "provider_error_code": null,
+    "docker_desktop_linux_engine": "named pipe unavailable",
+    "api_loopback_8080": "connection_refused",
+    "redis_wsl_loopback_6380": "connection_refused"
+  },
+  "approved_new_worker": "0dd5ac7b8be6f792921f29bc376e520f3c0754c6",
+  "installed_worker": "f5a713a3df44ffdad58aaa80fc3a36157e6c2736",
+  "installed_source_files_verified": 29,
+  "installed_pin_changed": false,
+  "rollback_rehearsed_this_scope": false,
+  "harness_prepared_or_executed_this_scope": false,
+  "metadata_owner_starts": 0,
+  "native_rpc_methods": [],
+  "thread_start_calls": 0,
+  "turn_start_calls": 0,
+  "model_calls": 0,
+  "actual_profile_auth_read_or_copied_by_test": false,
+  "manifest_or_auth_writes": 0,
+  "service_start_stop_or_rebuild_operations": 0,
+  "runtime_mutations": 0,
+  "queue_ack_replay_or_terminal_operations": 0,
+  "local_preservation": {
+    "provider_consumer_native_stopped": true,
+    "old_owned_sessions_stopped": true,
+    "all_old_locks_reacquired": true,
+    "old_execution_journals_uncertain": 3,
+    "old_delivery_ack_flags": false,
+    "old_result_persisted": true,
+    "old_terminal_persisted": false,
+    "retained_selected_skill_files_per_worktree": 1,
+    "main_unchanged_and_clean": true,
+    "trust_config_bytes_unchanged": true,
+    "profiles_owned_0700": true
+  },
+  "run_id": "67727194-095a-4e9e-afde-6af74ca84247",
+  "last_verified_service_state": {
+    "source_checkpoint": "../shared-rpc-source-checkpoint.md",
+    "api_run_status": "running",
+    "execution_statuses": [
+      "uncertain",
+      "uncertain",
+      "uncertain"
+    ],
+    "redis_pending": 3
+  },
+  "current_api_and_redis_state_reverified": false,
+  "ready_for_real_execution": false,
+  "remaining_blocker": "Required existing API/Redis services are unreachable; restoring Docker Desktop/other services is outside this diagnostic authorization. Leave stopped until operator restores the existing stack; then rerun preflight before harness/rollback/installation."
+}
