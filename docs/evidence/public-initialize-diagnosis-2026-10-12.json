@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-12",
+  "scope": "Public initialize-only synthetic source diagnosis",
+  "installed_worker_unchanged": "0dd5ac7b8be6f792921f29bc376e520f3c0754c6",
+  "actual_profile_started": false,
+  "native_authenticated_allowance_remaining": 0,
+  "queue_or_service_operation": false,
+  "cases": {
+    "read_only": {
+      "synthetic_only": true,
+      "real_profile_mounted": false,
+      "thread_calls": 0,
+      "model_calls": 0,
+      "auth_rpc_calls": 0,
+      "methods": [
+        "initialize"
+      ],
+      "profile_mount": "read-only",
+      "namespace_proved_twice": true,
+      "initialize_succeeded": false,
+      "natural_exit_status": 1,
+      "final_exit_status": 1,
+      "cleanup_proved": true,
+      "elapsed_ms": 394,
+      "wall_limit_met": true,
+      "stderr_category": "SQLITE_STATE_INITIALIZATION_FAILED"
+    },
+    "sqlite_redirect_only": {
+      "synthetic_only": true,
+      "real_profile_mounted": false,
+      "thread_calls": 0,
+      "model_calls": 0,
+      "auth_rpc_calls": 0,
+      "methods": [
+        "initialize"
+      ],
+      "profile_mount": "read-only",
+      "namespace_proved_twice": true,
+      "initialize_succeeded": false,
+      "natural_exit_status": 1,
+      "final_exit_status": 1,
+      "cleanup_proved": true,
+      "elapsed_ms": 467,
+      "wall_limit_met": true,
+      "stderr_category": "READ_ONLY_FILESYSTEM"
+    },
+    "filesystem_trace": {
+      "synthetic_only": true,
+      "real_profile_mounted": false,
+      "thread_calls": 0,
+      "model_calls": 0,
+      "auth_rpc_calls": 0,
+      "methods": [
+        "initialize"
+      ],
+      "profile_mount": "read-only",
+      "namespace_proved_twice": true,
+      "initialize_succeeded": false,
+      "natural_exit_status": 1,
+      "final_exit_status": 1,
+      "cleanup_proved": true,
+      "elapsed_ms": 1570,
+      "wall_limit_met": true,
+      "stderr_category": "INSTALLATION_ID_OPEN_EROFS",
+      "failed_path_class": "synthetic CODEX_HOME/installation_id",
+      "open_flags": "O_RDWR|O_CREAT",
+      "errno": "EROFS"
+    },
+    "writable_control": {
+      "synthetic_only": true,
+      "real_profile_mounted": false,
+      "thread_calls": 0,
+      "model_calls": 0,
+      "auth_rpc_calls": 0,
+      "methods": [
+        "initialize"
+      ],
+      "profile_mount": "synthetic-only-read-write",
+      "namespace_proved_twice": true,
+      "initialize_succeeded": true,
+      "natural_exit_status": null,
+      "final_exit_status": -15,
+      "cleanup_proved": true,
+      "elapsed_ms": 509,
+      "wall_limit_met": true,
+      "stderr_category": "NONFATAL_ALIAS_AND_BWRAP_WARNINGS",
+      "termination_reason": "intentional owned-session cleanup after initialize success"
+    }
+  },
+  "failed_initial_writable_cleanup": {
+    "category": "PYTHON_NATIVE_PIDFD_API_ABSENT",
+    "receipt_not_reconstructed": true,
+    "followup": {
+      "read_only": true,
+      "known_synthetic_namespace_processes": [],
+      "cmdline_or_environ_read": false,
+      "signals_sent": 0
+    }
+  },
+  "minimal_operator_fix": {
+    "original_sha256": "4a8f5084c3a4e4b5cbeca55e7f7253d1c9719a8b59fe949f8beb89614c7a8b91",
+    "separate_fixed_copy_sha256": "e57a21e809c09b87b6ee545d2b18fd34ea1e199e4fb2918cd3b70b23e482b18a",
+    "production_pidfd_module_changed": false,
+    "description": "Use existing journal.pidfd_open/pidfd_send_signal instead of missing Python API bindings"
+  },
+  "focused_checks": {
+    "initialize_cases_passed": 3,
+    "duration_seconds": 4.26,
+    "frame_fake_cases_passed": 2,
+    "pidfd_fake_cases_passed": 2,
+    "ruff": "PASS",
+    "independent_review": "PASS"
+  },
+  "source_release": {
+    "production_python_modules_changed": 0,
+    "dependency_locks_changed": false,
+    "commit": "76a78f57d7b8e5900d5c1a02fbb244b457ddab52",
+    "ci_run": 38255848529,
+    "ci_url": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38255848529",
+    "ci_status": "success",
+    "full_linux_suite_passed": 389,
+    "full_linux_duration_seconds": 144.63
+  },
+  "conclusion": "The synthetic full-RO-profile helper cannot initialize the pinned app-server; writable synthetic profile succeeds",
+  "causal_limit": "Original real-profile stderr was discarded; its exact cause and the three historical production failures remain unknown",
+  "readiness": false,
+  "allowance_scope": "Historical initialize-only window; subsequent separately authorized production acceptance is not charged by these synthetic cases"
+}

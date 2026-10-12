@@ -1,5 +1,7 @@
 # Existing-profile metadata diagnostic: completed bounded window
 
+[Public initialize diagnosis](public-initialize-diagnosis.md) proves the full-RO-profile helper is incompatible with pinned SQLite/installation-ID writes; an empty writable control initializes and closes correctly. Three focused source regressions pass; installed0dd, real auth, queue and services remain unchanged. This does not attribute discarded production errors or grant another native window.
+
 October 12, 2026; postchecks completed by 12:06 UTC. **Worker `0dd5ac7b8be6f792921f29bc376e520f3c0754c6` is installed. The single approved metadata window completed with `bounded_rpc_failure`: `initialize` received `transport_closed` after 88 ms.** No native thread or model turn started; skills/MCP/model metadata acceptance was not reached. Provider and consumer remain stopped, the allowance is used, and readiness remains false. [Sanitized evidence](evidence/shared-auth-metadata-completed-2026-10-12.json) contains the fixed outcome and preservation witnesses.
 
 This continues the [scope approved at 06:44 UTC](shared-auth-metadata-scope.md) after the separately completed [Redis preservation repair](redis-repair-runtime-checkpoint.md). The earlier [PEL mismatch checkpoint](shared-auth-metadata-runtime-checkpoint.md) remains historical evidence. No new generation, network/auth operation or queue trial followed from this continuation.
