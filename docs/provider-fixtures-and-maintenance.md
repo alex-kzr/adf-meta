@@ -12,6 +12,8 @@ The [pinned thread processor](https://github.com/openai/codex/blob/rust-v0.157.0
 
 An outer sandbox that disables nested user namespaces can prevent the native filesystem helper from loading project instructions. Such a fixture error must be distinguished from a provider defect. A control permitting bounded nesting must retain the outer filesystem, PID, IPC and network boundaries; it cannot change host security settings or expose existing profiles. Use the worker's guarded pidfd wrappers for cleanup rather than assuming a particular standalone Python build exposes the native bindings.
 
+A fresh empty-profile control that permitted nested namespaces successfully completed initialize and thread creation with the named selector. Its cleanup pinned the outer PID namespace init before release, proved its exit through pidfd, and separately closed the dedicated host session. No authentication, turn, model or tool request was sent. This supports the synthetic selector contract; the earlier authenticated internal error remains unattributed.
+
 ## Consistent datastore backup and restoration
 
 Quiesce application writers before stopping their stores. Bind the exact current images, resolved settings, commands, ports, external volumes and network aliases privately; upstream image defaults are insufficient for a deployment that has explicit startup commands. Protect backup configuration and data outside Git.
