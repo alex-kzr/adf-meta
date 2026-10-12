@@ -4,7 +4,7 @@
 
 The only initial product file was `SPEC.md` v0.2, SHA-256 `3494049865774af023fa49427feb3f71b8865dc82adcac3d7e5bc6a81cdde5a2`. It labels itself October 11, 2026; foundation work is October 10. This discrepancy is retained. No checkout `.agents/skills`, AGENTS.md, Git history or code was present. `.idea/` remains user-owned ignored IDE state. Relevant Git, Python, React, Vite and architecture diagram skills were read. No memories were found at the inspected default Codex memories location; none were edited.
 
-Current user instructions precede SPEC, then documented design choices. The user's additional answers confirm local single user, React workflow editor, autonomy with limits, shared workspace, Codex/Claude subscriptions, agents/skills/tools/MCP, branches/commits, FastAPI and Compose. The original questions behind вЂњboth optionsвЂќ and вЂњall itemsвЂќ are unavailable; SPEC's manual task/goal decomposition and four priorities are the source for those details. Shared workspace means a common root with isolated write worktrees, as SPEC explicitly requires. This is the evolution from the earlier broad workspace answer to the explicit v0.2 design. It does not authorize concurrent writes to one checkout. Subscription CLI use does not require replacement with paid API access.
+Current user instructions precede SPEC, then documented design choices. The user's additional answers confirm local single user, React workflow editor, autonomy with limits, shared workspace, Codex/Claude subscriptions, agents/skills/tools/MCP, branches/commits, FastAPI and Compose. The original questions behind РІР‚Сљboth optionsРІР‚Сњ and РІР‚Сљall itemsРІР‚Сњ are unavailable; SPEC's manual task/goal decomposition and four priorities are the source for those details. Shared workspace means a common root with isolated write worktrees, as SPEC explicitly requires. This is the evolution from the earlier broad workspace answer to the explicit v0.2 design. It does not authorize concurrent writes to one checkout. Subscription CLI use does not require replacement with paid API access.
 
 ## Adopted design choices (not additional user requirements)
 
@@ -26,6 +26,8 @@ The deployment appendix's branch format and adapter interface win over earlier g
 ## Current native isolation decision
 
 [ADR 009](adr/009-operator-owned-native-read-policy.md) supersedes the legacy read-only assumption for current shared source: require both operator manifests, owner-only named native grants and durable capability reconstruction. The legacy secret-read preflight FAILED. New synthetic real-IPC/native command and metadata evidence passes, with public platform roots, same-UID and unverified tool-route limits. The separately authorized [October 12 runtime checkpoint](shared-patch-runtime-checkpoint.md) records installed worker `f5a713a` and a blocked actual queue trial. Dedicated runtime stays stopped, three deliveries remain uncertain/unACKed, and readiness is false. No-model canaries do not prove the persistent-owner per-thread settings transition.
+
+The [October 12 source RPC repair](shared-rpc-source-checkpoint.md) fixes lost error-category attribution and verifies one empty-profile persistent owner with six sequential/concurrent metadata threads. It preserves uncertain locks/no-replay semantics. Node-wrapper/PATH and authenticated account/network parity remain untested; the installed trial's original upstream cause is unknown. Source publication does not change or reconcile the three pending deliveries.
 
 ## Gates before real execution
 

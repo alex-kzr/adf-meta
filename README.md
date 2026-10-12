@@ -4,6 +4,8 @@ This repository is [adf-meta](https://github.com/alex-kzr/adf-meta), the ADF umb
 
 **Status: MVP acceptance remains incomplete; readiness is false.** The latest authorized dedicated runtime installed worker `f5a713a` and orchestrator `9932a87`; no-model isolation/checker gates passed. One bounded API/Redis trial stopped after three uncertain native startup attempts (zero confirmed turns). Provider/consumer are stopped, locks reacquired, and three deliveries remain unACKed. See the [current runtime checkpoint](docs/shared-patch-runtime-checkpoint.md) and [sanitized evidence](docs/evidence/shared-patch-deployment-2026-10-12.json). Earlier successful DAG/recovery results apply to their dated runtime, before the current isolation release. [Implementation status](docs/implementation-status.md), [release history](docs/release-checkpoint.md) and [delivery history](docs/delivery-status.md) retain that evidence.
 
+Latest source delivery: [safe RPC outcomes and persistent-owner metadata verification](docs/shared-rpc-source-checkpoint.md) passed 385 offline/native-metadata tests and independent review. The installed runtime and three uncertain deliveries remain unchanged; the original upstream cause is still unknown.
+
 Start with [documentation](docs/README.md), [product/acceptance](docs/product.md), [architecture](docs/architecture.md), [local development](docs/local-development.md) and [backlog](docs/backlog.md). The original [SPEC.md](SPEC.md) remains unchanged; [decisions](docs/decisions.md) distinguish requirements from adopted assumptions.
 
 | Submodule | GitHub repository | Responsibility |

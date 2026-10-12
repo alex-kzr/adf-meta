@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-12",
+  "scope": "source-only RPC diagnostics and no-model persistent-owner verification",
+  "worker_source_commit": "34b8bb54cce288510b407f4d74892921b0d74251",
+  "worker_ci": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38204740387",
+  "checks": {
+    "linux_tests_passed": 385,
+    "linux_tests_skipped": 0,
+    "elapsed_sec": 116.64,
+    "ruff": "PASS",
+    "mypy": "PASS: 29 source files",
+    "bandit_medium_high": 0,
+    "bandit_low": 17,
+    "tested_python_sources_match_commit": true,
+    "independent_readonly_review": "PASS; previous three findings resolved"
+  },
+  "rpc_contract": {
+    "outcomes": [
+      "provider_error",
+      "malformed_response",
+      "transport_closed",
+      "response_timeout",
+      "write_uncertain"
+    ],
+    "receipt_fields": [
+      "method",
+      "outcome",
+      "elapsed_ms",
+      "provider_error_code",
+      "phase"
+    ],
+    "recognized_error_codes": [
+      -32700,
+      -32600,
+      -32601,
+      -32602,
+      -32603,
+      -32000
+    ],
+    "provider_message_data_stderr_persisted": false,
+    "typed_local_failure_sentinel": true,
+    "malformed_native_identity_coercion_removed": true,
+    "new_generation_clears_stale_receipt": true,
+    "post_spawn_unknown_outcome_stays_uncertain": true,
+    "automatic_uncertain_retry_added": false
+  },
+  "actual_native_metadata": {
+    "codex": "0.157.0",
+    "codex_sha256": "1a822376d4634ac32dddc030e5117c63359f7f8cd4b1b64382c68190287d0258",
+    "bwrap_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c",
+    "profile": "empty synthetic private profile",
+    "single_persistent_appserver": true,
+    "production_flags_configuration_factory_and_cwd": true,
+    "sequential_threads": 3,
+    "parallel_threads": 3,
+    "unique_native_thread_ids": 6,
+    "default_and_native_catalog_models_verified": true,
+    "selected_only_skill_catalogs_verified": true,
+    "distinct_scoped_mcp_catalogs_verified": true,
+    "native_active_permissions_and_literal_roots_verified": true,
+    "thread_closed_receipts": 6,
+    "owner_stopped_before_skill_lock_cleanup": true,
+    "unproved_shutdown_retains_resources": true,
+    "actual_methods": [
+      "initialize",
+      "model/list",
+      "thread/start",
+      "skills/list",
+      "mcpServerStatus/list",
+      "thread/unsubscribe"
+    ],
+    "actual_turn_start_calls": 0,
+    "model_calls": 0,
+    "real_auth_or_secret_contents_used": false,
+    "model_skill_mcp_invocation_verified": false,
+    "unverified_parity": [
+      "installed npm/Node wrapper",
+      "operator pinned Node PATH/interpreter",
+      "authenticated account/refresh/catalog/cloud policy",
+      "authenticated owner network/subscription route"
+    ]
+  },
+  "diagnosis": {
+    "proven_source_defect": "explicit RPC error, malformed result and synthetic transport error lost their distinction before final uncertainty mapping",
+    "cli_baseline_always_overrides_thread_config": false,
+    "original_installed_upstream_cause_known": false,
+    "original_discarded_response_recoverable": false
+  },
+  "preserved_runtime": {
+    "installed_worker": "f5a713a3df44ffdad58aaa80fc3a36157e6c2736",
+    "installed_orchestrator": "9932a87e676b651c7ff2eb89246b900c6d0f843e",
+    "run_id": "67727194-095a-4e9e-afde-6af74ca84247",
+    "api_run_status": "running",
+    "execution_statuses": [
+      "uncertain",
+      "uncertain",
+      "uncertain"
+    ],
+    "redis_pending": 3,
+    "provider_consumer_native_stopped": true,
+    "all_locks_reacquired": true,
+    "main_unchanged_and_clean": true,
+    "trust_config_unchanged": true,
+    "manifests_auth_not_modified_by_source_work": true,
+    "forced_acks": 0,
+    "replayed_jobs": 0,
+    "new_native_model_turns": 0,
+    "new_source_installed": false
+  },
+  "ready_for_real_execution": false
+}
