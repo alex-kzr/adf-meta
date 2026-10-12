@@ -1,3 +1,5 @@
+# Canonical project entrypoint: python scripts/compose-adf.py plan/start.
+# Existing-data/group migration requires the reviewed backup and Redis gates.
 name: adf
 x-runtime: &runtime
   restart: unless-stopped

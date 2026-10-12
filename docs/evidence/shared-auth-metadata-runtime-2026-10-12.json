@@ -12,7 +12,8 @@
     "api_run_status": "running",
     "api_uncertain_executions": 3,
     "redis_startup_observation": "Repeated NOPERM in AOF-loading-client while processing EXEC; later ready",
-    "specific_pending_delta_cause_proved": false
+    "specific_pending_delta_cause_proved": true,
+    "cause": "AOF transaction commands denied by disabled permissionless default ACL during EXEC; no production repair applied"
   },
   "approved_new_worker": "0dd5ac7b8be6f792921f29bc376e520f3c0754c6",
   "installed_worker": "f5a713a3df44ffdad58aaa80fc3a36157e6c2736",
@@ -100,5 +101,7 @@
     "native_owner_starts_used": 0,
     "metadata_threads_used": 0,
     "native_window_started": false
-  }
+  },
+  "followup_read_only_diagnosis": "../redis-aof-preservation-diagnosis.md",
+  "followup_specific_pending_delta_cause_proved": true
 }

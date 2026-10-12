@@ -2,7 +2,7 @@
 
 [compose.yaml](compose.yaml) runs authenticated PostgreSQL/Redis, a scoped Alembic migrator and the API/orchestrator/frontend. The worker executes on the WSL host. Apply [images.lock.env](images.lock.env) after the preserved local env file to select verified immutable digests.
 
-[compose.langfuse.yaml](compose.langfuse.yaml) overlays checksum-verified official Langfuse Compose. [langfuse-source.lock.json](langfuse-source.lock.json) records source/image pins; generated secrets and downloaded source remain ignored. Run it as a separate project using `.bootstrap/langfuse/.env` and the dedicated `adf-telemetry` network.
+[compose.langfuse.yaml](compose.langfuse.yaml) overlays checksum-verified official Langfuse Compose. [langfuse-source.lock.json](langfuse-source.lock.json) records source/image pins; generated secrets and downloaded source remain ignored. The canonical source entrypoint is `python scripts/compose-adf.py prepare/plan`, targeting one project `adf` with the dedicated `adf-telemetry` network and existing external Langfuse stores. Current live containers still use two projects; [migration gates](../docs/compose-grouping.md) block recreation until Redis preservation, agreed backups and legacy QA membership are resolved.
 
 [otel-collector.yaml](otel-collector.yaml) exports only eligible bounded ADF spans, strips sensitive fields and maps validated correlation to Langfuse v4. A private generated auth overlay supplies Basic ingestion credentials. [otel-collector.disabled.yaml](otel-collector.disabled.yaml) provides a no-export diagnostic option. Logs/metrics are not exported to Langfuse.
 

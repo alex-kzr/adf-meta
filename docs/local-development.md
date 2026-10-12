@@ -8,12 +8,14 @@ Verified local tools: Python 3.12.9, WSL Node 24.21.0, uv 0.12.18, Codex CLI 0.1
 
 The current `alex` account has `sudo`/`docker` group access and can access the Docker socket. It is suitable for a bounded trusted-workstation test, but a dedicated least-privilege runtime account is **not verified**. This task does not change account groups, Docker integration, firewall or security settings. Complete that operator gate before treating real execution as accepted.
 
+Current existing-data startup is blocked by the [Redis preservation diagnosis](redis-aof-preservation-diagnosis.md). [Canonical one-project grouping](compose-grouping.md) supersedes historical separate-project startup instructions; use prepare/plan only until its maintenance and backup gates are satisfied.
+
 ## Core startup
 
 ```powershell
 python scripts/init-local-env.py
 docker compose --env-file .env --env-file infra/images.lock.env -f infra/compose.yaml config --quiet
-docker compose --env-file .env --env-file infra/images.lock.env -f infra/compose.yaml up -d --build --wait --wait-timeout 120
+# Current retained-data startup requires the reviewed preservation/grouping scope.
 curl.exe --noproxy "*" --fail --max-time 5 http://127.0.0.1:8080/readyz
 ```
 
@@ -76,8 +78,9 @@ Codex enforces its coarse read-only/workspace-write sandbox for built-in tools. 
 ```powershell
 python scripts/prepare-langfuse.py --validate --check-resources --pull
 docker network create --label com.adf.purpose=telemetry adf-telemetry
-docker compose -p adf-langfuse --env-file .bootstrap/langfuse/.env -f infra/vendor/langfuse/docker-compose.yml -f infra/compose.langfuse.yaml --profile observability up -d --wait --wait-timeout 240
-docker compose --env-file .env --env-file infra/images.lock.env -f infra/compose.yaml --profile observability up -d --no-deps otel-collector
+python scripts/compose-adf.py prepare
+python scripts/compose-adf.py plan
+# Live regrouping is blocked; follow docs/compose-grouping.md before applying.
 python scripts/check-telemetry.py
 ```
 

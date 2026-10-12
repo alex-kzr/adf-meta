@@ -1,0 +1,427 @@
+{
+  "observed_at_utc": "2026-10-12T08:27:57.717407+00:00",
+  "read_only": true,
+  "containers_changed": false,
+  "target_containers": [
+    {
+      "name": "adf-postgres-1",
+      "container_id": "868d4f402db878f28d4882812f09f4569036b9e9720fed21d2b3f139e7c9a3aa",
+      "image_id": "sha256:6cb75ec20a1d7a81c2c92b9a0ab681ffa4d540a5ec404a977def81ffd0138eca",
+      "project": "adf",
+      "service": "postgres",
+      "state": "running",
+      "env_sha256": "f107b67116828c3f1182164b9a8acf465f1b1fe67cfd5c691f7506d175dff8b8",
+      "published_ports": {
+        "5432/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "55432"
+          }
+        ]
+      },
+      "volume_mounts": [
+        {
+          "name": "adf_postgres-data",
+          "destination": "/var/lib/postgresql",
+          "writable": true
+        }
+      ],
+      "networks": {
+        "adf_default": [
+          "adf-postgres-1",
+          "postgres"
+        ]
+      }
+    },
+    {
+      "name": "adf-redis-1",
+      "container_id": "b8bbc58f0cb4dfe0fc1066e757ece69c73562c3234cace19ffa86ff75d9612a9",
+      "image_id": "sha256:f218e591b571a4129aa29a8566b597d849fba21af7be853d31b03122b20db5e9",
+      "project": "adf",
+      "service": "redis",
+      "state": "running",
+      "env_sha256": "d45244b306cbaa3bf700045e0bf645cdf5a83544cb694f8c7742ded6486c736e",
+      "published_ports": {
+        "6379/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "6380"
+          }
+        ]
+      },
+      "volume_mounts": [
+        {
+          "name": "adf_redis-data",
+          "destination": "/data",
+          "writable": true
+        }
+      ],
+      "networks": {
+        "adf_default": [
+          "adf-redis-1",
+          "redis"
+        ]
+      }
+    },
+    {
+      "name": "adf-migrator-1",
+      "container_id": "a6c6beae4123d1d202726b632e0808cb999db9ef81b2300ffd4e1f66ca5a1ac2",
+      "image_id": "sha256:91ed16a0558457e58b7871834ee62b745cf3a01420271bae3ad0b9689f5022db",
+      "project": "adf",
+      "service": "migrator",
+      "state": "exited",
+      "env_sha256": "bc08bc13ca4f2ab0b7d7712d6bf7fcb8df85bfcb72b7f24d5c498dd81d607425",
+      "published_ports": {},
+      "volume_mounts": [],
+      "networks": {
+        "adf_default": [
+          "adf-migrator-1",
+          "migrator"
+        ]
+      },
+      "exit_code": 0
+    },
+    {
+      "name": "adf-api-1",
+      "container_id": "f300833fcea32711fff6c7f28c0ef6caa98b7ee25fb48ab58f0ff847fb95c139",
+      "image_id": "sha256:745964d62ee6a1f508108ebe8f5362c4d2a91f04d5fdb638da5959a30d00d461",
+      "project": "adf",
+      "service": "api",
+      "state": "running",
+      "env_sha256": "ab9aadd747b929e3aaf270d52bea3162ea36d1681bd532478c03a9f5d8f5cb39",
+      "published_ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8080"
+          }
+        ]
+      },
+      "volume_mounts": [
+        {
+          "name": "adf_api-artifacts",
+          "destination": "/app/artifacts",
+          "writable": true
+        }
+      ],
+      "networks": {
+        "adf_default": [
+          "adf-api-1",
+          "api"
+        ]
+      }
+    },
+    {
+      "name": "adf-orchestrator-1",
+      "container_id": "8c481a90510bf17d849f13ec31f7c0a2b05281f2699b2759681175964e4d6b56",
+      "image_id": "sha256:e661b27513d510ae5c956598eb49df2fbe76c1f22fbbe8f20154218328df2753",
+      "project": "adf",
+      "service": "orchestrator",
+      "state": "running",
+      "env_sha256": "4fc66ab202665f75728ca6496d844a4d438e43467bff87bc0ccc6e0980e65d2c",
+      "published_ports": {},
+      "volume_mounts": [],
+      "networks": {
+        "adf_default": [
+          "adf-orchestrator-1",
+          "orchestrator"
+        ]
+      }
+    },
+    {
+      "name": "adf-frontend-1",
+      "container_id": "d5aafb6be677ed6b52dcfaad2ad891aab0382f39ade81ead9001198c704b2002",
+      "image_id": "sha256:e67c674a4ce477326df5195a1d9b0a98127ffaba030615f74986e993c6760011",
+      "project": "adf",
+      "service": "frontend",
+      "state": "running",
+      "env_sha256": "2cef2933d35b8fb71023303985e5adfaeed69792fe34571cb7354231f9160ac4",
+      "published_ports": {
+        "80/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8088"
+          }
+        ]
+      },
+      "volume_mounts": [],
+      "networks": {
+        "adf_default": [
+          "adf-frontend-1",
+          "frontend"
+        ]
+      }
+    },
+    {
+      "name": "adf-otel-collector-1",
+      "container_id": "b63f407ff48d69ef67d37ce884c4bdada83f1653ebdae7605d3a23c099b999e2",
+      "image_id": "sha256:b90b3ed4cab89c4e196d0c58234b71a862165e77631871fc9b5b1b6f2aad3163",
+      "project": "adf",
+      "service": "otel-collector",
+      "state": "running",
+      "env_sha256": "1c24775fadba31bd348800df91e54a100f1b2e4936bd629e5a36e89c5c8f51f7",
+      "published_ports": {
+        "13133/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "13133"
+          }
+        ],
+        "4317/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "4317"
+          }
+        ],
+        "4318/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "4318"
+          }
+        ]
+      },
+      "volume_mounts": [],
+      "networks": {
+        "adf-telemetry": [
+          "adf-otel-collector-1",
+          "otel-collector"
+        ],
+        "adf_default": [
+          "adf-otel-collector-1",
+          "otel-collector"
+        ]
+      }
+    },
+    {
+      "name": "adf-langfuse-langfuse-web-1",
+      "container_id": "46edbd1e9a7603c07c5e0c61c8491b09592253fba4365640dc0c36c830220901",
+      "image_id": "sha256:ad0484b80f93ab85c025a8ee247a69f995e619a9ae48c8a18603481dcfe83e66",
+      "project": "adf-langfuse",
+      "service": "langfuse-web",
+      "state": "running",
+      "env_sha256": "0fc426c2a49fedf722edb789a39f02848b5da006902150c8759fc8f2c8ea82d9",
+      "published_ports": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3000"
+          }
+        ]
+      },
+      "volume_mounts": [],
+      "networks": {
+        "adf-langfuse_default": [
+          "adf-langfuse-langfuse-web-1",
+          "langfuse-web"
+        ],
+        "adf-telemetry": [
+          "adf-langfuse",
+          "adf-langfuse-langfuse-web-1",
+          "langfuse-web"
+        ]
+      }
+    },
+    {
+      "name": "adf-langfuse-langfuse-worker-1",
+      "container_id": "ab77cf2f6013c561fcad761fec512b0bd0bebd4fe294f2a97b4f7f025d631c0e",
+      "image_id": "sha256:5c3ab095e8eda38ac75f49af5c68718819549b0379d2d72c69a3481649726f59",
+      "project": "adf-langfuse",
+      "service": "langfuse-worker",
+      "state": "running",
+      "env_sha256": "00356c72e8b34eb3565e13a2bafd3203db043e36b7b528a7cf6e21bc8ed9d9db",
+      "published_ports": {},
+      "volume_mounts": [],
+      "networks": {
+        "adf-langfuse_default": [
+          "adf-langfuse-langfuse-worker-1",
+          "langfuse-worker"
+        ]
+      }
+    },
+    {
+      "name": "adf-langfuse-postgres-1",
+      "container_id": "da48858c60825905ae919035a92d03df2a77dcb5b2012f364e8bd267ef929293",
+      "image_id": "sha256:327daa8fae7178d61f93142f146b098467b345e10997b9eb79f63bd58e5c8f3c",
+      "project": "adf-langfuse",
+      "service": "postgres",
+      "state": "running",
+      "env_sha256": "54571bea34e525d1db9164ce012dd0662d0085934f5d320276cfd182bb741f75",
+      "published_ports": {},
+      "volume_mounts": [
+        {
+          "name": "adf-langfuse_langfuse_postgres_data",
+          "destination": "/var/lib/postgresql/data",
+          "writable": true
+        }
+      ],
+      "networks": {
+        "adf-langfuse_default": [
+          "adf-langfuse-postgres-1",
+          "postgres"
+        ]
+      }
+    },
+    {
+      "name": "adf-langfuse-redis-1",
+      "container_id": "2171d8ce223d98cec9844b7f81704e0ea0f37b91e5ba3c7186a9407b30f5a5c3",
+      "image_id": "sha256:d24fb73aa9caa76060b48f711af3831f1e95286c745da622c00419ed864cd291",
+      "project": "adf-langfuse",
+      "service": "redis",
+      "state": "running",
+      "env_sha256": "27bb64a4bb9160e4243d24822a2741e0b15de9d297afe21f7eafd283d6bd2e9e",
+      "published_ports": {},
+      "volume_mounts": [
+        {
+          "name": "adf-langfuse_langfuse_redis_data",
+          "destination": "/data",
+          "writable": true
+        }
+      ],
+      "networks": {
+        "adf-langfuse_default": [
+          "adf-langfuse-redis-1",
+          "redis"
+        ]
+      }
+    },
+    {
+      "name": "adf-langfuse-clickhouse-1",
+      "container_id": "4febcb1bfc15180a080efa6866adc6181ae1f60c20c61b5fe4a1f365a5ec80c2",
+      "image_id": "sha256:0e76d9807edfac0345554816cd7f54aa9b650892848809932557c46e46bc3450",
+      "project": "adf-langfuse",
+      "service": "clickhouse",
+      "state": "running",
+      "env_sha256": "31ed93c5d9ec96056d8c78d5e5aae688404137ae577cc5d7638900e37091c615",
+      "published_ports": {},
+      "volume_mounts": [
+        {
+          "name": "adf-langfuse_langfuse_clickhouse_data",
+          "destination": "/var/lib/clickhouse",
+          "writable": true
+        },
+        {
+          "name": "adf-langfuse_langfuse_clickhouse_logs",
+          "destination": "/var/log/clickhouse-server",
+          "writable": true
+        }
+      ],
+      "networks": {
+        "adf-langfuse_default": [
+          "adf-langfuse-clickhouse-1",
+          "clickhouse"
+        ]
+      }
+    },
+    {
+      "name": "adf-langfuse-minio-1",
+      "container_id": "3b3c0e4e02ebd901a78f284c555f0c9a3e84a8798ec0211b1ef7efac5663d19b",
+      "image_id": "sha256:a14bec041d2dbd137b526d07db7ed3c0f2a383e4c622197c7982f1f506a7a8b3",
+      "project": "adf-langfuse",
+      "service": "minio",
+      "state": "running",
+      "env_sha256": "23a3946455d242ad89436e86042a388eb408827d6f78d2e5300fa71f6caee184",
+      "published_ports": {
+        "9000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "39090"
+          }
+        ]
+      },
+      "volume_mounts": [
+        {
+          "name": "adf-langfuse_langfuse_minio_data",
+          "destination": "/data",
+          "writable": true
+        }
+      ],
+      "networks": {
+        "adf-langfuse_default": [
+          "adf-langfuse-minio-1",
+          "minio"
+        ]
+      }
+    }
+  ],
+  "existing_volume_consumers": {
+    "adf-langfuse_langfuse_clickhouse_data": [
+      "adf-langfuse-clickhouse-1"
+    ],
+    "adf-langfuse_langfuse_clickhouse_logs": [
+      "adf-langfuse-clickhouse-1"
+    ],
+    "adf-langfuse_langfuse_minio_data": [
+      "adf-langfuse-minio-1"
+    ],
+    "adf-langfuse_langfuse_postgres_data": [
+      "adf-langfuse-postgres-1"
+    ],
+    "adf-langfuse_langfuse_redis_data": [
+      "adf-langfuse-redis-1"
+    ]
+  },
+  "existing_network_members": {
+    "adf-langfuse_default": [
+      "adf-langfuse-clickhouse-1",
+      "adf-langfuse-langfuse-web-1",
+      "adf-langfuse-langfuse-worker-1",
+      "adf-langfuse-minio-1",
+      "adf-langfuse-postgres-1",
+      "adf-langfuse-redis-1"
+    ],
+    "adf-telemetry": [
+      "adf-langfuse-langfuse-web-1",
+      "adf-otel-collector-1"
+    ]
+  },
+  "legacy_qa_label_evidence": {
+    "example_container": "adf-recovery-02703e14-b-api",
+    "image_id": "sha256:b7e91591b729bb1437309510eb7e412e0ed2c6b03ef7457cb91ce444b8a7a538",
+    "image_baked_project": "adf",
+    "image_baked_service": "api"
+  },
+  "env_values_emitted": false,
+  "private_backup_taken": false,
+  "migration_applied": false,
+  "symbolic_config_validation": {
+    "compose_version": "5.5.1",
+    "project": "adf",
+    "service_count": 13,
+    "expected_service_set": [
+      "api",
+      "frontend",
+      "langfuse-clickhouse",
+      "langfuse-minio",
+      "langfuse-postgres",
+      "langfuse-redis",
+      "langfuse-web",
+      "langfuse-worker",
+      "migrator",
+      "orchestrator",
+      "otel-collector",
+      "postgres",
+      "redis"
+    ],
+    "upstream_langfuse_symbolic_settings_preserved": {
+      "langfuse-web": true,
+      "langfuse-worker": true,
+      "postgres": true,
+      "redis": true,
+      "minio": true,
+      "clickhouse": true
+    },
+    "private_env_files_loaded": false,
+    "containers_changed": false
+  },
+  "legacy_qa_project_member_count": 33,
+  "other_container_count_untouched": 25,
+  "exclusive_production_group_possible_without_qa_decision": false,
+  "canonical_entrypoint_plan_check": {
+    "project": "adf",
+    "targets": 13,
+    "legacy_extra_adf_members": 33,
+    "migration_required": true,
+    "apply_performed": false,
+    "containers_changed": false
+  }
+}

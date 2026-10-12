@@ -21,6 +21,9 @@ jobs:
       - run: python scripts/export-api-contract.py --check
       - run: python scripts/verify.py
       - run: python -m unittest discover -s tests -v
+      - run: python scripts/test_redis_compose_safety.py -v
+      - run: ruff check scripts/redis-aof-audit.py scripts/redis-aof-regression.py scripts/compose-adf.py scripts/test_redis_compose_safety.py --select E4,E7,E9,F,S --ignore S603,S607
+      - run: mypy scripts/redis-aof-audit.py scripts/redis-aof-regression.py scripts/compose-adf.py --platform linux --check-untyped-defs --follow-imports=skip
       - run: ruff check scripts/init-local-env.py tests/test_local_configuration.py --select E4,E7,E9,F,S
       - run: mypy scripts/init-local-env.py tests/test_local_configuration.py --strict --follow-imports=skip
       - run: bandit scripts/init-local-env.py -ll
@@ -56,3 +59,30 @@ jobs:
           MYPYPATH: services/runtime-worker/src
       - run: bandit scripts/rehearse-recovery.py scripts/recovery-http.py scripts/recovery-worker.py -ll
       - run: python -m unittest tests.test_recovery_rehearsal -v
+  redis-aof-synthetic:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        with:
+          python-version: '3.12.9'
+      - name: Extract verified public Redis binaries and namespace launcher
+        run: |
+          fixture="$(docker create --network none --entrypoint /bin/true redis@sha256:bb186d083732f669da90be8b0f975a37812b15e913465bb14d845db72a4e3e08)"
+          trap 'docker rm --volumes "$fixture" >/dev/null' EXIT
+          public="$RUNNER_TEMP/adf-redis-public"
+          mkdir "$public"
+          docker cp "$fixture:/usr/local/bin/redis-server" "$public/redis-server"
+          docker cp "$fixture:/lib/ld-musl-x86_64.so.1" "$public/ld-musl-x86_64.so.1"
+          docker cp "$fixture:/usr/lib/libssl.so.3" "$public/libssl.so.3"
+          docker cp "$fixture:/usr/lib/libcrypto.so.3" "$public/libcrypto.so.3"
+          npm install --prefix "$RUNNER_TEMP/adf-codex-fixture" --ignore-scripts --no-audit --no-fund @openai/codex@0.157.0
+          launcher="$RUNNER_TEMP/adf-codex-fixture/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-resources/bwrap"
+          if ! test -x "$launcher"; then
+            launcher="$RUNNER_TEMP/adf-codex-fixture/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-resources/bwrap"
+          fi
+          test -x "$launcher"
+          python -I -B -O scripts/redis-aof-regression.py --public-dir "$public" --bwrap "$launcher"

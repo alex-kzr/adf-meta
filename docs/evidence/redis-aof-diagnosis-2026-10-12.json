@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-12",
+  "production_observation": "read-only",
+  "production_startup_utc": "2026-10-12T06:59:32.917590823Z",
+  "aof_exec_noperm_errors": 153,
+  "default_acl_metadata": {
+    "disabled": true,
+    "command_or_key_grants": false,
+    "credential_rows_emitted": false
+  },
+  "persistence_file_metadata": {
+    "appendonly.aof.1.incr.aof": {
+      "inode": 62123,
+      "bytes": 50953,
+      "mtime_unix": 1791775084,
+      "ctime_unix": 1791775084
+    },
+    "appendonly.aof.1.base.rdb": {
+      "inode": 62121,
+      "bytes": 88,
+      "mtime_unix": 1791654114,
+      "ctime_unix": 1791654114
+    },
+    "appendonly.aof.manifest": {
+      "inode": 62124,
+      "bytes": 88,
+      "mtime_unix": 1791654114,
+      "ctime_unix": 1791654114
+    },
+    "dump.rdb": {
+      "inode": 671600,
+      "bytes": 5750,
+      "mtime_unix": 1791791974,
+      "ctime_unix": 1791791974
+    }
+  },
+  "raw_aof_or_credentials_copied": false,
+  "production_restart_repair_ack_claim_replay": false,
+  "installed_worker": "f5a713a3df44ffdad58aaa80fc3a36157e6c2736",
+  "provider_consumer_native": "stopped",
+  "api_run_id": "67727194-095a-4e9e-afde-6af74ca84247",
+  "api_execution_statuses": [
+    "uncertain",
+    "uncertain",
+    "uncertain"
+  ],
+  "observed_pending": 0,
+  "prior_pending": 3,
+  "live_group_cursor_directly_observed": false,
+  "original_native_rpc_cause": "unknown",
+  "metadata_owner_starts_used": 0,
+  "thread_start_calls": 0,
+  "turn_start_calls": 0,
+  "model_calls": 0,
+  "proposed_acl_applied": false,
+  "backup_taken": false,
+  "ready_for_real_execution": false,
+  "live_preservation_recheck": {
+    "installed_worker": "f5a713a3df44ffdad58aaa80fc3a36157e6c2736",
+    "installed_files": 29,
+    "provider_consumer_native_stopped": true,
+    "redis_pending": 0,
+    "main_unchanged_and_clean": true,
+    "trust_config_bytes_unchanged": true,
+    "profiles_owned_0700": true,
+    "forced_acks": 0,
+    "extra_model_replays": 0,
+    "old_jobs_all_stopped_locks_reacquired": true,
+    "old_jobs_result_persisted_without_ack_or_terminal": true
+  },
+  "sanitized_aof_framing_audit": {
+    "bytes_scanned": 50953,
+    "command_counts": {
+      "EXEC": 67,
+      "MULTI": 67,
+      "SELECT": 2,
+      "XACK": 67,
+      "XADD": 70,
+      "XCLAIM": 94,
+      "XGROUP": 61
+    },
+    "commands_inside_multi": {
+      "EXEC": 67,
+      "SELECT": 1,
+      "XCLAIM": 92,
+      "XGROUP": 60
+    },
+    "payloads_credentials_or_consumer_values_emitted": false,
+    "target_deliveries": {
+      "1791774765065-0": {
+        "ack": 0,
+        "claim_in_multi": 8,
+        "claim_outside_multi": 0,
+        "delete": 0,
+        "xadd": 1
+      },
+      "1791774765075-0": {
+        "ack": 0,
+        "claim_in_multi": 8,
+        "claim_outside_multi": 0,
+        "delete": 0,
+        "xadd": 1
+      },
+      "1791774765082-0": {
+        "ack": 0,
+        "claim_in_multi": 8,
+        "claim_outside_multi": 0,
+        "delete": 0,
+        "xadd": 1
+      }
+    },
+    "target_group_creates": 1,
+    "target_group_setids_inside_multi": 60,
+    "transactions": 67,
+    "unknown_commands_discarded": 0
+  },
+  "mechanism_proved": "Disabled permissionless default ACL denies SELECT/XCLAIM/XGROUP SETID inside AOF MULTI EXEC; retained target claims have no ACK/deletion",
+  "startup_error_count_matches_denied_transaction_commands": true,
+  "synthetic_regression": {
+    "passed": true,
+    "redis_version": "7.4.5",
+    "python_optimized_mode": true,
+    "cases": [
+      {
+        "case": "current-default-off",
+        "stream_length": 3,
+        "pending": 0,
+        "last_delivered_id": "0-0",
+        "entries_read": null,
+        "consumers": 0,
+        "default_empty_auth_rejected": true,
+        "aof_exec_noperm_errors": 3
+      },
+      {
+        "case": "candidate-narrow-disabled-default",
+        "stream_length": 3,
+        "pending": 3,
+        "last_delivered_id": "1700000000030-0",
+        "entries_read": 3,
+        "consumers": 1,
+        "default_empty_auth_rejected": true,
+        "aof_exec_noperm_errors": 0
+      }
+    ],
+    "synthetic_data_only": true,
+    "real_secrets_or_aof_copied": false,
+    "production_services_modified": false,
+    "host_network_or_ipc_used": false,
+    "candidate_acl": "user default off resetpass ~adf:executions +select +xclaim +xgroup|setid",
+    "public_image_digest": "redis@sha256:bb186d083732f669da90be8b0f975a37812b15e913465bb14d845db72a4e3e08",
+    "namespace_launcher_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c"
+  },
+  "source_fake_unit_checks_passed": 21,
+  "source_static_checks": [
+    "ruff selected correctness/security rules",
+    "mypy check-untyped-defs platform linux"
+  ],
+  "umbrella_local_unit_checks": {
+    "total": 94,
+    "passed": 90,
+    "platform_or_opt_in_skipped": 4,
+    "failed": 0
+  }
+}

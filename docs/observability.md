@@ -1,5 +1,7 @@
 # Observability and local Langfuse operations
 
+[Canonical one-project grouping](compose-grouping.md) supersedes historical separate-project startup; live migration remains blocked by Redis preservation, agreed backups and legacy QA membership. Prepare/plan are source-only.
+
 ADF uses one OpenTelemetry instrumentation owner per CLI invocation. API, orchestrator and host worker emit bounded metadata spans; the Collector forwards only eligible agent workflow traces to the separate official Langfuse stack. Metrics and logs are not sent to Langfuse's OTLP trace endpoint. Core execution does not depend on the exporter being available.
 
 ## Reproducible official stack
@@ -12,8 +14,9 @@ Run from the umbrella root using Python 3.12 or newer:
 python scripts/prepare-langfuse.py --validate --check-resources
 python scripts/prepare-langfuse.py --pull
 docker network create adf-telemetry
-docker compose --project-name adf-langfuse --env-file .bootstrap/langfuse/.env -f infra/vendor/langfuse/docker-compose.yml -f infra/compose.langfuse.yaml --profile observability up -d --wait --wait-timeout 240
-docker compose --project-name adf --env-file .env --env-file infra/images.lock.env -f infra/compose.yaml --profile observability up -d --no-deps otel-collector
+python scripts/compose-adf.py prepare
+python scripts/compose-adf.py plan
+# Live regrouping is blocked; follow docs/compose-grouping.md before applying.
 ```
 
 Create the network only if `docker network inspect adf-telemetry` reports it absent. The same commands work in WSL with its Python command. Preparation never starts containers or changes Docker settings. Check actual available resources and running containers before `up`. The official VM guide recommends at least four cores and 16 GiB of RAM; that is a recommendation for Langfuse, not a combined ADF capacity guarantee. On the inspected workstation Docker reports 16 CPUs and 15.18 GiB. This is below 16 GiB, so full-stack capacity must be measured during acceptance. The local six-container memory caps total 8.75 GiB (web 2, worker 2, ClickHouse 3, PostgreSQL 1, MinIO 0.5, Redis 0.25); caps prevent accidental memory expansion but do not prove throughput or startup success. Do not change Docker's memory settings automatically.
