@@ -1,6 +1,6 @@
 # Development documentation
 
-[Latest source-only RPC diagnostics and persistent-owner checkpoint](shared-rpc-source-checkpoint.md), with [sanitized evidence](evidence/shared-rpc-source-2026-10-12.json): safe error categories and six actual metadata threads pass, with confirmed closure and separate skills/MCP/model/policy witnesses. Installed runtime and pending deliveries are unchanged; no native model turn or authenticated-route acceptance.
+[Latest source-only RPC diagnostics and persistent-owner checkpoint](shared-rpc-source-checkpoint.md), with [sanitized evidence](evidence/shared-rpc-source-2026-10-12.json): safe error categories and two owners with six metadata threads each pass through native and pinned Node/npm startup, with confirmed closure and separate skills/MCP/model/policy witnesses. Installed runtime and pending deliveries are unchanged; no native model turn or authenticated-route acceptance. [Proposed next local-profile metadata scope](shared-auth-metadata-scope.md) retains a stopped consumer, readonly auth and unshared networking.
 
 [Current installed runtime and bounded API/Redis checkpoint](shared-patch-runtime-checkpoint.md), with [sanitized evidence](evidence/shared-patch-deployment-2026-10-12.json): worker `f5a713a` and orchestrator `9932a87` installed; rollback and no-model gates verified. Actual native startup remains uncertain, provider/consumer are stopped, and three deliveries remain unACKed. Readiness is false; live generation, settings/skills/MCP, cancellation, recovery and the full workflow remain unverified.
 

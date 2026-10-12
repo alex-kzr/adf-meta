@@ -1,29 +1,33 @@
 {
   "date": "2026-10-12",
-  "scope": "source-only RPC diagnostics and no-model persistent-owner verification",
-  "worker_source_commit": "3ce3c2ab5cd1d6af4e51a2ca076515f18df26431",
-  "worker_ci": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38205561482",
+  "scope": "source-only RPC diagnostics and exact public Node/npm persistent-owner metadata verification",
+  "worker_source_commit": "0dd5ac7b8be6f792921f29bc376e520f3c0754c6",
+  "worker_ci": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38208061137",
   "checks": {
-    "linux_tests_passed": 385,
+    "linux_tests_passed": 386,
     "linux_tests_skipped": 0,
-    "elapsed_sec": 116.64,
+    "elapsed_sec": 156.05,
     "ruff": "PASS",
     "mypy": "PASS: 29 source files",
     "bandit_medium_high": 0,
     "bandit_low": 17,
-    "tested_python_sources_match_commit": true,
-    "independent_readonly_review": "PASS; previous three findings resolved",
-    "local_full_suite_commit": "34b8bb54cce288510b407f4d74892921b0d74251",
-    "final_path_regression": {
-      "source_commit": "3ce3c2ab5cd1d6af4e51a2ca076515f18df26431",
-      "passed": 1,
-      "deselected": 136,
-      "elapsed_sec": 0.54,
-      "long_ci_style_basepath": true,
-      "production_code_changed": false,
-      "independent_review": "PASS"
+    "production_sources_match_full_qa": true,
+    "test_sources_match_postreview_focused_qa": true,
+    "independent_readonly_review": "PASS after unique module identity retains both mode resource roots",
+    "final_focused_regressions": {
+      "passed": 29,
+      "skipped": 0,
+      "deselected": 109,
+      "elapsed_sec": 6.98
     },
-    "source_match_boundary": "final production sources equal full-suite snapshot; final test setup differs only by fixture basename and matches passing long-path regression snapshot"
+    "final_ci_status": "success",
+    "source_match_boundary": "production files equal full snapshot; test files equal passing post-review focused snapshot; only unique module identity changed after full suite",
+    "final_ci_full_suite": {
+      "source_commit": "0dd5ac7b8be6f792921f29bc376e520f3c0754c6",
+      "passed": 386,
+      "skipped": 0,
+      "elapsed_sec": 143.57
+    }
   },
   "rpc_contract": {
     "outcomes": [
@@ -60,16 +64,11 @@
     "codex_sha256": "1a822376d4634ac32dddc030e5117c63359f7f8cd4b1b64382c68190287d0258",
     "bwrap_sha256": "77360cb751ccedc5971391444ac86a8a33c15b04d6b4a6fe45f5d25496e62c4c",
     "profile": "empty synthetic private profile",
-    "single_persistent_appserver": true,
     "production_flags_configuration_factory_and_cwd": true,
-    "sequential_threads": 3,
-    "parallel_threads": 3,
-    "unique_native_thread_ids": 6,
     "default_and_native_catalog_models_verified": true,
     "selected_only_skill_catalogs_verified": true,
     "distinct_scoped_mcp_catalogs_verified": true,
     "native_active_permissions_and_literal_roots_verified": true,
-    "thread_closed_receipts": 6,
     "owner_stopped_before_skill_lock_cleanup": true,
     "unproved_shutdown_retains_resources": true,
     "actual_methods": [
@@ -85,17 +84,29 @@
     "real_auth_or_secret_contents_used": false,
     "model_skill_mcp_invocation_verified": false,
     "unverified_parity": [
-      "installed npm/Node wrapper",
-      "operator pinned Node PATH/interpreter",
+      "synthetic root prefixes and QA Python MCP fixture/runtime",
+      "full bundled vendor/path tool resources/model tool invocation",
       "authenticated account/refresh/catalog/cloud policy",
       "authenticated owner network/subscription route"
-    ]
+    ],
+    "modes": [
+      "direct verified Rust binary",
+      "pinned official npm launcher via Node 24.21.0"
+    ],
+    "separate_persistent_owners": 2,
+    "sequential_threads_per_owner": 3,
+    "parallel_threads_per_owner": 3,
+    "thread_closed_receipts_total": 12,
+    "single_persistent_appserver_per_mode": true,
+    "unique_native_thread_ids_per_owner": 6,
+    "thread_closed_receipts_per_owner": 6
   },
   "diagnosis": {
     "proven_source_defect": "explicit RPC error, malformed result and synthetic transport error lost their distinction before final uncertainty mapping",
     "cli_baseline_always_overrides_thread_config": false,
     "original_installed_upstream_cause_known": false,
-    "original_discarded_response_recoverable": false
+    "original_discarded_response_recoverable": false,
+    "node_launcher_or_path_failure_reproduced": false
   },
   "preserved_runtime": {
     "installed_worker": "f5a713a3df44ffdad58aaa80fc3a36157e6c2736",
@@ -116,7 +127,14 @@
     "forced_acks": 0,
     "replayed_jobs": 0,
     "new_native_model_turns": 0,
-    "new_source_installed": false
+    "new_source_installed": false,
+    "read_only_final_preservation_rechecked": true,
+    "recheck_methods": [
+      "installed package/configuration hashes",
+      "stopped PID/start-ticks/session identities and allocation locks",
+      "Redis XPENDING only",
+      "API GET only"
+    ]
   },
   "ready_for_real_execution": false,
   "ci_history": [
@@ -127,5 +145,67 @@
       "passed": 384,
       "failure": "generation-reset fake test path exceeded Linux AF_UNIX pathname bound"
     }
-  ]
+  ],
+  "source_history": [
+    {
+      "worker_source_commit": "3ce3c2ab5cd1d6af4e51a2ca076515f18df26431",
+      "worker_ci": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38205561482",
+      "checks": {
+        "linux_tests_passed": 385,
+        "linux_tests_skipped": 0,
+        "elapsed_sec": 116.64,
+        "ruff": "PASS",
+        "mypy": "PASS: 29 source files",
+        "bandit_medium_high": 0,
+        "bandit_low": 17,
+        "tested_python_sources_match_commit": true,
+        "independent_readonly_review": "PASS; previous three findings resolved",
+        "local_full_suite_commit": "34b8bb54cce288510b407f4d74892921b0d74251",
+        "final_path_regression": {
+          "source_commit": "3ce3c2ab5cd1d6af4e51a2ca076515f18df26431",
+          "passed": 1,
+          "deselected": 136,
+          "elapsed_sec": 0.54,
+          "long_ci_style_basepath": true,
+          "production_code_changed": false,
+          "independent_review": "PASS"
+        },
+        "source_match_boundary": "final production sources equal full-suite snapshot; final test setup differs only by fixture basename and matches passing long-path regression snapshot"
+      }
+    }
+  ],
+  "node_launcher_startup": {
+    "result": "PASS",
+    "node_version": "24.21.0",
+    "node_official_archive": "https://nodejs.org/dist/v24.21.0/node-v24.21.0-linux-x64.tar.xz",
+    "node_archive_sha256": "fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6",
+    "node_binary_sha256": "7fde7b8afa198da66257f42ee2001d874c7355631e6d1579a5fb5ef1f246df4c",
+    "codex_launcher_sha256": "61b0194f3bb6534439c8d26a3ed57d0805f84b884588b761795323eeb92fcf70",
+    "codex_package_json_sha256": "3d6d5d41091c12d2e32c7d9866c9f1fcdd8a0904eafcf3c4e15f445fb497f853",
+    "codex_linux_package_json_sha256": "fc7f7d7ee9011189bd48e934f6af2527def360405021eebf30fbd89e1964834a",
+    "synthetic_symlink_and_package_layout": true,
+    "production_factory_argv_equal_native": true,
+    "exact_factory_environment_names": [
+      "CODEX_HOME",
+      "GIT_CONFIG_GLOBAL",
+      "GIT_CONFIG_NOSYSTEM",
+      "GIT_TERMINAL_PROMPT",
+      "HOME",
+      "LANG",
+      "LOGNAME",
+      "PATH",
+      "USER"
+    ],
+    "production_path_order": "pinned Node bin; worker-venv bin; /usr/bin; /bin",
+    "synthetic_denied_environment_canaries_rejected": true,
+    "post_wrapper_path_evidence": "checksum-pinned public source forwards process.env PATH unchanged; native process environ not read",
+    "public_source_metadata_preserved": true,
+    "full_vendor_tools_reproduced": false,
+    "real_credentials_or_secret_environment_read": false,
+    "model_turns": 0,
+    "native_profile_auth_methods": 0,
+    "production_worker_code_changed": false
+  },
+  "next_scope_document": "../shared-auth-metadata-scope.md",
+  "next_scope_executed": false
 }
