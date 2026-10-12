@@ -2,14 +2,17 @@
   "date": "2026-10-12",
   "authorization_utc": "2026-10-12 06:44 UTC",
   "scope_document": "../shared-auth-metadata-scope.md",
-  "result": "BLOCKED_BEFORE_INSTALLATION_OR_NATIVE_START",
+  "result": "BLOCKED_BY_QUEUE_PRESERVATION_MISMATCH_BEFORE_INSTALLATION_OR_NATIVE_START",
   "preflight_failure": {
-    "category": "prerequisite_unavailable",
+    "category": "queue_preservation_mismatch",
     "rpc_category": null,
     "provider_error_code": null,
-    "docker_desktop_linux_engine": "named pipe unavailable",
-    "api_loopback_8080": "connection_refused",
-    "redis_wsl_loopback_6380": "connection_refused"
+    "expected_redis_pending": 3,
+    "observed_redis_pending": 0,
+    "api_run_status": "running",
+    "api_uncertain_executions": 3,
+    "redis_startup_observation": "Repeated NOPERM in AOF-loading-client while processing EXEC; later ready",
+    "specific_pending_delta_cause_proved": false
   },
   "approved_new_worker": "0dd5ac7b8be6f792921f29bc376e520f3c0754c6",
   "installed_worker": "f5a713a3df44ffdad58aaa80fc3a36157e6c2736",
@@ -24,8 +27,8 @@
   "model_calls": 0,
   "actual_profile_auth_read_or_copied_by_test": false,
   "manifest_or_auth_writes": 0,
-  "service_start_stop_or_rebuild_operations": 0,
-  "runtime_mutations": 0,
+  "service_start_stop_or_rebuild_operations": 1,
+  "runtime_mutations": 1,
   "queue_ack_replay_or_terminal_operations": 0,
   "local_preservation": {
     "provider_consumer_native_stopped": true,
@@ -51,7 +54,51 @@
     ],
     "redis_pending": 3
   },
-  "current_api_and_redis_state_reverified": false,
+  "current_api_and_redis_state_reverified": true,
   "ready_for_real_execution": false,
-  "remaining_blocker": "Required existing API/Redis services are unreachable; restoring Docker Desktop/other services is outside this diagnostic authorization. Leave stopped until operator restores the existing stack; then rerun preflight before harness/rollback/installation."
+  "remaining_blocker": "Redis pending count changed from the required baseline3 to observed0 after authorized existing-service restoration. Do not alter ACL/AOF/streams, recreate pending entries, ACK/replay or proceed to package/native test without a separately reviewed resolution scope.",
+  "preflight_history": [
+    {
+      "stage": "before separately authorized Docker restoration",
+      "documentation_commit": "29caa6ea0e3b44bfebfefc35b9e74bf8ec1b5b17",
+      "documentation_ci": "https://github.com/alex-kzr/adf-meta/actions/runs/38214820098",
+      "category": "prerequisite_unavailable",
+      "api_and_redis_reverified": false
+    }
+  ],
+  "docker_restore_authorization_utc": "2026-10-12 06:56 UTC",
+  "runtime_mutation_boundary": "one separately authorized start of existing Docker Desktop; existing containers auto-started; no package/native/queue mutations issued",
+  "queue_operations_boundary": "XPENDING only succeeded; additional bounded read commands denied by existing worker ACL; no fallback identity or ACL change",
+  "current_verified_service_state": {
+    "api_run_status": "running",
+    "execution_statuses": [
+      "uncertain",
+      "uncertain",
+      "uncertain"
+    ],
+    "redis_pending": 0,
+    "matches_required_preservation_baseline": false
+  },
+  "docker_restoration": {
+    "executable_version": "4.94.0.241994",
+    "started_utc": "2026-10-12T06:59:21.4786149Z",
+    "existing_desktop_started_once": true,
+    "images_rebuilt": 0,
+    "containers_recreated": 0,
+    "new_permissions_or_terms_accepted": false,
+    "settings_changed_by_operator_commands": false,
+    "adf_api_postgres_redis_orchestrator_frontend": "running healthy",
+    "adf_otel_collector": "running",
+    "six_existing_langfuse_containers": "running healthy by existing restart policy",
+    "redis_container_id": "b8bbc58f0cb4dfe0fc1066e757ece69c73562c3234cace19ffa86ff75d9612a9",
+    "redis_image": "sha256:f218e591b571a4129aa29a8566b597d849fba21af7be853d31b03122b20db5e9",
+    "redis_existing_volume": "adf_redis-data",
+    "orchestrator_image_unchanged": "sha256:e661b27513d510ae5c956598eb49df2fbe76c1f22fbbe8f20154218328df2753"
+  },
+  "metadata_budget": {
+    "approved_wall_limit_sec": 120,
+    "native_owner_starts_used": 0,
+    "metadata_threads_used": 0,
+    "native_window_started": false
+  }
 }

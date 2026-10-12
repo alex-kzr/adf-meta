@@ -2,6 +2,8 @@
 
 October 12, 2026. **Source repair and no-model verification passed. The original live failure cause remains unknown; readiness is false.** Installed worker `f5a713a` and orchestrator `9932a87`, operator manifests/authentication and the three uncertain deliveries are unchanged. No new source was installed, consumer resumed, delivery ACKed/replayed or native model turn started. [Sanitized evidence](evidence/shared-rpc-source-2026-10-12.json), [worker diagnostic contract](../services/runtime-worker/docs/shared-rpc-diagnostics.md) and the [installed runtime checkpoint](shared-patch-runtime-checkpoint.md) separate these results.
 
+This source-publication checkpoint precedes the later separately authorized Docker restart. The [current diagnostic checkpoint](shared-auth-metadata-runtime-checkpoint.md) records restored services and a new Redis PEL=0 preservation mismatch; its current service-state observation supersedes the PEL=3 snapshot below.
+
 ## Exact source release
 
 Worker source `0dd5ac7b8be6f792921f29bc376e520f3c0754c6` preserves safe RPC outcome metadata and verifies actual persistent owners through both the native binary and the pinned official Node/npm launcher. Its [successful exact-commit CI](https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38208061137) is recorded in the sanitized evidence and runs static checks, the complete Linux suite and checksum-pinned public Node/native fixtures. API `a0e0205e85bd5e8f9c0d69d9316b7303f6add8ca`, orchestrator `9932a87e676b651c7ff2eb89246b900c6d0f843e` and frontend `92bfa64f38202872dbf2999d9343884a12036959` source pins remain unchanged. The umbrella records the worker gitlink after the child commit. SPEC, dependency locks and repository origins are unchanged.

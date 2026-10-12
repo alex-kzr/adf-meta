@@ -1,6 +1,6 @@
 # Development documentation
 
-[Approved local-profile metadata diagnostic](shared-auth-metadata-runtime-checkpoint.md): preflight is blocked by unavailable existing Docker/API/Redis services. Installed f5 worker and stopped old jobs are preserved; no installation, native test or queue operation occurred.
+[Approved local-profile metadata diagnostic](shared-auth-metadata-runtime-checkpoint.md): existing Docker/ADF services were separately restored without rebuild; preflight now stops on Redis PEL=0 versus required3 while API retains three uncertain executions. Installed f5 worker and stopped old jobs are preserved; no installation, native test or ACK/replay occurred.
 
 [Latest source-only RPC diagnostics and persistent-owner checkpoint](shared-rpc-source-checkpoint.md), with [sanitized evidence](evidence/shared-rpc-source-2026-10-12.json): safe error categories and two owners with six metadata threads each pass through native and pinned Node/npm startup, with confirmed closure and separate skills/MCP/model/policy witnesses. Installed runtime and pending deliveries are unchanged; no native model turn or authenticated-route acceptance. [Proposed next local-profile metadata scope](shared-auth-metadata-scope.md) retains a stopped consumer, readonly auth and unshared networking.
 

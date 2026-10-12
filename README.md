@@ -6,6 +6,8 @@ This repository is [adf-meta](https://github.com/alex-kzr/adf-meta), the ADF umb
 
 Latest source delivery: [safe RPC outcomes and persistent-owner metadata verification](docs/shared-rpc-source-checkpoint.md) passed 386 offline/native-metadata tests and independent review, including the exact public Node/npm launcher startup chain. The installed runtime and three uncertain deliveries remain unchanged; the original upstream cause is still unknown.
 
+Latest diagnostic attempt: [existing services restored, queue preservation mismatch](docs/shared-auth-metadata-runtime-checkpoint.md). API retains three uncertain executions, but Redis PEL is now0 after restart. Consumer remains stopped; worker f5 is retained and the approved metadata test is unused.
+
 Start with [documentation](docs/README.md), [product/acceptance](docs/product.md), [architecture](docs/architecture.md), [local development](docs/local-development.md) and [backlog](docs/backlog.md). The original [SPEC.md](SPEC.md) remains unchanged; [decisions](docs/decisions.md) distinguish requirements from adopted assumptions.
 
 | Submodule | GitHub repository | Responsibility |
