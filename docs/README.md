@@ -1,5 +1,7 @@
 # Development documentation
 
+- [Provider fixtures and protected maintenance](provider-fixtures-and-maintenance.md): source-only startup checks, durable backups and precise container cleanup.
+
 [Public initialize diagnosis](public-initialize-diagnosis.md) proves the full-RO-profile helper is incompatible with pinned SQLite/installation-ID writes; an empty writable control initializes and closes correctly. Three focused source regressions pass; installed0dd, real auth, queue and services remain unchanged. This does not attribute discarded production errors or grant another native window.
 
 Latest October 12 runtime result: [completed existing-profile metadata window](shared-auth-metadata-completed-checkpoint.md) installed worker `0dd5ac7` with verified f5 rollback. `initialize` ended with `transport_closed` in 88 ms; zero threads/turns, used one-owner allowance, all owned processes stopped. Old three uncertain/unACKed deliveries and all 70 Redis entries remain unchanged; provider/consumer stay stopped and readiness is false. Earlier installed-state statements below are dated history.
