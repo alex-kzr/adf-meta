@@ -1,8 +1,8 @@
 {
   "date": "2026-10-12",
   "scope": "source-only RPC diagnostics and no-model persistent-owner verification",
-  "worker_source_commit": "34b8bb54cce288510b407f4d74892921b0d74251",
-  "worker_ci": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38204740387",
+  "worker_source_commit": "3ce3c2ab5cd1d6af4e51a2ca076515f18df26431",
+  "worker_ci": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38205561482",
   "checks": {
     "linux_tests_passed": 385,
     "linux_tests_skipped": 0,
@@ -12,7 +12,18 @@
     "bandit_medium_high": 0,
     "bandit_low": 17,
     "tested_python_sources_match_commit": true,
-    "independent_readonly_review": "PASS; previous three findings resolved"
+    "independent_readonly_review": "PASS; previous three findings resolved",
+    "local_full_suite_commit": "34b8bb54cce288510b407f4d74892921b0d74251",
+    "final_path_regression": {
+      "source_commit": "3ce3c2ab5cd1d6af4e51a2ca076515f18df26431",
+      "passed": 1,
+      "deselected": 136,
+      "elapsed_sec": 0.54,
+      "long_ci_style_basepath": true,
+      "production_code_changed": false,
+      "independent_review": "PASS"
+    },
+    "source_match_boundary": "final production sources equal full-suite snapshot; final test setup differs only by fixture basename and matches passing long-path regression snapshot"
   },
   "rpc_contract": {
     "outcomes": [
@@ -107,5 +118,14 @@
     "new_native_model_turns": 0,
     "new_source_installed": false
   },
-  "ready_for_real_execution": false
+  "ready_for_real_execution": false,
+  "ci_history": [
+    {
+      "source_commit": "34b8bb54cce288510b407f4d74892921b0d74251",
+      "run": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38204740387",
+      "result": "failure",
+      "passed": 384,
+      "failure": "generation-reset fake test path exceeded Linux AF_UNIX pathname bound"
+    }
+  ]
 }
