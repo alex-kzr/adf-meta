@@ -1,5 +1,7 @@
 # Approved local-profile metadata diagnostic: queue preservation mismatch
 
+Latest October 12 runtime result: [completed existing-profile metadata window](shared-auth-metadata-completed-checkpoint.md) installed worker `0dd5ac7` with verified f5 rollback. `initialize` ended with `transport_closed` in 88 ms; zero threads/turns, used one-owner allowance, all owned processes stopped. Old three uncertain/unACKed deliveries and all 70 Redis entries remain unchanged; provider/consumer stay stopped and readiness is false. Earlier installed-state statements below are dated history.
+
 Subsequent runtime update: the separately approved [Redis repair](redis-repair-runtime-checkpoint.md) completed with exact PEL=3 and unchanged AOF/data. The historical PEL=0 observations below remain dated evidence. The metadata/package diagnostic and Langfuse migration were not executed by that repair; host consumer/provider remain stopped.
 
 October 12, 2026. **Metadata scope authorized at 06:44 UTC; existing-service restoration separately authorized at 06:56 UTC. Installation and native test remain unstarted.** The [approved diagnostic scope](shared-auth-metadata-scope.md) required preserving three uncertain deliveries with Redis PEL=3. After the authorized Docker Desktop restart, existing services are available but PEL is **0**, so preflight stops. [Sanitized evidence](evidence/shared-auth-metadata-runtime-2026-10-12.json) retains the initial unavailable-service checkpoint and this later observation.

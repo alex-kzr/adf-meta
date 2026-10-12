@@ -1,5 +1,7 @@
 # Decisions, assumptions and release gates
 
+Latest October 12 runtime result: [completed existing-profile metadata window](shared-auth-metadata-completed-checkpoint.md) installed worker `0dd5ac7` with verified f5 rollback. `initialize` ended with `transport_closed` in 88 ms; zero threads/turns, used one-owner allowance, all owned processes stopped. Old three uncertain/unACKed deliveries and all 70 Redis entries remain unchanged; provider/consumer stay stopped and readiness is false. Earlier installed-state statements below are dated history.
+
 ## Source precedence
 
 The only initial product file was `SPEC.md` v0.2, SHA-256 `3494049865774af023fa49427feb3f71b8865dc82adcac3d7e5bc6a81cdde5a2`. It labels itself October 11, 2026; foundation work is October 10. This discrepancy is retained. No checkout `.agents/skills`, AGENTS.md, Git history or code was present. `.idea/` remains user-owned ignored IDE state. Relevant Git, Python, React, Vite and architecture diagram skills were read. No memories were found at the inspected default Codex memories location; none were edited.

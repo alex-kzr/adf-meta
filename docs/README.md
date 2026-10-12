@@ -1,5 +1,7 @@
 # Development documentation
 
+Latest October 12 runtime result: [completed existing-profile metadata window](shared-auth-metadata-completed-checkpoint.md) installed worker `0dd5ac7` with verified f5 rollback. `initialize` ended with `transport_closed` in 88 ms; zero threads/turns, used one-owner allowance, all owned processes stopped. Old three uncertain/unACKed deliveries and all 70 Redis entries remain unchanged; provider/consumer stay stopped and readiness is false. Earlier installed-state statements below are dated history.
+
 [Completed authorized Redis repair](redis-repair-runtime-checkpoint.md), with [sanitized evidence](evidence/redis-repair-runtime-2026-10-12.json): exact PEL=3 restored, AOF and all 70 entries unchanged, default AUTH rejected, same Redis/orchestrator resumed and 69 other containers preserved. API stays three uncertain; host worker remains stopped; readiness remains false.
 
 [Historical Redis AOF/ACL preservation diagnosis](redis-aof-preservation-diagnosis.md) proves the transaction replay mechanism with retained AOF command metadata and an exact-binary synthetic regression. [One ADF Compose project](compose-grouping.md) prepares persistent source grouping for 13 production containers; agreed Langfuse backup and legacy QA membership gates remain. The [historical metadata checkpoint](shared-auth-metadata-runtime-checkpoint.md) stopped at PEL=0; the subsequent Redis repair restored PEL=3. The package/native diagnostic remains unstarted, with f5 and stopped old jobs preserved.

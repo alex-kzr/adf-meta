@@ -1,5 +1,7 @@
 # Dedicated Ubuntu runtime preparation
 
+Latest October 12 runtime result: [completed existing-profile metadata window](shared-auth-metadata-completed-checkpoint.md) installed worker `0dd5ac7` with verified f5 rollback. `initialize` ended with `transport_closed` in 88 ms; zero threads/turns, used one-owner allowance, all owned processes stopped. Old three uncertain/unACKed deliveries and all 70 Redis entries remain unchanged; provider/consumer stay stopped and readiness is false. Earlier installed-state statements below are dated history.
+
 Prepared on October 11, 2026 after the user's direct, exact deployment authorization. The user subsequently completed personal login and authorized the narrow worker repair. The fixed worker is installed, but the actual queue attempt remains blocked before native threads by the ancestor `/home/adf-worker/.codex` directory. Dedicated provider/consumer are safely stopped. See [current fixed-worker checkpoint and operator proposal](fixed-worker-checkpoint.md), [historical first blocker](shared-queue-blocker.md), [original preparation evidence](evidence/dedicated-runtime-2026-10-11.json) and [remaining acceptance](acceptance-status.md).
 
 ## Installed paths and versions
