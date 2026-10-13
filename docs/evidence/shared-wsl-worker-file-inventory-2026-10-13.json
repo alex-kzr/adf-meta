@@ -1,0 +1,205 @@
+{
+  "files": [
+    {
+      "site_packages_path": "adf_runtime_worker/__init__.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/adapters.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/capabilities.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/check_bootstrap.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/check_payload.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/check_sandbox.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/cli.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/client.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/executor.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/git_workspace.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/journal.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/models.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/native_read_policy.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/native_skills.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/patches.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/pidfd.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/process.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/profile_policy.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/profiles.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/scoped_mcp.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/security.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/service.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/shared_adapter.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/shared_job.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/shared_patch_adapter.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/shared_rpc.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/shared_server.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/supervisor.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker/telemetry.py",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker-0.1.0.dist-info/INSTALLER",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker-0.1.0.dist-info/METADATA",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker-0.1.0.dist-info/RECORD",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker-0.1.0.dist-info/REQUESTED",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker-0.1.0.dist-info/WHEEL",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker-0.1.0.dist-info/direct_url.json",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker-0.1.0.dist-info/entry_points.txt",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker-0.1.0.dist-info/top_level.txt",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "site_packages_path": "adf_runtime_worker-0.1.0.dist-info/uv_cache.json",
+      "rehearsal_mode": "0o600",
+      "existing_mode": "0o600"
+    },
+    {
+      "venv_path": "bin/adf-worker",
+      "rehearsal_mode": "0o711",
+      "existing_mode": "0o711"
+    }
+  ],
+  "scope": "proposed_worker_distribution_replacement_only",
+  "venv_prefix": "/home/adf-worker/ai-factory/tools/worker-venv",
+  "site_packages_prefix": "lib/python3.12/site-packages",
+  "owner": "adf-worker",
+  "live_applied": false,
+  "candidate_commit": "a3428799713e94e65153b87c8df0771fd9077f2a"
+}

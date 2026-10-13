@@ -2,11 +2,18 @@
 
 This repository is [adf-meta](https://github.com/alex-kzr/adf-meta), the ADF umbrella. ADF is a local, single-user development factory for planning tasks, running coding agents in parallel Git worktrees, testing, reviewing and integrating their commits into a separate branch. Windows 11 + Ubuntu WSL2 + Docker Desktop is the target runtime. React/TypeScript provides the UI, FastAPI the control API, LangGraph the orchestration, and a host Python worker runs Codex and Claude Code CLI adapters.
 
-**Status: MVP acceptance remains incomplete; readiness is false.** The latest authorized dedicated runtime installed worker `0dd5ac7` with verified f5 rollback; API `a0e0205` and orchestrator `9932a87` remain unchanged. The [completed existing-profile metadata window](docs/shared-auth-metadata-completed-checkpoint.md) ended at `initialize` with `transport_closed` in 88 ms: zero threads/turns, all owner/child processes stopped, no retry and zero remaining attempts. Provider/consumer are stopped. Three old uncertain executions remain unACKed; exact PEL=3 and all 70 Redis entries are preserved. See [sanitized evidence](docs/evidence/shared-auth-metadata-completed-2026-10-12.json).
+**Status: MVP acceptance remains incomplete; readiness is false.** Latest source delivery:
+[WSL native mask repair and proposed reversible installation](docs/shared-wsl-mask-source-checkpoint.md).
+390 Linux tests and independent review confirm its tested host-data read boundary,
+including late-created `/run` paths and WSL/Nix aliases. Activating this security-policy
+change requires separate action-time approval; it has not changed installed worker `0dd5ac7`,
+API `a0e0205`, orchestrator `9932a87` or the stopped dedicated provider/consumer.
 
-Latest source delivery: [safe RPC outcomes and persistent-owner metadata verification](docs/shared-rpc-source-checkpoint.md) passed 386 tests and independent review. This source evidence does not establish existing-profile metadata/cloud acceptance; the new bounded transport failure and discarded historical native failures have unknown causes. [Implementation status](docs/implementation-status.md), [acceptance status](docs/acceptance-status.md) and [release history](docs/release-checkpoint.md) retain the limits.
-
-The prior [authorized Redis preservation repair](docs/redis-repair-runtime-checkpoint.md) restored the exact three pending IDs from unchanged AOF and rejects default AUTH. This continuation made no Redis or service lifecycle change. [One-project Compose grouping](docs/compose-grouping.md) remains unapplied and requires agreed Langfuse backups plus a decision on old QA labels.
+Operational status belongs in protected local reports. Earlier [metadata](docs/shared-auth-metadata-completed-checkpoint.md),
+[Redis preservation](docs/redis-repair-runtime-checkpoint.md) and [runtime deployment](docs/shared-patch-runtime-checkpoint.md)
+records are dated history. Source fixtures do not establish current queue/service state or authenticated
+MVP acceptance. [Implementation status](docs/implementation-status.md), [acceptance status](docs/acceptance-status.md)
+and [release history](docs/release-checkpoint.md) retain the remaining gates.
 
 Start with [documentation](docs/README.md), [product/acceptance](docs/product.md), [architecture](docs/architecture.md), [local development](docs/local-development.md) and [backlog](docs/backlog.md). The original [SPEC.md](SPEC.md) remains unchanged; [decisions](docs/decisions.md) distinguish requirements from adopted assumptions.
 

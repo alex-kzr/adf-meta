@@ -1,5 +1,7 @@
 # Development documentation
 
+Latest source-only delivery: [WSL native mask repair](shared-wsl-mask-source-checkpoint.md), with [sanitized evidence](evidence/shared-wsl-mask-source-2026-10-13.json): 390 Linux tests and independent host-data boundary review pass, including late-created WSL/Nix paths. Live policy installation requires separate action-time approval; installed0dd and false readiness remain unchanged.
+
 - [Provider fixtures and protected maintenance](provider-fixtures-and-maintenance.md): source-only startup checks, durable backups and precise container cleanup.
 
 [Public initialize diagnosis](public-initialize-diagnosis.md) proves the full-RO-profile helper is incompatible with pinned SQLite/installation-ID writes; an empty writable control initializes and closes correctly. Three focused source regressions pass; installed0dd, real auth, queue and services remain unchanged. This does not attribute discarded production errors or grant another native window.

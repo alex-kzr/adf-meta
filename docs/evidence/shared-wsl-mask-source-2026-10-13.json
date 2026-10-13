@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-13",
+  "scope": "source_only",
+  "ready_for_real_execution": false,
+  "production_changed_modules": [
+    "adf_runtime_worker/native_read_policy.py"
+  ],
+  "old_run_mask": "/run",
+  "new_run_masks": [
+    "/run/current-system/sw",
+    "/run/WSL"
+  ],
+  "default_root": "deny",
+  "network_enabled": false,
+  "host_write_grants_added": false,
+  "pinned_codex": "0.157.0",
+  "pinned_node": "24.21.0",
+  "source_review": "passed_independent",
+  "linux": {
+    "pytest_passed": 390,
+    "pytest_seconds": 147.95,
+    "ruff": "passed",
+    "mypy": "passed_29_modules",
+    "bandit_medium_high": "passed"
+  },
+  "native_canary_variants": [
+    "direct_minimal_root",
+    "nix_symlink_minimal_root"
+  ],
+  "late_paths_after_native_entry": 5,
+  "late_paths_denied_each_variant": true,
+  "assigned_marker_read_each_variant": true,
+  "old_policy_negative_control": "exit_1_each_variant",
+  "native_model_turns": 0,
+  "login_or_setup_token": 0,
+  "real_queue_runs": 0,
+  "live_installation": false,
+  "live_security_change": false,
+  "historical_thread_start_cause": "unproven",
+  "remaining_gates": [
+    "action_time_live_security_approval",
+    "credential_boundary_before_authenticated_acceptance",
+    "native_api_redis_acceptance",
+    "resolve_unrelated_container_preservation_guard"
+  ],
+  "source_commit": "a3428799713e94e65153b87c8df0771fd9077f2a",
+  "real_authentication_rpcs": 0,
+  "offline_rollback": {
+    "passed": true,
+    "stages": [
+      "candidate",
+      "0dd5ac7",
+      "candidate"
+    ],
+    "elapsed_sec": 2.08,
+    "canonical_modules_each": 29,
+    "unchanged_distributions_each": 27,
+    "candidate_wheel_sha256": "c207a703115585235a46cd7772eb0107d0176d8df3d453c3cf9f42e1ec39ca1f",
+    "rollback_wheel_sha256": "aacab91bb62858f284e2f455b3e4a7ef77db6cc225b148d0f90f1b6d7eaac3b0",
+    "live_venv_unchanged": true,
+    "personal_auth_copied": false,
+    "sdk_or_model_calls": 0
+  },
+  "preservation_guard": {
+    "passed": false,
+    "closed_failure_function": "unrelated_preserved",
+    "adf_expected_container_states": 13,
+    "guard_or_services_modified": false
+  }
+}
