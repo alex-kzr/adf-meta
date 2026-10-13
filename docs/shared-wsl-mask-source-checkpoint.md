@@ -202,3 +202,86 @@ Its temporary check registry was restored with revision fencing. All 13 producti
 components retain expected health; unrelated retained-container settings and frozen
 baselines remain unchanged. Installed source stays `a342879`, provider/consumer are
 stopped, rollback retained, and whole-MVP readiness remains false.
+
+
+## Repair/provenance and new bounded runtime result
+
+Reviewed API `0724e985db016df5e2ebe259f8efe86817b6f44a` projects closed capability
+audit events bound to source execution/run/epoch/tree. Reviewed orchestrator
+`630b37e44a38f30508fab672630dacf991058beb` reconstructs the original writer's
+dependency/configuration snapshot for repairs and supplies that verified audit to
+the existing independent reviewer without new capabilities. Red regressions preceded
+the fixes; 40 orchestrator tests, 143 local API tests and eight actual API wire cases
+pass. Nine separate-PostgreSQL local tests were skipped; both exact-commit hosted CI
+workflows passed with the configured PostgreSQL fixture. Ruff and strict mypy pass.
+
+Only the two service images changed. Offline wheels match exact committed sources;
+all existing interpreter/dependency versions, environment values, security settings
+and mount entries are preserved. Docker changed only environment/mount list order
+and empty DNS null/list representation. Comparison used exact retained original API
+metadata rather than redefining the baseline. The other 24 container identities,
+settings, mounts and start times match the transaction snapshot. Old images were
+retained and exercised; the rollback path was verified. Worker `a342879` was not
+reinstalled. Before native work, active runs/executions, queue depth and Redis PEL
+were zero; the historical stream held 87 entries. No old job was replayed.
+
+The new window allowed at most 16 Codex and two Claude attempts, three concurrent
+jobs, 120-second native execution limits and 40 minutes including cleanup. It closed
+after 13 Codex and two Claude attempts; HTTP/inference request counts, actual model
+identifiers and subscription charges remain unknown. No login, setup-token, forced
+refresh, credential copy or paid API fallback occurred.
+
+Run `f3975994-3496-42ec-8ea6-1ad65dace0be` completed with nine native Codex attempts.
+Three distinct worktrees/threads overlapped; consumer crash/restart kept the same
+owner generation. Beta failed its intentional test once and repaired. Gamma passed
+its test but failed independent review's explicit required-comment criterion after
+sibling task commits. Its fresh repair preserved the exact original developer,
+base and zero-predecessor snapshot; retest/review then passed. All four review
+attempts received execution/epoch/tree-bound skill/MCP audit with unchanged empty
+reviewer capability grants. The audit proves selected materialization/reported
+successful scoped calls, not semantic skill consumption. Separate final integration
+`factory/integration/f3975994-3496-42ec-8ea6-1ad65dace0be` passed all registered checks
+at commit `be0ca9b82399d46acf85c7e6bedb41bdefe238fe`.
+
+Three fresh independent fault runs proved cancellation of one active task while two
+sibling native turns continued. A recorded-owner PIDFD kill and restart stopped the
+old native session, changed provider generation, reconciled/ACKed old results and
+retained original execution/thread/turn identities without replay. One fresh planner
+then returned a validated single-task plan through the new generation.
+
+The next dependent run `2cb31d47-efc9-4236-b509-48203cbd93aa` failed `PERMISSION_DENIED`
+before a native job existed. Its accepted predecessor task commits were created by
+the previous provider generation. `inherit_receipt` checks that historical receipt
+through `check_receipt`, whose active-generation fence correctly refuses retired
+grants. Do not reapprove/replay that failed execution or remove the fence. Full
+durable dependency recovery needs a reviewed distinction between immutable accepted
+commit provenance and a fresh current-target execution grant, preserving both
+operator seals and the API's pinned approval/dependency scope. No worker/security
+policy change was made to complete this test.
+
+An independent two-attempt Claude pipeline used the exact accepted integration
+commit as its explicitly approved root base and no external dependency IDs. Existing
+Claude subscription authorization completed development, exact-tree registered
+checks, independent read-only review, task commit and final integration at
+`1f5ac1d0d8779b58441caa805e7d42a585012119` on
+`factory/integration/baa37e96-33b0-44de-926c-9e9be5a3c215`. This verifies the ordinary
+Claude contract; it does not close the retired-receipt dependency limit.
+
+Real v4 Langfuse observations for both completed pipelines preserve run/trace
+correlation and unique IDs, with empty input/output/status descriptions. CLI,
+test/tool and Git span names are present; the configured private UI links are exact.
+Use the v4 observations API: legacy trace read endpoints can return 404 while
+current v4 observations are already available. This round does not recalibrate
+browser event latency or add an external-host network exposure test.
+
+Final checks: seven new runs, all 29 new execution journals terminal/persisted/ACKed,
+44 locks reacquired, owned sessions stopped, active work/queue/PEL zero and Redis
+stream 116 entries (87 preserved plus 29 new). The original synthetic main is clean
+at `ff3b0d4703e4b71e42c90b4ac5d22b7c8d5dbb63`; temporary checks were restored with a
+revision fence. Installed worker parity remains 29 modules/39 RECORD paths and 27
+unchanged distributions; sealed inputs and old rollback/cache are preserved. All 13
+production components retain expected health (12 running, 11 healthy, migrator exit
+zero). Original frozen baselines remain unchanged; their two old API/orchestrator
+IDs were replaced by the explicitly authorized rollout, and older start/network
+history differences are not relabeled as current changes. Whole-MVP readiness
+remains false. See [sanitized evidence](evidence/repair-provenance-runtime-2026-10-13.json).

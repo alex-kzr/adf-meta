@@ -1,5 +1,24 @@
 # MVP implementation checkpoint
 
+October 13 repair/provenance result: reviewed API `0724e98` and orchestrator
+`630b37e` are installed; worker remains `a342879` without reinstallation. The new
+bounded window used 13 Codex and two Claude attempts. Three parallel developers,
+test and review repairs, independent reviews, task commits, final integration,
+consumer recovery, individual cancellation, provider crash/no-replay recovery and
+fresh planning pass. The independent Claude developer/reviewer pipeline also
+integrates successfully on an exact accepted base. Real Langfuse v4 observations
+confirm CLI/test/tool/Git correlation with empty input/output/status text.
+
+Cross-generation external dependency import is still refused before a native turn:
+accepted source commits carry a retired generation receipt. The guard is unchanged;
+this lifecycle limit prevents declaring the whole MVP accepted. All 29 new execution
+journals are terminal, persisted and ACKed; PEL/active work/queue are zero, main is
+clean at its original SHA, checks are restored, owned provider/consumer are stopped
+and rollback remains available. See the [new runtime result](shared-wsl-mask-source-checkpoint.md#repair-provenance-and-new-bounded-runtime-result)
+and [sanitized evidence](evidence/repair-provenance-runtime-2026-10-13.json).
+
+Earlier checkpoints below are dated history.
+
 October 13 approved runtime result: worker `a342879` is installed with verified
 29-module/39-file parity, unchanged 27 distribution versions and retained `0dd5ac7`
 rollback. Seven native Codex turns prove three-way concurrency, assigned skills/MCP,
@@ -10,8 +29,6 @@ fault-cohort cancellation/provider crash and Claude remain unverified. All 14 ne
 executions are durable/ACKed, owned sessions are stopped, PEL is zero, main is clean
 at its original SHA and all 13 services remain healthy as applicable. Readiness is
 false. See [runtime result](shared-wsl-mask-source-checkpoint.md#observed-bounded-api-redis-result).
-
-Earlier checkpoints below are dated history.
 
 Latest October 12 runtime result: [completed existing-profile metadata window](shared-auth-metadata-completed-checkpoint.md) installed worker `0dd5ac7` with verified f5 rollback. `initialize` ended with `transport_closed` in 88 ms; zero threads/turns, used one-owner allowance, all owned processes stopped. Old three uncertain/unACKed deliveries and all 70 Redis entries remain unchanged; provider/consumer stay stopped and readiness is false. Earlier installed-state statements below are dated history.
 

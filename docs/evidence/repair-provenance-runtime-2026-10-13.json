@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-13",
+  "scope": "reviewed_source_fixes_and_bounded_live_acceptance",
+  "mvp_ready": false,
+  "installed_commits": {
+    "api": "0724e985db016df5e2ebe259f8efe86817b6f44a",
+    "orchestrator": "630b37e44a38f30508fab672630dacf991058beb",
+    "worker": "a3428799713e94e65153b87c8df0771fd9077f2a"
+  },
+  "worker_reinstalled": false,
+  "source_verification": {
+    "independent_review": "passed",
+    "api_local_passed": 143,
+    "api_local_postgres_skipped": 9,
+    "orchestrator_unit_passed": 40,
+    "real_api_wire_cases_passed": 8,
+    "ruff": "passed",
+    "mypy": "passed_23_api_and_11_orchestrator_modules",
+    "api_ci": "https://github.com/alex-kzr/adf-api/actions/runs/38388507699",
+    "orchestrator_ci": "https://github.com/alex-kzr/adf-orchestrator/actions/runs/38388512356"
+  },
+  "deployment": {
+    "other_containers_preserved": 24,
+    "settings_values_mounts_security_preserved": true,
+    "old_images_retained_and_exercised": true,
+    "docker_representation_only_changes": [
+      "environment list order",
+      "empty DNS lists versus null",
+      "mount descriptor list order"
+    ]
+  },
+  "budget": {
+    "codex_limit": 16,
+    "codex_accepted_attempts": 13,
+    "claude_limit": 2,
+    "claude_attempts": 2,
+    "max_parallel": 3,
+    "window_sec": 2400,
+    "closed": true,
+    "paid_api_fallback": false,
+    "model_identifiers": null,
+    "upstream_inference_request_count": null,
+    "actual_subscription_charge": null
+  },
+  "pipeline": {
+    "run_id": "f3975994-3496-42ec-8ea6-1ad65dace0be",
+    "status": "completed",
+    "integration_status": "passed",
+    "branch": "factory/integration/f3975994-3496-42ec-8ea6-1ad65dace0be",
+    "commit_sha": "be0ca9b82399d46acf85c7e6bedb41bdefe238fe",
+    "three_distinct_worktrees_and_threads": true,
+    "consumer_recovery_same_owner_generation": true,
+    "codex_attempts": 9,
+    "repairs": {
+      "beta": {
+        "original_execution_id": "65db6acd-c639-5dd9-bb18-46db0cbb19e7",
+        "repair_execution_id": "30d1eb0b-11d9-50b9-9275-2b58a83ecc2f",
+        "source_snapshot_equal": true,
+        "developer_configuration_equal": true,
+        "predecessor_commits": [],
+        "bound_skill_mcp_audit": true
+      },
+      "gamma": {
+        "original_execution_id": "84635f22-cf15-5d1d-a2ae-6cd17582b52d",
+        "repair_execution_id": "055f1b68-1ed2-5226-aeea-64ae605e2771",
+        "source_snapshot_equal": true,
+        "developer_configuration_equal": true,
+        "predecessor_commits": [],
+        "bound_skill_mcp_audit": true
+      }
+    },
+    "four_review_attempts_have_bound_audit": true,
+    "reviewer_grants_unchanged": true,
+    "audit_does_not_prove_semantic_skill_consumption": true
+  },
+  "individual_cancellation": {
+    "passed": true,
+    "cancelled_run_id": "38773979-790a-44b7-9de2-a33c8e02a5ea",
+    "two_siblings_continued": true,
+    "provider_generation_unchanged": true
+  },
+  "provider_fault": {
+    "passed": true,
+    "old_generation": "f11e265c-65f8-40e7-90ab-2e626126702d",
+    "new_generation": "6621122a-da1a-4e85-b9c1-4a8faa355208",
+    "old_ids_never_replayed": true,
+    "old_sessions_quiesced": true,
+    "all_terminal_and_acked": true,
+    "pending_zero": true
+  },
+  "fresh_planning": {
+    "run_id": "0810a86f-892c-4f43-a5a1-b587cd31a24d",
+    "status": "completed",
+    "mode": "planning",
+    "validated_plan": true
+  },
+  "claude": {
+    "run_id": "baa37e96-33b0-44de-926c-9e9be5a3c215",
+    "status": "completed",
+    "integration_status": "passed",
+    "branch": "factory/integration/baa37e96-33b0-44de-926c-9e9be5a3c215",
+    "commit_sha": "1f5ac1d0d8779b58441caa805e7d42a585012119",
+    "root_base_sha": "be0ca9b82399d46acf85c7e6bedb41bdefe238fe",
+    "existing_subscription": true,
+    "developer_and_independent_reviewer": true,
+    "no_external_dependency_ids": true
+  },
+  "real_traces": [
+    {
+      "run_id": "f3975994-3496-42ec-8ea6-1ad65dace0be",
+      "trace_id": "cd3fa6fa65856d9ec48225c7e6ad6e07",
+      "observations": 90,
+      "trace_url": "http://localhost:3000/project/adf-local/traces/cd3fa6fa65856d9ec48225c7e6ad6e07",
+      "span_names": [
+        "agent.execution",
+        "cli.session",
+        "git.operation",
+        "test.run",
+        "tool.call",
+        "workflow.node",
+        "workflow.run"
+      ],
+      "correlation_matches": true,
+      "unique_observation_ids": true,
+      "inputs_outputs_status_empty": true
+    },
+    {
+      "run_id": "baa37e96-33b0-44de-926c-9e9be5a3c215",
+      "trace_id": "322cf747a8525a5510ef652a9fc6b80e",
+      "observations": 25,
+      "trace_url": "http://localhost:3000/project/adf-local/traces/322cf747a8525a5510ef652a9fc6b80e",
+      "span_names": [
+        "agent.execution",
+        "cli.session",
+        "git.operation",
+        "test.run",
+        "tool.call",
+        "workflow.node",
+        "workflow.run"
+      ],
+      "correlation_matches": true,
+      "unique_observation_ids": true,
+      "inputs_outputs_status_empty": true
+    }
+  ],
+  "remaining_blocker": {
+    "run_id": "2cb31d47-efc9-4236-b509-48203cbd93aa",
+    "execution_id": "9cd7e5f6-a2f9-5ca1-ba9b-524c6f12f2e9",
+    "error_code": "PERMISSION_DENIED",
+    "phase": "dependency_import_before_native_dispatch",
+    "cause": "Accepted commits retain a sealed receipt from a retired provider generation; inherit_receipt calls check_receipt, which requires the active generation.",
+    "native_attempts": 0,
+    "guard_weakened": false,
+    "failed_id_replayed": false,
+    "required_decision": "Separate durable accepted-commit provenance from live execution grants while preserving both operator seals and current-target approval; independently review before changing this lifecycle contract."
+  },
+  "final": {
+    "runs": 7,
+    "execution_journals_terminal_persisted_acked": 29,
+    "owned_sessions_stopped": true,
+    "locks_reacquired": 44,
+    "active_executions": 0,
+    "queue_depth": 0,
+    "redis_pending": 0,
+    "redis_entries_before": 87,
+    "redis_entries_after": 116,
+    "worker_modules": 29,
+    "worker_record_files": 39,
+    "unchanged_distributions": 27,
+    "sealed_inputs_unchanged": true,
+    "synthetic_checks_restored_with_revision_fence": true,
+    "synthetic_main_clean": true,
+    "synthetic_main_sha": "ff3b0d4703e4b71e42c90b4ac5d22b7c8d5dbb63",
+    "production_components": 13,
+    "running_components": 12,
+    "healthy_components": 11,
+    "migrator_exit_zero": true,
+    "frozen_baselines_not_rewritten": true,
+    "new_login_setup_token_forced_refresh_credential_copy": false
+  }
+}
