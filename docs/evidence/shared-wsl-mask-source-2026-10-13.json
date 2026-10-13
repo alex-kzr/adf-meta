@@ -65,6 +65,11 @@
     "passed": false,
     "closed_failure_function": "unrelated_preserved",
     "adf_expected_container_states": 13,
-    "guard_or_services_modified": false
+    "guard_or_services_modified": false,
+    "first_failed_fields": [
+      "started_at"
+    ],
+    "first_name_image_running_status_match": true,
+    "other_config_comparison_proven": false
   }
 }

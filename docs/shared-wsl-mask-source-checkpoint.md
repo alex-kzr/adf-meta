@@ -96,8 +96,12 @@ frame identified `unrelated_preserved`, not an ADF health check. Its predicate
 compares unrelated containers' running/status/start timestamps as well as other
 metadata. A direct names/state/status check found all 13 ADF components in their
 expected states: 12 running, migrator exited 0; all reported healthchecks were
-healthy. This does not establish why the unrelated predicate failed or that all
-outside-container metadata stayed identical. No services, guard baseline,
+healthy. A subsequent bounded read-only observation identified only
+`started_at` in the first failed unrelated-container comparison: name, image,
+running and status matched that saved entry. Actual names/timestamps/values were
+discarded. The next environment/HostConfig comparison was not reached, and the
+remaining unrelated entries are not certified by this first-failure observation.
+The cause of the startup-time change is not established. No services, guard baseline,
 credential values or security settings were changed to make it pass. Resolve
 that preservation gate before any live installation.
 
