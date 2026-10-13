@@ -330,5 +330,23 @@
     "exact_projection_complete_despite_disclosure": true,
     "further_fix_cycles": 0,
     "new_native_windows": 0
+  },
+  "worker_source_pin": "1dc7ee6c227d4ef66969feac8cf8cf1d7287bbd9",
+  "fixture_only_source_alignment": {
+    "worker_fixture_commit": "1dc7ee6c227d4ef66969feac8cf8cf1d7287bbd9",
+    "runtime_code_unchanged": true,
+    "request_and_env_allowlist_unchanged": true,
+    "registered_contract_test_passed": true,
+    "orchestrator_commit": "630b37e44a38f30508fab672630dacf991058beb",
+    "builder_source_sha256": "0cfcb3d0079105f1da449e32beb7afaac77697dcf06f0a4958e48aaa5d15eeb5",
+    "fixture_only": true,
+    "installed_worker_unchanged": "e93f421973e9dda3b9d40a0926d735f8d6ba4c28"
+  },
+  "historical_umbrella_ci_failure": {
+    "baseline_commit": "fde679561f23514e499b942a94692239e73e118c",
+    "checkpoint_commit": "32ee1e6a7071810acd4572cdaf63447d86bc8383",
+    "failed_method": "test_fixture_matches_actual_orchestrator_request_builder",
+    "test_count": 94,
+    "assertion_preserved": true
   }
 }

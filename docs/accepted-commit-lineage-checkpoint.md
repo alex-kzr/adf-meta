@@ -5,6 +5,14 @@ is installed. API `0724e985db016df5e2ebe259f8efe86817b6f44a` and orchestrator
 `630b37e44a38f30508fab672630dacf991058beb` retain their previously installed pins.
 Only the worker package changed in this checkpoint. Whole-MVP readiness is false.
 
+The current worker source pin `1dc7ee6c227d4ef66969feac8cf8cf1d7287bbd9` adds only a contract-fixture
+provenance hash correction for pinned orchestrator `630b37e`. The actual request and
+closed `env_allowlist` remain identical; the matching contract test passes. Runtime
+code is byte-identical to `e93f421`, so no additional package installation occurred.
+The earlier umbrella CI also failed the stale-hash test; checkpoint `32ee1e6`
+reproduced that one failure among 94 tests. The correction preserves the assertion
+rather than removing or loosening the compatibility check.
+
 ## Result and boundary
 
 The historical import defect is fixed: a fresh provider generation imports three

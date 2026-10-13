@@ -13,6 +13,7 @@ executions terminal/persisted/ACKed, stopped owned processes and clean original 
 Docker Desktop is currently unavailable, so current API/Redis state is unverified;
 this worker task attempted no restart. API `0724e98` and orchestrator `630b37e` retain their
 installed pins. Readiness is false; no paid API fallback or credential copy.
+Worker source pin `1dc7ee6` updates only contract-fixture provenance; installed runtime code remains `e93f421`.
 
 Operational status belongs in protected local reports. Earlier [metadata](docs/shared-auth-metadata-completed-checkpoint.md),
 [Redis preservation](docs/redis-repair-runtime-checkpoint.md) and [runtime deployment](docs/shared-patch-runtime-checkpoint.md)
