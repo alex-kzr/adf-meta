@@ -4,16 +4,16 @@ This repository is [adf-meta](https://github.com/alex-kzr/adf-meta), the ADF umb
 
 **Status: historical import is fixed; dependent native review and MVP acceptance remain incomplete.**
 The [current checkpoint](docs/accepted-commit-lineage-checkpoint.md) records installed
-worker `e93f421`, verified rollback and successful import of three previously accepted
-commits across provider generations. Both bounded dependent pipelines stop at native
-review; no new task commit/integration follows. The proposed historical source
-projection failed confidentiality review, including the one additionally authorized cycle, and remains private and uninstalled.
-Earlier 13 Codex + two Claude evidence is preserved. Local journals confirm six new
-executions terminal/persisted/ACKed, stopped owned processes and clean original main.
-Docker Desktop is currently unavailable, so current API/Redis state is unverified;
-this worker task attempted no restart. API `0724e98` and orchestrator `630b37e` retain their
-installed pins. Readiness is false; no paid API fallback or credential copy.
-Worker source pin `1dc7ee6` updates only contract-fixture provenance; installed runtime code remains `e93f421`.
+worker `e93f421`, verified rollback and successful import of three accepted commits
+across provider generations. Both bounded dependent pipelines stop at native review.
+The final authorized structural review-context cycle failed verification; its source
+is preserved privately and remains uninstalled. Fresh checks after separately owned
+Docker recovery confirm healthy ADF services, empty active/queue/PEL state and preserved
+worker settings. Earlier 13 Codex + two Claude evidence and both failed windows remain
+unchanged. Provider owner and consumer are stopped. No new model window ran; readiness
+is false. API `0724e98` and orchestrator `630b37e` retain their installed pins. Worker
+source pin `1dc7ee6` changes only contract-fixture provenance, with runtime code identical
+to installed `e93f421`. No paid API fallback, login or credential copy occurred.
 
 Operational status belongs in protected local reports. Earlier [metadata](docs/shared-auth-metadata-completed-checkpoint.md),
 [Redis preservation](docs/redis-repair-runtime-checkpoint.md) and [runtime deployment](docs/shared-patch-runtime-checkpoint.md)

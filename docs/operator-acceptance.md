@@ -1,15 +1,18 @@
 # Minimal operator acceptance actions
 
-October 13 current checkpoint: published worker `e93f421` is installed with
-verified rollback. Historical accepted-commit import succeeds across provider
-generations; both new bounded pipelines stop at independent native review and
-produce no task commit/integration. The proposed historical source projection
-failed two confidentiality review cycles and the one additionally authorized cycle and remains private, uncommitted and
-uninstalled. Earlier 13 Codex + two Claude evidence is preserved. Local journals
-prove six new executions terminal/persisted/ACKed, stopped owned processes and
-unchanged clean main. Current Docker Desktop/API/Redis checks are unavailable;
-this worker task attempted no restart. API `0724e98` and orchestrator `630b37e` retain their
-installed pins. Whole-MVP readiness is false. See the [current checkpoint](accepted-commit-lineage-checkpoint.md)
+October 13 current checkpoint: the final additionally authorized structural
+review-context cycle failed verification and ends here. Its four source files are
+preserved privately, uncommitted, unpublished and uninstalled. Worker source pin
+`1dc7ee6` changes only contract-fixture provenance; installed worker code remains
+`e93f421`, with verified rollback to `043efe0`. API `0724e98` and orchestrator
+`630b37e` retain their installed pins. Fresh read-only checks after separately owned
+Docker recovery confirm 13 ADF components (12 running, 11 healthchecked healthy,
+migrator exited zero), zero active runs/executions, queue and Redis PEL, and unchanged
+worker configuration/seals/modes. Original container settings and IDs are preserved;
+ten start timestamps changed and two unrelated CAF containers were added. The
+original baseline is retained. Earlier 13 Codex + two Claude and two failed dependent
+windows are preserved. No new model window or worker installation ran. Whole-MVP
+readiness is false. See the [current checkpoint](accepted-commit-lineage-checkpoint.md)
 and [sanitized evidence](evidence/accepted-commit-lineage-runtime-2026-10-13.json).
 
 Earlier checkpoints below are dated history; they do not establish current service

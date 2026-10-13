@@ -1,5 +1,89 @@
 # Accepted historical commit import and blocked review checkpoint
 
+## Latest result: final authorized structural cycle
+
+Fresh checks recorded at `2026-10-13T18:01:51.520092+00:00` supersede the earlier
+platform-unavailable observations below. Worker source stays at
+`1dc7ee6c227d4ef66969feac8cf8cf1d7287bbd9`, installed runtime stays at
+`e93f421973e9dda3b9d40a0926d735f8d6ba4c28`. The new candidate is not committed,
+published or installed. No third native acceptance window ran.
+
+The user authorized one final strict structural cycle after the earlier failed
+cycles. It admits only a closed literal assignment/expression/container subset,
+screens decoded strings/comments, rejects unsupported dynamic/computed forms, and
+withholds sensitive fields independently of value type. Input/token/numeric/string,
+operator/depth bounds precede AST parsing; its 0.5-second deadline is cooperative,
+not a hard CPU/memory sandbox. This does not establish arbitrary-source secrecy.
+The preserved 102-case historical/removed synthetic matrix changes from 40 disclosures
+in the previous unpublished candidate to zero in this candidate. No real credential
+was used. This limited matrix does not establish general confidentiality.
+
+The sole fresh independent review verdict is **FAIL**. Overall verification is
+**FAIL**. The authoritative Linux mypy check fails at `executor.py:160`: a comment beginning with `type:` is interpreted as a malformed type annotation. This is a new quality-gate failure, not a demonstrated Python runtime syntax error. The independent reviewer reproduces a confidentiality bypass in Git framing and exported path strings: a protected synthetic value in a filename reaches changed paths and staged diff with completeness true and redaction false. Non-hunk lines and hunk-header suffixes bypass structural inspection. The safe verdict is retained privately.
+
+The two disjoint frozen Linux QA selections were stopped after the independent
+rejection, using verified helper/descendant identities and PIDFD signals:
+
+- `/var/tmp/aqwsl-ddd02r60`: incomplete: stopped after independent rejection; no final GREEN.
+- `/var/tmp/aqwsl-vu39a70z`: incomplete: stopped after independent rejection; no final GREEN.
+
+Both snapshots match the four frozen source hashes and all 30 module hashes.
+Ruff and Bandit logs completed successfully; Bandit retains 17 low findings and
+zero medium/high findings. Linux mypy fails. Pytest did not complete and no final
+GREEN or affected/lineage pass count is claimed. Windows screening
+had 26 focused passes and 73 mypy platform/dependency errors, without a baseline
+comparison; those results are not an authoritative Linux PASS.
+
+The exact four files, patch, safe review, QA records and third private stash remain
+under ignored `.bootstrap/strict-structural-cycle-20261013`. Both earlier private
+snapshots/stashes are retained. No private refs or candidate source are pushed. The
+published child worktree is clean. This final authorized cycle ends here: no further
+automatic fix, package installation, owner/consumer startup or model turn follows.
+
+The narrow safe alternative is a new reviewed design that omits raw source bodies,
+diff framing and unrestricted path strings, and emits only a closed typed schema
+of opaque file IDs, validated hashes, static check IDs and statuses; insufficient evidence
+must continue refusing approval. It is a proposal, not an applied fix or a waiver of
+review requirements. The local review workflow says "Maximum 2 fix-and-reverify
+cycles" in `C:/Users/admin/Syncthing/agents/skills/software-development/requesting-code-review/SKILL.md`;
+the user separately authorized the additional cycles, including this final one.
+
+## Fresh platform and preservation checks
+
+API `0724e985db016df5e2ebe259f8efe86817b6f44a` and orchestrator
+`630b37e44a38f30508fab672630dacf991058beb` retain their expected healthy images.
+All 13 ADF components are present: 12 running, 11 healthchecked healthy and migrator
+exited zero. Active runs/executions, queue and Redis PEL are zero; the stream still
+has 122 entries. All six executions in the two closed windows remain durable/ACKed.
+Owner, provider and consumer are stopped, 46 locks are reacquired, and original
+main is clean at `ff3b0d4703e4b71e42c90b4ac5d22b7c8d5dbb63`.
+
+The worker still verifies 30 modules, 40 RECORD files, 27 unchanged distributions,
+configuration/operator seals/ownership/modes and three retained bytecode caches.
+The verified `043efe0` rollback is retained. Existing provider authorizations were
+not read/copied/refreshed; this cycle made no model call or paid API fallback.
+
+Docker recovery was separately authorized and performed by the CAF executor. This
+worker task performed no Docker/WSL restart or container mutation. Comparing against
+the unchanged original 26-container baseline finds no missing original container;
+the 24 original nonselected containers preserve IDs, images, running state,
+configuration, host configuration and mounts. Ten start timestamps differ after
+recovery. Two additional unrelated containers, `/caf-control-api-1` and
+`/caf-postgres-1`, are observed and untouched. Current membership is 28; a claim that
+all timestamps or membership stayed unchanged would be false. The baseline was not
+rewritten. Existing users, Windows, firewall/listeners and Git security remain unchanged.
+
+Current platform availability is resolved by these fresh checks. Review confidentiality,
+sufficient native context, external-origin denial on actual host bindings, current UI
+event-to-screen latency and a supported isolated Node/build route remain open.
+Readiness stays false; previous successful capability/cancellation/recovery evidence
+does not turn the rejected review cycle into a completed pipeline.
+
+## Earlier checkpoint and cycle history
+
+The dated observations below remain historical evidence. Their statements about
+unavailable Docker/API/Redis and pending platform recovery are superseded above.
+
 October 13, 2026. Published worker `e93f421973e9dda3b9d40a0926d735f8d6ba4c28`
 is installed. API `0724e985db016df5e2ebe259f8efe86817b6f44a` and orchestrator
 `630b37e44a38f30508fab672630dacf991058beb` retain their previously installed pins.

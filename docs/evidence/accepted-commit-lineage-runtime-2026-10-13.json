@@ -83,10 +83,7 @@
     "locks_reacquired": 46,
     "original_main_clean_unchanged": true,
     "integration": {},
-    "mvp_ready": false,
-    "subprocess_exit_code": 0,
-    "verified_at_utc": "2026-10-13T16:23:23.806145+00:00",
-    "scope": "last_read_only_local_verification_before_platform_outage"
+    "mvp_ready": false
   },
   "closed_windows": [
     {
@@ -210,41 +207,305 @@
     "combined_600_second_pytest": "timed_out_not_pass"
   },
   "current_service_availability": {
-    "docker_desktop": "unable_to_start",
-    "api_health_current": "unavailable",
-    "redis_current": "connection_error",
-    "current_queue_depth": null,
-    "current_pending": null,
-    "current_other_container_comparison": "unavailable",
-    "runtime_operations_stopped": true,
-    "api_read_only_verifier": {
-      "preflight_passed": false,
-      "phase": "container_health",
-      "error_class": "CalledProcessError",
+    "scope": "fresh_post_recovery_read_only_checks",
+    "checked_at_utc": "2026-10-13T18:01:51.520092+00:00",
+    "api": {
+      "preflight_passed": true,
+      "production_components": 13,
+      "running_components": 12,
+      "healthy_components": 11,
+      "migrator_exit_zero": true,
+      "active_runs": 0,
+      "active_executions": 0,
+      "queue_depth": 0,
+      "total_redis_entries": 122,
+      "new_acceptance_entries": 35,
       "services_changed": 0,
       "credentials_copied": 0,
-      "subprocess_exit_code": 1,
-      "verified_at_utc": "2026-10-13T16:23:23.971617+00:00",
-      "verification_mode": "read_only",
-      "model_turns_started_by_verifier": 0
+      "model_turns": 0
     },
-    "redis_read_only_verifier": {
-      "redis_preflight_passed": false,
-      "error_class": "ConnectionError",
+    "redis": {
+      "redis_preflight_passed": true,
+      "pending": 0,
       "redis_mutations": 0,
       "credentials_copied": 0,
-      "model_turns": 0,
-      "subprocess_exit_code": 1,
-      "verified_at_utc": "2026-10-13T16:23:24.394189+00:00"
+      "model_turns": 0
     },
-    "container_read_only_verifier": {
-      "verification_available": false,
-      "error_class": "SubprocessFailure",
-      "subprocess_exit_code": 1,
-      "verified_at_utc": "2026-10-13T16:23:24.195069+00:00"
-    },
+    "docker_desktop": "available",
     "restart_attempted_by_this_worker_task": false,
-    "platform_recovery": "separately_authorized_and_owned_by_another_executor; completion_not_confirmed_here"
+    "platform_recovery": "separately_authorized_CAF_executor",
+    "original_baseline_not_rewritten": true,
+    "container_preservation": {
+      "read_only": true,
+      "original_baseline_not_rewritten": true,
+      "baseline_containers": 26,
+      "current_containers": 28,
+      "missing_names": [],
+      "additional_names": [
+        "/caf-control-api-1",
+        "/caf-postgres-1"
+      ],
+      "selected_services": [
+        {
+          "service": "orchestrator",
+          "expected_image": true,
+          "running": true,
+          "healthy": true
+        },
+        {
+          "service": "api",
+          "expected_image": true,
+          "running": true,
+          "healthy": true
+        }
+      ],
+      "original_other_container_rows": [
+        {
+          "name": "/adf-langfuse-langfuse-web-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": false,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-langfuse-langfuse-worker-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": false,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-langfuse-redis-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": false,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-langfuse-clickhouse-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": false,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-langfuse-postgres-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": false,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-langfuse-minio-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": false,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-lf-store-restore-20261012t145520z-f5a940d1-langfuse-postgres",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-lf-store-restore-20261012t145520z-f5a940d1-langfuse-minio",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-lf-store-restore-20261012t145520z-f5a940d1-langfuse-redis",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-lf-store-restore-20261012t145520z-f5a940d1-langfuse-clickhouse",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-frontend-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": false,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-snapshot-qa-20261010t185527z-9e8590ed",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-otel-collector-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": false,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-migrator-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-lf-rollback-20261012t145520z-f5a940d1-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-lf-rollback-20261012t145520z-f5a940d1-0",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-lf-rollback-20261012t145520z-f5a940d1-5",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-lf-rollback-20261012t145520z-f5a940d1-2",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-lf-rollback-20261012t145520z-f5a940d1-3",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-lf-rollback-20261012t145520z-f5a940d1-4",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-postgres-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": false,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-redis-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": false,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-init-qa-postgres-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        },
+        {
+          "name": "/adf-init-qa-redis-1",
+          "id_unchanged": true,
+          "image_unchanged": true,
+          "running_unchanged": true,
+          "start_time_unchanged": true,
+          "config_unchanged": true,
+          "host_config_unchanged": true,
+          "mounts_unchanged": true
+        }
+      ],
+      "original_container_settings_preserved": true,
+      "restart_timestamp_changes": 10,
+      "containers_modified_by_checker": 0
+    },
+    "runtime_operations_stopped": true
   },
   "last_closed_window_cleanup": {
     "pending": 0,
@@ -265,8 +526,7 @@
     "financial_cost": null
   },
   "remaining_gates": [
-    "review projection credential confidentiality and sufficient independent review context",
-    "current Docker/API/Redis availability",
+    "review projection confidentiality and sufficient independent native context",
     "external-origin denial on current host bindings",
     "current UI event-to-screen latency",
     "supported isolated Node/build route"
@@ -348,5 +608,154 @@
     "failed_method": "test_fixture_matches_actual_orchestrator_request_builder",
     "test_count": 94,
     "assertion_preserved": true
-  }
+  },
+  "earlier_service_unavailability": {
+    "docker_desktop": "unable_to_start",
+    "api_health_current": "unavailable",
+    "redis_current": "connection_error",
+    "current_queue_depth": null,
+    "current_pending": null,
+    "current_other_container_comparison": "unavailable",
+    "runtime_operations_stopped": true,
+    "api_read_only_verifier": {
+      "preflight_passed": false,
+      "phase": "container_health",
+      "error_class": "CalledProcessError",
+      "services_changed": 0,
+      "credentials_copied": 0,
+      "subprocess_exit_code": 1,
+      "verified_at_utc": "2026-10-13T16:23:23.971617+00:00",
+      "verification_mode": "read_only",
+      "model_turns_started_by_verifier": 0
+    },
+    "redis_read_only_verifier": {
+      "redis_preflight_passed": false,
+      "error_class": "ConnectionError",
+      "redis_mutations": 0,
+      "credentials_copied": 0,
+      "model_turns": 0,
+      "subprocess_exit_code": 1,
+      "verified_at_utc": "2026-10-13T16:23:24.394189+00:00"
+    },
+    "container_read_only_verifier": {
+      "verification_available": false,
+      "error_class": "SubprocessFailure",
+      "subprocess_exit_code": 1,
+      "verified_at_utc": "2026-10-13T16:23:24.195069+00:00"
+    },
+    "restart_attempted_by_this_worker_task": false,
+    "platform_recovery": "separately_authorized_and_owned_by_another_executor; completion_not_confirmed_here"
+  },
+  "strict_structural_authorized_cycle": {
+    "authorized_cycles": 1,
+    "overall_verification": "failed",
+    "source_base_commit": "1dc7ee6c227d4ef66969feac8cf8cf1d7287bbd9",
+    "source_hashes": {
+      "src/adf_runtime_worker/executor.py": "4469225b789ca324c886b59935d5d3ecfccaeb21a00c852161715e47d8ff194e",
+      "src/adf_runtime_worker/git_workspace.py": "f4160bbf4d4536828761b51e70ba7d25e00eb73507a70a34aa19ee8a13f81543",
+      "tests/test_review_context.py": "f29439783d395056c1ca35f94a2b7d8a3906d4737c2e09d5364a9a1cd608ec4f",
+      "README.md": "5ecd154a02d840a7d9e40723c2db1a3f27103f51f3608b0407418d762a6596ea"
+    },
+    "patch_sha256": "c52834f123e15d170eeb3022937fe556dcf0fcacb44a2e2dc7e62a31b8d629e9",
+    "source_preserved_exactly": true,
+    "private_stash_retained": true,
+    "files": 4,
+    "published": false,
+    "installed": false,
+    "independent_review_passed": false,
+    "independent_review_summary": "The frozen four-file delta and patch hashes match, but an independently reproduced framing/path disclosure bypass blocks approval.",
+    "linux_components": [
+      {
+        "scratch": "/var/tmp/aqwsl-ddd02r60",
+        "completed": false,
+        "checks": [
+          {
+            "check": "ruff",
+            "status": "completed_pass_log",
+            "exit_code": null
+          },
+          {
+            "check": "mypy",
+            "status": "completed_fail_log",
+            "exit_code": null
+          },
+          {
+            "check": "bandit",
+            "status": "completed_zero_medium_high_log",
+            "exit_code": null
+          },
+          {
+            "check": "pytest",
+            "status": "stopped_after_independent_rejection",
+            "exit_code": null
+          }
+        ],
+        "pytest_summary": "incomplete: stopped after independent rejection; no final GREEN",
+        "mypy_issues": [
+          "src/adf_runtime_worker/executor.py:160: error: Expected an indented block after 'if' statement on line 158  [syntax]"
+        ]
+      },
+      {
+        "scratch": "/var/tmp/aqwsl-vu39a70z",
+        "completed": false,
+        "checks": [
+          {
+            "check": "ruff",
+            "status": "completed_pass_log",
+            "exit_code": null
+          },
+          {
+            "check": "mypy",
+            "status": "completed_fail_log",
+            "exit_code": null
+          },
+          {
+            "check": "bandit",
+            "status": "completed_zero_medium_high_log",
+            "exit_code": null
+          },
+          {
+            "check": "pytest",
+            "status": "stopped_after_independent_rejection",
+            "exit_code": null
+          }
+        ],
+        "pytest_summary": "incomplete: stopped after independent rejection; no final GREEN",
+        "mypy_issues": [
+          "src/adf_runtime_worker/executor.py:160: error: Expected an indented block after 'if' statement on line 158  [syntax]"
+        ]
+      }
+    ],
+    "source_hashes_identical": true,
+    "test_selections_disjoint": true,
+    "synthetic_matrix": {
+      "cases": 102,
+      "previous_unpublished_candidate_disclosures": 40,
+      "candidate_disclosures": 0,
+      "general_confidentiality_established": false
+    },
+    "parser_bounds": "64 KiB aggregate, 16 KiB strings, 256-character numbers, 8192 tokens/nodes, bounded operators/depth; 0.5s cooperative deadline; no hard parser CPU/memory sandbox",
+    "windows_screening_passed": 26,
+    "windows_mypy_errors": 73,
+    "windows_mypy_baseline_comparison": false,
+    "new_native_windows": 0,
+    "further_fix_cycles": 0,
+    "runtime_changes": 0,
+    "model_calls": 0
+  },
+  "prior_closed_window_digests_rechecked": {
+    "repair-proof-native-20261013": {
+      "files": 22,
+      "unchanged": true
+    },
+    "dependency-lineage-native-20261013": {
+      "files": 10,
+      "unchanged": true
+    },
+    "review-context-native-20261013": {
+      "files": 13,
+      "unchanged": true
+    }
+  },
+  "source_pin": "1dc7ee6c227d4ef66969feac8cf8cf1d7287bbd9"
 }

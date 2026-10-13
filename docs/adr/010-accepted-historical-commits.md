@@ -47,3 +47,16 @@ permission to weaken confidentiality, tooling or exact-tree review.
 
 See the worker [lineage contract](../../services/runtime-worker/docs/accepted-commit-lineage.md)
 and [observed checkpoint](../accepted-commit-lineage-checkpoint.md).
+
+## Final structural cycle checkpoint
+
+The additionally authorized strict literal-source cycle is not adopted: overall
+verification failed and no candidate source was installed or published. The 102-case
+synthetic matrix is bounded evidence, not a universal secrecy proof; Linux mypy also
+rejects a comment that it interprets as a type annotation. Fresh Docker/API/Redis
+availability is separately confirmed and does not waive the review/context gate.
+Continue refusing approval for missing/withheld evidence. Omitting raw source and
+using a closed metadata/check schema with opaque file IDs and no unrestricted path
+strings remains a proposed safer design requiring review. Git framing and exported
+path strings independently disclose protected synthetic literals with completeness
+true in the final candidate; the candidate is rejected.
