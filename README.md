@@ -2,12 +2,16 @@
 
 This repository is [adf-meta](https://github.com/alex-kzr/adf-meta), the ADF umbrella. ADF is a local, single-user development factory for planning tasks, running coding agents in parallel Git worktrees, testing, reviewing and integrating their commits into a separate branch. Windows 11 + Ubuntu WSL2 + Docker Desktop is the target runtime. React/TypeScript provides the UI, FastAPI the control API, LangGraph the orchestration, and a host Python worker runs Codex and Claude Code CLI adapters.
 
-**Status: MVP acceptance remains incomplete; readiness is false.** Latest source delivery:
-[WSL native mask repair and proposed reversible installation](docs/shared-wsl-mask-source-checkpoint.md).
-390 Linux tests and independent review confirm its tested host-data read boundary,
-including late-created `/run` paths and WSL/Nix aliases. Activating this security-policy
-change requires separate action-time approval; it has not changed installed worker `0dd5ac7`,
-API `a0e0205`, orchestrator `9932a87` or the stopped dedicated provider/consumer.
+**Status: MVP acceptance remains incomplete; readiness is false.**
+[Approved WSL runtime result](docs/shared-wsl-mask-source-checkpoint.md#observed-bounded-api-redis-result):
+worker `a342879` installed; seven native Codex turns confirmed three-way parallelism,
+assigned skills/MCP and consumer recovery. Two task commits passed; a third review
+and repair dependency guard stopped the run before integration. Provider/consumer
+are stopped, all new deliveries are ACKed, PEL is zero and the original main is clean.
+API `a0e0205`, orchestrator `9932a87` and other services/settings remain unchanged.
+[Preservation evidence](docs/shared-wsl-preservation-checkpoint.md) and the
+[bounded acceptance plan](docs/shared-wsl-live-acceptance-plan.md) retain the exact
+scope, rollback and remaining gates. No paid API fallback or credential copy.
 
 Operational status belongs in protected local reports. Earlier [metadata](docs/shared-auth-metadata-completed-checkpoint.md),
 [Redis preservation](docs/redis-repair-runtime-checkpoint.md) and [runtime deployment](docs/shared-patch-runtime-checkpoint.md)

@@ -1,6 +1,17 @@
 # Development documentation
 
-Latest source-only delivery: [WSL native mask repair](shared-wsl-mask-source-checkpoint.md), with [sanitized evidence](evidence/shared-wsl-mask-source-2026-10-13.json): 390 Linux tests and independent host-data boundary review pass, including late-created WSL/Nix paths. Live policy installation requires separate action-time approval; installed0dd and false readiness remain unchanged.
+October 13 approved runtime result: worker `a342879` is installed with verified
+29-module/39-file parity, unchanged 27 distribution versions and retained `0dd5ac7`
+rollback. Seven native Codex turns prove three-way concurrency, assigned skills/MCP,
+one test-triggered repair and consumer restart without replay. Two reviews/commits
+passed; the third review rejected missing provenance evidence, then its repair
+failed the dependency-snapshot guard before another model turn. Integration,
+fault-cohort cancellation/provider crash and Claude remain unverified. All 14 new
+executions are durable/ACKed, owned sessions are stopped, PEL is zero, main is clean
+at its original SHA and all 13 services remain healthy as applicable. Readiness is
+false. See [runtime result](shared-wsl-mask-source-checkpoint.md#observed-bounded-api-redis-result).
+
+- [Complete WSL environment preservation](shared-wsl-preservation-checkpoint.md) and [bounded live acceptance](shared-wsl-live-acceptance-plan.md): exact approval, preserved baselines and finite native acceptance gates.
 
 - [Provider fixtures and protected maintenance](provider-fixtures-and-maintenance.md): source-only startup checks, durable backups and precise container cleanup.
 

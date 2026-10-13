@@ -1,5 +1,18 @@
 # MVP implementation checkpoint
 
+October 13 approved runtime result: worker `a342879` is installed with verified
+29-module/39-file parity, unchanged 27 distribution versions and retained `0dd5ac7`
+rollback. Seven native Codex turns prove three-way concurrency, assigned skills/MCP,
+one test-triggered repair and consumer restart without replay. Two reviews/commits
+passed; the third review rejected missing provenance evidence, then its repair
+failed the dependency-snapshot guard before another model turn. Integration,
+fault-cohort cancellation/provider crash and Claude remain unverified. All 14 new
+executions are durable/ACKed, owned sessions are stopped, PEL is zero, main is clean
+at its original SHA and all 13 services remain healthy as applicable. Readiness is
+false. See [runtime result](shared-wsl-mask-source-checkpoint.md#observed-bounded-api-redis-result).
+
+Earlier checkpoints below are dated history.
+
 Latest October 12 runtime result: [completed existing-profile metadata window](shared-auth-metadata-completed-checkpoint.md) installed worker `0dd5ac7` with verified f5 rollback. `initialize` ended with `transport_closed` in 88 ms; zero threads/turns, used one-owner allowance, all owned processes stopped. Old three uncertain/unACKed deliveries and all 70 Redis entries remain unchanged; provider/consumer stay stopped and readiness is false. Earlier installed-state statements below are dated history.
 
 Latest source-only change: [shared-patch implementation](shared-patch-source.md) now covers bounded generation/application, isolated Python checks, a failed-check/fresh-repair loop, independent review and serial integration in offline regressions. [ADR 008](adr/008-shared-patch-and-isolated-checks.md) states single-process Python-only checks and the unresolved native full-host-read boundary. [Exact installation/acceptance scope](shared-patch-deployment.md) is separate. Installed `13c4624a`, stopped services, policy/auth and false readiness remain unchanged. Older entries below are historical checkpoints, not current source/deployment claims.
