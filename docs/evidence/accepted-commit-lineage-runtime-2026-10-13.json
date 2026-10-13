@@ -1,0 +1,334 @@
+{
+  "date": "2026-10-13",
+  "scope": "accepted_historical_import_and_blocked_review",
+  "mvp_ready": false,
+  "installed_commits": {
+    "worker": "e93f421973e9dda3b9d40a0926d735f8d6ba4c28",
+    "api": "0724e985db016df5e2ebe259f8efe86817b6f44a",
+    "orchestrator": "630b37e44a38f30508fab672630dacf991058beb"
+  },
+  "source_verification": {
+    "historical_import_commit": "043efe0fb2507930128b9864623fd8b3328c7dcc",
+    "historical_import_pytest_passed": 480,
+    "bounded_diff_commit": "e93f421973e9dda3b9d40a0926d735f8d6ba4c28",
+    "bounded_diff_pytest_passed": 332,
+    "native_startup_probes_skipped": 7,
+    "both_published_commits_independently_reviewed": true,
+    "both_published_ci": "success",
+    "historical_import_ci": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38404576373",
+    "bounded_diff_ci": "https://github.com/alex-kzr/adf-runtime-worker/actions/runs/38411931965"
+  },
+  "worker_local_verification": {
+    "passed": true,
+    "installed_worker": "e93f421973e9dda3b9d40a0926d735f8d6ba4c28",
+    "rollback_commit": "043efe0fb2507930128b9864623fd8b3328c7dcc",
+    "canonical_modules": 30,
+    "record_files": 40,
+    "unchanged_distributions": 27,
+    "configuration_and_seals_unchanged": true,
+    "ownership_modes_preserved": true,
+    "retained_caches": [
+      {
+        "transaction": "review-context-install-cr352jmg",
+        "entries": 27
+      },
+      {
+        "transaction": "lineage-install-k18_d40f",
+        "entries": 27
+      },
+      {
+        "transaction": "wsl-mask-install-fnj91auf",
+        "entries": 26
+      }
+    ],
+    "windows": [
+      {
+        "run_id": "ad9e2321-b060-48a5-ab50-20242b5937d0",
+        "status": "failed",
+        "executions": 3,
+        "accepted_attempts": 2,
+        "confirmed_turns": 2
+      },
+      {
+        "run_id": "8a5ffb22-1f88-4d7d-a19c-f6beb0ee3701",
+        "status": "failed",
+        "executions": 3,
+        "accepted_attempts": 1,
+        "confirmed_turns": 1
+      }
+    ],
+    "new_terminal_persisted_acked_executions": 6,
+    "historical_sources": [
+      {
+        "execution_id": "2e8e07d8-3e30-552c-ac82-51ae11047170",
+        "commit_sha": "5aea77b97e1ddb66352cd423c47978ddb9be72e8",
+        "source_generation": "f11e265c-65f8-40e7-90ab-2e626126702d"
+      },
+      {
+        "execution_id": "30d1eb0b-11d9-50b9-9275-2b58a83ecc2f",
+        "commit_sha": "1cb88d57e8db4bb29ed8c5bcb3090d7dbd5879c8",
+        "source_generation": "f11e265c-65f8-40e7-90ab-2e626126702d"
+      },
+      {
+        "execution_id": "055f1b68-1ed2-5226-aeea-64ae605e2771",
+        "commit_sha": "2732bc35c1ba0da3f7ea8c2864ebb7c8e73bb514",
+        "source_generation": "f11e265c-65f8-40e7-90ab-2e626126702d"
+      }
+    ],
+    "current_generation": "c2fe6d3c-cf76-459b-89b0-4cd14454d248",
+    "historical_import_complete": true,
+    "fresh_current_generation_receipt": true,
+    "validation_fence_present": true,
+    "provider_consumer_stopped": true,
+    "locks_reacquired": 46,
+    "original_main_clean_unchanged": true,
+    "integration": {},
+    "mvp_ready": false,
+    "subprocess_exit_code": 0,
+    "verified_at_utc": "2026-10-13T16:23:23.806145+00:00",
+    "scope": "last_read_only_local_verification_before_platform_outage"
+  },
+  "closed_windows": [
+    {
+      "run_id": "ad9e2321-b060-48a5-ab50-20242b5937d0",
+      "status": "failed",
+      "window_closed": true,
+      "accepted_codex_attempts": 2,
+      "confirmed_codex_turns": 2,
+      "automatic_retries": 0,
+      "executions": [
+        {
+          "id": "d9eccda1-f993-5548-8725-95513d1d1bf5",
+          "operation": "review",
+          "status": "failed"
+        },
+        {
+          "id": "a760df7e-2481-5e69-a3c3-7cdf21acbc95",
+          "operation": "agent_task",
+          "status": "succeeded"
+        },
+        {
+          "id": "84283ada-f0ac-5d67-bc71-e4b60b4ac60b",
+          "operation": "test",
+          "status": "succeeded"
+        }
+      ],
+      "task_commit": null,
+      "integration": null
+    },
+    {
+      "run_id": "8a5ffb22-1f88-4d7d-a19c-f6beb0ee3701",
+      "status": "failed",
+      "window_closed": true,
+      "accepted_codex_attempts": 1,
+      "confirmed_codex_turns": 1,
+      "automatic_retries": 0,
+      "executions": [
+        {
+          "id": "a2746826-59f5-58fa-99c1-8f8f3587b6c2",
+          "operation": "agent_task",
+          "status": "succeeded"
+        },
+        {
+          "id": "d3b74ded-b8ad-5d48-9b99-2379d32dc6d1",
+          "operation": "test",
+          "status": "succeeded"
+        },
+        {
+          "id": "bacb436d-ce69-57e9-9816-e8787c9d560a",
+          "operation": "review",
+          "status": "failed"
+        }
+      ],
+      "task_commit": null,
+      "integration": null
+    }
+  ],
+  "real_trace_last_closed_window": {
+    "run_id": "8a5ffb22-1f88-4d7d-a19c-f6beb0ee3701",
+    "trace_id": "8dcc2c2d3fbb270c179538a234d878d6",
+    "observations": 16,
+    "trace_url": "http://localhost:3000/project/adf-local/traces/8dcc2c2d3fbb270c179538a234d878d6",
+    "span_names": [
+      "agent.execution",
+      "cli.session",
+      "test.run",
+      "workflow.node",
+      "workflow.run"
+    ],
+    "correlation_matches": true,
+    "unique_observation_ids": true,
+    "inputs_outputs_status_empty": true,
+    "actual_model_identifiers": null
+  },
+  "previous_closed_window": {
+    "codex_attempts": 13,
+    "claude_attempts": 2,
+    "digests": {
+      "repair-proof-native-20261013": {
+        "files_rechecked": 5,
+        "digests_unchanged": true
+      },
+      "dependency-lineage-native-20261013": {
+        "files_rechecked": 4,
+        "digests_unchanged": true
+      }
+    },
+    "capabilities_parallelism_cancellation_recovery_and_integration": "previously_observed"
+  },
+  "unreviewed_projection": {
+    "base_commit": "e93f421973e9dda3b9d40a0926d735f8d6ba4c28",
+    "files_preserved_exactly": 4,
+    "patch_sha256": "cd554185517bb67a54aa17c62bc7631e397500c1580b6aed4e0c57c37cebc9e9",
+    "source_hashes": {
+      "src/adf_runtime_worker/executor.py": "ccaf6070fe3afd667b161ae50933f7fcef0cfd9feaed0bc312f7c3a4fd5f9e34",
+      "src/adf_runtime_worker/git_workspace.py": "f4160bbf4d4536828761b51e70ba7d25e00eb73507a70a34aa19ee8a13f81543",
+      "tests/test_review_context.py": "8a4927d747c41c7c796ecf3e953cdc5d196b19cab8b718d075a32736645f3361",
+      "README.md": "469cd6c72d7df81ecf6eec6589a7f9f3ed828758f8bfd0787069c792ce6fedfd"
+    },
+    "independent_review": "failed",
+    "automatic_fix_cycles": 2,
+    "published": false,
+    "installed": false,
+    "final_pytest": "not_completed",
+    "remaining_synthetic_bypasses": [
+      "comment-separated implicit sensitive-key literals",
+      "named Unicode escapes in sensitive keys",
+      "escaped serialized JSON inside source string literals"
+    ],
+    "earlier_red_tests": [
+      {
+        "failed": 24,
+        "passed": 2
+      },
+      {
+        "failed": 14,
+        "passed": 2
+      }
+    ],
+    "last_static_checks": "passed",
+    "combined_600_second_pytest": "timed_out_not_pass"
+  },
+  "current_service_availability": {
+    "docker_desktop": "unable_to_start",
+    "api_health_current": "unavailable",
+    "redis_current": "connection_error",
+    "current_queue_depth": null,
+    "current_pending": null,
+    "current_other_container_comparison": "unavailable",
+    "runtime_operations_stopped": true,
+    "api_read_only_verifier": {
+      "preflight_passed": false,
+      "phase": "container_health",
+      "error_class": "CalledProcessError",
+      "services_changed": 0,
+      "credentials_copied": 0,
+      "subprocess_exit_code": 1,
+      "verified_at_utc": "2026-10-13T16:23:23.971617+00:00",
+      "verification_mode": "read_only",
+      "model_turns_started_by_verifier": 0
+    },
+    "redis_read_only_verifier": {
+      "redis_preflight_passed": false,
+      "error_class": "ConnectionError",
+      "redis_mutations": 0,
+      "credentials_copied": 0,
+      "model_turns": 0,
+      "subprocess_exit_code": 1,
+      "verified_at_utc": "2026-10-13T16:23:24.394189+00:00"
+    },
+    "container_read_only_verifier": {
+      "verification_available": false,
+      "error_class": "SubprocessFailure",
+      "subprocess_exit_code": 1,
+      "verified_at_utc": "2026-10-13T16:23:24.195069+00:00"
+    },
+    "restart_attempted_by_this_worker_task": false,
+    "platform_recovery": "separately_authorized_and_owned_by_another_executor; completion_not_confirmed_here"
+  },
+  "last_closed_window_cleanup": {
+    "pending": 0,
+    "active_executions": 0,
+    "queue_depth": 0,
+    "redis_entries": 122,
+    "new_acceptance_entries": 35,
+    "production_components": 13,
+    "running": 12,
+    "healthy": 11,
+    "migrator_exit_zero": true,
+    "other_containers_preserved_against_original_baseline": 24,
+    "scope": "last_verified_before_docker_became_unavailable"
+  },
+  "unknowns": {
+    "actual_model_identifier": null,
+    "upstream_inference_request_count": null,
+    "financial_cost": null
+  },
+  "remaining_gates": [
+    "review projection credential confidentiality and sufficient independent review context",
+    "current Docker/API/Redis availability",
+    "external-origin denial on current host bindings",
+    "current UI event-to-screen latency",
+    "supported isolated Node/build route"
+  ],
+  "paid_api_fallback": false,
+  "login_or_setup_token_run": false,
+  "existing_authorizations_copied": false,
+  "additional_authorized_cycle": {
+    "authorized_cycles": 1,
+    "independent_review": "failed",
+    "source_base_commit": "e93f421973e9dda3b9d40a0926d735f8d6ba4c28",
+    "source_hashes": {
+      "README.md": "bb373074a4a9583a6068747618c8c689cef2d32785e1893940365459d0ec56b6",
+      "src/adf_runtime_worker/executor.py": "5fc8708197de50e561baf3bbd01af1e134d7118197301bea2c45401855b72765",
+      "src/adf_runtime_worker/git_workspace.py": "f4160bbf4d4536828761b51e70ba7d25e00eb73507a70a34aa19ee8a13f81543",
+      "tests/test_review_context.py": "96de41fe980a1e8175357e9d16f018bb0d274ac2ddf726b36757c005dff12e7d"
+    },
+    "source_preserved_exactly": true,
+    "files": 4,
+    "published": false,
+    "installed": false,
+    "original_red_probe_misses": 6,
+    "pure_negative_probes_passed": 50,
+    "pure_positive_probes_passed": 2,
+    "unsupported_boundary_pytest_passed": 8,
+    "ruff": "passed",
+    "bandit": "passed",
+    "windows_mypy": {
+      "errors": 73,
+      "platform_attribute_errors": 69,
+      "missing_jsonschema_stub_errors": 2,
+      "missing_redis_import_errors": 1,
+      "platform_unused_ignore_errors": 1,
+      "baseline_comparison_run": false
+    },
+    "authoritative_linux_qa": "not_run_after_confirmed_leak",
+    "final_independent_review": {
+      "passed": false,
+      "security_concerns": [
+        {
+          "file": "src/adf_runtime_worker/executor.py",
+          "line": 145,
+          "finding": "Signed numeric credential literals bypass screening. Unary '+' and '-' are OP tokens, so the subsequent NUMBER token is never checked.",
+          "evidence": "Synthetic mappings containing password values -1234, +1234, (-1234), -12.34 and -0x1234 were not withheld in historical source or removed diff streams. The exact frozen _review_context function, exercised with synthetic Git/history stubs and environment-free redactor initialization, exported these literals with complete=true and all redaction flags false. Unsigned 1234 was correctly withheld.",
+          "impact": "Credential values can reach the native reviewer while evidence remains eligible to authorize approval."
+        }
+      ],
+      "logic_errors": [],
+      "suggestions": [
+        "Recognize signed numeric literals structurally or withhold unsupported sensitive-field expressions.",
+        "Add historical and removed-diff regression tests asserting literal absence and complete=false for signed numeric credential values."
+      ],
+      "summary": "Failed closed on a confirmed credential-disclosure blocker. All four frozen source hashes match. Comment, named-Unicode, serialized-string, malformed-source and partial-hunk probes withheld their synthetic inputs, but do not establish general confidentiality. No code changes, provider calls, environment-value reads or runtime actions occurred. Authoritative Linux QA remains pending; this review cycle ends."
+    },
+    "blocking_forms": [
+      "signed integer",
+      "parenthesized signed integer",
+      "signed floating-point literal",
+      "signed hexadecimal literal"
+    ],
+    "exact_projection_complete_despite_disclosure": true,
+    "further_fix_cycles": 0,
+    "new_native_windows": 0
+  }
+}

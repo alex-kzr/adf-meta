@@ -1,5 +1,20 @@
 # Development documentation
 
+October 13 current checkpoint: published worker `e93f421` is installed with
+verified rollback. Historical accepted-commit import succeeds across provider
+generations; both new bounded pipelines stop at independent native review and
+produce no task commit/integration. The proposed historical source projection
+failed two confidentiality review cycles and the one additionally authorized cycle and remains private, uncommitted and
+uninstalled. Earlier 13 Codex + two Claude evidence is preserved. Local journals
+prove six new executions terminal/persisted/ACKed, stopped owned processes and
+unchanged clean main. Current Docker Desktop/API/Redis checks are unavailable;
+this worker task attempted no restart. API `0724e98` and orchestrator `630b37e` retain their
+installed pins. Whole-MVP readiness is false. See the [current checkpoint](accepted-commit-lineage-checkpoint.md)
+and [sanitized evidence](evidence/accepted-commit-lineage-runtime-2026-10-13.json).
+
+Earlier checkpoints below are dated history; they do not establish current service
+availability or queue state.
+
 October 13 approved runtime result: worker `a342879` is installed with verified
 29-module/39-file parity, unchanged 27 distribution versions and retained `0dd5ac7`
 rollback. Seven native Codex turns prove three-way concurrency, assigned skills/MCP,
@@ -51,6 +66,8 @@ Start with [current implementation status](implementation-status.md), [live acce
 [Doctor explicit-profile source repair](doctor-profile-repair.md): selected profiles reach native diagnostics; 158 worker tests and pinned empty-profile smoke pass. Source `859cc534` is separate from installed runtime `a8bb1cc`; the operator rename and native queue acceptance remain pending.
 
 ## Architecture decision records
+
+- [010: Accepted historical commits are data, not native authority](adr/010-accepted-historical-commits.md), with [actual partial runtime result and open review blocker](accepted-commit-lineage-checkpoint.md).
 
 - [001: Four deployment units](adr/001-deployment-units.md)
 - [002: Durable scheduling and host execution](adr/002-durable-execution.md)

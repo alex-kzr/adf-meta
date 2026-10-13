@@ -1,5 +1,20 @@
 # Live acceptance status
 
+October 13 current checkpoint: published worker `e93f421` is installed with
+verified rollback. Historical accepted-commit import succeeds across provider
+generations; both new bounded pipelines stop at independent native review and
+produce no task commit/integration. The proposed historical source projection
+failed two confidentiality review cycles and the one additionally authorized cycle and remains private, uncommitted and
+uninstalled. Earlier 13 Codex + two Claude evidence is preserved. Local journals
+prove six new executions terminal/persisted/ACKed, stopped owned processes and
+unchanged clean main. Current Docker Desktop/API/Redis checks are unavailable;
+this worker task attempted no restart. API `0724e98` and orchestrator `630b37e` retain their
+installed pins. Whole-MVP readiness is false. See the [current checkpoint](accepted-commit-lineage-checkpoint.md)
+and [sanitized evidence](evidence/accepted-commit-lineage-runtime-2026-10-13.json).
+
+Earlier checkpoints below are dated history; they do not establish current service
+availability or queue state.
+
 October 13 repair/provenance result: reviewed API `0724e98` and orchestrator
 `630b37e` are installed; worker remains `a342879` without reinstallation. The new
 bounded window used 13 Codex and two Claude attempts. Three parallel developers,
@@ -44,7 +59,7 @@ October 11 provider implementation update: [persistent profiles/shared Codex](..
 
 October 10, 2026. This report separates implemented behavior, observed acceptance and remaining work. `mvp_ready` remains **false**. Health checks and successful CI do not complete missing SPEC evidence. The source SPEC remains unchanged.
 
-## Acceptance evidence
+## Historical acceptance evidence
 
 | Gate | Observed result | Remaining criterion |
 | --- | --- | --- |
@@ -62,7 +77,7 @@ October 10, 2026. This report separates implemented behavior, observed acceptanc
 | W6: networking | Docker host ports bind loopback; Windows/WSL authenticated reachability and local non-loopback denials are checked. | Negative connection from an external host or suitable isolated VM remains unverified; SPEC does not specifically require a second physical workstation. |
 | E5: backup/release | [Isolated restoration](evidence/isolated-backup-2026-10-10.json) verifies PostgreSQL inventory, 13 artifacts and two Git repositories without touching source services. Published child/umbrella CI and bundle/recursive-clone restoration pass. | [Recovered runtime rehearsal](evidence/runtime-recovery-2026-10-10.json) additionally verifies checkpoint/outbox replay, empty Redis recovery, five real Executor/Supervisor operations, 13 original artifact hashes, duplicate acknowledgements and unchanged main in isolated mock contours. Native CLI host-loss continuity, Langfuse/journal restoration and an atomic cross-store maintenance fence remain unverified or unimplemented. |
 
-## Capability distinctions
+## Historical capability distinctions
 
 Instruction skills are checked against immutable SHA-256, a 32 KiB cap and an approved root. The new Codex adapter temporarily materializes only approved SKILL.md bytes and configures exact native skill selectors, then verifies cleanup before staging. It disables unrelated discovered/bundled skills; adjacent scripts/assets are not authorized. [Positive native evidence](evidence/codex-scoped-capabilities-2026-10-10.json) additionally proves actual approved skill use with a hidden value absent from the developer task prompt, actual assigned MCP calls and the complete five-operation worker chain. Its ledger is a local test double; queued control-plane acceptance remains separate.
 
@@ -74,11 +89,11 @@ Git worktrees and owned process sessions manage concurrent trusted work and life
 
 A separate hostile-code sandbox is **not implemented** and is a deferred architectural feature, rather than a test that merely needs rerunning.
 
-## Mandatory MVP blockers and operator actions
+## Historical mandatory MVP blockers and operator actions
 
 The outstanding mandatory gates are installed/native provider/path acceptance under the provisioned minimally privileged worker account (SPEC security/W1), authenticated selectable Claude (A5/W1), and usable assigned/audited skills/tools/MCP with enforced restrictions (A9). External-origin denial evidence (W6) is also outstanding. The native offline Codex capability chain now passes; queued deployment still needs its exact scope; see [minimal operator actions](operator-acceptance.md) for the remaining steps. Native automatic planning now has additional live evidence; A2 also accepts the tested manual journey.
 
-## Operator decisions and actions
+## Historical operator decisions and actions
 
 - WSL Claude login needs the user's interactive authentication authorization. No credentials are copied from Windows or exposed to containers.
 - The dedicated account/group/private service-file setup was explicitly approved and completed. Its own-UID group/sudo/Docker checks pass; provider profile preparation, path/isolation checks and deployment remain separate. Existing `alex` membership has not been changed.
@@ -94,7 +109,7 @@ Strong hostile-code sandboxing is deferred by SPEC. Full host-loss/expired-super
 
 Six original redacted screenshots were explicitly approved for the user's ChatGPT Library. The one authorized upload retry failed because the local Library helper could not access its required hosted tool. No Library file IDs were returned or claimed. The October 11 reconnect attempt also used the current supported ordered six-file Library workflow and failed because its required preparation operation is unavailable; no save is confirmed and no alternate transfer was attempted. Permission is resolved; delivery capability remains unavailable. This optional attachment failure does not block other acceptance work. The six files are preserved in `C:/Users/admin/Documents/Codex/2026-10-10/task/adf-screenshots/`: `01-project-registration.jpg`, `02-run-approval.jpg`, `04-completed-desktop.jpg`, `06-mobile-dag.jpg`, `07-git-evidence.jpg`, `08-artifact-preview.jpg`. Other QA screenshots are local and are not part of that upload authorization.
 
-## Local release authorization checkpoint
+## Historical local release authorization checkpoint
 
 Latest October 11 action: direct instructions naming all five destinations completed child-first ordinary publication, exact remote SHA/CI checks and a fresh recursive clone. A separate direct account/path/group/two-file instruction completed `adf-worker` provisioning, with no personal/provider auth copy. See the latest [release update](release-checkpoint.md#latest-publication-and-account-update) and [sanitized evidence](evidence/publication-account-2026-10-11.json). Deployment and personal login remain unperformed; the proposed new-account worker pin is `8af54fd`, not the earlier intermediate `dcea28d`. The verified old-worker/API rollback snapshot is preserved; its earlier no-active-execution preflight must be refreshed before an authorized switch. Rejection/reconnect paragraphs below are historical observations.
 
